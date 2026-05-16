@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-structure.org/draft/2025-04/schema",
+  "$id": "https://api-evangelist.github.io/sorsa/json-structure/sorsa-place-structure.json",
+  "name": "Place",
+  "description": "JSON Structure description for Sorsa place.",
+  "type": "record",
+  "fields": [
+    {
+      "name": "created_at",
+      "type": "integer",
+      "description": ""
+    },
+    {
+      "name": "creator",
+      "type": "object",
+      "description": ""
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "is_subscribed",
+      "type": "boolean",
+      "description": ""
+    },
+    {
+      "name": "media_key",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "participants",
+      "type": "object",
+      "description": ""
+    },
+    {
+      "name": "scheduled_start",
+      "type": "integer",
+      "description": ""
+    },
+    {
+      "name": "settings",
+      "type": "object",
+      "description": ""
+    },
+    {
+      "name": "state",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "stats",
+      "type": "object",
+      "description": ""
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "updated_at",
+      "type": "integer",
+      "description": ""
+    }
+  ]
+}

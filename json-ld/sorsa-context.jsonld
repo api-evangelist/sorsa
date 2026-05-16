@@ -1,0 +1,63 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "sorsa": "https://api.sorsa.io/v3/vocab#",
+
+    "User": "schema:Person",
+    "Follower": "schema:Person",
+    "Tweet": "schema:SocialMediaPosting",
+    "Article": "schema:Article",
+    "List": "sorsa:List",
+    "Community": "sorsa:Community",
+    "Place": "schema:Event",
+    "Trend": "sorsa:Trend",
+
+    "id": "schema:identifier",
+    "screen_name": "schema:alternateName",
+    "name": "schema:name",
+    "display_name": "schema:name",
+    "description": "schema:description",
+    "bio": "schema:description",
+    "avatar": { "@id": "schema:image", "@type": "@id" },
+    "banner": { "@id": "schema:image", "@type": "@id" },
+    "profile_image_url": { "@id": "schema:image", "@type": "@id" },
+    "url": { "@id": "schema:url", "@type": "@id" },
+
+    "created_at": { "@id": "schema:dateCreated", "@type": "xsd:dateTime" },
+    "registered": { "@id": "schema:dateCreated", "@type": "xsd:dateTime" },
+    "verified": "sorsa:isVerified",
+    "protected": "sorsa:isProtected",
+    "country": "schema:addressCountry",
+
+    "followers_count": "sorsa:followerCount",
+    "follows_count": "sorsa:followingCount",
+    "friends_count": "sorsa:followingCount",
+    "statuses_count": "sorsa:statusCount",
+
+    "full_text": "schema:articleBody",
+    "text": "schema:text",
+    "favorite_count": "schema:likeCount",
+    "retweet_count": "sorsa:retweetCount",
+    "reply_count": "sorsa:replyCount",
+    "quote_count": "sorsa:quoteCount",
+    "view_count": "sorsa:viewCount",
+    "bookmark_count": "sorsa:bookmarkCount",
+    "lang": "schema:inLanguage",
+
+    "user": { "@id": "schema:author", "@type": "@id" },
+    "author": { "@id": "schema:author", "@type": "@id" },
+    "in_reply_to_status_id": { "@id": "sorsa:inReplyTo", "@type": "@id" },
+    "quoted_status": { "@id": "sorsa:quotes", "@type": "@id" },
+    "retweeted_status": { "@id": "sorsa:retweets", "@type": "@id" },
+
+    "score": "sorsa:sorsaScore",
+    "score_changes": "sorsa:sorsaScoreChanges",
+    "followers_stats": "sorsa:followerCategoryStats",
+    "top_followers": "sorsa:topFollowersByScore",
+    "top_following": "sorsa:topFollowingByScore",
+
+    "next_cursor": "sorsa:nextCursor"
+  }
+}

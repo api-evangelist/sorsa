@@ -1,0 +1,118 @@
+apiCommons: plans/0.1
+provider:
+  id: sorsa
+  name: Sorsa Labs
+  url: https://sorsa.io/
+  pricingUrl: https://docs.sorsa.io/pricing
+captured: '2026-05-16'
+reconciled: true
+reconciliation:
+  source: https://docs.sorsa.io/pricing
+  notes: >-
+    Plan tiers, monthly request quotas, and rate limits captured directly from
+    the public pricing documentation page. Per-request unit costs are derived
+    arithmetically from quota / price. Overage behavior is not documented.
+
+currency: USD
+billingPeriod: monthly
+
+plans:
+  - id: starter
+    name: Starter
+    description: Entry tier for individual developers prototyping integrations with the Sorsa API v3.
+    price:
+      amount: 49
+      currency: USD
+      period: monthly
+    quota:
+      includedRequests: 10000
+      unit: api-call
+      perRequestEffectiveCost: 0.0049
+    rateLimits:
+      requestsPerSecond: 20
+    features:
+      - Full access to all 40 v3 endpoints
+      - Batch endpoints (up to 100 items per call)
+      - Sorsa Score and crypto analytics
+      - Email + Discord support
+    overage:
+      policy: hard-cap
+      notes: Documentation does not specify overage pricing; requests beyond quota are blocked until the next period.
+
+  - id: pro
+    name: Pro
+    description: Production tier for active integrations and small SaaS products.
+    price:
+      amount: 199
+      currency: USD
+      period: monthly
+    quota:
+      includedRequests: 100000
+      unit: api-call
+      perRequestEffectiveCost: 0.00199
+    rateLimits:
+      requestsPerSecond: 20
+    features:
+      - Full access to all 40 v3 endpoints
+      - Batch endpoints (up to 100 items per call)
+      - Sorsa Score and crypto analytics
+      - Priority Discord support
+    overage:
+      policy: hard-cap
+
+  - id: enterprise
+    name: Enterprise
+    description: High-volume tier for crypto-intelligence platforms and analytics vendors.
+    price:
+      amount: 899
+      currency: USD
+      period: monthly
+    quota:
+      includedRequests: 500000
+      unit: api-call
+      perRequestEffectiveCost: 0.0018
+    rateLimits:
+      requestsPerSecond: 20
+    features:
+      - Full access to all 40 v3 endpoints
+      - Batch endpoints (up to 100 items per call)
+      - Sorsa Score and crypto analytics
+      - Priority Discord and email support
+    overage:
+      policy: hard-cap
+
+  - id: custom
+    name: Custom
+    description: Volume-based arrangement for workloads above 500,000 monthly requests, with potentially higher rate limits.
+    price:
+      amount: null
+      currency: USD
+      period: monthly
+      notes: Contact sales@sorsa.io
+    quota:
+      includedRequests: null
+      unit: api-call
+    rateLimits:
+      requestsPerSecond: ">= 20 (negotiated)"
+    features:
+      - Negotiated quota and rate limits
+      - Dedicated infrastructure options
+      - Custom SLA
+    contact:
+      email: sales@sorsa.io
+
+pricingModel:
+  type: subscription-with-fixed-quota
+  unit: api-call
+  unitDefinition: >-
+    1 API call = 1 request from the quota, regardless of which endpoint is hit
+    or how many items the call returns. User profiles embedded in tweet
+    responses do not incur additional charges.
+  batchEfficiencyNotes: >-
+    Batch endpoints `/tweet-info-bulk` (up to 100 items) and `/info-batch` (up
+    to 100 profiles) each cost a single quota unit, lowering effective
+    per-item cost by up to 100x.
+
+contracts:
+  termsOfService: https://sorsa.io/terms
+  acceptableUse: https://docs.sorsa.io/

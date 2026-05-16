@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/sorsa/json-schema/sorsa-trend-schema.json",
+  "title": "Trend",
+  "description": "JSON Schema for Sorsa common.Trend extracted from the OpenAPI v3 spec.",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "query": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,17 @@
+{
+  "id_str": "1700000000000000000",
+  "full_text": "Sorsa Score now available via /score.",
+  "created_at": "2026-04-12T15:14:00Z",
+  "lang": "en",
+  "favorite_count": 128,
+  "retweet_count": 22,
+  "reply_count": 9,
+  "quote_count": 3,
+  "view_count": 12450,
+  "bookmark_count": 5,
+  "user": {
+    "id_str": "1234567890",
+    "screen_name": "SorsaApp",
+    "name": "Sorsa"
+  }
+}

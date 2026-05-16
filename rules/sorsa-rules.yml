@@ -1,0 +1,85 @@
+extends:
+  - spectral:oas
+overrides: []
+rules:
+  # Sorsa-specific conventions inferred from the v3 OpenAPI spec
+  sorsa-paths-are-lowercase-kebab:
+    description: Paths must be lowercase kebab-case (e.g. /tweet-info, /check-follow). Underscores and camelCase are not permitted.
+    message: "Path {{value}} must be lowercase kebab-case (only [a-z0-9-/{}] characters)."
+    given: $.paths.*~
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: "^/[a-z0-9-]+(/\\{[a-z_]+\\}|/[a-z0-9-]+)*$"
+
+  sorsa-operations-have-summary:
+    description: Every operation must declare a human-readable summary in Title Case.
+    message: "Operation {{path}} is missing a summary."
+    given: $.paths.*[get,post,put,delete,patch]
+    severity: error
+    then:
+      field: summary
+      function: truthy
+
+  sorsa-operations-have-tags:
+    description: Every operation must declare at least one tag drawn from the canonical tag taxonomy.
+    given: $.paths.*[get,post,put,delete,patch]
+    severity: error
+    then:
+      field: tags
+      function: truthy
+
+  sorsa-operations-have-operationId:
+    description: Every operation should declare a stable operationId for SDK generation.
+    given: $.paths.*[get,post,put,delete,patch]
+    severity: warn
+    then:
+      field: operationId
+      function: truthy
+
+  sorsa-auth-is-apikey-header:
+    description: Sorsa uses a single `ApiKey` header. The OpenAPI spec must declare exactly that security scheme.
+    given: $.components.securitySchemes.ApiKey
+    severity: error
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          required: [type, in, name]
+          properties:
+            type: { const: apiKey }
+            in: { const: header }
+            name: { const: ApiKey }
+
+  sorsa-uses-canonical-server:
+    description: The spec must declare https://api.sorsa.io/v3 as a server.
+    given: $.servers[*].url
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://api\\.sorsa\\.io/v3$"
+
+  sorsa-error-responses-defined:
+    description: Operations should document at minimum 400, 401, 429 responses.
+    given: $.paths.*[get,post,put,delete,patch].responses
+    severity: warn
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          anyOf:
+            - required: ["400"]
+            - required: ["401"]
+            - required: ["429"]
+
+  sorsa-pagination-uses-next-cursor:
+    description: Paginated list responses should expose a `next_cursor` field (Sorsa convention).
+    message: "List responses should use `next_cursor` for pagination."
+    given: $.components.schemas[?(@property.match(/.*Response$/i))].properties
+    severity: hint
+    then:
+      function: truthy

@@ -1,0 +1,302 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/sorsa/json-schema/sorsa-place-schema.json",
+  "title": "Place",
+  "description": "JSON Schema for Sorsa common.Place extracted from the OpenAPI v3 spec.",
+  "properties": {
+    "created_at": {
+      "type": "integer"
+    },
+    "creator": {
+      "properties": {
+        "bio_urls": {
+          "description": "URLs found in the user's bio.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "can_dm": {
+          "description": "Whether the account accepts direct messages.",
+          "example": false,
+          "type": "boolean"
+        },
+        "created_at": {
+          "description": "Account creation date in ISO 8601 format.",
+          "example": "2009-06-02T20:12:29Z",
+          "type": "string"
+        },
+        "description": {
+          "description": "Profile bio text.",
+          "example": "Bio text",
+          "type": "string"
+        },
+        "display_name": {
+          "description": "User's display name.",
+          "example": "Elon Musk",
+          "type": "string"
+        },
+        "favourites_count": {
+          "description": "Total number of tweets this user has liked.",
+          "example": 1200,
+          "type": "integer"
+        },
+        "followers_count": {
+          "description": "Number of accounts following this user.",
+          "example": 100000,
+          "type": "integer"
+        },
+        "followings_count": {
+          "description": "Number of accounts this user follows.",
+          "example": 500,
+          "type": "integer"
+        },
+        "id": {
+          "description": "Unique Twitter/X user ID.",
+          "example": "44196397",
+          "type": "string"
+        },
+        "location": {
+          "description": "Location string from the user's profile.",
+          "example": "Austin, TX",
+          "type": "string"
+        },
+        "media_count": {
+          "description": "Total number of media items posted by this user.",
+          "example": 300,
+          "type": "integer"
+        },
+        "pinned_tweet_ids": {
+          "description": "IDs of the user's pinned tweets.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "possibly_sensitive": {
+          "description": "Whether the account is flagged as possibly containing sensitive content.",
+          "example": false,
+          "type": "boolean"
+        },
+        "profile_background_image_url": {
+          "description": "URL of the user's profile background image.",
+          "example": "https://pbs.twimg.com/profile_banners/44196397/123",
+          "type": "string"
+        },
+        "profile_image_url": {
+          "description": "URL of the user's avatar image.",
+          "example": "https://pbs.twimg.com/profile_images/123/photo.jpg",
+          "type": "string"
+        },
+        "protected": {
+          "description": "Whether the account's tweets are protected (private).",
+          "example": false,
+          "type": "boolean"
+        },
+        "tweets_count": {
+          "description": "Total number of tweets posted by this user.",
+          "example": 5000,
+          "type": "integer"
+        },
+        "username": {
+          "description": "Current Twitter/X handle (without @).",
+          "example": "elonmusk",
+          "type": "string"
+        },
+        "verified": {
+          "description": "Whether the account has a verified badge.",
+          "example": true,
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "id": {
+      "type": "string"
+    },
+    "is_subscribed": {
+      "type": "boolean"
+    },
+    "media_key": {
+      "type": "string"
+    },
+    "participants": {
+      "properties": {
+        "admins": {
+          "items": {
+            "properties": {
+              "avatar": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "is_muted_by_admin": {
+                "type": "boolean"
+              },
+              "is_muted_by_guest": {
+                "type": "boolean"
+              },
+              "is_verified": {
+                "type": "boolean"
+              },
+              "name": {
+                "type": "string"
+              },
+              "periscope_user_id": {
+                "type": "string"
+              },
+              "start": {
+                "type": "integer"
+              },
+              "username": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "listeners": {
+          "items": {
+            "properties": {
+              "avatar": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "is_muted_by_admin": {
+                "type": "boolean"
+              },
+              "is_muted_by_guest": {
+                "type": "boolean"
+              },
+              "is_verified": {
+                "type": "boolean"
+              },
+              "name": {
+                "type": "string"
+              },
+              "periscope_user_id": {
+                "type": "string"
+              },
+              "start": {
+                "type": "integer"
+              },
+              "username": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "speakers": {
+          "items": {
+            "properties": {
+              "avatar": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "is_muted_by_admin": {
+                "type": "boolean"
+              },
+              "is_muted_by_guest": {
+                "type": "boolean"
+              },
+              "is_verified": {
+                "type": "boolean"
+              },
+              "name": {
+                "type": "string"
+              },
+              "periscope_user_id": {
+                "type": "string"
+              },
+              "start": {
+                "type": "integer"
+              },
+              "username": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "total": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "scheduled_start": {
+      "type": "integer"
+    },
+    "settings": {
+      "properties": {
+        "conversation_controls": {
+          "type": "integer"
+        },
+        "disallow_join": {
+          "type": "boolean"
+        },
+        "is_employee_only": {
+          "type": "boolean"
+        },
+        "is_locked": {
+          "type": "boolean"
+        },
+        "is_muted": {
+          "type": "boolean"
+        },
+        "is_space_available_for_clipping": {
+          "type": "boolean"
+        },
+        "is_space_available_for_replay": {
+          "type": "boolean"
+        },
+        "max_admin_capacity": {
+          "type": "integer"
+        },
+        "max_guest_sessions": {
+          "type": "integer"
+        },
+        "narrow_cast_space_type": {
+          "type": "integer"
+        },
+        "no_incognito": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "state": {
+      "type": "string"
+    },
+    "stats": {
+      "properties": {
+        "total_live_listeners": {
+          "type": "integer"
+        },
+        "total_participants": {
+          "type": "integer"
+        },
+        "total_replay_watched": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "title": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

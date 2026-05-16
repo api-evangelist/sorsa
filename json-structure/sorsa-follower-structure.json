@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-structure.org/draft/2025-04/schema",
+  "$id": "https://api-evangelist.github.io/sorsa/json-structure/sorsa-follower-structure.json",
+  "name": "Follower",
+  "description": "JSON Structure description for Sorsa follower.",
+  "type": "record",
+  "fields": [
+    {
+      "name": "bio_urls",
+      "type": "array",
+      "items": "string",
+      "description": "URLs found in the user's bio."
+    },
+    {
+      "name": "can_dm",
+      "type": "boolean",
+      "description": "Whether the account accepts direct messages."
+    },
+    {
+      "name": "created_at",
+      "type": "string",
+      "description": "Account creation date in ISO 8601 format."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "Profile bio text."
+    },
+    {
+      "name": "display_name",
+      "type": "string",
+      "description": "User's display name."
+    },
+    {
+      "name": "favourites_count",
+      "type": "integer",
+      "description": "Total number of tweets this user has liked."
+    },
+    {
+      "name": "followerDate",
+      "type": "string",
+      "description": "Date when this user started following the target account, in ISO 8601 format."
+    },
+    {
+      "name": "followers_count",
+      "type": "integer",
+      "description": "Number of accounts following this user."
+    },
+    {
+      "name": "followings_count",
+      "type": "integer",
+      "description": "Number of accounts this user follows."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "Unique Twitter/X user ID."
+    },
+    {
+      "name": "media_count",
+      "type": "integer",
+      "description": "Total number of media items posted by this user."
+    },
+    {
+      "name": "pinned_tweet_ids",
+      "type": "array",
+      "items": "string",
+      "description": "IDs of the user's pinned tweets."
+    },
+    {
+      "name": "possibly_sensitive",
+      "type": "boolean",
+      "description": "Whether the account is flagged as possibly containing sensitive content."
+    },
+    {
+      "name": "profile_background_image_url",
+      "type": "string",
+      "description": "URL of the user's profile background image."
+    },
+    {
+      "name": "profile_image_url",
+      "type": "string",
+      "description": "URL of the user's avatar image."
+    },
+    {
+      "name": "protected",
+      "type": "boolean",
+      "description": "Whether the account's tweets are protected (private)."
+    },
+    {
+      "name": "tweets_count",
+      "type": "integer",
+      "description": "Total number of tweets posted by this user."
+    },
+    {
+      "name": "username",
+      "type": "string",
+      "description": "Current Twitter/X handle (without @)."
+    },
+    {
+      "name": "verified",
+      "type": "boolean",
+      "description": "Whether the account has a verified badge."
+    }
+  ]
+}

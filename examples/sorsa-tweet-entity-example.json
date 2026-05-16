@@ -1,0 +1,31 @@
+{
+  "hashtags": [
+    {
+      "text": "XAPI",
+      "indices": [
+        12,
+        17
+      ]
+    }
+  ],
+  "urls": [
+    {
+      "url": "https://t.co/abc",
+      "expanded_url": "https://docs.sorsa.io/",
+      "indices": [
+        20,
+        40
+      ]
+    }
+  ],
+  "user_mentions": [
+    {
+      "screen_name": "SorsaApp",
+      "id_str": "1234567890",
+      "indices": [
+        0,
+        9
+      ]
+    }
+  ]
+}

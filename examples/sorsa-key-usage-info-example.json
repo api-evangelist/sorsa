@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.sorsa.io/v3/key-usage-info",
+    "headers": {
+      "ApiKey": "YOUR_API_KEY"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "total": 100000,
+      "remaining": 82340,
+      "expires_at": "2026-06-01T00:00:00Z"
+    }
+  }
+}

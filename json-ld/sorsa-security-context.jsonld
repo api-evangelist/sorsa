@@ -1,0 +1,15 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "sorsa": "https://api.sorsa.io/v3/vocab#",
+    "ApiKey": "sorsa:ApiKeyAuth",
+    "in": "sorsa:credentialLocation",
+    "header": "sorsa:HttpHeader",
+    "RateLimit": "sorsa:RateLimit",
+    "requestsPerSecond": "sorsa:requestsPerSecond",
+    "monthlyQuota": "sorsa:monthlyQuota",
+    "remaining": "sorsa:quotaRemaining",
+    "expires_at": "schema:expires"
+  }
+}

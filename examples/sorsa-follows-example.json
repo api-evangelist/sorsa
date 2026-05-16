@@ -1,0 +1,23 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.sorsa.io/v3/follows?username=SorsaApp",
+    "headers": {
+      "ApiKey": "YOUR_API_KEY"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "follows": [
+        {
+          "id": "1234",
+          "screen_name": "apidev",
+          "name": "API Dev",
+          "followers_count": 520
+        }
+      ],
+      "next_cursor": "CURSOR_GHI"
+    }
+  }
+}

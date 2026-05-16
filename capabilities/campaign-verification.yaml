@@ -1,0 +1,31 @@
+apiVersion: naftiko.io/v1
+kind: Capability
+metadata:
+  name: campaign-verification
+  description: >-
+    Verify that a user completed all required actions for a marketing or
+    airdrop campaign: follow the host account, comment on a campaign tweet,
+    retweet (or quote) the campaign tweet, and join a campaign Community.
+spec:
+  provider: sorsa
+  steps:
+    - use: sorsa.verify.follow
+      bind:
+        user_1: ${input.host}
+        user_2: ${input.user}
+    - use: sorsa.verify.comment
+      bind:
+        tweet_link: ${input.campaign_tweet}
+        user_handle: ${input.user.username}
+    - use: sorsa.verify.retweet
+      bind:
+        tweet_link: ${input.campaign_tweet}
+        username: ${input.user.username}
+    - use: sorsa.verify.quote
+      bind:
+        tweet_link: ${input.campaign_tweet}
+        username: ${input.user.username}
+    - use: sorsa.verify.community-member
+      bind:
+        community_id: ${input.community_id}
+        username: ${input.user.username}

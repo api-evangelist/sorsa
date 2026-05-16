@@ -1,0 +1,100 @@
+name: Sorsa Vocabulary
+description: >-
+  Operational and capability dimensions for the Sorsa API v3, mapping the
+  provider's data and engagement concepts to a controlled vocabulary suitable
+  for cross-provider analysis and capability discovery.
+provider: sorsa
+created: '2026-05-16'
+modified: '2026-05-16'
+
+dimensions:
+  domain:
+    description: Subject-matter domain this provider operates in.
+    values:
+      - SocialMedia
+      - SocialAnalytics
+      - CryptoIntelligence
+      - InfluencerMarketing
+
+  data-source:
+    description: Underlying data source surfaced by the API.
+    values:
+      - X (Twitter)
+
+  capability-class:
+    description: Functional groupings of operations.
+    values:
+      - UserData
+      - TweetData
+      - Search
+      - Lists
+      - Communities
+      - Verification
+      - Score
+      - FollowerCategories
+      - HandleResolution
+      - KeyManagement
+
+  pattern:
+    description: HTTP and protocol patterns used.
+    values:
+      - REST
+      - JSON
+      - ApiKeyHeader
+      - CursorPagination
+      - BatchRequests
+
+  read-write:
+    description: Direction of data flow.
+    values:
+      - ReadOnly
+
+  monetization:
+    description: Commercial model.
+    values:
+      - SubscriptionWithMonthlyQuota
+      - FlatRatePerCall
+      - CustomEnterprise
+
+  delivery:
+    description: Channel of data delivery.
+    values:
+      - SynchronousHttp
+
+  rate-limit-model:
+    description: Rate-limit shape.
+    values:
+      - 20RequestsPerSecondPerKey
+
+terms:
+  - term: Sorsa Score
+    definition: Numeric estimate of an account's recognition and popularity among crypto influencers, projects, and venture-capital firms.
+    relatedTo: [influencer, kol, social-graph]
+  - term: Follower Category Stats
+    definition: Breakdown of an account's followers into influencers, projects, and VC employees.
+  - term: Mentions
+    definition: Tweets in which a target account is @-mentioned, filterable by engagement and date range.
+  - term: Community
+    definition: Twitter/X Community — a topic-scoped sub-space inside X with its own members and feed.
+  - term: List
+    definition: Twitter/X List — a curated collection of accounts with its own feed, members, and followers.
+  - term: Space (Place)
+    definition: Twitter/X Spaces audio room metadata, participants, settings, and statistics.
+  - term: ApiKey Header
+    definition: Sorsa's authentication mechanism — a single `ApiKey` HTTP header carrying the secret.
+  - term: Quota
+    definition: Monthly cap on API calls included in a subscription plan.
+  - term: Cursor
+    definition: Opaque pagination token returned as `next_cursor` for fetching subsequent pages of list endpoints.
+
+tagTaxonomy:
+  - Twitter
+  - X
+  - Social Media
+  - Real-Time
+  - Data Extraction
+  - Crypto
+  - Influencer
+  - KOL
+  - Audience Analytics
+  - Engagement Verification

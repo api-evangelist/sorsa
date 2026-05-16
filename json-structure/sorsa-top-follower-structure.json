@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-structure.org/draft/2025-04/schema",
+  "$id": "https://api-evangelist.github.io/sorsa/json-structure/sorsa-top-follower-structure.json",
+  "name": "TopFollower",
+  "description": "JSON Structure description for Sorsa top-follower.",
+  "type": "record",
+  "fields": [
+    {
+      "name": "can_dm",
+      "type": "boolean",
+      "description": ""
+    },
+    {
+      "name": "created_at",
+      "type": "string",
+      "description": "Account creation date in ISO 8601 format."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "Profile bio text."
+    },
+    {
+      "name": "display_name",
+      "type": "string",
+      "description": "User's display name."
+    },
+    {
+      "name": "followers_count",
+      "type": "integer",
+      "description": "Number of accounts following this user."
+    },
+    {
+      "name": "followings_count",
+      "type": "integer",
+      "description": "Number of accounts this user follows."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "Unique Twitter/X user ID."
+    },
+    {
+      "name": "profile_background_image_url",
+      "type": "string",
+      "description": "URL of the user's profile background image."
+    },
+    {
+      "name": "profile_image_url",
+      "type": "string",
+      "description": "URL of the user's avatar image."
+    },
+    {
+      "name": "protected",
+      "type": "boolean",
+      "description": "Whether the account's tweets are protected (private)."
+    },
+    {
+      "name": "score",
+      "type": "number",
+      "description": "Whether the account accepts direct messages."
+    },
+    {
+      "name": "tweets_count",
+      "type": "integer",
+      "description": "Total number of tweets posted by this user."
+    },
+    {
+      "name": "username",
+      "type": "string",
+      "description": "Current Twitter/X handle (without @)."
+    },
+    {
+      "name": "verified",
+      "type": "boolean",
+      "description": "Whether the account has a verified badge."
+    }
+  ]
+}

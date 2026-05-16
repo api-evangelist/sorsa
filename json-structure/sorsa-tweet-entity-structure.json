@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/draft/2025-04/schema",
+  "$id": "https://api-evangelist.github.io/sorsa/json-structure/sorsa-tweet-entity-structure.json",
+  "name": "TweetEntity",
+  "description": "JSON Structure description for Sorsa tweet-entity.",
+  "type": "record",
+  "fields": [
+    {
+      "name": "link",
+      "type": "string",
+      "description": "Direct URL of the entity."
+    },
+    {
+      "name": "preview",
+      "type": "string",
+      "description": "Preview or thumbnail URL for the entity."
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "description": "Entity type (e.g. `photo`, `video`, `url`)."
+    }
+  ]
+}

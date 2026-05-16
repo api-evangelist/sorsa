@@ -1,0 +1,33 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.sorsa.io/v3/tweet-info-bulk",
+    "headers": {
+      "ApiKey": "YOUR_API_KEY",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "links": [
+        "https://x.com/elonmusk/status/170...",
+        "https://x.com/SorsaApp/status/170..."
+      ]
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "tweets": [
+        {
+          "id_str": "170...",
+          "full_text": "...",
+          "favorite_count": 52000
+        },
+        {
+          "id_str": "170...",
+          "full_text": "...",
+          "favorite_count": 128
+        }
+      ]
+    }
+  }
+}

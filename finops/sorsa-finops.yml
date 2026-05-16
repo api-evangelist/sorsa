@@ -1,0 +1,113 @@
+apiCommons: finops/0.1
+focusAlignment: FOCUS v1.0
+provider:
+  id: sorsa
+  name: Sorsa Labs
+  url: https://sorsa.io/
+captured: '2026-05-16'
+reconciled: false
+reconciliationNotes: >-
+  Sorsa does not publish a FOCUS-aligned billing export or detailed usage CSV
+  schema externally; FinOps mapping below is derived from the public pricing
+  and rate-limits documentation. Fields requiring access to the customer
+  billing portal (invoice line items, usage-by-time, applied discounts) are
+  marked as null and should be confirmed via the Sorsa application UI or a
+  direct request to sales@sorsa.io.
+
+billingSurface:
+  model: subscription-with-fixed-quota
+  unitOfMeasure: api-call
+  unitDefinition: 1 API call = 1 unit charged against the monthly quota.
+  meteringDimensions:
+    - name: ServiceName
+      value: Sorsa API v3
+    - name: ServiceCategory
+      value: Social Media Data
+    - name: SubServiceCategory
+      value: X (Twitter) Real-Time Data
+    - name: ResourceType
+      value: HTTPRequest
+    - name: ChargeCategory
+      value: Usage
+    - name: PricingUnit
+      value: requests
+    - name: PricingQuantity
+      value: integer
+    - name: ListUnitPrice
+      values:
+        starter: 0.0049
+        pro: 0.00199
+        enterprise: 0.0018
+    - name: BillingCurrency
+      value: USD
+    - name: BillingPeriodStart
+      value: subscription anniversary date
+    - name: BillingPeriodEnd
+      value: subscription anniversary date + 30d
+
+charges:
+  - chargeCategory: Usage
+    description: Included monthly requests on the active plan.
+    pricingUnit: requests
+    listUnitPrice:
+      starter: 0.0049
+      pro: 0.00199
+      enterprise: 0.0018
+    billingPeriod: monthly
+  - chargeCategory: Subscription
+    description: Flat monthly subscription fee covering the plan's included quota.
+    billingPeriod: monthly
+    plans:
+      starter: 49
+      pro: 199
+      enterprise: 899
+
+discountModel:
+  type: tier-volume-discount
+  description: >-
+    Effective per-request price decreases at higher tiers — 63% reduction from
+    Starter to Enterprise. No publicly documented overage or commitment-based
+    discount; volume-based custom pricing is available above 500K req/mo.
+
+allocation:
+  costAllocationTags:
+    - name: api-key
+      value: per-API-key (single tenant per key by default)
+    - name: workspace
+      value: not surfaced externally
+  notes: >-
+    Customers can implement multi-tenant allocation by provisioning one Sorsa
+    API key per internal team or product line.
+
+invoicing:
+  cadence: monthly
+  paymentMethods:
+    - card
+  invoiceAccessPortal: https://app.sorsa.io/
+  invoiceFormat: null
+  usageExport:
+    available: false
+    notes: >-
+      Real-time per-key usage available via GET /key-usage-info, but no
+      downloadable usage CSV/JSON export is documented.
+
+forecasting:
+  approach: linear-from-historical-quota-consumption
+  recommendedPractices:
+    - Poll /key-usage-info daily to track burn rate against quota.
+    - Use batch endpoints (/tweet-info-bulk, /info-batch) to reduce request count by up to 100x.
+    - Insert a 50 ms client-side delay between requests to stay under 20 rps without bursts.
+
+optimization:
+  recommendations:
+    - Prefer batch endpoints for any list of profiles or tweets longer than one item.
+    - Cache user profile data; it does not change frequently.
+    - Right-size plan against measured monthly burn — moving from Starter to Pro at sustained 10K+ requests dramatically lowers per-call cost.
+    - Use /username-to-id and /id-to-username conversion endpoints once and store stable user IDs to avoid repeated lookups.
+
+slaAndCredits:
+  publishedSla: false
+  statusPage: https://uptime.sorsa.io/status/v3
+  notes: >-
+    Sorsa publishes a public status page (Uptime Kuma) for the v3 surface but
+    no explicit SLA or service-credit policy is documented externally.

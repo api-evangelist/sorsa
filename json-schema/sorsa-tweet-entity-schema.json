@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/sorsa/json-schema/sorsa-tweet-entity-schema.json",
+  "title": "TweetEntity",
+  "description": "JSON Schema for Sorsa common.TweetEntity extracted from the OpenAPI v3 spec.",
+  "properties": {
+    "link": {
+      "description": "Direct URL of the entity.",
+      "example": "https://t.co/example",
+      "type": "string"
+    },
+    "preview": {
+      "description": "Preview or thumbnail URL for the entity.",
+      "example": "https://pbs.twimg.com/preview",
+      "type": "string"
+    },
+    "type": {
+      "description": "Entity type (e.g. `photo`, `video`, `url`).",
+      "example": "photo",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,23 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.sorsa.io/v3/info?username=SorsaApp",
+    "headers": {
+      "ApiKey": "YOUR_API_KEY"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "id": "1234567890",
+      "screen_name": "SorsaApp",
+      "name": "Sorsa",
+      "description": "Real-time X data for developers.",
+      "followers_count": 18500,
+      "friends_count": 120,
+      "statuses_count": 1480,
+      "verified": true,
+      "created_at": "2022-04-15T00:00:00Z"
+    }
+  }
+}

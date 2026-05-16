@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/draft/2025-04/schema",
+  "$id": "https://api-evangelist.github.io/sorsa/json-structure/sorsa-trend-structure.json",
+  "name": "Trend",
+  "description": "JSON Structure description for Sorsa trend.",
+  "type": "record",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "query",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "url",
+      "type": "string",
+      "description": ""
+    }
+  ]
+}

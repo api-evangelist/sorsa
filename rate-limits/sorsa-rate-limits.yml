@@ -1,0 +1,83 @@
+apiCommons: rate-limits/0.1
+provider:
+  id: sorsa
+  name: Sorsa Labs
+  url: https://sorsa.io/
+  rateLimitsUrl: https://docs.sorsa.io/rate-limits
+captured: '2026-05-16'
+reconciled: true
+reconciliation:
+  source: https://docs.sorsa.io/rate-limits
+  notes: >-
+    Sorsa publishes a single universal 20 requests-per-second cap per API key
+    across all endpoints. No separate per-endpoint or time-window quotas
+    (15-minute, hourly, daily). 429 returned on breach without `Retry-After`
+    or `x-ratelimit-*` headers.
+
+scope:
+  appliesTo: api-key
+  basis: per-key
+  baseUrl: https://api.sorsa.io/v3
+
+requestRateLimits:
+  - id: global-rps
+    description: Universal request-rate ceiling applied across every endpoint.
+    limit: 20
+    window: 1s
+    unit: requests
+    breachStatus: 429
+    headers:
+      remaining: null
+      reset: null
+      retryAfter: null
+    appliesTo: "*"
+    plans: [starter, pro, enterprise]
+
+concurrencyLimits: []
+
+quotas:
+  - id: monthly-quota-starter
+    description: Starter plan monthly quota.
+    limit: 10000
+    window: 30d
+    unit: api-calls
+    plan: starter
+    notes: Counted as 1 request per API call regardless of endpoint or batch size.
+  - id: monthly-quota-pro
+    description: Pro plan monthly quota.
+    limit: 100000
+    window: 30d
+    unit: api-calls
+    plan: pro
+  - id: monthly-quota-enterprise
+    description: Enterprise plan monthly quota.
+    limit: 500000
+    window: 30d
+    unit: api-calls
+    plan: enterprise
+  - id: monthly-quota-custom
+    description: Custom-tier quota negotiated with sales.
+    limit: null
+    window: 30d
+    unit: api-calls
+    plan: custom
+
+breachBehavior:
+  status: 429
+  body:
+    description: HTTP 429 Too Many Requests with no penalty; client may retry immediately after pause.
+  recommendedBackoff:
+    strategy: fixed-delay
+    delayMs: 50
+    notes: 50 ms between consecutive requests keeps clients under 20 rps. Reactive 429 retry is also supported.
+
+discoveryEndpoints:
+  - method: GET
+    path: /key-usage-info
+    description: Returns total allocated requests, remaining balance, and quota expiration timestamp.
+
+higherLimits:
+  available: true
+  contact: contacts@sorsa.io
+  channel: https://discord.com/invite/uwAefKCj7X
+  notes: Dedicated infrastructure options support sustained throughput above 20 rps.

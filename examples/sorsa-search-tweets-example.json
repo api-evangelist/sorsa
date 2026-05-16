@@ -1,0 +1,30 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.sorsa.io/v3/search-tweets",
+    "headers": {
+      "ApiKey": "YOUR_API_KEY",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "query": "\"X API\" lang:en since:2026-04-01",
+      "sort": "latest"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "tweets": [
+        {
+          "id_str": "1700123...",
+          "full_text": "Migrating from X API to Sorsa was painless.",
+          "favorite_count": 14,
+          "user": {
+            "screen_name": "devuser"
+          }
+        }
+      ],
+      "next_cursor": "CURSOR_XYZ"
+    }
+  }
+}

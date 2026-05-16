@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/sorsa/json-schema/sorsa-top-follower-schema.json",
+  "title": "TopFollower",
+  "description": "JSON Schema for Sorsa common.TopFollower extracted from the OpenAPI v3 spec.",
+  "properties": {
+    "can_dm": {
+      "example": false,
+      "type": "boolean"
+    },
+    "created_at": {
+      "description": "Account creation date in ISO 8601 format.",
+      "example": "2009-06-02T20:12:29Z",
+      "type": "string"
+    },
+    "description": {
+      "description": "Profile bio text.",
+      "example": "Bio text",
+      "type": "string"
+    },
+    "display_name": {
+      "description": "User's display name.",
+      "example": "Elon Musk",
+      "type": "string"
+    },
+    "followers_count": {
+      "description": "Number of accounts following this user.",
+      "example": 100000,
+      "type": "integer"
+    },
+    "followings_count": {
+      "description": "Number of accounts this user follows.",
+      "example": 500,
+      "type": "integer"
+    },
+    "id": {
+      "description": "Unique Twitter/X user ID.",
+      "example": "44196397",
+      "type": "string"
+    },
+    "profile_background_image_url": {
+      "description": "URL of the user's profile background image.",
+      "example": "https://pbs.twimg.com/profile_banners/44196397/123",
+      "type": "string"
+    },
+    "profile_image_url": {
+      "description": "URL of the user's avatar image.",
+      "example": "https://pbs.twimg.com/profile_images/123/photo.jpg",
+      "type": "string"
+    },
+    "protected": {
+      "description": "Whether the account's tweets are protected (private).",
+      "example": false,
+      "type": "boolean"
+    },
+    "score": {
+      "description": "Whether the account accepts direct messages.",
+      "example": 100,
+      "type": "number"
+    },
+    "tweets_count": {
+      "description": "Total number of tweets posted by this user.",
+      "example": 5000,
+      "type": "integer"
+    },
+    "username": {
+      "description": "Current Twitter/X handle (without @).",
+      "example": "elonmusk",
+      "type": "string"
+    },
+    "verified": {
+      "description": "Whether the account has a verified badge.",
+      "example": true,
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,31 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.sorsa.io/v3/mentions",
+    "headers": {
+      "ApiKey": "YOUR_API_KEY",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "username": "SorsaApp",
+      "min_likes": 5,
+      "sort": "latest"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "tweets": [
+        {
+          "id_str": "17009...",
+          "full_text": "@SorsaApp the new pricing rocks",
+          "favorite_count": 12,
+          "user": {
+            "screen_name": "fanaccount"
+          }
+        }
+      ],
+      "next_cursor": "CURSOR_ABC"
+    }
+  }
+}

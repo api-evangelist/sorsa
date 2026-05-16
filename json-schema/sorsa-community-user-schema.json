@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/sorsa/json-schema/sorsa-community-user-schema.json",
+  "title": "CommunityUser",
+  "description": "JSON Schema for Sorsa common.CommunityUser extracted from the OpenAPI v3 spec.",
+  "properties": {
+    "display_name": {
+      "description": "User's display name.",
+      "example": "Elon Musk",
+      "type": "string"
+    },
+    "id": {
+      "description": "Unique Twitter/X user ID.",
+      "example": "44196397",
+      "type": "string"
+    },
+    "profile_image_url": {
+      "description": "URL of the user's avatar image.",
+      "example": "https://pbs.twimg.com/profile_images/123/photo.jpg",
+      "type": "string"
+    },
+    "protected": {
+      "description": "Whether the account's tweets are protected (private).",
+      "example": false,
+      "type": "boolean"
+    },
+    "username": {
+      "description": "Current Twitter/X handle (without @).",
+      "example": "elonmusk",
+      "type": "string"
+    },
+    "verified": {
+      "description": "Whether the account has a verified badge.",
+      "example": true,
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}
