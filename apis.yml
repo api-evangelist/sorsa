@@ -1,0 +1,25 @@
+aid: sorsa
+url: https://raw.githubusercontent.com/api-evangelist/sorsa/refs/heads/main/apis.yml
+name: Sorsa
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+description: 'Real-time X (Twitter) data API — tweets, profiles, search, mentions, and engagement data via 38 endpoints.'
+created: '2026-05-16'
+modified: '2026-05-16'
+specificationVersion: '0.19'
+tags:
+  - Twitter
+  - X
+  - Social Media
+  - Data Extraction
+  - Real-Time
+
+common:
+  - url: https://sorsa.io/
+    type: Website
+  - url: https://docs.sorsa.io/
+    type: Documentation
+  - url: https://api.sorsa.io/apis.json
+    type: APIsJSON
+url-source: https://sorsa.io/
+apis: []
