@@ -1,0 +1,184 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Sorsa API — Lists
+  description: 'Sorsa API — Lists. 3 operations. Lead operation: List Followers. Self-contained Naftiko capability covering
+    one Sorsa business surface.'
+  tags:
+  - Sorsa
+  - Lists
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SORSA_API_KEY: SORSA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: sorsa-lists
+    baseUri: https://api.sorsa.io/v3
+    description: Sorsa API — Lists business capability. Self-contained, no shared references.
+    resources:
+    - name: list-followers
+      path: /list-followers
+      operations:
+      - name: get
+        method: GET
+        description: List Followers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: list_link
+          in: query
+          type: string
+          description: Full URL or ID of the Twitter/X List.
+          required: true
+        - name: next_cursor
+          in: query
+          type: string
+          description: Pagination cursor from a previous response.
+    - name: list-members
+      path: /list-members
+      operations:
+      - name: get
+        method: GET
+        description: List Members
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: list_id
+          in: query
+          type: string
+          description: Numeric ID of the Twitter/X List.
+          required: true
+        - name: next_cursor
+          in: query
+          type: integer
+          description: Pagination cursor from a previous response.
+    - name: list-tweets
+      path: /list-tweets
+      operations:
+      - name: get
+        method: GET
+        description: List Tweets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: list_id
+          in: query
+          type: string
+          description: Numeric ID of the Twitter/X List.
+          required: true
+        - name: next_cursor
+          in: query
+          type: string
+          description: Pagination cursor from a previous response.
+    authentication:
+      type: apikey
+      key: ApiKey
+      value: '{{env.SORSA_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: sorsa-lists-rest
+    port: 8080
+    description: REST adapter for Sorsa API — Lists. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/list-followers
+      name: list-followers
+      description: REST surface for list-followers.
+      operations:
+      - method: GET
+        name: get
+        description: List Followers
+        call: sorsa-lists.get
+        with:
+          list_link: rest.list_link
+          next_cursor: rest.next_cursor
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/list-members
+      name: list-members
+      description: REST surface for list-members.
+      operations:
+      - method: GET
+        name: get
+        description: List Members
+        call: sorsa-lists.get
+        with:
+          list_id: rest.list_id
+          next_cursor: rest.next_cursor
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/list-tweets
+      name: list-tweets
+      description: REST surface for list-tweets.
+      operations:
+      - method: GET
+        name: get
+        description: List Tweets
+        call: sorsa-lists.get
+        with:
+          list_id: rest.list_id
+          next_cursor: rest.next_cursor
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: sorsa-lists-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Sorsa API — Lists. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-followers
+      description: List Followers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sorsa-lists.get
+      with:
+        list_link: tools.list_link
+        next_cursor: tools.next_cursor
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-members
+      description: List Members
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sorsa-lists.get
+      with:
+        list_id: tools.list_id
+        next_cursor: tools.next_cursor
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-tweets
+      description: List Tweets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sorsa-lists.get
+      with:
+        list_id: tools.list_id
+        next_cursor: tools.next_cursor
+      outputParameters:
+      - type: object
+        mapping: $.

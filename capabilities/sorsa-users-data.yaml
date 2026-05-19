@@ -1,0 +1,370 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Sorsa API — Users Data
+  description: 'Sorsa API — Users Data. 6 operations. Lead operation: Account About Info. Self-contained Naftiko capability
+    covering one Sorsa business surface.'
+  tags:
+  - Sorsa
+  - Users Data
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SORSA_API_KEY: SORSA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: sorsa-users-data
+    baseUri: https://api.sorsa.io/v3
+    description: Sorsa API — Users Data business capability. Self-contained, no shared references.
+    resources:
+    - name: about
+      path: /about
+      operations:
+      - name: get
+        method: GET
+        description: Account About Info
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: user_link
+          in: query
+          type: string
+          description: Full URL of the user's Twitter/X profile.
+        - name: username
+          in: query
+          type: string
+          description: Twitter/X handle (without @).
+        - name: user_id
+          in: query
+          type: string
+          description: Numeric Twitter/X user ID.
+    - name: followers
+      path: /followers
+      operations:
+      - name: get
+        method: GET
+        description: Followers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: user_link
+          in: query
+          type: string
+          description: Full URL of the user's Twitter/X profile.
+        - name: username
+          in: query
+          type: string
+          description: Twitter/X handle (without @).
+        - name: user_id
+          in: query
+          type: string
+          description: Numeric Twitter/X user ID.
+        - name: next_cursor
+          in: query
+          type: integer
+          description: Pagination cursor from a previous response.
+    - name: follows
+      path: /follows
+      operations:
+      - name: get
+        method: GET
+        description: Following
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: user_link
+          in: query
+          type: string
+          description: Full URL of the user's Twitter/X profile.
+        - name: username
+          in: query
+          type: string
+          description: Twitter/X handle (without @).
+        - name: user_id
+          in: query
+          type: string
+          description: Numeric Twitter/X user ID.
+        - name: next_cursor
+          in: query
+          type: integer
+          description: Pagination cursor from a previous response.
+    - name: info
+      path: /info
+      operations:
+      - name: get
+        method: GET
+        description: User Profile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: user_link
+          in: query
+          type: string
+          description: Full URL of the user's Twitter/X profile.
+        - name: username
+          in: query
+          type: string
+          description: Twitter/X handle (without @).
+        - name: user_id
+          in: query
+          type: string
+          description: Numeric Twitter/X user ID.
+    - name: info-batch
+      path: /info-batch
+      operations:
+      - name: get
+        method: GET
+        description: User Profile (batch)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: usernames
+          in: query
+          type: array
+          description: Array of Twitter/X handles (without @).
+        - name: user_ids
+          in: query
+          type: array
+          description: Array of numeric Twitter/X user IDs.
+    - name: verified-followers
+      path: /verified-followers
+      operations:
+      - name: get
+        method: GET
+        description: Verified Followers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: user_link
+          in: query
+          type: string
+          description: Full URL of the user's Twitter/X profile.
+        - name: username
+          in: query
+          type: string
+          description: Twitter/X handle (without @).
+        - name: user_id
+          in: query
+          type: string
+          description: Numeric Twitter/X user ID.
+        - name: next_cursor
+          in: query
+          type: string
+          description: Pagination cursor from a previous response.
+    authentication:
+      type: apikey
+      key: ApiKey
+      value: '{{env.SORSA_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: sorsa-users-data-rest
+    port: 8080
+    description: REST adapter for Sorsa API — Users Data. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/about
+      name: about
+      description: REST surface for about.
+      operations:
+      - method: GET
+        name: get
+        description: Account About Info
+        call: sorsa-users-data.get
+        with:
+          user_link: rest.user_link
+          username: rest.username
+          user_id: rest.user_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/followers
+      name: followers
+      description: REST surface for followers.
+      operations:
+      - method: GET
+        name: get
+        description: Followers
+        call: sorsa-users-data.get
+        with:
+          user_link: rest.user_link
+          username: rest.username
+          user_id: rest.user_id
+          next_cursor: rest.next_cursor
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/follows
+      name: follows
+      description: REST surface for follows.
+      operations:
+      - method: GET
+        name: get
+        description: Following
+        call: sorsa-users-data.get
+        with:
+          user_link: rest.user_link
+          username: rest.username
+          user_id: rest.user_id
+          next_cursor: rest.next_cursor
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/info
+      name: info
+      description: REST surface for info.
+      operations:
+      - method: GET
+        name: get
+        description: User Profile
+        call: sorsa-users-data.get
+        with:
+          user_link: rest.user_link
+          username: rest.username
+          user_id: rest.user_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/info-batch
+      name: info-batch
+      description: REST surface for info-batch.
+      operations:
+      - method: GET
+        name: get
+        description: User Profile (batch)
+        call: sorsa-users-data.get
+        with:
+          usernames: rest.usernames
+          user_ids: rest.user_ids
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/verified-followers
+      name: verified-followers
+      description: REST surface for verified-followers.
+      operations:
+      - method: GET
+        name: get
+        description: Verified Followers
+        call: sorsa-users-data.get
+        with:
+          user_link: rest.user_link
+          username: rest.username
+          user_id: rest.user_id
+          next_cursor: rest.next_cursor
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: sorsa-users-data-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Sorsa API — Users Data. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: account-about-info
+      description: Account About Info
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sorsa-users-data.get
+      with:
+        user_link: tools.user_link
+        username: tools.username
+        user_id: tools.user_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: followers
+      description: Followers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sorsa-users-data.get
+      with:
+        user_link: tools.user_link
+        username: tools.username
+        user_id: tools.user_id
+        next_cursor: tools.next_cursor
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: following
+      description: Following
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sorsa-users-data.get
+      with:
+        user_link: tools.user_link
+        username: tools.username
+        user_id: tools.user_id
+        next_cursor: tools.next_cursor
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: user-profile
+      description: User Profile
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sorsa-users-data.get
+      with:
+        user_link: tools.user_link
+        username: tools.username
+        user_id: tools.user_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: user-profile-batch
+      description: User Profile (batch)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sorsa-users-data.get
+      with:
+        usernames: tools.usernames
+        user_ids: tools.user_ids
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: verified-followers
+      description: Verified Followers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sorsa-users-data.get
+      with:
+        user_link: tools.user_link
+        username: tools.username
+        user_id: tools.user_id
+        next_cursor: tools.next_cursor
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -3,259 +3,257 @@ url: https://raw.githubusercontent.com/api-evangelist/sorsa/refs/heads/main/apis
 name: Sorsa
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-description: >-
-  Sorsa Labs operates a real-time X (Twitter) data API providing developers
-  access to tweets, profiles, search, mentions, lists, communities, engagement
-  verification, and Sorsa Score crypto-influence analytics through 40 REST
-  endpoints. It markets itself as an affordable alternative to the official X
-  API and was formerly known as Tweetscout.
+description: Sorsa Labs operates a real-time X (Twitter) data API providing developers access to tweets, profiles, search,
+  mentions, lists, communities, engagement verification, and Sorsa Score crypto-influence analytics through 40 REST endpoints.
+  It markets itself as an affordable alternative to the official X API and was formerly known as Tweetscout.
 created: '2026-05-16'
-modified: '2026-05-16'
+modified: '2026-05-19'
 specificationVersion: '0.19'
 tags:
+- Twitter
+- X
+- Social Media
+- Data Extraction
+- Real-Time
+apis:
+- aid: sorsa:sorsa-api-v3
+  name: Sorsa API v3
+  description: 'The Sorsa API v3 is a RESTful API exposing 40 endpoints for real-time X (Twitter) data: user profiles and
+    About metadata, followers and following lists, tweet data (single and batch), articles, user timelines, comments, quotes,
+    retweets, search of tweets and users, mentions, Twitter Spaces (Places), lists, communities, engagement and membership
+    verification, Sorsa Score crypto-influence analytics, follower category breakdowns, and technical utilities (username/user-id
+    conversion, profile-link parsing, API-key usage). Authentication uses a simple `ApiKey` header.'
+  humanURL: https://docs.sorsa.io/
+  baseURL: https://api.sorsa.io/v3
+  tags:
   - Twitter
   - X
   - Social Media
-  - Data Extraction
   - Real-Time
-
-apis:
-  - aid: sorsa:sorsa-api-v3
-    name: Sorsa API v3
-    description: >-
-      The Sorsa API v3 is a RESTful API exposing 40 endpoints for real-time X
-      (Twitter) data: user profiles and About metadata, followers and following
-      lists, tweet data (single and batch), articles, user timelines, comments,
-      quotes, retweets, search of tweets and users, mentions, Twitter Spaces
-      (Places), lists, communities, engagement and membership verification,
-      Sorsa Score crypto-influence analytics, follower category breakdowns,
-      and technical utilities (username/user-id conversion, profile-link
-      parsing, API-key usage). Authentication uses a simple `ApiKey` header.
-    humanURL: https://docs.sorsa.io/
-    baseURL: https://api.sorsa.io/v3
-    tags:
-      - Twitter
-      - X
-      - Social Media
-      - Real-Time
-      - Data Extraction
-      - Crypto
-    properties:
-      - type: Documentation
-        url: https://docs.sorsa.io/
-      - type: APIReference
-        url: https://docs.sorsa.io/api-reference-guide
-      - type: GettingStarted
-        url: https://docs.sorsa.io/quickstart
-      - type: Quickstart
-        url: https://docs.sorsa.io/quickstart
-      - type: Authentication
-        url: https://docs.sorsa.io/authentication
-      - type: RateLimits
-        url: https://docs.sorsa.io/rate-limits
-      - type: Pricing
-        url: https://docs.sorsa.io/pricing
-      - type: Errors
-        url: https://docs.sorsa.io/error-codes
-      - type: Versioning
-        url: https://docs.sorsa.io/base-url-and-versioning
-      - type: ChangeLog
-        url: https://docs.sorsa.io/Migration-Guide
-      - type: APIsJSON
-        url: https://api.sorsa.io/apis.json
-      - type: OpenAPI
-        url: openapi/sorsa-openapi.yml
-      - type: SwaggerJSON
-        url: https://api.sorsa.io/v3/swagger.json
-      - type: JSONSchema
-        url: json-schema/sorsa-user-schema.json
-      - type: JSONSchema
-        url: json-schema/sorsa-follower-schema.json
-      - type: JSONSchema
-        url: json-schema/sorsa-tweet-schema.json
-      - type: JSONSchema
-        url: json-schema/sorsa-tweet-entity-schema.json
-      - type: JSONSchema
-        url: json-schema/sorsa-top-follower-schema.json
-      - type: JSONSchema
-        url: json-schema/sorsa-place-schema.json
-      - type: JSONSchema
-        url: json-schema/sorsa-trend-schema.json
-      - type: JSONSchema
-        url: json-schema/sorsa-community-user-schema.json
-      - type: JSONStructure
-        url: json-structure/sorsa-user-structure.json
-      - type: JSONStructure
-        url: json-structure/sorsa-follower-structure.json
-      - type: JSONStructure
-        url: json-structure/sorsa-tweet-structure.json
-      - type: JSONStructure
-        url: json-structure/sorsa-tweet-entity-structure.json
-      - type: JSONStructure
-        url: json-structure/sorsa-top-follower-structure.json
-      - type: JSONStructure
-        url: json-structure/sorsa-place-structure.json
-      - type: JSONStructure
-        url: json-structure/sorsa-trend-structure.json
-      - type: JSONStructure
-        url: json-structure/sorsa-community-user-structure.json
-      - type: JSONLD
-        url: json-ld/sorsa-context.jsonld
-      - type: JSONLD
-        url: json-ld/sorsa-security-context.jsonld
-      - type: Example
-        url: examples/sorsa-info-example.json
-      - type: Example
-        url: examples/sorsa-tweet-info-example.json
-      - type: Example
-        url: examples/sorsa-tweet-info-bulk-example.json
-      - type: Example
-        url: examples/sorsa-search-tweets-example.json
-      - type: Example
-        url: examples/sorsa-mentions-example.json
-      - type: Example
-        url: examples/sorsa-followers-example.json
-      - type: Example
-        url: examples/sorsa-follows-example.json
-      - type: Example
-        url: examples/sorsa-score-example.json
-      - type: Example
-        url: examples/sorsa-check-follow-example.json
-      - type: Example
-        url: examples/sorsa-key-usage-info-example.json
-      - type: Example
-        url: examples/sorsa-user-example.json
-      - type: Example
-        url: examples/sorsa-follower-example.json
-      - type: Example
-        url: examples/sorsa-tweet-example.json
-      - type: Example
-        url: examples/sorsa-tweet-entity-example.json
-      - type: Example
-        url: examples/sorsa-top-follower-example.json
-      - type: Example
-        url: examples/sorsa-place-example.json
-      - type: Example
-        url: examples/sorsa-trend-example.json
-      - type: Example
-        url: examples/sorsa-community-user-example.json
-    contact:
-      - FN: Sorsa Support
-        email: contacts@sorsa.io
-
-common:
-  - type: Website
-    url: https://sorsa.io/
-  - type: DeveloperPortal
-    url: https://docs.sorsa.io/
+  - Data Extraction
+  - Crypto
+  properties:
   - type: Documentation
     url: https://docs.sorsa.io/
-  - type: APIsJSON
-    url: https://api.sorsa.io/apis.json
-  - type: SignUp
-    url: https://app.sorsa.io/
-  - type: Login
-    url: https://app.sorsa.io/
-  - type: Console
-    url: https://app.sorsa.io/
+  - type: APIReference
+    url: https://docs.sorsa.io/api-reference-guide
+  - type: GettingStarted
+    url: https://docs.sorsa.io/quickstart
+  - type: Quickstart
+    url: https://docs.sorsa.io/quickstart
+  - type: Authentication
+    url: https://docs.sorsa.io/authentication
+  - type: RateLimits
+    url: https://docs.sorsa.io/rate-limits
   - type: Pricing
     url: https://docs.sorsa.io/pricing
-  - type: Plans
-    url: plans/sorsa-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/sorsa-rate-limits.yml
-  - type: FinOps
-    url: finops/sorsa-finops.yml
-  - type: SpectralRules
-    url: rules/sorsa-rules.yml
+  - type: Errors
+    url: https://docs.sorsa.io/error-codes
+  - type: Versioning
+    url: https://docs.sorsa.io/base-url-and-versioning
+  - type: ChangeLog
+    url: https://docs.sorsa.io/Migration-Guide
+  - type: APIsJSON
+    url: https://api.sorsa.io/apis.json
+  - type: OpenAPI
+    url: openapi/sorsa-openapi.yml
+  - type: SwaggerJSON
+    url: https://api.sorsa.io/v3/swagger.json
+  - type: JSONSchema
+    url: json-schema/sorsa-user-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-follower-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-tweet-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-tweet-entity-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-top-follower-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-place-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-trend-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-community-user-schema.json
+  - type: JSONStructure
+    url: json-structure/sorsa-user-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-follower-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-tweet-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-tweet-entity-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-top-follower-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-place-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-trend-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-community-user-structure.json
+  - type: JSONLD
+    url: json-ld/sorsa-context.jsonld
+  - type: JSONLD
+    url: json-ld/sorsa-security-context.jsonld
+  - type: Example
+    url: examples/sorsa-info-example.json
+  - type: Example
+    url: examples/sorsa-tweet-info-example.json
+  - type: Example
+    url: examples/sorsa-tweet-info-bulk-example.json
+  - type: Example
+    url: examples/sorsa-search-tweets-example.json
+  - type: Example
+    url: examples/sorsa-mentions-example.json
+  - type: Example
+    url: examples/sorsa-followers-example.json
+  - type: Example
+    url: examples/sorsa-follows-example.json
+  - type: Example
+    url: examples/sorsa-score-example.json
+  - type: Example
+    url: examples/sorsa-check-follow-example.json
+  - type: Example
+    url: examples/sorsa-key-usage-info-example.json
+  - type: Example
+    url: examples/sorsa-user-example.json
+  - type: Example
+    url: examples/sorsa-follower-example.json
+  - type: Example
+    url: examples/sorsa-tweet-example.json
+  - type: Example
+    url: examples/sorsa-tweet-entity-example.json
+  - type: Example
+    url: examples/sorsa-top-follower-example.json
+  - type: Example
+    url: examples/sorsa-place-example.json
+  - type: Example
+    url: examples/sorsa-trend-example.json
+  - type: Example
+    url: examples/sorsa-community-user-example.json
   - type: NaftikoCapability
-    url: capabilities/shared/sorsa-api-v3.yaml
+    url: capabilities/sorsa-community.yaml
   - type: NaftikoCapability
-    url: capabilities/crypto-twitter-intelligence.yaml
+    url: capabilities/sorsa-lists.yaml
   - type: NaftikoCapability
-    url: capabilities/campaign-verification.yaml
+    url: capabilities/sorsa-search.yaml
   - type: NaftikoCapability
-    url: capabilities/mention-monitoring.yaml
-  - type: Vocabulary
-    url: vocabulary/sorsa-vocabulary.yml
-  - type: StatusPage
-    url: https://uptime.sorsa.io/status/v3
-  - type: Support
-    url: https://docs.sorsa.io/support
-  - type: Contact
-    url: mailto:contacts@sorsa.io
-  - type: Discord
-    url: https://discord.com/invite/uwAefKCj7X
-  - type: Twitter
-    url: https://x.com/SorsaApp
-  - type: Glossary
-    url: https://docs.sorsa.io/use-cases-overview
-  - type: BestPractices
-    url: https://docs.sorsa.io/optimizing-api-usage
-  - type: Features
-    data:
-      - name: Real-Time X (Twitter) Data
-        description: Live tweet, profile, follower, and engagement data pulled directly from X.
-      - name: Simple API Key Authentication
-        description: One `ApiKey` header — no OAuth flow, bearer rotation, or callback URLs.
-      - name: Batch Endpoints
-        description: Bulk profile and tweet endpoints accept up to 100 items per request for cost efficiency.
-      - name: Advanced Search Operators
-        description: Mirrors X advanced-search syntax (`from:`, `to:`, `since:`, `until:`, phrase and hashtag operators).
-      - name: Mentions Tracking
-        description: Filterable mentions feed with minimum likes/replies/retweets and date-range filters.
-      - name: Lists and Communities Coverage
-        description: Read List feeds, List members and followers, plus Community feeds, members, and in-community search.
-      - name: Engagement Verification
-        description: Check follow, comment, retweet, quote, and community-membership relationships with boolean responses.
-      - name: Sorsa Score Crypto Analytics
-        description: Influence score among crypto influencers, projects, and VCs, with 7-day/30-day deltas and top-follower lists.
-      - name: Follower Category Breakdown
-        description: Categorize an account's followers into influencers, projects, and venture capital employees.
-      - name: ID and Handle Utilities
-        description: Convert between usernames and stable numeric user IDs; parse profile URLs to user IDs.
-      - name: Key Usage Visibility
-        description: "The /key-usage-info endpoint reports total allocated requests, remaining balance, and quota expiration."
-      - name: Flat-Rate Pricing
-        description: 1 API call = 1 request from the quota, regardless of which endpoint is hit.
-  - type: UseCases
-    data:
-      - name: Crypto Twitter Intelligence
-        description: Track crypto influencers, projects, and VC activity in real time.
-      - name: Marketing Campaign Verification
-        description: Verify follows, likes, retweets, quotes, and community membership for airdrop or campaign rules.
-      - name: Audience Geography Analysis
-        description: Combine About metadata and follower categories to map audience composition.
-      - name: Competitor Analysis
-        description: Compare follower growth, Sorsa Score, and top-follower overlap between accounts.
-      - name: Mention Monitoring
-        description: Real-time alerting on @-mentions filtered by engagement thresholds and date ranges.
-      - name: Target Audience Discovery
-        description: Find high-Sorsa-Score followers and following relationships to seed outreach lists.
-      - name: Migration from Official X API
-        description: Drop-in replacement for read-only X API workflows at a fraction of the cost.
-      - name: Trend Surveillance
-        description: Pull trending topics by WOEID for region-specific monitoring.
-  - type: Integrations
-    data:
-      - name: X (Twitter)
-        description: Primary upstream data source — Sorsa surfaces public X data via REST.
-      - name: Discord
-        description: Community and support channel for developers using Sorsa.
-      - name: Webhooks (planned)
-        description: Documentation references real-time monitoring patterns built on polling today.
-  - type: Solutions
-    data:
-      - name: Starter
-        description: 10,000 monthly requests at $49/mo — entry tier for individual developers.
-      - name: Pro
-        description: 100,000 monthly requests at $199/mo — for production integrations and agencies.
-      - name: Enterprise
-        description: 500,000 monthly requests at $899/mo — for high-volume crypto-intel platforms.
-      - name: Custom
-        description: Volume arrangements beyond 500K monthly requests via sales@sorsa.io with dedicated rate-limit profiles.
-
+    url: capabilities/sorsa-sorsa-info-crypto-related.yaml
+  - type: NaftikoCapability
+    url: capabilities/sorsa-technical-endpoints.yaml
+  - type: NaftikoCapability
+    url: capabilities/sorsa-tweets.yaml
+  - type: NaftikoCapability
+    url: capabilities/sorsa-users-data.yaml
+  - type: NaftikoCapability
+    url: capabilities/sorsa-verification.yaml
+  contact:
+  - FN: Sorsa Support
+    email: contacts@sorsa.io
+common:
+- type: Website
+  url: https://sorsa.io/
+- type: DeveloperPortal
+  url: https://docs.sorsa.io/
+- type: Documentation
+  url: https://docs.sorsa.io/
+- type: APIsJSON
+  url: https://api.sorsa.io/apis.json
+- type: SignUp
+  url: https://app.sorsa.io/
+- type: Login
+  url: https://app.sorsa.io/
+- type: Console
+  url: https://app.sorsa.io/
+- type: Pricing
+  url: https://docs.sorsa.io/pricing
+- type: Plans
+  url: plans/sorsa-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/sorsa-rate-limits.yml
+- type: FinOps
+  url: finops/sorsa-finops.yml
+- type: SpectralRules
+  url: rules/sorsa-rules.yml
+- type: Vocabulary
+  url: vocabulary/sorsa-vocabulary.yml
+- type: StatusPage
+  url: https://uptime.sorsa.io/status/v3
+- type: Support
+  url: https://docs.sorsa.io/support
+- type: Contact
+  url: mailto:contacts@sorsa.io
+- type: Discord
+  url: https://discord.com/invite/uwAefKCj7X
+- type: Twitter
+  url: https://x.com/SorsaApp
+- type: Glossary
+  url: https://docs.sorsa.io/use-cases-overview
+- type: BestPractices
+  url: https://docs.sorsa.io/optimizing-api-usage
+- type: Features
+  data:
+  - name: Real-Time X (Twitter) Data
+    description: Live tweet, profile, follower, and engagement data pulled directly from X.
+  - name: Simple API Key Authentication
+    description: One `ApiKey` header — no OAuth flow, bearer rotation, or callback URLs.
+  - name: Batch Endpoints
+    description: Bulk profile and tweet endpoints accept up to 100 items per request for cost efficiency.
+  - name: Advanced Search Operators
+    description: Mirrors X advanced-search syntax (`from:`, `to:`, `since:`, `until:`, phrase and hashtag operators).
+  - name: Mentions Tracking
+    description: Filterable mentions feed with minimum likes/replies/retweets and date-range filters.
+  - name: Lists and Communities Coverage
+    description: Read List feeds, List members and followers, plus Community feeds, members, and in-community search.
+  - name: Engagement Verification
+    description: Check follow, comment, retweet, quote, and community-membership relationships with boolean responses.
+  - name: Sorsa Score Crypto Analytics
+    description: Influence score among crypto influencers, projects, and VCs, with 7-day/30-day deltas and top-follower lists.
+  - name: Follower Category Breakdown
+    description: Categorize an account's followers into influencers, projects, and venture capital employees.
+  - name: ID and Handle Utilities
+    description: Convert between usernames and stable numeric user IDs; parse profile URLs to user IDs.
+  - name: Key Usage Visibility
+    description: The /key-usage-info endpoint reports total allocated requests, remaining balance, and quota expiration.
+  - name: Flat-Rate Pricing
+    description: 1 API call = 1 request from the quota, regardless of which endpoint is hit.
+- type: UseCases
+  data:
+  - name: Crypto Twitter Intelligence
+    description: Track crypto influencers, projects, and VC activity in real time.
+  - name: Marketing Campaign Verification
+    description: Verify follows, likes, retweets, quotes, and community membership for airdrop or campaign rules.
+  - name: Audience Geography Analysis
+    description: Combine About metadata and follower categories to map audience composition.
+  - name: Competitor Analysis
+    description: Compare follower growth, Sorsa Score, and top-follower overlap between accounts.
+  - name: Mention Monitoring
+    description: Real-time alerting on @-mentions filtered by engagement thresholds and date ranges.
+  - name: Target Audience Discovery
+    description: Find high-Sorsa-Score followers and following relationships to seed outreach lists.
+  - name: Migration from Official X API
+    description: Drop-in replacement for read-only X API workflows at a fraction of the cost.
+  - name: Trend Surveillance
+    description: Pull trending topics by WOEID for region-specific monitoring.
+- type: Integrations
+  data:
+  - name: X (Twitter)
+    description: Primary upstream data source — Sorsa surfaces public X data via REST.
+  - name: Discord
+    description: Community and support channel for developers using Sorsa.
+  - name: Webhooks (planned)
+    description: Documentation references real-time monitoring patterns built on polling today.
+- type: Solutions
+  data:
+  - name: Starter
+    description: 10,000 monthly requests at $49/mo — entry tier for individual developers.
+  - name: Pro
+    description: 100,000 monthly requests at $199/mo — for production integrations and agencies.
+  - name: Enterprise
+    description: 500,000 monthly requests at $899/mo — for high-volume crypto-intel platforms.
+  - name: Custom
+    description: Volume arrangements beyond 500K monthly requests via sales@sorsa.io with dedicated rate-limit profiles.
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
-    url: https://apievangelist.com/
+- FN: Kin Lane
+  email: kin@apievangelist.com
+  url: https://apievangelist.com/

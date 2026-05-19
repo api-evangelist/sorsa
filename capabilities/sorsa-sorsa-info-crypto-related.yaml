@@ -1,0 +1,411 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Sorsa API — Sorsa Info Crypto Related
+  description: 'Sorsa API — Sorsa Info Crypto Related. 7 operations. Lead operation: Follower Category Stats. Self-contained
+    Naftiko capability covering one Sorsa business surface.'
+  tags:
+  - Sorsa
+  - Sorsa Info Crypto Related
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SORSA_API_KEY: SORSA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: sorsa-sorsa-info-crypto-related
+    baseUri: https://api.sorsa.io/v3
+    description: Sorsa API — Sorsa Info Crypto Related business capability. Self-contained, no shared references.
+    resources:
+    - name: followers-stats
+      path: /followers-stats
+      operations:
+      - name: get
+        method: GET
+        description: Follower Category Stats
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: user_link
+          in: query
+          type: string
+          description: Full URL of the user's Twitter/X profile.
+        - name: username
+          in: query
+          type: string
+          description: Twitter/X handle (without @).
+        - name: user_id
+          in: query
+          type: string
+          description: Numeric Twitter/X user ID.
+    - name: new-followers-7d
+      path: /new-followers-7d
+      operations:
+      - name: get
+        method: GET
+        description: New Followers (7 Days)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: user_link
+          in: query
+          type: string
+          description: Full URL of the user's Twitter/X profile.
+        - name: username
+          in: query
+          type: string
+          description: Twitter/X handle (without @).
+        - name: user_id
+          in: query
+          type: string
+          description: Numeric Twitter/X user ID.
+    - name: new-following-7d
+      path: /new-following-7d
+      operations:
+      - name: get
+        method: GET
+        description: New Following (7 Days)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: user_link
+          in: query
+          type: string
+          description: Full URL of the user's Twitter/X profile.
+        - name: username
+          in: query
+          type: string
+          description: Twitter/X handle (without @).
+        - name: user_id
+          in: query
+          type: string
+          description: Numeric Twitter/X user ID.
+    - name: score
+      path: /score
+      operations:
+      - name: get
+        method: GET
+        description: Sorsa Score
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: user_link
+          in: query
+          type: string
+          description: Full URL of the user's Twitter/X profile.
+        - name: username
+          in: query
+          type: string
+          description: Twitter/X handle (without @).
+        - name: user_id
+          in: query
+          type: string
+          description: Numeric Twitter/X user ID.
+    - name: score-changes
+      path: /score-changes
+      operations:
+      - name: get
+        method: GET
+        description: Sorsa Score Changes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: user_link
+          in: query
+          type: string
+          description: Full URL of the user's Twitter/X profile.
+        - name: username
+          in: query
+          type: string
+          description: Twitter/X handle (without @).
+        - name: user_id
+          in: query
+          type: string
+          description: Numeric Twitter/X user ID.
+    - name: top-followers
+      path: /top-followers
+      operations:
+      - name: get
+        method: GET
+        description: Top 20 Followers by Score
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: user_link
+          in: query
+          type: string
+          description: Full URL of the user's Twitter/X profile.
+        - name: username
+          in: query
+          type: string
+          description: Twitter/X handle (without @).
+        - name: user_id
+          in: query
+          type: string
+          description: Numeric Twitter/X user ID.
+    - name: top-following
+      path: /top-following
+      operations:
+      - name: get
+        method: GET
+        description: Top 20 Following by Score
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: user_link
+          in: query
+          type: string
+          description: Full URL of the user's Twitter/X profile.
+        - name: username
+          in: query
+          type: string
+          description: Twitter/X handle (without @).
+        - name: user_id
+          in: query
+          type: string
+          description: Numeric Twitter/X user ID.
+    authentication:
+      type: apikey
+      key: ApiKey
+      value: '{{env.SORSA_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: sorsa-sorsa-info-crypto-related-rest
+    port: 8080
+    description: REST adapter for Sorsa API — Sorsa Info Crypto Related. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/followers-stats
+      name: followers-stats
+      description: REST surface for followers-stats.
+      operations:
+      - method: GET
+        name: get
+        description: Follower Category Stats
+        call: sorsa-sorsa-info-crypto-related.get
+        with:
+          user_link: rest.user_link
+          username: rest.username
+          user_id: rest.user_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/new-followers-7d
+      name: new-followers-7d
+      description: REST surface for new-followers-7d.
+      operations:
+      - method: GET
+        name: get
+        description: New Followers (7 Days)
+        call: sorsa-sorsa-info-crypto-related.get
+        with:
+          user_link: rest.user_link
+          username: rest.username
+          user_id: rest.user_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/new-following-7d
+      name: new-following-7d
+      description: REST surface for new-following-7d.
+      operations:
+      - method: GET
+        name: get
+        description: New Following (7 Days)
+        call: sorsa-sorsa-info-crypto-related.get
+        with:
+          user_link: rest.user_link
+          username: rest.username
+          user_id: rest.user_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/score
+      name: score
+      description: REST surface for score.
+      operations:
+      - method: GET
+        name: get
+        description: Sorsa Score
+        call: sorsa-sorsa-info-crypto-related.get
+        with:
+          user_link: rest.user_link
+          username: rest.username
+          user_id: rest.user_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/score-changes
+      name: score-changes
+      description: REST surface for score-changes.
+      operations:
+      - method: GET
+        name: get
+        description: Sorsa Score Changes
+        call: sorsa-sorsa-info-crypto-related.get
+        with:
+          user_link: rest.user_link
+          username: rest.username
+          user_id: rest.user_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/top-followers
+      name: top-followers
+      description: REST surface for top-followers.
+      operations:
+      - method: GET
+        name: get
+        description: Top 20 Followers by Score
+        call: sorsa-sorsa-info-crypto-related.get
+        with:
+          user_link: rest.user_link
+          username: rest.username
+          user_id: rest.user_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/top-following
+      name: top-following
+      description: REST surface for top-following.
+      operations:
+      - method: GET
+        name: get
+        description: Top 20 Following by Score
+        call: sorsa-sorsa-info-crypto-related.get
+        with:
+          user_link: rest.user_link
+          username: rest.username
+          user_id: rest.user_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: sorsa-sorsa-info-crypto-related-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Sorsa API — Sorsa Info Crypto Related. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: follower-category-stats
+      description: Follower Category Stats
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sorsa-sorsa-info-crypto-related.get
+      with:
+        user_link: tools.user_link
+        username: tools.username
+        user_id: tools.user_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: new-followers-7-days
+      description: New Followers (7 Days)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sorsa-sorsa-info-crypto-related.get
+      with:
+        user_link: tools.user_link
+        username: tools.username
+        user_id: tools.user_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: new-following-7-days
+      description: New Following (7 Days)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sorsa-sorsa-info-crypto-related.get
+      with:
+        user_link: tools.user_link
+        username: tools.username
+        user_id: tools.user_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sorsa-score
+      description: Sorsa Score
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sorsa-sorsa-info-crypto-related.get
+      with:
+        user_link: tools.user_link
+        username: tools.username
+        user_id: tools.user_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sorsa-score-changes
+      description: Sorsa Score Changes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sorsa-sorsa-info-crypto-related.get
+      with:
+        user_link: tools.user_link
+        username: tools.username
+        user_id: tools.user_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: top-20-followers-score
+      description: Top 20 Followers by Score
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sorsa-sorsa-info-crypto-related.get
+      with:
+        user_link: tools.user_link
+        username: tools.username
+        user_id: tools.user_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: top-20-following-score
+      description: Top 20 Following by Score
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sorsa-sorsa-info-crypto-related.get
+      with:
+        user_link: tools.user_link
+        username: tools.username
+        user_id: tools.user_id
+      outputParameters:
+      - type: object
+        mapping: $.

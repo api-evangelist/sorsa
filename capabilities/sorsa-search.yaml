@@ -1,0 +1,213 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Sorsa API — Search
+  description: 'Sorsa API — Search. 4 operations. Lead operation: Search Mentions. Self-contained Naftiko capability covering
+    one Sorsa business surface.'
+  tags:
+  - Sorsa
+  - Search
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SORSA_API_KEY: SORSA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: sorsa-search
+    baseUri: https://api.sorsa.io/v3
+    description: Sorsa API — Search business capability. Self-contained, no shared references.
+    resources:
+    - name: mentions
+      path: /mentions
+      operations:
+      - name: post
+        method: POST
+        description: Search Mentions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: place
+      path: /place
+      operations:
+      - name: get
+        method: GET
+        description: Place Information
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: query
+          type: string
+          description: The unique identifier of the place (Space ID)
+        - name: link
+          in: query
+          type: string
+          description: Full link to the place (Space link, e.g. https://twitter.com/i/spaces/1lPKqBajQrWGb)
+    - name: search-tweets
+      path: /search-tweets
+      operations:
+      - name: post
+        method: POST
+        description: Search Tweets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: search-users
+      path: /search-users
+      operations:
+      - name: post
+        method: POST
+        description: Search Users
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: ApiKey
+      value: '{{env.SORSA_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: sorsa-search-rest
+    port: 8080
+    description: REST adapter for Sorsa API — Search. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/mentions
+      name: mentions
+      description: REST surface for mentions.
+      operations:
+      - method: POST
+        name: post
+        description: Search Mentions
+        call: sorsa-search.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/place
+      name: place
+      description: REST surface for place.
+      operations:
+      - method: GET
+        name: get
+        description: Place Information
+        call: sorsa-search.get
+        with:
+          id: rest.id
+          link: rest.link
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/search-tweets
+      name: search-tweets
+      description: REST surface for search-tweets.
+      operations:
+      - method: POST
+        name: post
+        description: Search Tweets
+        call: sorsa-search.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/search-users
+      name: search-users
+      description: REST surface for search-users.
+      operations:
+      - method: POST
+        name: post
+        description: Search Users
+        call: sorsa-search.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: sorsa-search-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Sorsa API — Search. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: search-mentions
+      description: Search Mentions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: sorsa-search.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: place-information
+      description: Place Information
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sorsa-search.get
+      with:
+        id: tools.id
+        link: tools.link
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: search-tweets
+      description: Search Tweets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: sorsa-search.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: search-users
+      description: Search Users
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: sorsa-search.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
