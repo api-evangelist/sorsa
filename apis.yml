@@ -253,6 +253,8 @@ common:
     description: 500,000 monthly requests at $899/mo — for high-volume crypto-intel platforms.
   - name: Custom
     description: Volume arrangements beyond 500K monthly requests via sales@sorsa.io with dedicated rate-limit profiles.
+- type: LLMsTxt
+  url: https://api.sorsa.io/llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
