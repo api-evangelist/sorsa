@@ -1,0 +1,1216 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sorsa API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "ApiKey",
+      "value": "{{ApiKey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Account About Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/about",
+            "params": [
+              {
+                "name": "user_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL of the user's Twitter/X profile."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X handle (without @)."
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric Twitter/X user ID."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns metadata from the \"About\" section of a Twitter/X account, including country, total number of username changes, and the date of the most recent change. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+        },
+        {
+          "info": {
+            "name": "Followers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/followers",
+            "params": [
+              {
+                "name": "user_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL of the user's Twitter/X profile."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X handle (without @)."
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric Twitter/X user ID."
+              },
+              {
+                "name": "next_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor from a previous response."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a paginated list of users who follow the specified account. Up to 200 user profiles per page. Use the returned `next_cursor` to load subsequent pages. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+        },
+        {
+          "info": {
+            "name": "Following",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/follows",
+            "params": [
+              {
+                "name": "user_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL of the user's Twitter/X profile."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X handle (without @)."
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric Twitter/X user ID."
+              },
+              {
+                "name": "next_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor from a previous response."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a paginated list of accounts that the specified user follows. Up to 200 user profiles per page. Use the returned `next_cursor` to load subsequent pages. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+        },
+        {
+          "info": {
+            "name": "User Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/info",
+            "params": [
+              {
+                "name": "user_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL of the user's Twitter/X profile."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X handle (without @)."
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric Twitter/X user ID."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the public profile of a Twitter/X account, including display name, bio, follower and following counts, tweet count, avatar, account creation date, and verification status. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+        },
+        {
+          "info": {
+            "name": "User Profile (batch)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/info-batch",
+            "params": [
+              {
+                "name": "usernames",
+                "value": "",
+                "type": "query",
+                "description": "Array of Twitter/X handles (without @)."
+              },
+              {
+                "name": "user_ids",
+                "value": "",
+                "type": "query",
+                "description": "Array of numeric Twitter/X user IDs."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns public profile data for multiple Twitter/X accounts in a single request. Works the same way as the single-user endpoint, but accepts arrays of usernames or user IDs. Up to 100 accounts per request. Provide either `usernames` or `user_ids`."
+        },
+        {
+          "info": {
+            "name": "Verified Followers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/verified-followers",
+            "params": [
+              {
+                "name": "user_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL of the user's Twitter/X profile."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X handle (without @)."
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric Twitter/X user ID."
+              },
+              {
+                "name": "next_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor from a previous response."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a paginated list of verified users who follow the specified account. Works the same way as the regular followers endpoint, but filters to only include accounts with a verified badge. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tweets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Article Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/article",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns full data for a Twitter/X Article (long-form post) by its URL. The response includes the complete article text, a short preview excerpt, cover image URL, publication date, engagement metrics, and the author's profile."
+        },
+        {
+          "info": {
+            "name": "Tweet Comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/comments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a paginated list of replies (comments) posted under a specific tweet. Up to 20 replies per page. Each reply includes text, creation date, engagement metrics, conversation context, and the author's profile."
+        },
+        {
+          "info": {
+            "name": "Quote Tweets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/quotes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a paginated list of tweets that quoted the specified tweet. Up to 20 results per page. Each quote tweet includes the added commentary text, creation date, engagement metrics, and the quoting user's profile."
+        },
+        {
+          "info": {
+            "name": "Retweeters List",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/retweeters",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a paginated list of users who retweeted the specified tweet, sorted by retweet time (newest first). Each entry contains the retweeter's profile data. Note: the response uses the users format (`common.UsersResponse`), not tweets."
+        },
+        {
+          "info": {
+            "name": "Trends List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/trends",
+            "params": [
+              {
+                "name": "woeid",
+                "value": "",
+                "type": "query",
+                "description": "WOEID (Where On Earth IDentifier) of the location to get trends for Woeid list: https://gist.github.com/tedyblood/5bb5a9f78314cc1f478b3dd7cde790b9"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a list of trending topics for the specified WOEID (location identifier). Each trend contains its name and search query for the region. Useful for monitoring popular topics by location."
+        },
+        {
+          "info": {
+            "name": "Tweet Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/tweet-info",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns full data for a single tweet by its URL: text, creation date, language, engagement metrics (likes, retweets, quotes, replies, views, bookmarks), and the author's profile. If the tweet is a reply, quote, or repost, the nested original tweet and its author data are included as well."
+        },
+        {
+          "info": {
+            "name": "Tweet Data (batch)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/tweet-info-bulk",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns full data for up to 100 tweets in a single request. Each tweet object includes text, creation date, engagement metrics, and author profile. Works the same way as the single-tweet endpoint, but accepts an array of URLs. The response is not paginated."
+        },
+        {
+          "info": {
+            "name": "User Tweets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/user-tweets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a paginated list of tweets posted by a specific user. Up to 20 tweets per page. Each tweet includes text, creation date, engagement metrics, view count, and nested data for replies, quotes, and retweets when available. Provide either `link` (profile URL) or `user_id`."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Verification",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/check-comment",
+            "params": [
+              {
+                "name": "tweet_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL of the tweet to check."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X handle of the user being checked."
+              },
+              {
+                "name": "user_link",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X profile link of the user being checked."
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric Twitter/X user ID of the user being checked."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Checks whether a specific user has posted a reply under a given tweet. Returns `commented: true` along with the full reply tweet data if a comment is found. Requires `tweet_link` and one of `user_handle` or `user_id`."
+        },
+        {
+          "info": {
+            "name": "Check Community Membership",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/check-community-member",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Checks whether a specific user is a member of a given Twitter/X Community. Returns `is_member: true` if the user belongs to that community. Requires `community_id` and one user identifier (`username`, `user_link`, or `user_id`)."
+        },
+        {
+          "info": {
+            "name": "Check Follow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/check-follow",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Checks if one account follows another. User 1 is the account that should be followed, User 2 is the one you want to check. For example: \"Does Elon Musk (user_2) follow SorsaApp (user_1)?\" Pass only one identifier per side: link, username, or ID. Returns follow: true if the relationship exists, and user_protected: true if the checked user's profile is private."
+        },
+        {
+          "info": {
+            "name": "Check Quote or Retweet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/check-quoted",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Checks whether a user has quoted or retweeted a given tweet. Returns a `status` field with one of three values: `quoted`, `retweet`, or `not_found`. If a quote or retweet is found, the response also includes the interaction date and the quote text (when applicable). Identify the user with `username`, `user_link`, or `user_id`."
+        },
+        {
+          "info": {
+            "name": "Check Retweet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/check-retweet",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Checks whether a user has retweeted a given tweet. The endpoint scans up to 100 retweets per request. If the tweet has more retweets than that, a `next_cursor` is returned to continue checking. Identify the user with `username`, `user_link`, or `user_id`."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Community",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Community Members",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/community-members",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a paginated list of user profiles for members of the specified Twitter/X Community. Each profile includes display name, bio, follower stats, avatar, account creation date, and verification status."
+        },
+        {
+          "info": {
+            "name": "Search Community Tweets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/community-search-tweets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Searches for tweets within a specific Twitter/X Community by keyword. Up to 20 matching tweets per page. Results can be sorted by `popular` or `latest`. Each tweet includes text, creation date, engagement metrics, and author profile."
+        },
+        {
+          "info": {
+            "name": "Community Tweets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/community-tweets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a paginated feed of tweets published inside the specified Twitter/X Community. Up to 20 tweets per page. Each tweet includes text, creation date, engagement metrics, and author profile. Results can be sorted by `popular` or `latest` (default: `latest`)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sorsa Info Crypto Related",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Follower Category Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/followers-stats",
+            "params": [
+              {
+                "name": "user_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL of the user's Twitter/X profile."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X handle (without @)."
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric Twitter/X user ID."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a breakdown of the account's followers by Sorsa category: influencers, projects, and VC (venture capital) employees. Also indicates whether the account is protected. If the account is already indexed in the Sorsa database, the response is fast. For new accounts, the initial data collection may take longer, especially for large follower bases. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+        },
+        {
+          "info": {
+            "name": "New Followers (7 Days)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/new-followers-7d",
+            "params": [
+              {
+                "name": "user_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL of the user's Twitter/X profile."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X handle (without @)."
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric Twitter/X user ID."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns accounts that started following the specified user in the last 7 days. Both the target account and the returned followers must be present in the Sorsa database, which primarily tracks crypto-related accounts (influencers, projects, VCs). This means the results do not represent all new followers, only those already tracked by our system. Each entry includes profile data and the exact follow date. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+        },
+        {
+          "info": {
+            "name": "New Following (7 Days)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/new-following-7d",
+            "params": [
+              {
+                "name": "user_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL of the user's Twitter/X profile."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X handle (without @)."
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric Twitter/X user ID."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns accounts that the specified user started following in the last 7 days. Both the target account and the returned followings must be present in the Sorsa database, which primarily tracks crypto-related accounts (influencers, projects, VCs). This means the results do not represent all new follows, only those already tracked by our system. Each entry includes profile data and the exact follow date. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+        },
+        {
+          "info": {
+            "name": "Sorsa Score",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/score",
+            "params": [
+              {
+                "name": "user_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL of the user's Twitter/X profile."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X handle (without @)."
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric Twitter/X user ID."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the Sorsa Score for a Twitter/X account. The score is a numeric value that estimates the account's recognition and popularity among crypto influencers, projects, and venture capital firms. A higher score indicates stronger visibility within the ecosystem. For accounts with a large follower base, the response may take longer to generate. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+        },
+        {
+          "info": {
+            "name": "Sorsa Score Changes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/score-changes",
+            "params": [
+              {
+                "name": "user_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL of the user's Twitter/X profile."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X handle (without @)."
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric Twitter/X user ID."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the change in Sorsa Score over the last 7 days and the last 30 days. Useful for tracking momentum and identifying accounts that are gaining or losing influence. The account must already be indexed in the Sorsa database. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+        },
+        {
+          "info": {
+            "name": "Top 20 Followers by Score",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/top-followers",
+            "params": [
+              {
+                "name": "user_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL of the user's Twitter/X profile."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X handle (without @)."
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric Twitter/X user ID."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the 20 followers of the specified account with the highest Sorsa Score. Each entry includes the follower's profile data and follow date. Useful for identifying the most influential accounts in a user's audience. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+        },
+        {
+          "info": {
+            "name": "Top 20 Following by Score",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/top-following",
+            "params": [
+              {
+                "name": "user_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL of the user's Twitter/X profile."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X handle (without @)."
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric Twitter/X user ID."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the 20 accounts that the specified user follows with the highest Sorsa Score. Each entry includes profile data and follow date. Useful for understanding whose content and activity the user values most within the ecosystem. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Technical Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Convert User ID to Username",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/id-to-username/:user_id",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "user_id required"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Converts a numeric Twitter/X user ID into the account's current username. Useful for resolving stored IDs back into human-readable handles, especially when usernames may have changed."
+        },
+        {
+          "info": {
+            "name": "API Key Usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/key-usage-info",
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns usage statistics for the current API key: total allocated requests, remaining balance, and the expiration date of the current request quota. No parameters required; the key is read from the `ApiKey` header."
+        },
+        {
+          "info": {
+            "name": "Convert Profile Link to User ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/link-to-id",
+            "params": [
+              {
+                "name": "link",
+                "value": "",
+                "type": "query",
+                "description": "link required"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Extracts the stable numeric user ID from a Twitter/X profile URL. Useful for normalizing profile links into consistent identifiers before making further API calls."
+        },
+        {
+          "info": {
+            "name": "Convert Username to User ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/username-to-id/:user_handle",
+            "params": [
+              {
+                "name": "user_handle",
+                "value": "",
+                "type": "path",
+                "description": "user_handle required"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Converts a Twitter/X username into the corresponding stable numeric user ID. Unlike usernames, user IDs never change, making them reliable for long-term storage and cross-referencing."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Lists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Followers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/list-followers",
+            "params": [
+              {
+                "name": "list_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL or ID of the Twitter/X List."
+              },
+              {
+                "name": "next_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor from a previous response."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a paginated list of users who follow (are subscribed to) the specified Twitter/X List. Each entry contains the follower's profile data."
+        },
+        {
+          "info": {
+            "name": "List Members",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/list-members",
+            "params": [
+              {
+                "name": "list_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric ID of the Twitter/X List."
+              },
+              {
+                "name": "next_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor from a previous response."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns user profiles for all accounts included in the specified Twitter/X List. Each profile contains display name, bio, follower stats, avatar, and verification status."
+        },
+        {
+          "info": {
+            "name": "List Tweets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/list-tweets",
+            "params": [
+              {
+                "name": "list_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric ID of the Twitter/X List."
+              },
+              {
+                "name": "next_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor from a previous response."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a paginated feed of tweets published by members of the specified Twitter/X List. Up to 20 tweets per page. Each tweet includes text, creation date, engagement metrics, and basic author information."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Mentions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/mentions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns tweets that mention the specified user handle. Up to 20 results per page, sorted by mention time (newest first by default). Supports the richest set of filters among all search endpoints: minimum likes, replies, retweets, and a date range. Results can also be sorted by `popular` or `latest`."
+        },
+        {
+          "info": {
+            "name": "Place Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/place",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "The unique identifier of the place (Space ID)"
+              },
+              {
+                "name": "link",
+                "value": "",
+                "type": "query",
+                "description": "Full link to the place (Space link, e.g. https://twitter.com/i/spaces/1lPKqBajQrWGb)"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns detailed information about a place (Twitter Space) using its ID or link. Useful for viewing Space metadata, participants, settings, and statistics."
+        },
+        {
+          "info": {
+            "name": "Search Tweets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/search-tweets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Searches for tweets matching a text query using the same syntax as Twitter/X Advanced Search. Supports operators such as `from:`, `to:`, `since:`, `until:`, exact phrases in quotes, and hashtags. Returns up to 20 results per page, sortable by `popular` or `latest`. For a full list of supported query operators, see: https://github.com/igorbrigadir/twitter-advanced-search"
+        },
+        {
+          "info": {
+            "name": "Search Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/search-users",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Searches for Twitter/X accounts by a keyword or phrase. Returns matching user profiles with basic info: handle, display name, bio, follower stats, and verification status. Supports pagination via `next_cursor`."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
