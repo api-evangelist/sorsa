@@ -2,7 +2,7 @@ aid: sorsa
 url: https://raw.githubusercontent.com/api-evangelist/sorsa/refs/heads/main/apis.yml
 name: Sorsa
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 description: >-
   Sorsa Labs operates a real-time X (Twitter) data API providing developers access to tweets, profiles, search,
   mentions, lists, communities, engagement verification, and Sorsa Score crypto-influence analytics through 40 REST
