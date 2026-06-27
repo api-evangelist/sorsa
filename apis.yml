@@ -42,7 +42,7 @@ apis:
         url: https://docs.sorsa.io/api-reference-guide
       - type: GettingStarted
         url: https://docs.sorsa.io/quickstart
-      - type: Quickstart
+      - type: GettingStarted
         url: https://docs.sorsa.io/quickstart
       - type: Authentication
         url: https://docs.sorsa.io/authentication
@@ -50,7 +50,7 @@ apis:
         url: https://docs.sorsa.io/rate-limits
       - type: Pricing
         url: https://docs.sorsa.io/pricing
-      - type: Errors
+      - type: ErrorCodes
         url: https://docs.sorsa.io/error-codes
       - type: Versioning
         url: https://docs.sorsa.io/base-url-and-versioning
@@ -98,41 +98,41 @@ apis:
         url: json-ld/sorsa-context.jsonld
       - type: JSONLD
         url: json-ld/sorsa-security-context.jsonld
-      - type: Example
+      - type: Examples
         url: examples/sorsa-info-example.json
-      - type: Example
+      - type: Examples
         url: examples/sorsa-tweet-info-example.json
-      - type: Example
+      - type: Examples
         url: examples/sorsa-tweet-info-bulk-example.json
-      - type: Example
+      - type: Examples
         url: examples/sorsa-search-tweets-example.json
-      - type: Example
+      - type: Examples
         url: examples/sorsa-mentions-example.json
-      - type: Example
+      - type: Examples
         url: examples/sorsa-followers-example.json
-      - type: Example
+      - type: Examples
         url: examples/sorsa-follows-example.json
-      - type: Example
+      - type: Examples
         url: examples/sorsa-score-example.json
-      - type: Example
+      - type: Examples
         url: examples/sorsa-check-follow-example.json
-      - type: Example
+      - type: Examples
         url: examples/sorsa-key-usage-info-example.json
-      - type: Example
+      - type: Examples
         url: examples/sorsa-user-example.json
-      - type: Example
+      - type: Examples
         url: examples/sorsa-follower-example.json
-      - type: Example
+      - type: Examples
         url: examples/sorsa-tweet-example.json
-      - type: Example
+      - type: Examples
         url: examples/sorsa-tweet-entity-example.json
-      - type: Example
+      - type: Examples
         url: examples/sorsa-top-follower-example.json
-      - type: Example
+      - type: Examples
         url: examples/sorsa-place-example.json
-      - type: Example
+      - type: Examples
         url: examples/sorsa-trend-example.json
-      - type: Example
+      - type: Examples
         url: examples/sorsa-community-user-example.json
     contact:
       - FN: Sorsa Support
@@ -146,7 +146,7 @@ common:
     url: https://docs.sorsa.io/
   - type: APIsJSON
     url: https://api.sorsa.io/apis.json
-  - type: SignUp
+  - type: Signup
     url: https://app.sorsa.io/
   - type: Login
     url: https://app.sorsa.io/
@@ -240,7 +240,7 @@ common:
         description: 500,000 monthly requests at $899/mo — for high-volume crypto-intel platforms.
       - name: Custom
         description: Volume arrangements beyond 500K monthly requests via sales@sorsa.io with dedicated rate-limit profiles.
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://api.sorsa.io/llms.txt
 maintainers:
   - FN: Kin Lane
