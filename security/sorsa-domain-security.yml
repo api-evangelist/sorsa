@@ -1,0 +1,27 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: sorsa.io
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 16 04:51:34 2026 GMT
+  hsts: false
+- host: docs.sorsa.io
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 16 04:51:34 2026 GMT
+  hsts: true
+  hsts_max_age: 63072000
+- host: api.sorsa.io
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 23 06:25:00 2026 GMT
+  hsts: true
+  hsts_max_age: 63072000
+domains:
+- domain: sorsa.io
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: false

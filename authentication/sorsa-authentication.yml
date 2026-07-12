@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/sorsa-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: ApiKey
+  type: apiKey
+  in: header
+  parameter: ApiKey
+  description: Include your API key in the `ApiKey` header with every request.
+  sources:
+  - openapi/sorsa-openapi.yml

@@ -138,6 +138,10 @@ apis:
       - FN: Sorsa Support
         email: contacts@sorsa.io
 common:
+  - type: DomainSecurity
+    url: security/sorsa-domain-security.yml
+  - type: Authentication
+    url: authentication/sorsa-authentication.yml
   - type: Website
     url: https://sorsa.io/
   - type: DeveloperPortal
