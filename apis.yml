@@ -138,6 +138,8 @@ apis:
       - FN: Sorsa Support
         email: contacts@sorsa.io
 common:
+  - type: AgenticAccess
+    url: agentic-access/sorsa-agentic-access.yml
   - type: DomainSecurity
     url: security/sorsa-domain-security.yml
   - type: Authentication
