@@ -1,0 +1,699 @@
+openapi: 3.0.3
+info:
+  title: Sorsa Community Sorsa Info Crypto Related API
+  version: '3.0'
+  description: Real-time X (Twitter) data API providing access to tweets, profiles, search, mentions, lists, communities, engagement verification, and Sorsa Score crypto-influence analytics via 40 REST endpoints. Affordable alternative to the official X API.
+  contact:
+    name: Sorsa Support
+    email: contacts@sorsa.io
+    url: https://docs.sorsa.io/
+  license:
+    name: Proprietary
+    url: https://sorsa.io/
+  termsOfService: https://sorsa.io/terms
+servers:
+- url: https://api.sorsa.io/v3
+  description: Sorsa API v3 production
+security:
+- ApiKey: []
+tags:
+- name: Sorsa Info Crypto Related
+paths:
+  /followers-stats:
+    get:
+      description: 'Returns a breakdown of the account''s followers by Sorsa category: influencers, projects, and VC (venture capital) employees. Also indicates whether the account is protected. If the account is already indexed in the Sorsa database, the response is fast. For new accounts, the initial data collection may take longer, especially for large follower bases. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`.'
+      parameters:
+      - description: Full URL of the user's Twitter/X profile.
+        in: query
+        name: user_link
+        schema:
+          type: string
+      - description: Twitter/X handle (without @).
+        in: query
+        name: username
+        schema:
+          type: string
+      - description: Numeric Twitter/X user ID.
+        in: query
+        name: user_id
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/sorsa.FollowersStatsResp'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Follower Category Stats
+      tags:
+      - Sorsa Info Crypto Related
+  /new-followers-7d:
+    get:
+      description: 'Returns accounts that started following the specified user in the last 7 days. Both the target account and the returned followers must be present in the Sorsa database, which primarily tracks crypto-related accounts (influencers, projects, VCs). This means the results do not represent all new followers, only those already tracked by our system. Each entry includes profile data and the exact follow date. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`.'
+      parameters:
+      - description: Full URL of the user's Twitter/X profile.
+        in: query
+        name: user_link
+        schema:
+          type: string
+      - description: Twitter/X handle (without @).
+        in: query
+        name: username
+        schema:
+          type: string
+      - description: Numeric Twitter/X user ID.
+        in: query
+        name: user_id
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/common.FollowersResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: New Followers (7 Days)
+      tags:
+      - Sorsa Info Crypto Related
+  /new-following-7d:
+    get:
+      description: 'Returns accounts that the specified user started following in the last 7 days. Both the target account and the returned followings must be present in the Sorsa database, which primarily tracks crypto-related accounts (influencers, projects, VCs). This means the results do not represent all new follows, only those already tracked by our system. Each entry includes profile data and the exact follow date. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`.'
+      parameters:
+      - description: Full URL of the user's Twitter/X profile.
+        in: query
+        name: user_link
+        schema:
+          type: string
+      - description: Twitter/X handle (without @).
+        in: query
+        name: username
+        schema:
+          type: string
+      - description: Numeric Twitter/X user ID.
+        in: query
+        name: user_id
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/common.FollowersResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: New Following (7 Days)
+      tags:
+      - Sorsa Info Crypto Related
+  /score:
+    get:
+      description: 'Returns the Sorsa Score for a Twitter/X account. The score is a numeric value that estimates the account''s recognition and popularity among crypto influencers, projects, and venture capital firms. A higher score indicates stronger visibility within the ecosystem. For accounts with a large follower base, the response may take longer to generate. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`.'
+      parameters:
+      - description: Full URL of the user's Twitter/X profile.
+        in: query
+        name: user_link
+        schema:
+          type: string
+      - description: Twitter/X handle (without @).
+        in: query
+        name: username
+        schema:
+          type: string
+      - description: Numeric Twitter/X user ID.
+        in: query
+        name: user_id
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/sorsa.ScoreResp'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Sorsa Score
+      tags:
+      - Sorsa Info Crypto Related
+  /score-changes:
+    get:
+      description: 'Returns the change in Sorsa Score over the last 7 days and the last 30 days. Useful for tracking momentum and identifying accounts that are gaining or losing influence. The account must already be indexed in the Sorsa database. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`.'
+      parameters:
+      - description: Full URL of the user's Twitter/X profile.
+        in: query
+        name: user_link
+        schema:
+          type: string
+      - description: Twitter/X handle (without @).
+        in: query
+        name: username
+        schema:
+          type: string
+      - description: Numeric Twitter/X user ID.
+        in: query
+        name: user_id
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/sorsa.ScoreChangesResp'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Sorsa Score Changes
+      tags:
+      - Sorsa Info Crypto Related
+  /top-followers:
+    get:
+      description: 'Returns the 20 followers of the specified account with the highest Sorsa Score. Each entry includes the follower''s profile data and follow date. Useful for identifying the most influential accounts in a user''s audience. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`.'
+      parameters:
+      - description: Full URL of the user's Twitter/X profile.
+        in: query
+        name: user_link
+        schema:
+          type: string
+      - description: Twitter/X handle (without @).
+        in: query
+        name: username
+        schema:
+          type: string
+      - description: Numeric Twitter/X user ID.
+        in: query
+        name: user_id
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/common.TopFollowersResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Top 20 Followers by Score
+      tags:
+      - Sorsa Info Crypto Related
+  /top-following:
+    get:
+      description: 'Returns the 20 accounts that the specified user follows with the highest Sorsa Score. Each entry includes profile data and follow date. Useful for understanding whose content and activity the user values most within the ecosystem. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`.'
+      parameters:
+      - description: Full URL of the user's Twitter/X profile.
+        in: query
+        name: user_link
+        schema:
+          type: string
+      - description: Twitter/X handle (without @).
+        in: query
+        name: username
+        schema:
+          type: string
+      - description: Numeric Twitter/X user ID.
+        in: query
+        name: user_id
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/common.FollowersResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Top 20 Following by Score
+      tags:
+      - Sorsa Info Crypto Related
+components:
+  schemas:
+    sorsa.ScoreChangesResp:
+      properties:
+        month_delta:
+          description: Score change over the last 30 days.
+          example: 24
+          type: number
+        week_delta:
+          description: Score change over the last 7 days.
+          example: 12
+          type: number
+      type: object
+    handler.ErrorResponse:
+      properties:
+        message:
+          type: string
+      type: object
+    sorsa.ScoreResp:
+      properties:
+        score:
+          description: Numeric influence score. Higher values indicate stronger recognition among influencers, projects, and VCs.
+          example: 1.25
+          type: number
+      type: object
+    common.FollowersResponse:
+      properties:
+        users:
+          description: Array of follower profile objects with follow dates.
+          items:
+            $ref: '#/components/schemas/common.Follower'
+          type: array
+      type: object
+    common.Follower:
+      properties:
+        bio_urls:
+          description: URLs found in the user's bio.
+          items:
+            type: string
+          type: array
+        can_dm:
+          description: Whether the account accepts direct messages.
+          example: false
+          type: boolean
+        created_at:
+          description: Account creation date in ISO 8601 format.
+          example: '2009-06-02T20:12:29Z'
+          type: string
+        description:
+          description: Profile bio text.
+          example: Bio text
+          type: string
+        display_name:
+          description: User's display name.
+          example: Elon Musk
+          type: string
+        favourites_count:
+          description: Total number of tweets this user has liked.
+          example: 1200
+          type: integer
+        followerDate:
+          description: Date when this user started following the target account, in ISO 8601 format.
+          example: '2024-01-15T10:30:00Z'
+          type: string
+        followers_count:
+          description: Number of accounts following this user.
+          example: 100000
+          type: integer
+        followings_count:
+          description: Number of accounts this user follows.
+          example: 500
+          type: integer
+        id:
+          description: Unique Twitter/X user ID.
+          example: '44196397'
+          type: string
+        media_count:
+          description: Total number of media items posted by this user.
+          example: 300
+          type: integer
+        pinned_tweet_ids:
+          description: IDs of the user's pinned tweets.
+          items:
+            type: string
+          type: array
+        possibly_sensitive:
+          description: Whether the account is flagged as possibly containing sensitive content.
+          example: false
+          type: boolean
+        profile_background_image_url:
+          description: URL of the user's profile background image.
+          example: https://pbs.twimg.com/profile_banners/44196397/123
+          type: string
+        profile_image_url:
+          description: URL of the user's avatar image.
+          example: https://pbs.twimg.com/profile_images/123/photo.jpg
+          type: string
+        protected:
+          description: Whether the account's tweets are protected (private).
+          example: false
+          type: boolean
+        tweets_count:
+          description: Total number of tweets posted by this user.
+          example: 5000
+          type: integer
+        username:
+          description: Current Twitter/X handle (without @).
+          example: elonmusk
+          type: string
+        verified:
+          description: Whether the account has a verified badge.
+          example: true
+          type: boolean
+      type: object
+    sorsa.FollowersStatsResp:
+      properties:
+        followers_count:
+          description: Total number of categorized followers.
+          example: 16
+          type: integer
+        influencers_count:
+          description: Number of followers classified as influencers.
+          example: 12
+          type: integer
+        projects_count:
+          description: Number of followers classified as projects.
+          example: 3
+          type: integer
+        user_protected:
+          description: '`true` if the target account is protected.'
+          example: false
+          type: boolean
+        venture_capitals_count:
+          description: Number of followers classified as VC employees.
+          example: 1
+          type: integer
+      type: object
+    common.TopFollower:
+      properties:
+        can_dm:
+          example: false
+          type: boolean
+        created_at:
+          description: Account creation date in ISO 8601 format.
+          example: '2009-06-02T20:12:29Z'
+          type: string
+        description:
+          description: Profile bio text.
+          example: Bio text
+          type: string
+        display_name:
+          description: User's display name.
+          example: Elon Musk
+          type: string
+        followers_count:
+          description: Number of accounts following this user.
+          example: 100000
+          type: integer
+        followings_count:
+          description: Number of accounts this user follows.
+          example: 500
+          type: integer
+        id:
+          description: Unique Twitter/X user ID.
+          example: '44196397'
+          type: string
+        profile_background_image_url:
+          description: URL of the user's profile background image.
+          example: https://pbs.twimg.com/profile_banners/44196397/123
+          type: string
+        profile_image_url:
+          description: URL of the user's avatar image.
+          example: https://pbs.twimg.com/profile_images/123/photo.jpg
+          type: string
+        protected:
+          description: Whether the account's tweets are protected (private).
+          example: false
+          type: boolean
+        score:
+          description: Whether the account accepts direct messages.
+          example: 100
+          type: number
+        tweets_count:
+          description: Total number of tweets posted by this user.
+          example: 5000
+          type: integer
+        username:
+          description: Current Twitter/X handle (without @).
+          example: elonmusk
+          type: string
+        verified:
+          description: Whether the account has a verified badge.
+          example: true
+          type: boolean
+      type: object
+    common.TopFollowersResponse:
+      properties:
+        users:
+          description: Array of follower profile objects with follow dates.
+          items:
+            $ref: '#/components/schemas/common.TopFollower'
+          type: array
+      type: object
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: header
+      name: ApiKey
+      description: Include your API key in the `ApiKey` header with every request.

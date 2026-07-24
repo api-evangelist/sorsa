@@ -1,0 +1,568 @@
+openapi: 3.0.3
+info:
+  title: Sorsa Community Users Data API
+  version: '3.0'
+  description: Real-time X (Twitter) data API providing access to tweets, profiles, search, mentions, lists, communities, engagement verification, and Sorsa Score crypto-influence analytics via 40 REST endpoints. Affordable alternative to the official X API.
+  contact:
+    name: Sorsa Support
+    email: contacts@sorsa.io
+    url: https://docs.sorsa.io/
+  license:
+    name: Proprietary
+    url: https://sorsa.io/
+  termsOfService: https://sorsa.io/terms
+servers:
+- url: https://api.sorsa.io/v3
+  description: Sorsa API v3 production
+security:
+- ApiKey: []
+tags:
+- name: Users Data
+  description: User profile, followers, following, verified followers, About metadata
+paths:
+  /about:
+    get:
+      description: 'Returns metadata from the "About" section of a Twitter/X account, including country, total number of username changes, and the date of the most recent change. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`.'
+      parameters:
+      - description: Full URL of the user's Twitter/X profile.
+        in: query
+        name: user_link
+        schema:
+          type: string
+      - description: Twitter/X handle (without @).
+        in: query
+        name: username
+        schema:
+          type: string
+      - description: Numeric Twitter/X user ID.
+        in: query
+        name: user_id
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/usersdata.AboutRes'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Account About Info
+      tags:
+      - Users Data
+  /followers:
+    get:
+      description: 'Returns a paginated list of users who follow the specified account. Up to 200 user profiles per page. Use the returned `next_cursor` to load subsequent pages. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`.'
+      parameters:
+      - description: Full URL of the user's Twitter/X profile.
+        in: query
+        name: user_link
+        schema:
+          type: string
+      - description: Twitter/X handle (without @).
+        in: query
+        name: username
+        schema:
+          type: string
+      - description: Numeric Twitter/X user ID.
+        in: query
+        name: user_id
+        schema:
+          type: string
+      - description: Pagination cursor from a previous response.
+        in: query
+        name: next_cursor
+        schema:
+          format: int64
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/common.UsersResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Followers
+      tags:
+      - Users Data
+  /follows:
+    get:
+      description: 'Returns a paginated list of accounts that the specified user follows. Up to 200 user profiles per page. Use the returned `next_cursor` to load subsequent pages. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`.'
+      parameters:
+      - description: Full URL of the user's Twitter/X profile.
+        in: query
+        name: user_link
+        schema:
+          type: string
+      - description: Twitter/X handle (without @).
+        in: query
+        name: username
+        schema:
+          type: string
+      - description: Numeric Twitter/X user ID.
+        in: query
+        name: user_id
+        schema:
+          type: string
+      - description: Pagination cursor from a previous response.
+        in: query
+        name: next_cursor
+        schema:
+          format: int64
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/common.UsersResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Following
+      tags:
+      - Users Data
+  /info:
+    get:
+      description: 'Returns the public profile of a Twitter/X account, including display name, bio, follower and following counts, tweet count, avatar, account creation date, and verification status. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`.'
+      parameters:
+      - description: Full URL of the user's Twitter/X profile.
+        in: query
+        name: user_link
+        schema:
+          type: string
+      - description: Twitter/X handle (without @).
+        in: query
+        name: username
+        schema:
+          type: string
+      - description: Numeric Twitter/X user ID.
+        in: query
+        name: user_id
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/common.User'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: User Profile
+      tags:
+      - Users Data
+  /info-batch:
+    get:
+      description: Returns public profile data for multiple Twitter/X accounts in a single request. Works the same way as the single-user endpoint, but accepts arrays of usernames or user IDs. Up to 100 accounts per request. Provide either `usernames` or `user_ids`.
+      parameters:
+      - description: Array of Twitter/X handles (without @).
+        in: query
+        name: usernames
+        schema:
+          items:
+            type: string
+          type: array
+      - description: Array of numeric Twitter/X user IDs.
+        in: query
+        name: user_ids
+        schema:
+          items:
+            type: string
+          type: array
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/usersdata.InfoBatchRes'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: User Profile (batch)
+      tags:
+      - Users Data
+  /verified-followers:
+    get:
+      description: 'Returns a paginated list of verified users who follow the specified account. Works the same way as the regular followers endpoint, but filters to only include accounts with a verified badge. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`.'
+      parameters:
+      - description: Full URL of the user's Twitter/X profile.
+        in: query
+        name: user_link
+        schema:
+          type: string
+      - description: Twitter/X handle (without @).
+        in: query
+        name: username
+        schema:
+          type: string
+      - description: Numeric Twitter/X user ID.
+        in: query
+        name: user_id
+        schema:
+          type: string
+      - description: Pagination cursor from a previous response.
+        in: query
+        name: next_cursor
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/common.UsersResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Verified Followers
+      tags:
+      - Users Data
+components:
+  schemas:
+    usersdata.AboutRes:
+      properties:
+        country:
+          description: Country associated with the account.
+          example: United States
+          type: string
+        last_username_change_at:
+          description: Date of the most recent username change in ISO 8601 format.
+          example: '2021-01-01T00:00:00Z'
+          type: string
+        username_change_count:
+          description: Total number of username changes.
+          example: 1
+          type: integer
+      type: object
+    common.User:
+      properties:
+        bio_urls:
+          description: URLs found in the user's bio.
+          items:
+            type: string
+          type: array
+        can_dm:
+          description: Whether the account accepts direct messages.
+          example: false
+          type: boolean
+        created_at:
+          description: Account creation date in ISO 8601 format.
+          example: '2009-06-02T20:12:29Z'
+          type: string
+        description:
+          description: Profile bio text.
+          example: Bio text
+          type: string
+        display_name:
+          description: User's display name.
+          example: Elon Musk
+          type: string
+        favourites_count:
+          description: Total number of tweets this user has liked.
+          example: 1200
+          type: integer
+        followers_count:
+          description: Number of accounts following this user.
+          example: 100000
+          type: integer
+        followings_count:
+          description: Number of accounts this user follows.
+          example: 500
+          type: integer
+        id:
+          description: Unique Twitter/X user ID.
+          example: '44196397'
+          type: string
+        location:
+          description: Location string from the user's profile.
+          example: Austin, TX
+          type: string
+        media_count:
+          description: Total number of media items posted by this user.
+          example: 300
+          type: integer
+        pinned_tweet_ids:
+          description: IDs of the user's pinned tweets.
+          items:
+            type: string
+          type: array
+        possibly_sensitive:
+          description: Whether the account is flagged as possibly containing sensitive content.
+          example: false
+          type: boolean
+        profile_background_image_url:
+          description: URL of the user's profile background image.
+          example: https://pbs.twimg.com/profile_banners/44196397/123
+          type: string
+        profile_image_url:
+          description: URL of the user's avatar image.
+          example: https://pbs.twimg.com/profile_images/123/photo.jpg
+          type: string
+        protected:
+          description: Whether the account's tweets are protected (private).
+          example: false
+          type: boolean
+        tweets_count:
+          description: Total number of tweets posted by this user.
+          example: 5000
+          type: integer
+        username:
+          description: Current Twitter/X handle (without @).
+          example: elonmusk
+          type: string
+        verified:
+          description: Whether the account has a verified badge.
+          example: true
+          type: boolean
+      type: object
+    handler.ErrorResponse:
+      properties:
+        message:
+          type: string
+      type: object
+    common.UsersResponse:
+      properties:
+        next_cursor:
+          description: Cursor for fetching the next page of results. Null or absent if no more pages.
+          type: string
+        users:
+          description: Array of user profile objects.
+          items:
+            $ref: '#/components/schemas/common.User'
+          type: array
+      type: object
+    usersdata.InfoBatchRes:
+      properties:
+        users:
+          description: Array of user profile objects.
+          items:
+            $ref: '#/components/schemas/common.User'
+          type: array
+      type: object
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: header
+      name: ApiKey
+      description: Include your API key in the `ApiKey` header with every request.

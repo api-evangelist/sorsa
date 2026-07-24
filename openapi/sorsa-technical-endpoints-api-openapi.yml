@@ -1,0 +1,274 @@
+openapi: 3.0.3
+info:
+  title: Sorsa Community Technical Endpoints API
+  version: '3.0'
+  description: Real-time X (Twitter) data API providing access to tweets, profiles, search, mentions, lists, communities, engagement verification, and Sorsa Score crypto-influence analytics via 40 REST endpoints. Affordable alternative to the official X API.
+  contact:
+    name: Sorsa Support
+    email: contacts@sorsa.io
+    url: https://docs.sorsa.io/
+  license:
+    name: Proprietary
+    url: https://sorsa.io/
+  termsOfService: https://sorsa.io/terms
+servers:
+- url: https://api.sorsa.io/v3
+  description: Sorsa API v3 production
+security:
+- ApiKey: []
+tags:
+- name: Technical Endpoints
+paths:
+  /id-to-username/{user_id}:
+    get:
+      description: Converts a numeric Twitter/X user ID into the account's current username. Useful for resolving stored IDs back into human-readable handles, especially when usernames may have changed.
+      parameters:
+      - description: user_id required
+        in: path
+        name: user_id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/technical.HandleRes'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Convert User ID to Username
+      tags:
+      - Technical Endpoints
+  /key-usage-info:
+    get:
+      description: 'Returns usage statistics for the current API key: total allocated requests, remaining balance, and the expiration date of the current request quota. No parameters required; the key is read from the `ApiKey` header.'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/technical.KeysResp'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: API Key Usage
+      tags:
+      - Technical Endpoints
+  /link-to-id:
+    get:
+      description: Extracts the stable numeric user ID from a Twitter/X profile URL. Useful for normalizing profile links into consistent identifiers before making further API calls.
+      parameters:
+      - description: link required
+        in: query
+        name: link
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/technical.LinkToIDResp'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Convert Profile Link to User ID
+      tags:
+      - Technical Endpoints
+  /username-to-id/{user_handle}:
+    get:
+      description: Converts a Twitter/X username into the corresponding stable numeric user ID. Unlike usernames, user IDs never change, making them reliable for long-term storage and cross-referencing.
+      parameters:
+      - description: user_handle required
+        in: path
+        name: user_handle
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/technical.IDRes'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Convert Username to User ID
+      tags:
+      - Technical Endpoints
+components:
+  schemas:
+    technical.IDRes:
+      properties:
+        id:
+          description: Numeric Twitter/X user ID.
+          example: '1'
+          type: string
+      type: object
+    technical.KeysResp:
+      properties:
+        key_requests:
+          description: Number of requests allocated for the current period.
+          example: 100
+          type: integer
+        remaining_requests:
+          description: Number of requests remaining.
+          example: 100
+          type: integer
+        total_requests:
+          description: Total requests used across all periods.
+          example: 1000
+          type: integer
+        valid_until:
+          description: Expiration date of the current request balance in ISO 8601 format.
+          example: '2021-01-01T00:00:00Z'
+          type: string
+      type: object
+    technical.HandleRes:
+      properties:
+        handle:
+          description: Current Twitter/X handle (without @).
+          example: elonmusk
+          type: string
+      type: object
+    handler.ErrorResponse:
+      properties:
+        message:
+          type: string
+      type: object
+    technical.LinkToIDResp:
+      properties:
+        id:
+          description: Numeric Twitter/X user ID.
+          type: string
+      type: object
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: header
+      name: ApiKey
+      description: Include your API key in the `ApiKey` header with every request.

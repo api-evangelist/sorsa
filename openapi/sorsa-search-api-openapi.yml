@@ -1,0 +1,617 @@
+openapi: 3.0.3
+info:
+  title: Sorsa Community Search API
+  version: '3.0'
+  description: Real-time X (Twitter) data API providing access to tweets, profiles, search, mentions, lists, communities, engagement verification, and Sorsa Score crypto-influence analytics via 40 REST endpoints. Affordable alternative to the official X API.
+  contact:
+    name: Sorsa Support
+    email: contacts@sorsa.io
+    url: https://docs.sorsa.io/
+  license:
+    name: Proprietary
+    url: https://sorsa.io/
+  termsOfService: https://sorsa.io/terms
+servers:
+- url: https://api.sorsa.io/v3
+  description: Sorsa API v3 production
+security:
+- ApiKey: []
+tags:
+- name: Search
+  description: Search tweets, users, mentions, and Twitter Spaces (Places)
+paths:
+  /mentions:
+    post:
+      description: 'Returns tweets that mention the specified user handle. Up to 20 results per page, sorted by mention time (newest first by default). Supports the richest set of filters among all search endpoints: minimum likes, replies, retweets, and a date range. Results can also be sorted by `popular` or `latest`.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/search.SearchMentionsReq'
+        description: query required, next_cursor optional
+        required: true
+        x-originalParamName: payload
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/common.TweetsResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Search Mentions
+      tags:
+      - Search
+  /place:
+    get:
+      description: Returns detailed information about a place (Twitter Space) using its ID or link. Useful for viewing Space metadata, participants, settings, and statistics.
+      parameters:
+      - description: The unique identifier of the place (Space ID)
+        in: query
+        name: id
+        schema:
+          type: string
+      - description: Full link to the place (Space link, e.g. https://twitter.com/i/spaces/1lPKqBajQrWGb)
+        in: query
+        name: link
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/common.Place'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Place Information
+      tags:
+      - Search
+  /search-tweets:
+    post:
+      description: 'Searches for tweets matching a text query using the same syntax as Twitter/X Advanced Search. Supports operators such as `from:`, `to:`, `since:`, `until:`, exact phrases in quotes, and hashtags. Returns up to 20 results per page, sortable by `popular` or `latest`. For a full list of supported query operators, see: https://github.com/igorbrigadir/twitter-advanced-search'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/search.SearchTweetsReq'
+        description: query required, next_cursor optional
+        required: true
+        x-originalParamName: payload
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/common.TweetsResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Search Tweets
+      tags:
+      - Search
+  /search-users:
+    post:
+      description: 'Searches for Twitter/X accounts by a keyword or phrase. Returns matching user profiles with basic info: handle, display name, bio, follower stats, and verification status. Supports pagination via `next_cursor`.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/search.SearchUsersReq'
+        description: query required, next_cursor optional
+        required: true
+        x-originalParamName: payload
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/common.UsersResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Search Users
+      tags:
+      - Search
+components:
+  schemas:
+    common.PlaceSettings:
+      properties:
+        conversation_controls:
+          type: integer
+        disallow_join:
+          type: boolean
+        is_employee_only:
+          type: boolean
+        is_locked:
+          type: boolean
+        is_muted:
+          type: boolean
+        is_space_available_for_clipping:
+          type: boolean
+        is_space_available_for_replay:
+          type: boolean
+        max_admin_capacity:
+          type: integer
+        max_guest_sessions:
+          type: integer
+        narrow_cast_space_type:
+          type: integer
+        no_incognito:
+          type: boolean
+      type: object
+    common.User:
+      properties:
+        bio_urls:
+          description: URLs found in the user's bio.
+          items:
+            type: string
+          type: array
+        can_dm:
+          description: Whether the account accepts direct messages.
+          example: false
+          type: boolean
+        created_at:
+          description: Account creation date in ISO 8601 format.
+          example: '2009-06-02T20:12:29Z'
+          type: string
+        description:
+          description: Profile bio text.
+          example: Bio text
+          type: string
+        display_name:
+          description: User's display name.
+          example: Elon Musk
+          type: string
+        favourites_count:
+          description: Total number of tweets this user has liked.
+          example: 1200
+          type: integer
+        followers_count:
+          description: Number of accounts following this user.
+          example: 100000
+          type: integer
+        followings_count:
+          description: Number of accounts this user follows.
+          example: 500
+          type: integer
+        id:
+          description: Unique Twitter/X user ID.
+          example: '44196397'
+          type: string
+        location:
+          description: Location string from the user's profile.
+          example: Austin, TX
+          type: string
+        media_count:
+          description: Total number of media items posted by this user.
+          example: 300
+          type: integer
+        pinned_tweet_ids:
+          description: IDs of the user's pinned tweets.
+          items:
+            type: string
+          type: array
+        possibly_sensitive:
+          description: Whether the account is flagged as possibly containing sensitive content.
+          example: false
+          type: boolean
+        profile_background_image_url:
+          description: URL of the user's profile background image.
+          example: https://pbs.twimg.com/profile_banners/44196397/123
+          type: string
+        profile_image_url:
+          description: URL of the user's avatar image.
+          example: https://pbs.twimg.com/profile_images/123/photo.jpg
+          type: string
+        protected:
+          description: Whether the account's tweets are protected (private).
+          example: false
+          type: boolean
+        tweets_count:
+          description: Total number of tweets posted by this user.
+          example: 5000
+          type: integer
+        username:
+          description: Current Twitter/X handle (without @).
+          example: elonmusk
+          type: string
+        verified:
+          description: Whether the account has a verified badge.
+          example: true
+          type: boolean
+      type: object
+    common.PlaceParticipants:
+      properties:
+        admins:
+          items:
+            $ref: '#/components/schemas/common.PlaceParticipant'
+          type: array
+        listeners:
+          items:
+            $ref: '#/components/schemas/common.PlaceParticipant'
+          type: array
+        speakers:
+          items:
+            $ref: '#/components/schemas/common.PlaceParticipant'
+          type: array
+        total:
+          type: integer
+      type: object
+    common.TweetEntity:
+      properties:
+        link:
+          description: Direct URL of the entity.
+          example: https://t.co/example
+          type: string
+        preview:
+          description: Preview or thumbnail URL for the entity.
+          example: https://pbs.twimg.com/preview
+          type: string
+        type:
+          description: Entity type (e.g. `photo`, `video`, `url`).
+          example: photo
+          type: string
+      type: object
+    common.Place:
+      properties:
+        created_at:
+          type: integer
+        creator:
+          $ref: '#/components/schemas/common.User'
+        id:
+          type: string
+        is_subscribed:
+          type: boolean
+        media_key:
+          type: string
+        participants:
+          $ref: '#/components/schemas/common.PlaceParticipants'
+        scheduled_start:
+          type: integer
+        settings:
+          $ref: '#/components/schemas/common.PlaceSettings'
+        state:
+          type: string
+        stats:
+          $ref: '#/components/schemas/common.PlaceStats'
+        title:
+          type: string
+        updated_at:
+          type: integer
+      type: object
+    handler.ErrorResponse:
+      properties:
+        message:
+          type: string
+      type: object
+    search.SearchTweetsReq:
+      properties:
+        next_cursor:
+          example: JKHSJFHADUYJKSDy2y3u123
+          type: string
+        order:
+          example: popular
+          type: string
+        query:
+          example: elonmusk
+          type: string
+      type: object
+    search.SearchUsersReq:
+      properties:
+        next_cursor:
+          example: JKHSJFHADUYJKSDy2y3u123
+          type: string
+        query:
+          example: elonmusk
+          type: string
+      type: object
+    common.PlaceParticipant:
+      properties:
+        avatar:
+          type: string
+        id:
+          type: string
+        is_muted_by_admin:
+          type: boolean
+        is_muted_by_guest:
+          type: boolean
+        is_verified:
+          type: boolean
+        name:
+          type: string
+        periscope_user_id:
+          type: string
+        start:
+          type: integer
+        username:
+          type: string
+      type: object
+    common.PlaceStats:
+      properties:
+        total_live_listeners:
+          type: integer
+        total_participants:
+          type: integer
+        total_replay_watched:
+          type: integer
+      type: object
+    common.UsersResponse:
+      properties:
+        next_cursor:
+          description: Cursor for fetching the next page of results. Null or absent if no more pages.
+          type: string
+        users:
+          description: Array of user profile objects.
+          items:
+            $ref: '#/components/schemas/common.User'
+          type: array
+      type: object
+    common.Tweet:
+      properties:
+        bookmark_count:
+          description: Number of times the tweet has been bookmarked.
+          example: 15
+          type: integer
+        conversation_id_str:
+          description: ID of the root tweet in the conversation thread.
+          example: '1782368585664626774'
+          type: string
+        created_at:
+          description: Tweet publication date in ISO 8601 format.
+          example: '2024-01-15T10:30:00Z'
+          type: string
+        entities:
+          description: Media, links, and other embedded entities attached to the tweet.
+          items:
+            $ref: '#/components/schemas/common.TweetEntity'
+          type: array
+        full_text:
+          description: Full text content of the tweet.
+          example: Hello world
+          type: string
+        id:
+          description: Unique tweet ID.
+          example: '1782368585664626774'
+          type: string
+        in_reply_to_tweet_id:
+          description: ID of the tweet this tweet is replying to. Null if not a reply.
+          example: '1782368585664626000'
+          type: string
+        in_reply_to_username:
+          description: Username of the account this tweet is replying to.
+          example: username
+          type: string
+        is_quote_status:
+          description: Whether this tweet quotes another tweet.
+          example: false
+          type: boolean
+        is_replies_limited:
+          description: Whether replies to this tweet are restricted by the author.
+          example: false
+          type: boolean
+        is_reply:
+          description: Whether this tweet is a reply to another tweet.
+          example: false
+          type: boolean
+        lang:
+          description: Detected language code of the tweet (e.g. `en`, `es`).
+          example: en
+          type: string
+        likes_count:
+          description: Number of likes on the tweet.
+          example: 200
+          type: integer
+        quote_count:
+          description: Number of quote tweets.
+          example: 5
+          type: integer
+        quoted_status:
+          allOf:
+          - $ref: '#/components/schemas/common.Tweet'
+          description: The original tweet being quoted. Present only if `is_quote_status` is true.
+        reply_count:
+          description: Number of replies to the tweet.
+          example: 10
+          type: integer
+        retweet_count:
+          description: Number of retweets.
+          example: 50
+          type: integer
+        retweeted_status:
+          allOf:
+          - $ref: '#/components/schemas/common.Tweet'
+          description: The original tweet being retweeted. Present only for retweets.
+        user:
+          allOf:
+          - $ref: '#/components/schemas/common.User'
+          description: Author of the tweet.
+        view_count:
+          description: Number of views (impressions).
+          example: 10000
+          type: integer
+      type: object
+    common.TweetsResponse:
+      properties:
+        next_cursor:
+          description: Cursor for fetching the next page of results. Null or absent if no more pages.
+          type: string
+        tweets:
+          description: Array of tweet objects.
+          items:
+            $ref: '#/components/schemas/common.Tweet'
+          type: array
+      type: object
+    search.SearchMentionsReq:
+      properties:
+        min_likes:
+          example: 100
+          type: integer
+        min_replies:
+          example: 100
+          type: integer
+        min_retweets:
+          example: 100
+          type: integer
+        next_cursor:
+          example: JKHSJFHADUYJKSDy2y3u123
+          type: string
+        order:
+          example: popular
+          type: string
+        query:
+          example: elonmusk
+          type: string
+        since_date:
+          example: '2026-01-01'
+          type: string
+        until_date:
+          example: '2026-01-01'
+          type: string
+      type: object
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: header
+      name: ApiKey
+      description: Include your API key in the `ApiKey` header with every request.

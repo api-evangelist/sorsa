@@ -1,0 +1,812 @@
+openapi: 3.0.3
+info:
+  title: Sorsa Community Tweets API
+  version: '3.0'
+  description: Real-time X (Twitter) data API providing access to tweets, profiles, search, mentions, lists, communities, engagement verification, and Sorsa Score crypto-influence analytics via 40 REST endpoints. Affordable alternative to the official X API.
+  contact:
+    name: Sorsa Support
+    email: contacts@sorsa.io
+    url: https://docs.sorsa.io/
+  license:
+    name: Proprietary
+    url: https://sorsa.io/
+  termsOfService: https://sorsa.io/terms
+servers:
+- url: https://api.sorsa.io/v3
+  description: Sorsa API v3 production
+security:
+- ApiKey: []
+tags:
+- name: Tweets
+  description: Tweet data (single and batch), articles, user timelines, quotes, retweets, comments, trends
+paths:
+  /article:
+    post:
+      description: Returns full data for a Twitter/X Article (long-form post) by its URL. The response includes the complete article text, a short preview excerpt, cover image URL, publication date, engagement metrics, and the author's profile.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/tweets.ArticleReq'
+        description: Article request
+        required: true
+        x-originalParamName: payload
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/tweets.ArticleRes'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Article Data
+      tags:
+      - Tweets
+  /comments:
+    post:
+      description: Returns a paginated list of replies (comments) posted under a specific tweet. Up to 20 replies per page. Each reply includes text, creation date, engagement metrics, conversation context, and the author's profile.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/tweets.CommentsReq'
+        description: tweet link required, next_cursor optional
+        required: true
+        x-originalParamName: payload
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/common.TweetsResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Tweet Comments
+      tags:
+      - Tweets
+  /quotes:
+    post:
+      description: Returns a paginated list of tweets that quoted the specified tweet. Up to 20 results per page. Each quote tweet includes the added commentary text, creation date, engagement metrics, and the quoting user's profile.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/tweets.QuotesReq'
+        description: tweet link required, next_cursor optional
+        required: true
+        x-originalParamName: payload
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/common.TweetsResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Quote Tweets
+      tags:
+      - Tweets
+  /retweeters:
+    post:
+      description: 'Returns a paginated list of users who retweeted the specified tweet, sorted by retweet time (newest first). Each entry contains the retweeter''s profile data. Note: the response uses the users format (`common.UsersResponse`), not tweets.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/tweets.RetweetsReq'
+        description: Retweets request
+        required: true
+        x-originalParamName: payload
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/common.UsersResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Retweeters List
+      tags:
+      - Tweets
+  /trends:
+    get:
+      description: Returns a list of trending topics for the specified WOEID (location identifier). Each trend contains its name and search query for the region. Useful for monitoring popular topics by location.
+      parameters:
+      - description: 'WOEID (Where On Earth IDentifier) of the location to get trends for Woeid list: https://gist.github.com/tedyblood/5bb5a9f78314cc1f478b3dd7cde790b9'
+        in: query
+        name: woeid
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/common.TrendsResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Trends List
+      tags:
+      - Tweets
+  /tweet-info:
+    post:
+      description: 'Returns full data for a single tweet by its URL: text, creation date, language, engagement metrics (likes, retweets, quotes, replies, views, bookmarks), and the author''s profile. If the tweet is a reply, quote, or repost, the nested original tweet and its author data are included as well.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/tweets.TweetInfoReq'
+        description: tweet link required
+        required: true
+        x-originalParamName: payload
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/common.Tweet'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Tweet Data
+      tags:
+      - Tweets
+  /tweet-info-bulk:
+    post:
+      description: Returns full data for up to 100 tweets in a single request. Each tweet object includes text, creation date, engagement metrics, and author profile. Works the same way as the single-tweet endpoint, but accepts an array of URLs. The response is not paginated.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/tweets.TweetInfoBulkReq'
+        description: tweet links or ids required
+        required: true
+        x-originalParamName: payload
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/common.TweetsBulkResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Tweet Data (batch)
+      tags:
+      - Tweets
+  /user-tweets:
+    post:
+      description: Returns a paginated list of tweets posted by a specific user. Up to 20 tweets per page. Each tweet includes text, creation date, engagement metrics, view count, and nested data for replies, quotes, and retweets when available. Provide either `link` (profile URL) or `user_id`.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/tweets.UserTweetsReq'
+        description: link or user id required, next_cursor optional
+        required: true
+        x-originalParamName: payload
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/common.TweetsResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: User Tweets
+      tags:
+      - Tweets
+components:
+  schemas:
+    tweets.UserTweetsReq:
+      properties:
+        next_cursor:
+          description: Pagination cursor from a previous response.
+          example: ASDJKHFJWQE123Q
+          type: string
+        user_id:
+          description: Numeric Twitter/X user ID. Provide either `link` or `user_id`.
+          example: '123'
+          type: string
+        user_link:
+          description: Full URL of the user's profile. Provide either `link` or `user_id`.
+          example: https://twitter.com/username
+          type: string
+        username:
+          description: Twitter/X handle of the user. Provide either `link` or `username`.
+          example: username
+          type: string
+      type: object
+    tweets.CommentsReq:
+      properties:
+        next_cursor:
+          description: Pagination cursor from a previous response.
+          example: JKHSJFHADUYJKSDy2y3u123
+          type: string
+        order_by:
+          description: 'Sort order: `Relevance`, `Recency` or `Likes`. Defaults to `Relevance`.'
+          example: Relevance
+          type: string
+        tweet_link:
+          description: Full URL of the tweet (e.g. `https://x.com/user/status/123`) or just the tweet ID.
+          type: string
+      type: object
+    common.User:
+      properties:
+        bio_urls:
+          description: URLs found in the user's bio.
+          items:
+            type: string
+          type: array
+        can_dm:
+          description: Whether the account accepts direct messages.
+          example: false
+          type: boolean
+        created_at:
+          description: Account creation date in ISO 8601 format.
+          example: '2009-06-02T20:12:29Z'
+          type: string
+        description:
+          description: Profile bio text.
+          example: Bio text
+          type: string
+        display_name:
+          description: User's display name.
+          example: Elon Musk
+          type: string
+        favourites_count:
+          description: Total number of tweets this user has liked.
+          example: 1200
+          type: integer
+        followers_count:
+          description: Number of accounts following this user.
+          example: 100000
+          type: integer
+        followings_count:
+          description: Number of accounts this user follows.
+          example: 500
+          type: integer
+        id:
+          description: Unique Twitter/X user ID.
+          example: '44196397'
+          type: string
+        location:
+          description: Location string from the user's profile.
+          example: Austin, TX
+          type: string
+        media_count:
+          description: Total number of media items posted by this user.
+          example: 300
+          type: integer
+        pinned_tweet_ids:
+          description: IDs of the user's pinned tweets.
+          items:
+            type: string
+          type: array
+        possibly_sensitive:
+          description: Whether the account is flagged as possibly containing sensitive content.
+          example: false
+          type: boolean
+        profile_background_image_url:
+          description: URL of the user's profile background image.
+          example: https://pbs.twimg.com/profile_banners/44196397/123
+          type: string
+        profile_image_url:
+          description: URL of the user's avatar image.
+          example: https://pbs.twimg.com/profile_images/123/photo.jpg
+          type: string
+        protected:
+          description: Whether the account's tweets are protected (private).
+          example: false
+          type: boolean
+        tweets_count:
+          description: Total number of tweets posted by this user.
+          example: 5000
+          type: integer
+        username:
+          description: Current Twitter/X handle (without @).
+          example: elonmusk
+          type: string
+        verified:
+          description: Whether the account has a verified badge.
+          example: true
+          type: boolean
+      type: object
+    common.TweetEntity:
+      properties:
+        link:
+          description: Direct URL of the entity.
+          example: https://t.co/example
+          type: string
+        preview:
+          description: Preview or thumbnail URL for the entity.
+          example: https://pbs.twimg.com/preview
+          type: string
+        type:
+          description: Entity type (e.g. `photo`, `video`, `url`).
+          example: photo
+          type: string
+      type: object
+    tweets.ArticleReq:
+      properties:
+        tweet_link:
+          description: Full URL of the tweet or article (e.g. `https://x.com/user/status/123`) or just the tweet ID.
+          type: string
+      type: object
+    common.TweetsBulkResponse:
+      properties:
+        tweets:
+          description: Array of tweet objects.
+          items:
+            $ref: '#/components/schemas/common.Tweet'
+          type: array
+      type: object
+    tweets.ArticleRes:
+      properties:
+        author:
+          allOf:
+          - $ref: '#/components/schemas/common.User'
+          description: Author profile data.
+        bookmark_count:
+          description: Number of bookmarks.
+          type: integer
+        cover_image_url:
+          description: URL of the article's cover image.
+          type: string
+        full_text:
+          description: Complete article text.
+          type: string
+        likes_count:
+          description: Number of likes.
+          type: integer
+        preview_text:
+          description: Short preview or excerpt of the article.
+          type: string
+        published_at:
+          description: Publication date in ISO 8601 format.
+          type: string
+        quote_count:
+          description: Number of quote tweets.
+          type: integer
+        reply_count:
+          description: Number of replies.
+          type: integer
+        retweet_count:
+          description: Number of retweets.
+          type: integer
+        views_count:
+          description: Number of views (impressions).
+          type: integer
+      type: object
+    handler.ErrorResponse:
+      properties:
+        message:
+          type: string
+      type: object
+    tweets.RetweetsReq:
+      properties:
+        next_cursor:
+          description: Pagination cursor from a previous response.
+          example: JKHSJFHADUYJKSDy2y3u123
+          type: string
+        tweet_link:
+          description: Full URL of the tweet (e.g. `https://x.com/user/status/123`) or just the tweet ID.
+          type: string
+      type: object
+    tweets.TweetInfoReq:
+      properties:
+        tweet_link:
+          description: Full URL of the tweet (e.g. `https://x.com/user/status/123`) or just the tweet ID.
+          type: string
+      type: object
+    common.TrendsResponse:
+      properties:
+        trends:
+          items:
+            $ref: '#/components/schemas/common.Trend'
+          type: array
+      type: object
+    tweets.TweetInfoBulkReq:
+      properties:
+        tweet_links:
+          description: Array of tweet URLs or tweet IDs (up to 100).
+          items:
+            type: string
+          type: array
+      type: object
+    common.Trend:
+      properties:
+        name:
+          type: string
+        query:
+          type: string
+        url:
+          type: string
+      type: object
+    common.TweetsResponse:
+      properties:
+        next_cursor:
+          description: Cursor for fetching the next page of results. Null or absent if no more pages.
+          type: string
+        tweets:
+          description: Array of tweet objects.
+          items:
+            $ref: '#/components/schemas/common.Tweet'
+          type: array
+      type: object
+    common.UsersResponse:
+      properties:
+        next_cursor:
+          description: Cursor for fetching the next page of results. Null or absent if no more pages.
+          type: string
+        users:
+          description: Array of user profile objects.
+          items:
+            $ref: '#/components/schemas/common.User'
+          type: array
+      type: object
+    common.Tweet:
+      properties:
+        bookmark_count:
+          description: Number of times the tweet has been bookmarked.
+          example: 15
+          type: integer
+        conversation_id_str:
+          description: ID of the root tweet in the conversation thread.
+          example: '1782368585664626774'
+          type: string
+        created_at:
+          description: Tweet publication date in ISO 8601 format.
+          example: '2024-01-15T10:30:00Z'
+          type: string
+        entities:
+          description: Media, links, and other embedded entities attached to the tweet.
+          items:
+            $ref: '#/components/schemas/common.TweetEntity'
+          type: array
+        full_text:
+          description: Full text content of the tweet.
+          example: Hello world
+          type: string
+        id:
+          description: Unique tweet ID.
+          example: '1782368585664626774'
+          type: string
+        in_reply_to_tweet_id:
+          description: ID of the tweet this tweet is replying to. Null if not a reply.
+          example: '1782368585664626000'
+          type: string
+        in_reply_to_username:
+          description: Username of the account this tweet is replying to.
+          example: username
+          type: string
+        is_quote_status:
+          description: Whether this tweet quotes another tweet.
+          example: false
+          type: boolean
+        is_replies_limited:
+          description: Whether replies to this tweet are restricted by the author.
+          example: false
+          type: boolean
+        is_reply:
+          description: Whether this tweet is a reply to another tweet.
+          example: false
+          type: boolean
+        lang:
+          description: Detected language code of the tweet (e.g. `en`, `es`).
+          example: en
+          type: string
+        likes_count:
+          description: Number of likes on the tweet.
+          example: 200
+          type: integer
+        quote_count:
+          description: Number of quote tweets.
+          example: 5
+          type: integer
+        quoted_status:
+          allOf:
+          - $ref: '#/components/schemas/common.Tweet'
+          description: The original tweet being quoted. Present only if `is_quote_status` is true.
+        reply_count:
+          description: Number of replies to the tweet.
+          example: 10
+          type: integer
+        retweet_count:
+          description: Number of retweets.
+          example: 50
+          type: integer
+        retweeted_status:
+          allOf:
+          - $ref: '#/components/schemas/common.Tweet'
+          description: The original tweet being retweeted. Present only for retweets.
+        user:
+          allOf:
+          - $ref: '#/components/schemas/common.User'
+          description: Author of the tweet.
+        view_count:
+          description: Number of views (impressions).
+          example: 10000
+          type: integer
+      type: object
+    tweets.QuotesReq:
+      properties:
+        next_cursor:
+          description: Pagination cursor from a previous response.
+          example: JKHSJFHADUYJKSDy2y3u123
+          type: string
+        tweet_link:
+          description: Full URL of the tweet (e.g. `https://x.com/user/status/123`) or just the tweet ID.
+          type: string
+      type: object
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: header
+      name: ApiKey
+      description: Include your API key in the `ApiKey` header with every request.

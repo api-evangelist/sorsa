@@ -1,0 +1,647 @@
+openapi: 3.0.3
+info:
+  title: Sorsa Community Verification API
+  version: '3.0'
+  description: Real-time X (Twitter) data API providing access to tweets, profiles, search, mentions, lists, communities, engagement verification, and Sorsa Score crypto-influence analytics via 40 REST endpoints. Affordable alternative to the official X API.
+  contact:
+    name: Sorsa Support
+    email: contacts@sorsa.io
+    url: https://docs.sorsa.io/
+  license:
+    name: Proprietary
+    url: https://sorsa.io/
+  termsOfService: https://sorsa.io/terms
+servers:
+- url: https://api.sorsa.io/v3
+  description: Sorsa API v3 production
+security:
+- ApiKey: []
+tags:
+- name: Verification
+  description: Verify follow, comment, retweet, quote and community-membership relationships
+paths:
+  /check-comment:
+    get:
+      description: 'Checks whether a specific user has posted a reply under a given tweet. Returns `commented: true` along with the full reply tweet data if a comment is found. Requires `tweet_link` and one of `user_handle` or `user_id`.'
+      parameters:
+      - description: Full URL of the tweet to check.
+        in: query
+        name: tweet_link
+        required: true
+        schema:
+          type: string
+      - description: Twitter/X handle of the user being checked.
+        in: query
+        name: username
+        schema:
+          type: string
+      - description: Twitter/X profile link of the user being checked.
+        in: query
+        name: user_link
+        schema:
+          type: string
+      - description: Numeric Twitter/X user ID of the user being checked.
+        in: query
+        name: user_id
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/verification.CheckCommentResp'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Check Comment
+      tags:
+      - Verification
+  /check-community-member:
+    post:
+      description: 'Checks whether a specific user is a member of a given Twitter/X Community. Returns `is_member: true` if the user belongs to that community. Requires `community_id` and one user identifier (`username`, `user_link`, or `user_id`).'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/verification.CommunityReq'
+        description: community_id and user_handle or user_id required
+        required: true
+        x-originalParamName: payload
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/verification.CommunityResp'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Check Community Membership
+      tags:
+      - Verification
+  /check-follow:
+    post:
+      description: 'Checks if one account follows another. User 1 is the account that should be followed, User 2 is the one you want to check. For example: "Does Elon Musk (user_2) follow SorsaApp (user_1)?" Pass only one identifier per side: link, username, or ID. Returns follow: true if the relationship exists, and user_protected: true if the checked user''s profile is private.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/verification.CheckFollowReq'
+        description: project_handle or project_id and user_link, username or user_id
+        required: true
+        x-originalParamName: payload
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/verification.CheckFollowResp'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Check Follow
+      tags:
+      - Verification
+  /check-quoted:
+    post:
+      description: 'Checks whether a user has quoted or retweeted a given tweet. Returns a `status` field with one of three values: `quoted`, `retweet`, or `not_found`. If a quote or retweet is found, the response also includes the interaction date and the quote text (when applicable). Identify the user with `username`, `user_link`, or `user_id`.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/verification.CheckQuotedReq'
+        description: tweet link, user link, username or user_id
+        required: true
+        x-originalParamName: payload
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/verification.CheckQuotedResp'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Check Quote or Retweet
+      tags:
+      - Verification
+  /check-retweet:
+    post:
+      description: Checks whether a user has retweeted a given tweet. The endpoint scans up to 100 retweets per request. If the tweet has more retweets than that, a `next_cursor` is returned to continue checking. Identify the user with `username`, `user_link`, or `user_id`.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/verification.CheckRetweetReq'
+        description: tweet link, user handle required, next_cursor not required
+        required: true
+        x-originalParamName: payload
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/verification.CheckRetweetResp'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Not Found
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ErrorResponse'
+          description: Internal Server Error
+      security:
+      - ApiKey: []
+      summary: Check Retweet
+      tags:
+      - Verification
+components:
+  schemas:
+    common.User:
+      properties:
+        bio_urls:
+          description: URLs found in the user's bio.
+          items:
+            type: string
+          type: array
+        can_dm:
+          description: Whether the account accepts direct messages.
+          example: false
+          type: boolean
+        created_at:
+          description: Account creation date in ISO 8601 format.
+          example: '2009-06-02T20:12:29Z'
+          type: string
+        description:
+          description: Profile bio text.
+          example: Bio text
+          type: string
+        display_name:
+          description: User's display name.
+          example: Elon Musk
+          type: string
+        favourites_count:
+          description: Total number of tweets this user has liked.
+          example: 1200
+          type: integer
+        followers_count:
+          description: Number of accounts following this user.
+          example: 100000
+          type: integer
+        followings_count:
+          description: Number of accounts this user follows.
+          example: 500
+          type: integer
+        id:
+          description: Unique Twitter/X user ID.
+          example: '44196397'
+          type: string
+        location:
+          description: Location string from the user's profile.
+          example: Austin, TX
+          type: string
+        media_count:
+          description: Total number of media items posted by this user.
+          example: 300
+          type: integer
+        pinned_tweet_ids:
+          description: IDs of the user's pinned tweets.
+          items:
+            type: string
+          type: array
+        possibly_sensitive:
+          description: Whether the account is flagged as possibly containing sensitive content.
+          example: false
+          type: boolean
+        profile_background_image_url:
+          description: URL of the user's profile background image.
+          example: https://pbs.twimg.com/profile_banners/44196397/123
+          type: string
+        profile_image_url:
+          description: URL of the user's avatar image.
+          example: https://pbs.twimg.com/profile_images/123/photo.jpg
+          type: string
+        protected:
+          description: Whether the account's tweets are protected (private).
+          example: false
+          type: boolean
+        tweets_count:
+          description: Total number of tweets posted by this user.
+          example: 5000
+          type: integer
+        username:
+          description: Current Twitter/X handle (without @).
+          example: elonmusk
+          type: string
+        verified:
+          description: Whether the account has a verified badge.
+          example: true
+          type: boolean
+      type: object
+    verification.CheckCommentResp:
+      properties:
+        commented:
+          description: '`true` if the user has commented on the tweet.'
+          type: boolean
+        tweet:
+          allOf:
+          - $ref: '#/components/schemas/common.Tweet'
+          description: The user's reply tweet data. Present only if `commented` is `true`.
+      type: object
+    verification.CommunityReq:
+      properties:
+        community_id:
+          example: '1966045657589813686'
+          type: string
+        user_id:
+          type: string
+        user_link:
+          example: https://twitter.com/elonmusk
+          type: string
+        username:
+          example: elonmusk
+          type: string
+      required:
+      - community_id
+      type: object
+    verification.CheckRetweetReq:
+      properties:
+        next_cursor:
+          type: string
+        tweet_link:
+          type: string
+        user_id:
+          type: string
+        user_link:
+          type: string
+        username:
+          type: string
+      type: object
+    common.TweetEntity:
+      properties:
+        link:
+          description: Direct URL of the entity.
+          example: https://t.co/example
+          type: string
+        preview:
+          description: Preview or thumbnail URL for the entity.
+          example: https://pbs.twimg.com/preview
+          type: string
+        type:
+          description: Entity type (e.g. `photo`, `video`, `url`).
+          example: photo
+          type: string
+      type: object
+    verification.CheckFollowReq:
+      properties:
+        user_id_1:
+          example: '44196397'
+          type: string
+        user_id_2:
+          example: '44196397'
+          type: string
+        user_link_1:
+          example: https://twitter.com/elonmusk
+          type: string
+        user_link_2:
+          example: https://twitter.com/elonmusk
+          type: string
+        username_1:
+          example: elonmusk
+          type: string
+        username_2:
+          example: elonmusk
+          type: string
+      type: object
+    handler.ErrorResponse:
+      properties:
+        message:
+          type: string
+      type: object
+    verification.CheckRetweetResp:
+      properties:
+        next_cursor:
+          description: Cursor for checking more retweets if needed.
+          type: string
+        retweet:
+          description: '`true` if the user has retweeted the tweet.'
+          type: boolean
+        user_protected:
+          description: '`true` if the checked user''s account is protected.'
+          type: boolean
+      type: object
+    verification.CheckFollowResp:
+      properties:
+        follow:
+          description: '`true` if the user follows the target account.'
+          example: true
+          type: boolean
+        user_protected:
+          description: '`true` if the checked user''s account is protected.'
+          example: false
+          type: boolean
+      type: object
+    verification.CheckQuotedReq:
+      properties:
+        tweet_link:
+          example: https://twitter.com/TweetScout_io/status/1782368585664626774
+          type: string
+        user_id:
+          example: '44196397'
+          type: string
+        user_link:
+          example: https://twitter.com/elonmusk
+          type: string
+        username:
+          example: elonmusk
+          type: string
+      type: object
+    verification.CheckQuotedResp:
+      properties:
+        date:
+          description: Date of the interaction (if found).
+          example: '2024-04-27 06:43:09'
+          type: string
+        status:
+          description: 'Interaction type: `quoted`, `retweet`, or `not_found`.'
+          example: quoted
+          type: string
+        text:
+          description: Text of the quote tweet (if status is `quoted`).
+          example: Quote text
+          type: string
+        user_protected:
+          description: '`true` if the checked user''s account is protected.'
+          example: false
+          type: boolean
+      type: object
+    verification.CommunityResp:
+      properties:
+        is_member:
+          description: '`true` if the user is a member of the specified community.'
+          type: boolean
+      type: object
+    common.Tweet:
+      properties:
+        bookmark_count:
+          description: Number of times the tweet has been bookmarked.
+          example: 15
+          type: integer
+        conversation_id_str:
+          description: ID of the root tweet in the conversation thread.
+          example: '1782368585664626774'
+          type: string
+        created_at:
+          description: Tweet publication date in ISO 8601 format.
+          example: '2024-01-15T10:30:00Z'
+          type: string
+        entities:
+          description: Media, links, and other embedded entities attached to the tweet.
+          items:
+            $ref: '#/components/schemas/common.TweetEntity'
+          type: array
+        full_text:
+          description: Full text content of the tweet.
+          example: Hello world
+          type: string
+        id:
+          description: Unique tweet ID.
+          example: '1782368585664626774'
+          type: string
+        in_reply_to_tweet_id:
+          description: ID of the tweet this tweet is replying to. Null if not a reply.
+          example: '1782368585664626000'
+          type: string
+        in_reply_to_username:
+          description: Username of the account this tweet is replying to.
+          example: username
+          type: string
+        is_quote_status:
+          description: Whether this tweet quotes another tweet.
+          example: false
+          type: boolean
+        is_replies_limited:
+          description: Whether replies to this tweet are restricted by the author.
+          example: false
+          type: boolean
+        is_reply:
+          description: Whether this tweet is a reply to another tweet.
+          example: false
+          type: boolean
+        lang:
+          description: Detected language code of the tweet (e.g. `en`, `es`).
+          example: en
+          type: string
+        likes_count:
+          description: Number of likes on the tweet.
+          example: 200
+          type: integer
+        quote_count:
+          description: Number of quote tweets.
+          example: 5
+          type: integer
+        quoted_status:
+          allOf:
+          - $ref: '#/components/schemas/common.Tweet'
+          description: The original tweet being quoted. Present only if `is_quote_status` is true.
+        reply_count:
+          description: Number of replies to the tweet.
+          example: 10
+          type: integer
+        retweet_count:
+          description: Number of retweets.
+          example: 50
+          type: integer
+        retweeted_status:
+          allOf:
+          - $ref: '#/components/schemas/common.Tweet'
+          description: The original tweet being retweeted. Present only for retweets.
+        user:
+          allOf:
+          - $ref: '#/components/schemas/common.User'
+          description: Author of the tweet.
+        view_count:
+          description: Number of views (impressions).
+          example: 10000
+          type: integer
+      type: object
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: header
+      name: ApiKey
+      description: Include your API key in the `ApiKey` header with every request.
