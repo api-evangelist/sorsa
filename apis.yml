@@ -2,7 +2,20 @@ aid: sorsa
 url: https://raw.githubusercontent.com/api-evangelist/sorsa/refs/heads/main/apis.yml
 name: Sorsa
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/sorsa.png
 description: >-
   Sorsa Labs operates a real-time X (Twitter) data API providing developers access to tweets, profiles, search,
   mentions, lists, communities, engagement verification, and Sorsa Score crypto-influence analytics through 40 REST
@@ -17,127 +30,843 @@ tags:
   - Data Extraction
   - Real-Time
 apis:
-  - aid: sorsa:sorsa-api-v3
-    name: Sorsa API v3
-    description: >-
-      The Sorsa API v3 is a RESTful API exposing 40 endpoints for real-time X (Twitter) data: user profiles and About
-      metadata, followers and following lists, tweet data (single and batch), articles, user timelines, comments,
-      quotes, retweets, search of tweets and users, mentions, Twitter Spaces (Places), lists, communities, engagement
-      and membership verification, Sorsa Score crypto-influence analytics, follower category breakdowns, and technical
-      utilities (username/user-id conversion, profile-link parsing, API-key usage). Authentication uses a simple
-      `ApiKey` header.
-    humanURL: https://docs.sorsa.io/
-    baseURL: https://api.sorsa.io/v3
-    tags:
-      - Twitter
-      - X
-      - Social Media
-      - Real-Time
-      - Data Extraction
-      - Crypto
-    properties:
-      - type: Documentation
-        url: https://docs.sorsa.io/
-      - type: APIReference
-        url: https://docs.sorsa.io/api-reference-guide
-      - type: GettingStarted
-        url: https://docs.sorsa.io/quickstart
-      - type: GettingStarted
-        url: https://docs.sorsa.io/quickstart
-      - type: Authentication
-        url: https://docs.sorsa.io/authentication
-      - type: RateLimits
-        url: https://docs.sorsa.io/rate-limits
-      - type: Pricing
-        url: https://docs.sorsa.io/pricing
-      - type: ErrorCodes
-        url: https://docs.sorsa.io/error-codes
-      - type: Versioning
-        url: https://docs.sorsa.io/base-url-and-versioning
-      - type: ChangeLog
-        url: https://docs.sorsa.io/Migration-Guide
-      - type: APIsJSON
-        url: https://api.sorsa.io/apis.json
-      - type: OpenAPI
-        url: openapi/sorsa-openapi.yml
-      - type: SwaggerJSON
-        url: https://api.sorsa.io/v3/swagger.json
-      - type: JSONSchema
-        url: json-schema/sorsa-user-schema.json
-      - type: JSONSchema
-        url: json-schema/sorsa-follower-schema.json
-      - type: JSONSchema
-        url: json-schema/sorsa-tweet-schema.json
-      - type: JSONSchema
-        url: json-schema/sorsa-tweet-entity-schema.json
-      - type: JSONSchema
-        url: json-schema/sorsa-top-follower-schema.json
-      - type: JSONSchema
-        url: json-schema/sorsa-place-schema.json
-      - type: JSONSchema
-        url: json-schema/sorsa-trend-schema.json
-      - type: JSONSchema
-        url: json-schema/sorsa-community-user-schema.json
-      - type: JSONStructure
-        url: json-structure/sorsa-user-structure.json
-      - type: JSONStructure
-        url: json-structure/sorsa-follower-structure.json
-      - type: JSONStructure
-        url: json-structure/sorsa-tweet-structure.json
-      - type: JSONStructure
-        url: json-structure/sorsa-tweet-entity-structure.json
-      - type: JSONStructure
-        url: json-structure/sorsa-top-follower-structure.json
-      - type: JSONStructure
-        url: json-structure/sorsa-place-structure.json
-      - type: JSONStructure
-        url: json-structure/sorsa-trend-structure.json
-      - type: JSONStructure
-        url: json-structure/sorsa-community-user-structure.json
-      - type: JSONLD
-        url: json-ld/sorsa-context.jsonld
-      - type: JSONLD
-        url: json-ld/sorsa-security-context.jsonld
-      - type: Examples
-        url: examples/sorsa-info-example.json
-      - type: Examples
-        url: examples/sorsa-tweet-info-example.json
-      - type: Examples
-        url: examples/sorsa-tweet-info-bulk-example.json
-      - type: Examples
-        url: examples/sorsa-search-tweets-example.json
-      - type: Examples
-        url: examples/sorsa-mentions-example.json
-      - type: Examples
-        url: examples/sorsa-followers-example.json
-      - type: Examples
-        url: examples/sorsa-follows-example.json
-      - type: Examples
-        url: examples/sorsa-score-example.json
-      - type: Examples
-        url: examples/sorsa-check-follow-example.json
-      - type: Examples
-        url: examples/sorsa-key-usage-info-example.json
-      - type: Examples
-        url: examples/sorsa-user-example.json
-      - type: Examples
-        url: examples/sorsa-follower-example.json
-      - type: Examples
-        url: examples/sorsa-tweet-example.json
-      - type: Examples
-        url: examples/sorsa-tweet-entity-example.json
-      - type: Examples
-        url: examples/sorsa-top-follower-example.json
-      - type: Examples
-        url: examples/sorsa-place-example.json
-      - type: Examples
-        url: examples/sorsa-trend-example.json
-      - type: Examples
-        url: examples/sorsa-community-user-example.json
-    contact:
-      - FN: Sorsa Support
-        email: contacts@sorsa.io
+- aid: sorsa:sorsa-community-api
+  name: Sorsa Community API
+  description: Twitter/X Community tweets, members, and community search
+  humanURL: https://docs.sorsa.io/
+  baseURL: https://api.sorsa.io/v3
+  tags:
+  - Community
+  properties:
+  - type: OpenAPI
+    url: openapi/sorsa-community-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sorsa.io/
+  - type: APIReference
+    url: https://docs.sorsa.io/api-reference-guide
+  - type: GettingStarted
+    url: https://docs.sorsa.io/quickstart
+  - type: Authentication
+    url: https://docs.sorsa.io/authentication
+  - type: RateLimits
+    url: https://docs.sorsa.io/rate-limits
+  - type: Pricing
+    url: https://docs.sorsa.io/pricing
+  - type: ErrorCodes
+    url: https://docs.sorsa.io/error-codes
+  - type: Versioning
+    url: https://docs.sorsa.io/base-url-and-versioning
+  - type: ChangeLog
+    url: https://docs.sorsa.io/Migration-Guide
+  - type: APIsJSON
+    url: https://api.sorsa.io/apis.json
+  - type: SwaggerJSON
+    url: https://api.sorsa.io/v3/swagger.json
+  - type: JSONSchema
+    url: json-schema/sorsa-user-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-follower-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-tweet-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-tweet-entity-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-top-follower-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-place-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-trend-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-community-user-schema.json
+  - type: JSONStructure
+    url: json-structure/sorsa-user-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-follower-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-tweet-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-tweet-entity-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-top-follower-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-place-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-trend-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-community-user-structure.json
+  - type: JSONLD
+    url: json-ld/sorsa-context.jsonld
+  - type: JSONLD
+    url: json-ld/sorsa-security-context.jsonld
+  - type: Examples
+    url: examples/sorsa-info-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-info-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-info-bulk-example.json
+  - type: Examples
+    url: examples/sorsa-search-tweets-example.json
+  - type: Examples
+    url: examples/sorsa-mentions-example.json
+  - type: Examples
+    url: examples/sorsa-followers-example.json
+  - type: Examples
+    url: examples/sorsa-follows-example.json
+  - type: Examples
+    url: examples/sorsa-score-example.json
+  - type: Examples
+    url: examples/sorsa-check-follow-example.json
+  - type: Examples
+    url: examples/sorsa-key-usage-info-example.json
+  - type: Examples
+    url: examples/sorsa-user-example.json
+  - type: Examples
+    url: examples/sorsa-follower-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-entity-example.json
+  - type: Examples
+    url: examples/sorsa-top-follower-example.json
+  - type: Examples
+    url: examples/sorsa-place-example.json
+  - type: Examples
+    url: examples/sorsa-trend-example.json
+  - type: Examples
+    url: examples/sorsa-community-user-example.json
+- aid: sorsa:sorsa-lists-api
+  name: Sorsa Lists API
+  description: Twitter/X List tweets, members, and followers
+  humanURL: https://docs.sorsa.io/
+  baseURL: https://api.sorsa.io/v3
+  tags:
+  - Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/sorsa-lists-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sorsa.io/
+  - type: APIReference
+    url: https://docs.sorsa.io/api-reference-guide
+  - type: GettingStarted
+    url: https://docs.sorsa.io/quickstart
+  - type: Authentication
+    url: https://docs.sorsa.io/authentication
+  - type: RateLimits
+    url: https://docs.sorsa.io/rate-limits
+  - type: Pricing
+    url: https://docs.sorsa.io/pricing
+  - type: ErrorCodes
+    url: https://docs.sorsa.io/error-codes
+  - type: Versioning
+    url: https://docs.sorsa.io/base-url-and-versioning
+  - type: ChangeLog
+    url: https://docs.sorsa.io/Migration-Guide
+  - type: APIsJSON
+    url: https://api.sorsa.io/apis.json
+  - type: SwaggerJSON
+    url: https://api.sorsa.io/v3/swagger.json
+  - type: JSONSchema
+    url: json-schema/sorsa-user-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-follower-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-tweet-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-tweet-entity-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-top-follower-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-place-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-trend-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-community-user-schema.json
+  - type: JSONStructure
+    url: json-structure/sorsa-user-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-follower-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-tweet-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-tweet-entity-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-top-follower-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-place-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-trend-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-community-user-structure.json
+  - type: JSONLD
+    url: json-ld/sorsa-context.jsonld
+  - type: JSONLD
+    url: json-ld/sorsa-security-context.jsonld
+  - type: Examples
+    url: examples/sorsa-info-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-info-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-info-bulk-example.json
+  - type: Examples
+    url: examples/sorsa-search-tweets-example.json
+  - type: Examples
+    url: examples/sorsa-mentions-example.json
+  - type: Examples
+    url: examples/sorsa-followers-example.json
+  - type: Examples
+    url: examples/sorsa-follows-example.json
+  - type: Examples
+    url: examples/sorsa-score-example.json
+  - type: Examples
+    url: examples/sorsa-check-follow-example.json
+  - type: Examples
+    url: examples/sorsa-key-usage-info-example.json
+  - type: Examples
+    url: examples/sorsa-user-example.json
+  - type: Examples
+    url: examples/sorsa-follower-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-entity-example.json
+  - type: Examples
+    url: examples/sorsa-top-follower-example.json
+  - type: Examples
+    url: examples/sorsa-place-example.json
+  - type: Examples
+    url: examples/sorsa-trend-example.json
+  - type: Examples
+    url: examples/sorsa-community-user-example.json
+- aid: sorsa:sorsa-search-api
+  name: Sorsa Search API
+  description: Search tweets, users, mentions, and Twitter Spaces (Places)
+  humanURL: https://docs.sorsa.io/
+  baseURL: https://api.sorsa.io/v3
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/sorsa-search-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sorsa.io/
+  - type: APIReference
+    url: https://docs.sorsa.io/api-reference-guide
+  - type: GettingStarted
+    url: https://docs.sorsa.io/quickstart
+  - type: Authentication
+    url: https://docs.sorsa.io/authentication
+  - type: RateLimits
+    url: https://docs.sorsa.io/rate-limits
+  - type: Pricing
+    url: https://docs.sorsa.io/pricing
+  - type: ErrorCodes
+    url: https://docs.sorsa.io/error-codes
+  - type: Versioning
+    url: https://docs.sorsa.io/base-url-and-versioning
+  - type: ChangeLog
+    url: https://docs.sorsa.io/Migration-Guide
+  - type: APIsJSON
+    url: https://api.sorsa.io/apis.json
+  - type: SwaggerJSON
+    url: https://api.sorsa.io/v3/swagger.json
+  - type: JSONSchema
+    url: json-schema/sorsa-user-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-follower-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-tweet-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-tweet-entity-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-top-follower-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-place-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-trend-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-community-user-schema.json
+  - type: JSONStructure
+    url: json-structure/sorsa-user-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-follower-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-tweet-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-tweet-entity-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-top-follower-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-place-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-trend-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-community-user-structure.json
+  - type: JSONLD
+    url: json-ld/sorsa-context.jsonld
+  - type: JSONLD
+    url: json-ld/sorsa-security-context.jsonld
+  - type: Examples
+    url: examples/sorsa-info-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-info-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-info-bulk-example.json
+  - type: Examples
+    url: examples/sorsa-search-tweets-example.json
+  - type: Examples
+    url: examples/sorsa-mentions-example.json
+  - type: Examples
+    url: examples/sorsa-followers-example.json
+  - type: Examples
+    url: examples/sorsa-follows-example.json
+  - type: Examples
+    url: examples/sorsa-score-example.json
+  - type: Examples
+    url: examples/sorsa-check-follow-example.json
+  - type: Examples
+    url: examples/sorsa-key-usage-info-example.json
+  - type: Examples
+    url: examples/sorsa-user-example.json
+  - type: Examples
+    url: examples/sorsa-follower-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-entity-example.json
+  - type: Examples
+    url: examples/sorsa-top-follower-example.json
+  - type: Examples
+    url: examples/sorsa-place-example.json
+  - type: Examples
+    url: examples/sorsa-trend-example.json
+  - type: Examples
+    url: examples/sorsa-community-user-example.json
+- aid: sorsa:sorsa-sorsa-info-crypto-related-api
+  name: Sorsa Sorsa Info Crypto Related API
+  description: >-
+    The Sorsa Info Crypto Related API from Sorsa — 7 operation(s) for sorsa info crypto related.
+  humanURL: https://docs.sorsa.io/
+  baseURL: https://api.sorsa.io/v3
+  tags:
+  - Sorsa Info Crypto Related
+  properties:
+  - type: OpenAPI
+    url: openapi/sorsa-sorsa-info-crypto-related-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sorsa.io/
+  - type: APIReference
+    url: https://docs.sorsa.io/api-reference-guide
+  - type: GettingStarted
+    url: https://docs.sorsa.io/quickstart
+  - type: Authentication
+    url: https://docs.sorsa.io/authentication
+  - type: RateLimits
+    url: https://docs.sorsa.io/rate-limits
+  - type: Pricing
+    url: https://docs.sorsa.io/pricing
+  - type: ErrorCodes
+    url: https://docs.sorsa.io/error-codes
+  - type: Versioning
+    url: https://docs.sorsa.io/base-url-and-versioning
+  - type: ChangeLog
+    url: https://docs.sorsa.io/Migration-Guide
+  - type: APIsJSON
+    url: https://api.sorsa.io/apis.json
+  - type: SwaggerJSON
+    url: https://api.sorsa.io/v3/swagger.json
+  - type: JSONSchema
+    url: json-schema/sorsa-user-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-follower-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-tweet-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-tweet-entity-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-top-follower-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-place-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-trend-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-community-user-schema.json
+  - type: JSONStructure
+    url: json-structure/sorsa-user-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-follower-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-tweet-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-tweet-entity-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-top-follower-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-place-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-trend-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-community-user-structure.json
+  - type: JSONLD
+    url: json-ld/sorsa-context.jsonld
+  - type: JSONLD
+    url: json-ld/sorsa-security-context.jsonld
+  - type: Examples
+    url: examples/sorsa-info-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-info-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-info-bulk-example.json
+  - type: Examples
+    url: examples/sorsa-search-tweets-example.json
+  - type: Examples
+    url: examples/sorsa-mentions-example.json
+  - type: Examples
+    url: examples/sorsa-followers-example.json
+  - type: Examples
+    url: examples/sorsa-follows-example.json
+  - type: Examples
+    url: examples/sorsa-score-example.json
+  - type: Examples
+    url: examples/sorsa-check-follow-example.json
+  - type: Examples
+    url: examples/sorsa-key-usage-info-example.json
+  - type: Examples
+    url: examples/sorsa-user-example.json
+  - type: Examples
+    url: examples/sorsa-follower-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-entity-example.json
+  - type: Examples
+    url: examples/sorsa-top-follower-example.json
+  - type: Examples
+    url: examples/sorsa-place-example.json
+  - type: Examples
+    url: examples/sorsa-trend-example.json
+  - type: Examples
+    url: examples/sorsa-community-user-example.json
+- aid: sorsa:sorsa-technical-endpoints-api
+  name: Sorsa Technical Endpoints API
+  description: The Technical Endpoints API from Sorsa — 4 operation(s) for technical endpoints.
+  humanURL: https://docs.sorsa.io/
+  baseURL: https://api.sorsa.io/v3
+  tags:
+  - Technical Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/sorsa-technical-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sorsa.io/
+  - type: APIReference
+    url: https://docs.sorsa.io/api-reference-guide
+  - type: GettingStarted
+    url: https://docs.sorsa.io/quickstart
+  - type: Authentication
+    url: https://docs.sorsa.io/authentication
+  - type: RateLimits
+    url: https://docs.sorsa.io/rate-limits
+  - type: Pricing
+    url: https://docs.sorsa.io/pricing
+  - type: ErrorCodes
+    url: https://docs.sorsa.io/error-codes
+  - type: Versioning
+    url: https://docs.sorsa.io/base-url-and-versioning
+  - type: ChangeLog
+    url: https://docs.sorsa.io/Migration-Guide
+  - type: APIsJSON
+    url: https://api.sorsa.io/apis.json
+  - type: SwaggerJSON
+    url: https://api.sorsa.io/v3/swagger.json
+  - type: JSONSchema
+    url: json-schema/sorsa-user-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-follower-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-tweet-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-tweet-entity-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-top-follower-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-place-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-trend-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-community-user-schema.json
+  - type: JSONStructure
+    url: json-structure/sorsa-user-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-follower-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-tweet-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-tweet-entity-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-top-follower-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-place-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-trend-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-community-user-structure.json
+  - type: JSONLD
+    url: json-ld/sorsa-context.jsonld
+  - type: JSONLD
+    url: json-ld/sorsa-security-context.jsonld
+  - type: Examples
+    url: examples/sorsa-info-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-info-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-info-bulk-example.json
+  - type: Examples
+    url: examples/sorsa-search-tweets-example.json
+  - type: Examples
+    url: examples/sorsa-mentions-example.json
+  - type: Examples
+    url: examples/sorsa-followers-example.json
+  - type: Examples
+    url: examples/sorsa-follows-example.json
+  - type: Examples
+    url: examples/sorsa-score-example.json
+  - type: Examples
+    url: examples/sorsa-check-follow-example.json
+  - type: Examples
+    url: examples/sorsa-key-usage-info-example.json
+  - type: Examples
+    url: examples/sorsa-user-example.json
+  - type: Examples
+    url: examples/sorsa-follower-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-entity-example.json
+  - type: Examples
+    url: examples/sorsa-top-follower-example.json
+  - type: Examples
+    url: examples/sorsa-place-example.json
+  - type: Examples
+    url: examples/sorsa-trend-example.json
+  - type: Examples
+    url: examples/sorsa-community-user-example.json
+- aid: sorsa:sorsa-tweets-api
+  name: Sorsa Tweets API
+  description: >-
+    Tweet data (single and batch), articles, user timelines, quotes, retweets, comments, trends
+  humanURL: https://docs.sorsa.io/
+  baseURL: https://api.sorsa.io/v3
+  tags:
+  - Tweets
+  properties:
+  - type: OpenAPI
+    url: openapi/sorsa-tweets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sorsa.io/
+  - type: APIReference
+    url: https://docs.sorsa.io/api-reference-guide
+  - type: GettingStarted
+    url: https://docs.sorsa.io/quickstart
+  - type: Authentication
+    url: https://docs.sorsa.io/authentication
+  - type: RateLimits
+    url: https://docs.sorsa.io/rate-limits
+  - type: Pricing
+    url: https://docs.sorsa.io/pricing
+  - type: ErrorCodes
+    url: https://docs.sorsa.io/error-codes
+  - type: Versioning
+    url: https://docs.sorsa.io/base-url-and-versioning
+  - type: ChangeLog
+    url: https://docs.sorsa.io/Migration-Guide
+  - type: APIsJSON
+    url: https://api.sorsa.io/apis.json
+  - type: SwaggerJSON
+    url: https://api.sorsa.io/v3/swagger.json
+  - type: JSONSchema
+    url: json-schema/sorsa-user-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-follower-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-tweet-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-tweet-entity-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-top-follower-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-place-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-trend-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-community-user-schema.json
+  - type: JSONStructure
+    url: json-structure/sorsa-user-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-follower-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-tweet-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-tweet-entity-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-top-follower-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-place-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-trend-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-community-user-structure.json
+  - type: JSONLD
+    url: json-ld/sorsa-context.jsonld
+  - type: JSONLD
+    url: json-ld/sorsa-security-context.jsonld
+  - type: Examples
+    url: examples/sorsa-info-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-info-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-info-bulk-example.json
+  - type: Examples
+    url: examples/sorsa-search-tweets-example.json
+  - type: Examples
+    url: examples/sorsa-mentions-example.json
+  - type: Examples
+    url: examples/sorsa-followers-example.json
+  - type: Examples
+    url: examples/sorsa-follows-example.json
+  - type: Examples
+    url: examples/sorsa-score-example.json
+  - type: Examples
+    url: examples/sorsa-check-follow-example.json
+  - type: Examples
+    url: examples/sorsa-key-usage-info-example.json
+  - type: Examples
+    url: examples/sorsa-user-example.json
+  - type: Examples
+    url: examples/sorsa-follower-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-entity-example.json
+  - type: Examples
+    url: examples/sorsa-top-follower-example.json
+  - type: Examples
+    url: examples/sorsa-place-example.json
+  - type: Examples
+    url: examples/sorsa-trend-example.json
+  - type: Examples
+    url: examples/sorsa-community-user-example.json
+- aid: sorsa:sorsa-users-data-api
+  name: Sorsa Users Data API
+  description: User profile, followers, following, verified followers, About metadata
+  humanURL: https://docs.sorsa.io/
+  baseURL: https://api.sorsa.io/v3
+  tags:
+  - Users Data
+  properties:
+  - type: OpenAPI
+    url: openapi/sorsa-users-data-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sorsa.io/
+  - type: APIReference
+    url: https://docs.sorsa.io/api-reference-guide
+  - type: GettingStarted
+    url: https://docs.sorsa.io/quickstart
+  - type: Authentication
+    url: https://docs.sorsa.io/authentication
+  - type: RateLimits
+    url: https://docs.sorsa.io/rate-limits
+  - type: Pricing
+    url: https://docs.sorsa.io/pricing
+  - type: ErrorCodes
+    url: https://docs.sorsa.io/error-codes
+  - type: Versioning
+    url: https://docs.sorsa.io/base-url-and-versioning
+  - type: ChangeLog
+    url: https://docs.sorsa.io/Migration-Guide
+  - type: APIsJSON
+    url: https://api.sorsa.io/apis.json
+  - type: SwaggerJSON
+    url: https://api.sorsa.io/v3/swagger.json
+  - type: JSONSchema
+    url: json-schema/sorsa-user-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-follower-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-tweet-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-tweet-entity-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-top-follower-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-place-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-trend-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-community-user-schema.json
+  - type: JSONStructure
+    url: json-structure/sorsa-user-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-follower-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-tweet-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-tweet-entity-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-top-follower-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-place-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-trend-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-community-user-structure.json
+  - type: JSONLD
+    url: json-ld/sorsa-context.jsonld
+  - type: JSONLD
+    url: json-ld/sorsa-security-context.jsonld
+  - type: Examples
+    url: examples/sorsa-info-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-info-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-info-bulk-example.json
+  - type: Examples
+    url: examples/sorsa-search-tweets-example.json
+  - type: Examples
+    url: examples/sorsa-mentions-example.json
+  - type: Examples
+    url: examples/sorsa-followers-example.json
+  - type: Examples
+    url: examples/sorsa-follows-example.json
+  - type: Examples
+    url: examples/sorsa-score-example.json
+  - type: Examples
+    url: examples/sorsa-check-follow-example.json
+  - type: Examples
+    url: examples/sorsa-key-usage-info-example.json
+  - type: Examples
+    url: examples/sorsa-user-example.json
+  - type: Examples
+    url: examples/sorsa-follower-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-entity-example.json
+  - type: Examples
+    url: examples/sorsa-top-follower-example.json
+  - type: Examples
+    url: examples/sorsa-place-example.json
+  - type: Examples
+    url: examples/sorsa-trend-example.json
+  - type: Examples
+    url: examples/sorsa-community-user-example.json
+- aid: sorsa:sorsa-verification-api
+  name: Sorsa Verification API
+  description: Verify follow, comment, retweet, quote and community-membership relationships
+  humanURL: https://docs.sorsa.io/
+  baseURL: https://api.sorsa.io/v3
+  tags:
+  - Verification
+  properties:
+  - type: OpenAPI
+    url: openapi/sorsa-verification-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sorsa.io/
+  - type: APIReference
+    url: https://docs.sorsa.io/api-reference-guide
+  - type: GettingStarted
+    url: https://docs.sorsa.io/quickstart
+  - type: Authentication
+    url: https://docs.sorsa.io/authentication
+  - type: RateLimits
+    url: https://docs.sorsa.io/rate-limits
+  - type: Pricing
+    url: https://docs.sorsa.io/pricing
+  - type: ErrorCodes
+    url: https://docs.sorsa.io/error-codes
+  - type: Versioning
+    url: https://docs.sorsa.io/base-url-and-versioning
+  - type: ChangeLog
+    url: https://docs.sorsa.io/Migration-Guide
+  - type: APIsJSON
+    url: https://api.sorsa.io/apis.json
+  - type: SwaggerJSON
+    url: https://api.sorsa.io/v3/swagger.json
+  - type: JSONSchema
+    url: json-schema/sorsa-user-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-follower-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-tweet-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-tweet-entity-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-top-follower-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-place-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-trend-schema.json
+  - type: JSONSchema
+    url: json-schema/sorsa-community-user-schema.json
+  - type: JSONStructure
+    url: json-structure/sorsa-user-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-follower-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-tweet-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-tweet-entity-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-top-follower-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-place-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-trend-structure.json
+  - type: JSONStructure
+    url: json-structure/sorsa-community-user-structure.json
+  - type: JSONLD
+    url: json-ld/sorsa-context.jsonld
+  - type: JSONLD
+    url: json-ld/sorsa-security-context.jsonld
+  - type: Examples
+    url: examples/sorsa-info-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-info-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-info-bulk-example.json
+  - type: Examples
+    url: examples/sorsa-search-tweets-example.json
+  - type: Examples
+    url: examples/sorsa-mentions-example.json
+  - type: Examples
+    url: examples/sorsa-followers-example.json
+  - type: Examples
+    url: examples/sorsa-follows-example.json
+  - type: Examples
+    url: examples/sorsa-score-example.json
+  - type: Examples
+    url: examples/sorsa-check-follow-example.json
+  - type: Examples
+    url: examples/sorsa-key-usage-info-example.json
+  - type: Examples
+    url: examples/sorsa-user-example.json
+  - type: Examples
+    url: examples/sorsa-follower-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-example.json
+  - type: Examples
+    url: examples/sorsa-tweet-entity-example.json
+  - type: Examples
+    url: examples/sorsa-top-follower-example.json
+  - type: Examples
+    url: examples/sorsa-place-example.json
+  - type: Examples
+    url: examples/sorsa-trend-example.json
+  - type: Examples
+    url: examples/sorsa-community-user-example.json
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/sorsa/overview
   - type: AgenticAccess
     url: agentic-access/sorsa-agentic-access.yml
   - type: DomainSecurity
