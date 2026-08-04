@@ -1,0 +1,3439 @@
+{
+  "info": {
+    "_postman_id": "c3373d51-a7c4-442e-9681-1890a45ad82b",
+    "name": "Sorsa Community Tweets API",
+    "description": "Real-time X (Twitter) data API providing access to tweets, profiles, search, mentions, lists, communities, engagement verification, and Sorsa Score crypto-influence analytics via 40 REST endpoints. Affordable alternative to the official X API.\n\nContact Support:\n Name: Sorsa Support\n Email: contacts@sorsa.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:59:05.000Z",
+    "updatedAt": "2026-07-28T02:59:06.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c3373d51-a7c4-442e-9681-1890a45ad82b"
+  },
+  "item": [
+    {
+      "name": "article",
+      "item": [
+        {
+          "name": "Article Data",
+          "id": "aa9b6b81-7032-4a48-ae19-da59f7f2cf86",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/article",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "article"
+              ]
+            },
+            "description": "Returns full data for a Twitter/X Article (long-form post) by its URL. The response includes the complete article text, a short preview excerpt, cover image URL, publication date, engagement metrics, and the author's profile."
+          },
+          "response": [
+            {
+              "id": "ef7fbea3-50da-449f-af90-4a841813fdeb",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/article",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "article"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"author\": {\n    \"bio_urls\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"can_dm\": \"<boolean>\",\n    \"created_at\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_name\": \"<string>\",\n    \"favourites_count\": \"<integer>\",\n    \"followers_count\": \"<integer>\",\n    \"followings_count\": \"<integer>\",\n    \"id\": \"<string>\",\n    \"location\": \"<string>\",\n    \"media_count\": \"<integer>\",\n    \"pinned_tweet_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"possibly_sensitive\": \"<boolean>\",\n    \"profile_background_image_url\": \"<string>\",\n    \"profile_image_url\": \"<string>\",\n    \"protected\": \"<boolean>\",\n    \"tweets_count\": \"<integer>\",\n    \"username\": \"<string>\",\n    \"verified\": \"<boolean>\"\n  },\n  \"bookmark_count\": \"<integer>\",\n  \"cover_image_url\": \"<string>\",\n  \"full_text\": \"<string>\",\n  \"likes_count\": \"<integer>\",\n  \"preview_text\": \"<string>\",\n  \"published_at\": \"<string>\",\n  \"quote_count\": \"<integer>\",\n  \"reply_count\": \"<integer>\",\n  \"retweet_count\": \"<integer>\",\n  \"views_count\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-ef7fbea3-50da-449f-af90-4a841813fdeb"
+            },
+            {
+              "id": "1ea9f3b2-dc1d-4f44-8212-05101fba2727",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/article",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "article"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-1ea9f3b2-dc1d-4f44-8212-05101fba2727"
+            },
+            {
+              "id": "c037f150-6e52-45a8-8374-957860bcbb6d",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/article",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "article"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-c037f150-6e52-45a8-8374-957860bcbb6d"
+            },
+            {
+              "id": "ba200249-4b9a-45a7-acfa-3aa3121ba6af",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/article",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "article"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-ba200249-4b9a-45a7-acfa-3aa3121ba6af"
+            },
+            {
+              "id": "ccdd4032-948c-4d20-917e-0a77f5bbb1bb",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/article",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "article"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-ccdd4032-948c-4d20-917e-0a77f5bbb1bb"
+            }
+          ],
+          "createdAt": "2026-07-28T02:59:06.000Z",
+          "updatedAt": "2026-07-28T02:59:06.000Z",
+          "uid": "35240-aa9b6b81-7032-4a48-ae19-da59f7f2cf86"
+        }
+      ],
+      "id": "ea0c1ada-2d9f-47d8-8670-022d0f44c4ac",
+      "createdAt": "2026-07-28T02:59:06.000Z",
+      "updatedAt": "2026-07-28T02:59:06.000Z",
+      "uid": "35240-ea0c1ada-2d9f-47d8-8670-022d0f44c4ac"
+    },
+    {
+      "name": "comments",
+      "item": [
+        {
+          "name": "Tweet Comments",
+          "id": "35cb7703-737e-406f-87bf-b383eea2e3cb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"order_by\": \"<string>\",\n  \"tweet_link\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/comments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "comments"
+              ]
+            },
+            "description": "Returns a paginated list of replies (comments) posted under a specific tweet. Up to 20 replies per page. Each reply includes text, creation date, engagement metrics, conversation context, and the author's profile."
+          },
+          "response": [
+            {
+              "id": "d04ba5c0-11b8-4d79-a15f-68f8a2602b9f",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"order_by\": \"<string>\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/comments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "comments"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"next_cursor\": \"<string>\",\n  \"tweets\": [\n    {\n      \"bookmark_count\": \"<integer>\",\n      \"conversation_id_str\": \"<string>\",\n      \"created_at\": \"<string>\",\n      \"entities\": [\n        {\n          \"link\": \"<string>\",\n          \"preview\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"link\": \"<string>\",\n          \"preview\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"full_text\": \"<string>\",\n      \"id\": \"<string>\",\n      \"in_reply_to_tweet_id\": \"<string>\",\n      \"in_reply_to_username\": \"<string>\",\n      \"is_quote_status\": \"<boolean>\",\n      \"is_replies_limited\": \"<boolean>\",\n      \"is_reply\": \"<boolean>\",\n      \"lang\": \"<string>\",\n      \"likes_count\": \"<integer>\",\n      \"quote_count\": \"<integer>\",\n      \"quoted_status\": {\n        \"description\": \"The original tweet being quoted. Present only if `is_quote_status` is true.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"reply_count\": \"<integer>\",\n      \"retweet_count\": \"<integer>\",\n      \"retweeted_status\": {\n        \"description\": \"The original tweet being retweeted. Present only for retweets.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"user\": {\n        \"bio_urls\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"can_dm\": \"<boolean>\",\n        \"created_at\": \"<string>\",\n        \"description\": \"<string>\",\n        \"display_name\": \"<string>\",\n        \"favourites_count\": \"<integer>\",\n        \"followers_count\": \"<integer>\",\n        \"followings_count\": \"<integer>\",\n        \"id\": \"<string>\",\n        \"location\": \"<string>\",\n        \"media_count\": \"<integer>\",\n        \"pinned_tweet_ids\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"possibly_sensitive\": \"<boolean>\",\n        \"profile_background_image_url\": \"<string>\",\n        \"profile_image_url\": \"<string>\",\n        \"protected\": \"<boolean>\",\n        \"tweets_count\": \"<integer>\",\n        \"username\": \"<string>\",\n        \"verified\": \"<boolean>\"\n      },\n      \"view_count\": \"<integer>\"\n    },\n    {\n      \"bookmark_count\": \"<integer>\",\n      \"conversation_id_str\": \"<string>\",\n      \"created_at\": \"<string>\",\n      \"entities\": [\n        {\n          \"link\": \"<string>\",\n          \"preview\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"link\": \"<string>\",\n          \"preview\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"full_text\": \"<string>\",\n      \"id\": \"<string>\",\n      \"in_reply_to_tweet_id\": \"<string>\",\n      \"in_reply_to_username\": \"<string>\",\n      \"is_quote_status\": \"<boolean>\",\n      \"is_replies_limited\": \"<boolean>\",\n      \"is_reply\": \"<boolean>\",\n      \"lang\": \"<string>\",\n      \"likes_count\": \"<integer>\",\n      \"quote_count\": \"<integer>\",\n      \"quoted_status\": {\n        \"description\": \"The original tweet being quoted. Present only if `is_quote_status` is true.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"reply_count\": \"<integer>\",\n      \"retweet_count\": \"<integer>\",\n      \"retweeted_status\": {\n        \"description\": \"The original tweet being retweeted. Present only for retweets.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"user\": {\n        \"bio_urls\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"can_dm\": \"<boolean>\",\n        \"created_at\": \"<string>\",\n        \"description\": \"<string>\",\n        \"display_name\": \"<string>\",\n        \"favourites_count\": \"<integer>\",\n        \"followers_count\": \"<integer>\",\n        \"followings_count\": \"<integer>\",\n        \"id\": \"<string>\",\n        \"location\": \"<string>\",\n        \"media_count\": \"<integer>\",\n        \"pinned_tweet_ids\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"possibly_sensitive\": \"<boolean>\",\n        \"profile_background_image_url\": \"<string>\",\n        \"profile_image_url\": \"<string>\",\n        \"protected\": \"<boolean>\",\n        \"tweets_count\": \"<integer>\",\n        \"username\": \"<string>\",\n        \"verified\": \"<boolean>\"\n      },\n      \"view_count\": \"<integer>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-d04ba5c0-11b8-4d79-a15f-68f8a2602b9f"
+            },
+            {
+              "id": "fc300162-b832-40aa-810b-131d0c570abb",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"order_by\": \"<string>\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/comments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "comments"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-fc300162-b832-40aa-810b-131d0c570abb"
+            },
+            {
+              "id": "d525a477-e8e7-4dae-a290-e84594fff1ca",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"order_by\": \"<string>\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/comments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "comments"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-d525a477-e8e7-4dae-a290-e84594fff1ca"
+            },
+            {
+              "id": "7127a076-4be5-4215-8952-387ba398aee1",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"order_by\": \"<string>\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/comments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "comments"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-7127a076-4be5-4215-8952-387ba398aee1"
+            },
+            {
+              "id": "5bda90ea-7e75-4b47-b3f9-8e5f6e16ea06",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"order_by\": \"<string>\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/comments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "comments"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-5bda90ea-7e75-4b47-b3f9-8e5f6e16ea06"
+            },
+            {
+              "id": "1a2c170f-fcba-41da-afa5-79b35234395a",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"order_by\": \"<string>\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/comments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "comments"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-1a2c170f-fcba-41da-afa5-79b35234395a"
+            },
+            {
+              "id": "971dd139-6c53-479d-850e-35eb6befa0c0",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"order_by\": \"<string>\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/comments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "comments"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-971dd139-6c53-479d-850e-35eb6befa0c0"
+            }
+          ],
+          "createdAt": "2026-07-28T02:59:06.000Z",
+          "updatedAt": "2026-07-28T02:59:06.000Z",
+          "uid": "35240-35cb7703-737e-406f-87bf-b383eea2e3cb"
+        }
+      ],
+      "id": "82ce9c1f-286b-4dd9-b46b-8d18c88e8488",
+      "createdAt": "2026-07-28T02:59:06.000Z",
+      "updatedAt": "2026-07-28T02:59:06.000Z",
+      "uid": "35240-82ce9c1f-286b-4dd9-b46b-8d18c88e8488"
+    },
+    {
+      "name": "quotes",
+      "item": [
+        {
+          "name": "Quote Tweets",
+          "id": "be327b7b-65e0-49a1-bca9-85c137e74961",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"tweet_link\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/quotes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "quotes"
+              ]
+            },
+            "description": "Returns a paginated list of tweets that quoted the specified tweet. Up to 20 results per page. Each quote tweet includes the added commentary text, creation date, engagement metrics, and the quoting user's profile."
+          },
+          "response": [
+            {
+              "id": "a7299081-5a02-48c4-82f3-746079f9e108",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/quotes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "quotes"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"next_cursor\": \"<string>\",\n  \"tweets\": [\n    {\n      \"bookmark_count\": \"<integer>\",\n      \"conversation_id_str\": \"<string>\",\n      \"created_at\": \"<string>\",\n      \"entities\": [\n        {\n          \"link\": \"<string>\",\n          \"preview\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"link\": \"<string>\",\n          \"preview\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"full_text\": \"<string>\",\n      \"id\": \"<string>\",\n      \"in_reply_to_tweet_id\": \"<string>\",\n      \"in_reply_to_username\": \"<string>\",\n      \"is_quote_status\": \"<boolean>\",\n      \"is_replies_limited\": \"<boolean>\",\n      \"is_reply\": \"<boolean>\",\n      \"lang\": \"<string>\",\n      \"likes_count\": \"<integer>\",\n      \"quote_count\": \"<integer>\",\n      \"quoted_status\": {\n        \"description\": \"The original tweet being quoted. Present only if `is_quote_status` is true.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"reply_count\": \"<integer>\",\n      \"retweet_count\": \"<integer>\",\n      \"retweeted_status\": {\n        \"description\": \"The original tweet being retweeted. Present only for retweets.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"user\": {\n        \"bio_urls\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"can_dm\": \"<boolean>\",\n        \"created_at\": \"<string>\",\n        \"description\": \"<string>\",\n        \"display_name\": \"<string>\",\n        \"favourites_count\": \"<integer>\",\n        \"followers_count\": \"<integer>\",\n        \"followings_count\": \"<integer>\",\n        \"id\": \"<string>\",\n        \"location\": \"<string>\",\n        \"media_count\": \"<integer>\",\n        \"pinned_tweet_ids\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"possibly_sensitive\": \"<boolean>\",\n        \"profile_background_image_url\": \"<string>\",\n        \"profile_image_url\": \"<string>\",\n        \"protected\": \"<boolean>\",\n        \"tweets_count\": \"<integer>\",\n        \"username\": \"<string>\",\n        \"verified\": \"<boolean>\"\n      },\n      \"view_count\": \"<integer>\"\n    },\n    {\n      \"bookmark_count\": \"<integer>\",\n      \"conversation_id_str\": \"<string>\",\n      \"created_at\": \"<string>\",\n      \"entities\": [\n        {\n          \"link\": \"<string>\",\n          \"preview\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"link\": \"<string>\",\n          \"preview\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"full_text\": \"<string>\",\n      \"id\": \"<string>\",\n      \"in_reply_to_tweet_id\": \"<string>\",\n      \"in_reply_to_username\": \"<string>\",\n      \"is_quote_status\": \"<boolean>\",\n      \"is_replies_limited\": \"<boolean>\",\n      \"is_reply\": \"<boolean>\",\n      \"lang\": \"<string>\",\n      \"likes_count\": \"<integer>\",\n      \"quote_count\": \"<integer>\",\n      \"quoted_status\": {\n        \"description\": \"The original tweet being quoted. Present only if `is_quote_status` is true.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"reply_count\": \"<integer>\",\n      \"retweet_count\": \"<integer>\",\n      \"retweeted_status\": {\n        \"description\": \"The original tweet being retweeted. Present only for retweets.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"user\": {\n        \"bio_urls\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"can_dm\": \"<boolean>\",\n        \"created_at\": \"<string>\",\n        \"description\": \"<string>\",\n        \"display_name\": \"<string>\",\n        \"favourites_count\": \"<integer>\",\n        \"followers_count\": \"<integer>\",\n        \"followings_count\": \"<integer>\",\n        \"id\": \"<string>\",\n        \"location\": \"<string>\",\n        \"media_count\": \"<integer>\",\n        \"pinned_tweet_ids\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"possibly_sensitive\": \"<boolean>\",\n        \"profile_background_image_url\": \"<string>\",\n        \"profile_image_url\": \"<string>\",\n        \"protected\": \"<boolean>\",\n        \"tweets_count\": \"<integer>\",\n        \"username\": \"<string>\",\n        \"verified\": \"<boolean>\"\n      },\n      \"view_count\": \"<integer>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-a7299081-5a02-48c4-82f3-746079f9e108"
+            },
+            {
+              "id": "588f7ad3-3c3a-4628-a96a-c42bb3f33011",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/quotes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "quotes"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-588f7ad3-3c3a-4628-a96a-c42bb3f33011"
+            },
+            {
+              "id": "4dc9e247-2929-436d-87c0-fa9e242599d5",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/quotes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "quotes"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-4dc9e247-2929-436d-87c0-fa9e242599d5"
+            },
+            {
+              "id": "01992a57-cdff-4ccc-8204-8633bab3fcb0",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/quotes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "quotes"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-01992a57-cdff-4ccc-8204-8633bab3fcb0"
+            },
+            {
+              "id": "3827bcf7-ef42-40a4-9aa4-73817a1ba5b1",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/quotes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "quotes"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-3827bcf7-ef42-40a4-9aa4-73817a1ba5b1"
+            },
+            {
+              "id": "81c16d0c-88d9-4611-9bce-ee41b109cfab",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/quotes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "quotes"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-81c16d0c-88d9-4611-9bce-ee41b109cfab"
+            },
+            {
+              "id": "d353216a-af6f-4913-a6ad-4ac00aaa5e4b",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/quotes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "quotes"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-d353216a-af6f-4913-a6ad-4ac00aaa5e4b"
+            }
+          ],
+          "createdAt": "2026-07-28T02:59:06.000Z",
+          "updatedAt": "2026-07-28T02:59:06.000Z",
+          "uid": "35240-be327b7b-65e0-49a1-bca9-85c137e74961"
+        }
+      ],
+      "id": "d4c1a008-9e2c-48bc-863a-333fbbfeea8d",
+      "createdAt": "2026-07-28T02:59:06.000Z",
+      "updatedAt": "2026-07-28T02:59:06.000Z",
+      "uid": "35240-d4c1a008-9e2c-48bc-863a-333fbbfeea8d"
+    },
+    {
+      "name": "retweeters",
+      "item": [
+        {
+          "name": "Retweeters List",
+          "id": "760aa351-0db6-43e8-ae40-fcad0bc411e0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"tweet_link\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/retweeters",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "retweeters"
+              ]
+            },
+            "description": "Returns a paginated list of users who retweeted the specified tweet, sorted by retweet time (newest first). Each entry contains the retweeter's profile data. Note: the response uses the users format (`common.UsersResponse`), not tweets."
+          },
+          "response": [
+            {
+              "id": "d46177ed-19fd-49c1-9aca-33368465a60d",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/retweeters",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "retweeters"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"next_cursor\": \"<string>\",\n  \"users\": [\n    {\n      \"bio_urls\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"can_dm\": \"<boolean>\",\n      \"created_at\": \"<string>\",\n      \"description\": \"<string>\",\n      \"display_name\": \"<string>\",\n      \"favourites_count\": \"<integer>\",\n      \"followers_count\": \"<integer>\",\n      \"followings_count\": \"<integer>\",\n      \"id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"media_count\": \"<integer>\",\n      \"pinned_tweet_ids\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"possibly_sensitive\": \"<boolean>\",\n      \"profile_background_image_url\": \"<string>\",\n      \"profile_image_url\": \"<string>\",\n      \"protected\": \"<boolean>\",\n      \"tweets_count\": \"<integer>\",\n      \"username\": \"<string>\",\n      \"verified\": \"<boolean>\"\n    },\n    {\n      \"bio_urls\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"can_dm\": \"<boolean>\",\n      \"created_at\": \"<string>\",\n      \"description\": \"<string>\",\n      \"display_name\": \"<string>\",\n      \"favourites_count\": \"<integer>\",\n      \"followers_count\": \"<integer>\",\n      \"followings_count\": \"<integer>\",\n      \"id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"media_count\": \"<integer>\",\n      \"pinned_tweet_ids\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"possibly_sensitive\": \"<boolean>\",\n      \"profile_background_image_url\": \"<string>\",\n      \"profile_image_url\": \"<string>\",\n      \"protected\": \"<boolean>\",\n      \"tweets_count\": \"<integer>\",\n      \"username\": \"<string>\",\n      \"verified\": \"<boolean>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-d46177ed-19fd-49c1-9aca-33368465a60d"
+            },
+            {
+              "id": "ca36571d-7dca-48c4-8ed0-78552844aa6f",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/retweeters",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "retweeters"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-ca36571d-7dca-48c4-8ed0-78552844aa6f"
+            },
+            {
+              "id": "177d27b4-bf61-4f95-83c4-4973e80a85ad",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/retweeters",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "retweeters"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-177d27b4-bf61-4f95-83c4-4973e80a85ad"
+            },
+            {
+              "id": "641279a3-061e-4e07-a83c-2f6b0a0620a0",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/retweeters",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "retweeters"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-641279a3-061e-4e07-a83c-2f6b0a0620a0"
+            },
+            {
+              "id": "f3ca898c-f044-4fff-a7c9-e4d09985fd6d",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/retweeters",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "retweeters"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-f3ca898c-f044-4fff-a7c9-e4d09985fd6d"
+            }
+          ],
+          "createdAt": "2026-07-28T02:59:06.000Z",
+          "updatedAt": "2026-07-28T02:59:06.000Z",
+          "uid": "35240-760aa351-0db6-43e8-ae40-fcad0bc411e0"
+        }
+      ],
+      "id": "0f81741e-aefc-4701-aad9-26b1c3884676",
+      "createdAt": "2026-07-28T02:59:06.000Z",
+      "updatedAt": "2026-07-28T02:59:06.000Z",
+      "uid": "35240-0f81741e-aefc-4701-aad9-26b1c3884676"
+    },
+    {
+      "name": "trends",
+      "item": [
+        {
+          "name": "Trends List",
+          "id": "e65b1832-2ba4-487c-a60c-f68ceaa09f78",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/trends?woeid=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "trends"
+              ],
+              "query": [
+                {
+                  "description": "(Required) WOEID (Where On Earth IDentifier) of the location to get trends for Woeid list: https://gist.github.com/tedyblood/5bb5a9f78314cc1f478b3dd7cde790b9",
+                  "key": "woeid",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Returns a list of trending topics for the specified WOEID (location identifier). Each trend contains its name and search query for the region. Useful for monitoring popular topics by location."
+          },
+          "response": [
+            {
+              "id": "911e6a5c-1c28-4e5e-996f-2612c51af93d",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/trends?woeid=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "trends"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) WOEID (Where On Earth IDentifier) of the location to get trends for Woeid list: https://gist.github.com/tedyblood/5bb5a9f78314cc1f478b3dd7cde790b9",
+                      "key": "woeid",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"trends\": [\n    {\n      \"name\": \"<string>\",\n      \"query\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"query\": \"<string>\",\n      \"url\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-911e6a5c-1c28-4e5e-996f-2612c51af93d"
+            },
+            {
+              "id": "561c5d99-fce2-4974-89d1-4f4ca2beeffe",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/trends?woeid=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "trends"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) WOEID (Where On Earth IDentifier) of the location to get trends for Woeid list: https://gist.github.com/tedyblood/5bb5a9f78314cc1f478b3dd7cde790b9",
+                      "key": "woeid",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-561c5d99-fce2-4974-89d1-4f4ca2beeffe"
+            },
+            {
+              "id": "c6fb199d-032a-42ac-97a5-4532c12b594b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/trends?woeid=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "trends"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) WOEID (Where On Earth IDentifier) of the location to get trends for Woeid list: https://gist.github.com/tedyblood/5bb5a9f78314cc1f478b3dd7cde790b9",
+                      "key": "woeid",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-c6fb199d-032a-42ac-97a5-4532c12b594b"
+            },
+            {
+              "id": "24c4084e-80cb-4632-a630-8ed098740632",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/trends?woeid=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "trends"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) WOEID (Where On Earth IDentifier) of the location to get trends for Woeid list: https://gist.github.com/tedyblood/5bb5a9f78314cc1f478b3dd7cde790b9",
+                      "key": "woeid",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-24c4084e-80cb-4632-a630-8ed098740632"
+            },
+            {
+              "id": "68ff2d06-cd02-45a0-9d2e-0beb361e88e2",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/trends?woeid=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "trends"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) WOEID (Where On Earth IDentifier) of the location to get trends for Woeid list: https://gist.github.com/tedyblood/5bb5a9f78314cc1f478b3dd7cde790b9",
+                      "key": "woeid",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-68ff2d06-cd02-45a0-9d2e-0beb361e88e2"
+            },
+            {
+              "id": "101cb1ab-2a15-44b4-8c0c-ffe5f1b636e2",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/trends?woeid=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "trends"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) WOEID (Where On Earth IDentifier) of the location to get trends for Woeid list: https://gist.github.com/tedyblood/5bb5a9f78314cc1f478b3dd7cde790b9",
+                      "key": "woeid",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-101cb1ab-2a15-44b4-8c0c-ffe5f1b636e2"
+            }
+          ],
+          "createdAt": "2026-07-28T02:59:06.000Z",
+          "updatedAt": "2026-07-28T02:59:06.000Z",
+          "uid": "35240-e65b1832-2ba4-487c-a60c-f68ceaa09f78"
+        }
+      ],
+      "id": "806e89ef-adba-4194-88d6-9589f892709f",
+      "createdAt": "2026-07-28T02:59:06.000Z",
+      "updatedAt": "2026-07-28T02:59:06.000Z",
+      "uid": "35240-806e89ef-adba-4194-88d6-9589f892709f"
+    },
+    {
+      "name": "tweet-info",
+      "item": [
+        {
+          "name": "Tweet Data",
+          "id": "5951ac75-6b81-4b8e-b359-fbfb993e4d50",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tweet-info",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tweet-info"
+              ]
+            },
+            "description": "Returns full data for a single tweet by its URL: text, creation date, language, engagement metrics (likes, retweets, quotes, replies, views, bookmarks), and the author's profile. If the tweet is a reply, quote, or repost, the nested original tweet and its author data are included as well."
+          },
+          "response": [
+            {
+              "id": "c5928359-f95e-435d-881c-f715bb3fa16b",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tweet-info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tweet-info"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"bookmark_count\": \"<integer>\",\n  \"conversation_id_str\": \"<string>\",\n  \"created_at\": \"<string>\",\n  \"entities\": [\n    {\n      \"link\": \"<string>\",\n      \"preview\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"link\": \"<string>\",\n      \"preview\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"full_text\": \"<string>\",\n  \"id\": \"<string>\",\n  \"in_reply_to_tweet_id\": \"<string>\",\n  \"in_reply_to_username\": \"<string>\",\n  \"is_quote_status\": \"<boolean>\",\n  \"is_replies_limited\": \"<boolean>\",\n  \"is_reply\": \"<boolean>\",\n  \"lang\": \"<string>\",\n  \"likes_count\": \"<integer>\",\n  \"quote_count\": \"<integer>\",\n  \"quoted_status\": {\n    \"description\": \"The original tweet being quoted. Present only if `is_quote_status` is true.\",\n    \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n  },\n  \"reply_count\": \"<integer>\",\n  \"retweet_count\": \"<integer>\",\n  \"retweeted_status\": {\n    \"description\": \"The original tweet being retweeted. Present only for retweets.\",\n    \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n  },\n  \"user\": {\n    \"bio_urls\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"can_dm\": \"<boolean>\",\n    \"created_at\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_name\": \"<string>\",\n    \"favourites_count\": \"<integer>\",\n    \"followers_count\": \"<integer>\",\n    \"followings_count\": \"<integer>\",\n    \"id\": \"<string>\",\n    \"location\": \"<string>\",\n    \"media_count\": \"<integer>\",\n    \"pinned_tweet_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"possibly_sensitive\": \"<boolean>\",\n    \"profile_background_image_url\": \"<string>\",\n    \"profile_image_url\": \"<string>\",\n    \"protected\": \"<boolean>\",\n    \"tweets_count\": \"<integer>\",\n    \"username\": \"<string>\",\n    \"verified\": \"<boolean>\"\n  },\n  \"view_count\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-c5928359-f95e-435d-881c-f715bb3fa16b"
+            },
+            {
+              "id": "03714b15-4d24-4324-89ee-018d87a57fcf",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tweet-info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tweet-info"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-03714b15-4d24-4324-89ee-018d87a57fcf"
+            },
+            {
+              "id": "4e38e947-9175-455d-be24-980e663d3efa",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tweet-info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tweet-info"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-4e38e947-9175-455d-be24-980e663d3efa"
+            },
+            {
+              "id": "c0f74e3b-b378-4102-baf6-3bb8162fbb50",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tweet-info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tweet-info"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-c0f74e3b-b378-4102-baf6-3bb8162fbb50"
+            },
+            {
+              "id": "fbb2e7f2-764a-4ee4-9c0b-d8cd051a20db",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tweet-info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tweet-info"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-fbb2e7f2-764a-4ee4-9c0b-d8cd051a20db"
+            },
+            {
+              "id": "545821ee-5c06-4c1c-8d22-12b4a57fd406",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tweet-info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tweet-info"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-545821ee-5c06-4c1c-8d22-12b4a57fd406"
+            },
+            {
+              "id": "0e89976f-f44c-4a10-abb7-588cc8d47a1b",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tweet-info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tweet-info"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-0e89976f-f44c-4a10-abb7-588cc8d47a1b"
+            }
+          ],
+          "createdAt": "2026-07-28T02:59:06.000Z",
+          "updatedAt": "2026-07-28T02:59:06.000Z",
+          "uid": "35240-5951ac75-6b81-4b8e-b359-fbfb993e4d50"
+        }
+      ],
+      "id": "1e796946-b4ac-4d56-a4d2-4ddda5a629ce",
+      "createdAt": "2026-07-28T02:59:06.000Z",
+      "updatedAt": "2026-07-28T02:59:06.000Z",
+      "uid": "35240-1e796946-b4ac-4d56-a4d2-4ddda5a629ce"
+    },
+    {
+      "name": "tweet-info-bulk",
+      "item": [
+        {
+          "name": "Tweet Data (batch)",
+          "id": "c0f207f4-4ac2-4bdf-b299-b0e679d4ca6e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tweet_links\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tweet-info-bulk",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tweet-info-bulk"
+              ]
+            },
+            "description": "Returns full data for up to 100 tweets in a single request. Each tweet object includes text, creation date, engagement metrics, and author profile. Works the same way as the single-tweet endpoint, but accepts an array of URLs. The response is not paginated."
+          },
+          "response": [
+            {
+              "id": "54f9b0e4-5325-4cd4-b392-84a3b5167418",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_links\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tweet-info-bulk",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tweet-info-bulk"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"tweets\": [\n    {\n      \"bookmark_count\": \"<integer>\",\n      \"conversation_id_str\": \"<string>\",\n      \"created_at\": \"<string>\",\n      \"entities\": [\n        {\n          \"link\": \"<string>\",\n          \"preview\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"link\": \"<string>\",\n          \"preview\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"full_text\": \"<string>\",\n      \"id\": \"<string>\",\n      \"in_reply_to_tweet_id\": \"<string>\",\n      \"in_reply_to_username\": \"<string>\",\n      \"is_quote_status\": \"<boolean>\",\n      \"is_replies_limited\": \"<boolean>\",\n      \"is_reply\": \"<boolean>\",\n      \"lang\": \"<string>\",\n      \"likes_count\": \"<integer>\",\n      \"quote_count\": \"<integer>\",\n      \"quoted_status\": {\n        \"description\": \"The original tweet being quoted. Present only if `is_quote_status` is true.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"reply_count\": \"<integer>\",\n      \"retweet_count\": \"<integer>\",\n      \"retweeted_status\": {\n        \"description\": \"The original tweet being retweeted. Present only for retweets.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"user\": {\n        \"bio_urls\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"can_dm\": \"<boolean>\",\n        \"created_at\": \"<string>\",\n        \"description\": \"<string>\",\n        \"display_name\": \"<string>\",\n        \"favourites_count\": \"<integer>\",\n        \"followers_count\": \"<integer>\",\n        \"followings_count\": \"<integer>\",\n        \"id\": \"<string>\",\n        \"location\": \"<string>\",\n        \"media_count\": \"<integer>\",\n        \"pinned_tweet_ids\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"possibly_sensitive\": \"<boolean>\",\n        \"profile_background_image_url\": \"<string>\",\n        \"profile_image_url\": \"<string>\",\n        \"protected\": \"<boolean>\",\n        \"tweets_count\": \"<integer>\",\n        \"username\": \"<string>\",\n        \"verified\": \"<boolean>\"\n      },\n      \"view_count\": \"<integer>\"\n    },\n    {\n      \"bookmark_count\": \"<integer>\",\n      \"conversation_id_str\": \"<string>\",\n      \"created_at\": \"<string>\",\n      \"entities\": [\n        {\n          \"link\": \"<string>\",\n          \"preview\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"link\": \"<string>\",\n          \"preview\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"full_text\": \"<string>\",\n      \"id\": \"<string>\",\n      \"in_reply_to_tweet_id\": \"<string>\",\n      \"in_reply_to_username\": \"<string>\",\n      \"is_quote_status\": \"<boolean>\",\n      \"is_replies_limited\": \"<boolean>\",\n      \"is_reply\": \"<boolean>\",\n      \"lang\": \"<string>\",\n      \"likes_count\": \"<integer>\",\n      \"quote_count\": \"<integer>\",\n      \"quoted_status\": {\n        \"description\": \"The original tweet being quoted. Present only if `is_quote_status` is true.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"reply_count\": \"<integer>\",\n      \"retweet_count\": \"<integer>\",\n      \"retweeted_status\": {\n        \"description\": \"The original tweet being retweeted. Present only for retweets.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"user\": {\n        \"bio_urls\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"can_dm\": \"<boolean>\",\n        \"created_at\": \"<string>\",\n        \"description\": \"<string>\",\n        \"display_name\": \"<string>\",\n        \"favourites_count\": \"<integer>\",\n        \"followers_count\": \"<integer>\",\n        \"followings_count\": \"<integer>\",\n        \"id\": \"<string>\",\n        \"location\": \"<string>\",\n        \"media_count\": \"<integer>\",\n        \"pinned_tweet_ids\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"possibly_sensitive\": \"<boolean>\",\n        \"profile_background_image_url\": \"<string>\",\n        \"profile_image_url\": \"<string>\",\n        \"protected\": \"<boolean>\",\n        \"tweets_count\": \"<integer>\",\n        \"username\": \"<string>\",\n        \"verified\": \"<boolean>\"\n      },\n      \"view_count\": \"<integer>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-54f9b0e4-5325-4cd4-b392-84a3b5167418"
+            },
+            {
+              "id": "39700ba8-1cd4-4d2f-bb1d-70db94841a2d",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_links\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tweet-info-bulk",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tweet-info-bulk"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-39700ba8-1cd4-4d2f-bb1d-70db94841a2d"
+            },
+            {
+              "id": "7c90c658-9906-4c08-87ea-741c21651666",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_links\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tweet-info-bulk",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tweet-info-bulk"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-7c90c658-9906-4c08-87ea-741c21651666"
+            },
+            {
+              "id": "b4d9dc4e-0c48-4ee7-aa64-366e3f7ac4dd",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_links\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tweet-info-bulk",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tweet-info-bulk"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-b4d9dc4e-0c48-4ee7-aa64-366e3f7ac4dd"
+            },
+            {
+              "id": "281ebad0-a75b-43dc-afe0-d53d450bd36e",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_links\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tweet-info-bulk",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tweet-info-bulk"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-281ebad0-a75b-43dc-afe0-d53d450bd36e"
+            },
+            {
+              "id": "93e444a4-bd8c-4a7c-850d-5ad5c70c307c",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_links\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tweet-info-bulk",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tweet-info-bulk"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-93e444a4-bd8c-4a7c-850d-5ad5c70c307c"
+            },
+            {
+              "id": "f6a6bf30-5fca-4206-be22-f3abd12628ca",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_links\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tweet-info-bulk",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tweet-info-bulk"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-f6a6bf30-5fca-4206-be22-f3abd12628ca"
+            }
+          ],
+          "createdAt": "2026-07-28T02:59:06.000Z",
+          "updatedAt": "2026-07-28T02:59:06.000Z",
+          "uid": "35240-c0f207f4-4ac2-4bdf-b299-b0e679d4ca6e"
+        }
+      ],
+      "id": "6565d154-9a8f-403e-9cce-b0bcfc0882c8",
+      "createdAt": "2026-07-28T02:59:06.000Z",
+      "updatedAt": "2026-07-28T02:59:06.000Z",
+      "uid": "35240-6565d154-9a8f-403e-9cce-b0bcfc0882c8"
+    },
+    {
+      "name": "user-tweets",
+      "item": [
+        {
+          "name": "User Tweets",
+          "id": "427d6ed8-dd96-4e98-9051-6989c36be928",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/user-tweets",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user-tweets"
+              ]
+            },
+            "description": "Returns a paginated list of tweets posted by a specific user. Up to 20 tweets per page. Each tweet includes text, creation date, engagement metrics, view count, and nested data for replies, quotes, and retweets when available. Provide either `link` (profile URL) or `user_id`."
+          },
+          "response": [
+            {
+              "id": "5d25e60a-cc20-40f8-a72a-0037950bc718",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/user-tweets",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user-tweets"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"next_cursor\": \"<string>\",\n  \"tweets\": [\n    {\n      \"bookmark_count\": \"<integer>\",\n      \"conversation_id_str\": \"<string>\",\n      \"created_at\": \"<string>\",\n      \"entities\": [\n        {\n          \"link\": \"<string>\",\n          \"preview\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"link\": \"<string>\",\n          \"preview\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"full_text\": \"<string>\",\n      \"id\": \"<string>\",\n      \"in_reply_to_tweet_id\": \"<string>\",\n      \"in_reply_to_username\": \"<string>\",\n      \"is_quote_status\": \"<boolean>\",\n      \"is_replies_limited\": \"<boolean>\",\n      \"is_reply\": \"<boolean>\",\n      \"lang\": \"<string>\",\n      \"likes_count\": \"<integer>\",\n      \"quote_count\": \"<integer>\",\n      \"quoted_status\": {\n        \"description\": \"The original tweet being quoted. Present only if `is_quote_status` is true.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"reply_count\": \"<integer>\",\n      \"retweet_count\": \"<integer>\",\n      \"retweeted_status\": {\n        \"description\": \"The original tweet being retweeted. Present only for retweets.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"user\": {\n        \"bio_urls\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"can_dm\": \"<boolean>\",\n        \"created_at\": \"<string>\",\n        \"description\": \"<string>\",\n        \"display_name\": \"<string>\",\n        \"favourites_count\": \"<integer>\",\n        \"followers_count\": \"<integer>\",\n        \"followings_count\": \"<integer>\",\n        \"id\": \"<string>\",\n        \"location\": \"<string>\",\n        \"media_count\": \"<integer>\",\n        \"pinned_tweet_ids\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"possibly_sensitive\": \"<boolean>\",\n        \"profile_background_image_url\": \"<string>\",\n        \"profile_image_url\": \"<string>\",\n        \"protected\": \"<boolean>\",\n        \"tweets_count\": \"<integer>\",\n        \"username\": \"<string>\",\n        \"verified\": \"<boolean>\"\n      },\n      \"view_count\": \"<integer>\"\n    },\n    {\n      \"bookmark_count\": \"<integer>\",\n      \"conversation_id_str\": \"<string>\",\n      \"created_at\": \"<string>\",\n      \"entities\": [\n        {\n          \"link\": \"<string>\",\n          \"preview\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"link\": \"<string>\",\n          \"preview\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"full_text\": \"<string>\",\n      \"id\": \"<string>\",\n      \"in_reply_to_tweet_id\": \"<string>\",\n      \"in_reply_to_username\": \"<string>\",\n      \"is_quote_status\": \"<boolean>\",\n      \"is_replies_limited\": \"<boolean>\",\n      \"is_reply\": \"<boolean>\",\n      \"lang\": \"<string>\",\n      \"likes_count\": \"<integer>\",\n      \"quote_count\": \"<integer>\",\n      \"quoted_status\": {\n        \"description\": \"The original tweet being quoted. Present only if `is_quote_status` is true.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"reply_count\": \"<integer>\",\n      \"retweet_count\": \"<integer>\",\n      \"retweeted_status\": {\n        \"description\": \"The original tweet being retweeted. Present only for retweets.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"user\": {\n        \"bio_urls\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"can_dm\": \"<boolean>\",\n        \"created_at\": \"<string>\",\n        \"description\": \"<string>\",\n        \"display_name\": \"<string>\",\n        \"favourites_count\": \"<integer>\",\n        \"followers_count\": \"<integer>\",\n        \"followings_count\": \"<integer>\",\n        \"id\": \"<string>\",\n        \"location\": \"<string>\",\n        \"media_count\": \"<integer>\",\n        \"pinned_tweet_ids\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"possibly_sensitive\": \"<boolean>\",\n        \"profile_background_image_url\": \"<string>\",\n        \"profile_image_url\": \"<string>\",\n        \"protected\": \"<boolean>\",\n        \"tweets_count\": \"<integer>\",\n        \"username\": \"<string>\",\n        \"verified\": \"<boolean>\"\n      },\n      \"view_count\": \"<integer>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-5d25e60a-cc20-40f8-a72a-0037950bc718"
+            },
+            {
+              "id": "41f8814a-1930-4c93-b744-d78f3af34a53",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/user-tweets",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user-tweets"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-41f8814a-1930-4c93-b744-d78f3af34a53"
+            },
+            {
+              "id": "0878495e-6816-401f-9eda-664c725c4172",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/user-tweets",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user-tweets"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-0878495e-6816-401f-9eda-664c725c4172"
+            },
+            {
+              "id": "78304b6a-c78f-4d70-bdbc-87b316ac3703",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/user-tweets",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user-tweets"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-78304b6a-c78f-4d70-bdbc-87b316ac3703"
+            },
+            {
+              "id": "2fd7422d-9b20-4f74-97c4-0cbe0c457113",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/user-tweets",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user-tweets"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-2fd7422d-9b20-4f74-97c4-0cbe0c457113"
+            },
+            {
+              "id": "c3627a2b-ff88-4eba-86e4-977ae452266b",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/user-tweets",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user-tweets"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-c3627a2b-ff88-4eba-86e4-977ae452266b"
+            },
+            {
+              "id": "f8eca529-8a13-4df4-a4bc-1f1acea225c8",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/user-tweets",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user-tweets"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:06.000Z",
+              "updatedAt": "2026-07-28T02:59:06.000Z",
+              "uid": "35240-f8eca529-8a13-4df4-a4bc-1f1acea225c8"
+            }
+          ],
+          "createdAt": "2026-07-28T02:59:06.000Z",
+          "updatedAt": "2026-07-28T02:59:06.000Z",
+          "uid": "35240-427d6ed8-dd96-4e98-9051-6989c36be928"
+        }
+      ],
+      "id": "57f58f65-fbfd-4400-93b5-5d2fb0759b5b",
+      "createdAt": "2026-07-28T02:59:06.000Z",
+      "updatedAt": "2026-07-28T02:59:06.000Z",
+      "uid": "35240-57f58f65-fbfd-4400-93b5-5d2fb0759b5b"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ApiKey",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.sorsa.io/v3"
+    }
+  ]
+}

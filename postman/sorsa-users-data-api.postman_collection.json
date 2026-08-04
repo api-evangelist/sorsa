@@ -1,0 +1,3070 @@
+{
+  "info": {
+    "_postman_id": "0175770c-4e77-4fe1-aafe-29a83b1eb5aa",
+    "name": "Sorsa Community Users Data API",
+    "description": "Real-time X (Twitter) data API providing access to tweets, profiles, search, mentions, lists, communities, engagement verification, and Sorsa Score crypto-influence analytics via 40 REST endpoints. Affordable alternative to the official X API.\n\nContact Support:\n Name: Sorsa Support\n Email: contacts@sorsa.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:59:23.000Z",
+    "updatedAt": "2026-07-28T02:59:23.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0175770c-4e77-4fe1-aafe-29a83b1eb5aa"
+  },
+  "item": [
+    {
+      "name": "about",
+      "item": [
+        {
+          "name": "Account About Info",
+          "id": "20d3ed15-c6ac-475f-bc40-55cb1e31f13a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/about?user_link=<string>&username=<string>&user_id=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "about"
+              ],
+              "query": [
+                {
+                  "description": "Full URL of the user's Twitter/X profile.",
+                  "key": "user_link",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Twitter/X handle (without @).",
+                  "key": "username",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Numeric Twitter/X user ID.",
+                  "key": "user_id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns metadata from the \"About\" section of a Twitter/X account, including country, total number of username changes, and the date of the most recent change. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+          },
+          "response": [
+            {
+              "id": "0ca2ca30-64fa-4f7d-96e4-7baff731d767",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/about?user_link=<string>&username=<string>&user_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "about"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"country\": \"<string>\",\n  \"last_username_change_at\": \"<string>\",\n  \"username_change_count\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-0ca2ca30-64fa-4f7d-96e4-7baff731d767"
+            },
+            {
+              "id": "6e825c82-2b25-44ac-b348-0a2c9404cb5c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/about?user_link=<string>&username=<string>&user_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "about"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-6e825c82-2b25-44ac-b348-0a2c9404cb5c"
+            },
+            {
+              "id": "5df28347-a6c6-46e6-999e-a3b560ccf005",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/about?user_link=<string>&username=<string>&user_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "about"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-5df28347-a6c6-46e6-999e-a3b560ccf005"
+            },
+            {
+              "id": "d6555172-6f37-40ef-b489-020dc93702d2",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/about?user_link=<string>&username=<string>&user_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "about"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-d6555172-6f37-40ef-b489-020dc93702d2"
+            },
+            {
+              "id": "655788bf-790e-4456-be49-26470911b5ca",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/about?user_link=<string>&username=<string>&user_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "about"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-655788bf-790e-4456-be49-26470911b5ca"
+            },
+            {
+              "id": "5a31493b-6ca1-42d6-bdb9-30a424fab453",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/about?user_link=<string>&username=<string>&user_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "about"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-5a31493b-6ca1-42d6-bdb9-30a424fab453"
+            },
+            {
+              "id": "f8aeb4a7-234e-47d1-b4f5-de1c0ca77c7f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/about?user_link=<string>&username=<string>&user_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "about"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-f8aeb4a7-234e-47d1-b4f5-de1c0ca77c7f"
+            }
+          ],
+          "createdAt": "2026-07-28T02:59:23.000Z",
+          "updatedAt": "2026-07-28T02:59:23.000Z",
+          "uid": "35240-20d3ed15-c6ac-475f-bc40-55cb1e31f13a"
+        }
+      ],
+      "id": "ccd5dade-274f-4426-a0a8-958f9ec72160",
+      "createdAt": "2026-07-28T02:59:23.000Z",
+      "updatedAt": "2026-07-28T02:59:23.000Z",
+      "uid": "35240-ccd5dade-274f-4426-a0a8-958f9ec72160"
+    },
+    {
+      "name": "followers",
+      "item": [
+        {
+          "name": "Followers",
+          "id": "d27550cc-c0a7-4fea-8bc9-c9d438abc6c5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/followers?user_link=<string>&username=<string>&user_id=<string>&next_cursor=<long>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "followers"
+              ],
+              "query": [
+                {
+                  "description": "Full URL of the user's Twitter/X profile.",
+                  "key": "user_link",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Twitter/X handle (without @).",
+                  "key": "username",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Numeric Twitter/X user ID.",
+                  "key": "user_id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Pagination cursor from a previous response.",
+                  "key": "next_cursor",
+                  "value": "<long>"
+                }
+              ]
+            },
+            "description": "Returns a paginated list of users who follow the specified account. Up to 200 user profiles per page. Use the returned `next_cursor` to load subsequent pages. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+          },
+          "response": [
+            {
+              "id": "51420491-fc4b-49c0-b134-f4eb0fcda148",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/followers?user_link=<string>&username=<string>&user_id=<string>&next_cursor=<long>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "followers"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination cursor from a previous response.",
+                      "key": "next_cursor",
+                      "value": "<long>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"next_cursor\": \"<string>\",\n  \"users\": [\n    {\n      \"bio_urls\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"can_dm\": \"<boolean>\",\n      \"created_at\": \"<string>\",\n      \"description\": \"<string>\",\n      \"display_name\": \"<string>\",\n      \"favourites_count\": \"<integer>\",\n      \"followers_count\": \"<integer>\",\n      \"followings_count\": \"<integer>\",\n      \"id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"media_count\": \"<integer>\",\n      \"pinned_tweet_ids\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"possibly_sensitive\": \"<boolean>\",\n      \"profile_background_image_url\": \"<string>\",\n      \"profile_image_url\": \"<string>\",\n      \"protected\": \"<boolean>\",\n      \"tweets_count\": \"<integer>\",\n      \"username\": \"<string>\",\n      \"verified\": \"<boolean>\"\n    },\n    {\n      \"bio_urls\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"can_dm\": \"<boolean>\",\n      \"created_at\": \"<string>\",\n      \"description\": \"<string>\",\n      \"display_name\": \"<string>\",\n      \"favourites_count\": \"<integer>\",\n      \"followers_count\": \"<integer>\",\n      \"followings_count\": \"<integer>\",\n      \"id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"media_count\": \"<integer>\",\n      \"pinned_tweet_ids\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"possibly_sensitive\": \"<boolean>\",\n      \"profile_background_image_url\": \"<string>\",\n      \"profile_image_url\": \"<string>\",\n      \"protected\": \"<boolean>\",\n      \"tweets_count\": \"<integer>\",\n      \"username\": \"<string>\",\n      \"verified\": \"<boolean>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-51420491-fc4b-49c0-b134-f4eb0fcda148"
+            },
+            {
+              "id": "6dafaf70-2d55-44d9-acaf-0f624b3eb960",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/followers?user_link=<string>&username=<string>&user_id=<string>&next_cursor=<long>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "followers"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination cursor from a previous response.",
+                      "key": "next_cursor",
+                      "value": "<long>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-6dafaf70-2d55-44d9-acaf-0f624b3eb960"
+            },
+            {
+              "id": "ca4ce8f0-8b17-4c3f-aa7e-cd54c532d791",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/followers?user_link=<string>&username=<string>&user_id=<string>&next_cursor=<long>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "followers"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination cursor from a previous response.",
+                      "key": "next_cursor",
+                      "value": "<long>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-ca4ce8f0-8b17-4c3f-aa7e-cd54c532d791"
+            },
+            {
+              "id": "2e2b9fa5-fe7f-4f8c-820c-5225fc74d244",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/followers?user_link=<string>&username=<string>&user_id=<string>&next_cursor=<long>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "followers"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination cursor from a previous response.",
+                      "key": "next_cursor",
+                      "value": "<long>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-2e2b9fa5-fe7f-4f8c-820c-5225fc74d244"
+            },
+            {
+              "id": "3bf76f5a-cdc3-4938-bdb5-cbcee835085e",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/followers?user_link=<string>&username=<string>&user_id=<string>&next_cursor=<long>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "followers"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination cursor from a previous response.",
+                      "key": "next_cursor",
+                      "value": "<long>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-3bf76f5a-cdc3-4938-bdb5-cbcee835085e"
+            },
+            {
+              "id": "96555f3b-179c-4346-9f73-72d3c56ff931",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/followers?user_link=<string>&username=<string>&user_id=<string>&next_cursor=<long>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "followers"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination cursor from a previous response.",
+                      "key": "next_cursor",
+                      "value": "<long>"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-96555f3b-179c-4346-9f73-72d3c56ff931"
+            },
+            {
+              "id": "490789b4-a77a-4b68-bc79-b5e7242522a7",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/followers?user_link=<string>&username=<string>&user_id=<string>&next_cursor=<long>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "followers"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination cursor from a previous response.",
+                      "key": "next_cursor",
+                      "value": "<long>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-490789b4-a77a-4b68-bc79-b5e7242522a7"
+            }
+          ],
+          "createdAt": "2026-07-28T02:59:23.000Z",
+          "updatedAt": "2026-07-28T02:59:23.000Z",
+          "uid": "35240-d27550cc-c0a7-4fea-8bc9-c9d438abc6c5"
+        }
+      ],
+      "id": "54f2a639-ffb0-4634-a29f-2f5f61e8ef72",
+      "createdAt": "2026-07-28T02:59:23.000Z",
+      "updatedAt": "2026-07-28T02:59:23.000Z",
+      "uid": "35240-54f2a639-ffb0-4634-a29f-2f5f61e8ef72"
+    },
+    {
+      "name": "follows",
+      "item": [
+        {
+          "name": "Following",
+          "id": "bee386ef-e83b-4363-80a9-778a4e8d05de",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/follows?user_link=<string>&username=<string>&user_id=<string>&next_cursor=<long>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "follows"
+              ],
+              "query": [
+                {
+                  "description": "Full URL of the user's Twitter/X profile.",
+                  "key": "user_link",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Twitter/X handle (without @).",
+                  "key": "username",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Numeric Twitter/X user ID.",
+                  "key": "user_id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Pagination cursor from a previous response.",
+                  "key": "next_cursor",
+                  "value": "<long>"
+                }
+              ]
+            },
+            "description": "Returns a paginated list of accounts that the specified user follows. Up to 200 user profiles per page. Use the returned `next_cursor` to load subsequent pages. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+          },
+          "response": [
+            {
+              "id": "da85e801-75df-4b7c-80d5-651323d339d2",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/follows?user_link=<string>&username=<string>&user_id=<string>&next_cursor=<long>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "follows"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination cursor from a previous response.",
+                      "key": "next_cursor",
+                      "value": "<long>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"next_cursor\": \"<string>\",\n  \"users\": [\n    {\n      \"bio_urls\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"can_dm\": \"<boolean>\",\n      \"created_at\": \"<string>\",\n      \"description\": \"<string>\",\n      \"display_name\": \"<string>\",\n      \"favourites_count\": \"<integer>\",\n      \"followers_count\": \"<integer>\",\n      \"followings_count\": \"<integer>\",\n      \"id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"media_count\": \"<integer>\",\n      \"pinned_tweet_ids\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"possibly_sensitive\": \"<boolean>\",\n      \"profile_background_image_url\": \"<string>\",\n      \"profile_image_url\": \"<string>\",\n      \"protected\": \"<boolean>\",\n      \"tweets_count\": \"<integer>\",\n      \"username\": \"<string>\",\n      \"verified\": \"<boolean>\"\n    },\n    {\n      \"bio_urls\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"can_dm\": \"<boolean>\",\n      \"created_at\": \"<string>\",\n      \"description\": \"<string>\",\n      \"display_name\": \"<string>\",\n      \"favourites_count\": \"<integer>\",\n      \"followers_count\": \"<integer>\",\n      \"followings_count\": \"<integer>\",\n      \"id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"media_count\": \"<integer>\",\n      \"pinned_tweet_ids\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"possibly_sensitive\": \"<boolean>\",\n      \"profile_background_image_url\": \"<string>\",\n      \"profile_image_url\": \"<string>\",\n      \"protected\": \"<boolean>\",\n      \"tweets_count\": \"<integer>\",\n      \"username\": \"<string>\",\n      \"verified\": \"<boolean>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-da85e801-75df-4b7c-80d5-651323d339d2"
+            },
+            {
+              "id": "80d63fba-bff5-4a9f-881e-7d9bc4a10599",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/follows?user_link=<string>&username=<string>&user_id=<string>&next_cursor=<long>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "follows"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination cursor from a previous response.",
+                      "key": "next_cursor",
+                      "value": "<long>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-80d63fba-bff5-4a9f-881e-7d9bc4a10599"
+            },
+            {
+              "id": "bb83fb03-de8c-4c79-89dc-3f52991f82cb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/follows?user_link=<string>&username=<string>&user_id=<string>&next_cursor=<long>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "follows"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination cursor from a previous response.",
+                      "key": "next_cursor",
+                      "value": "<long>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-bb83fb03-de8c-4c79-89dc-3f52991f82cb"
+            },
+            {
+              "id": "ca3a8cc9-99ac-424d-ad01-d6482d8dcd12",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/follows?user_link=<string>&username=<string>&user_id=<string>&next_cursor=<long>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "follows"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination cursor from a previous response.",
+                      "key": "next_cursor",
+                      "value": "<long>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-ca3a8cc9-99ac-424d-ad01-d6482d8dcd12"
+            },
+            {
+              "id": "33a5c642-2867-4695-8449-9f60a5049c25",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/follows?user_link=<string>&username=<string>&user_id=<string>&next_cursor=<long>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "follows"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination cursor from a previous response.",
+                      "key": "next_cursor",
+                      "value": "<long>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-33a5c642-2867-4695-8449-9f60a5049c25"
+            },
+            {
+              "id": "2e8fb88c-6b98-4e9c-8614-20aad864c091",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/follows?user_link=<string>&username=<string>&user_id=<string>&next_cursor=<long>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "follows"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination cursor from a previous response.",
+                      "key": "next_cursor",
+                      "value": "<long>"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-2e8fb88c-6b98-4e9c-8614-20aad864c091"
+            },
+            {
+              "id": "9784aadd-bde0-4885-87c8-52295a6fe662",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/follows?user_link=<string>&username=<string>&user_id=<string>&next_cursor=<long>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "follows"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination cursor from a previous response.",
+                      "key": "next_cursor",
+                      "value": "<long>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-9784aadd-bde0-4885-87c8-52295a6fe662"
+            }
+          ],
+          "createdAt": "2026-07-28T02:59:23.000Z",
+          "updatedAt": "2026-07-28T02:59:23.000Z",
+          "uid": "35240-bee386ef-e83b-4363-80a9-778a4e8d05de"
+        }
+      ],
+      "id": "fc182954-6d7a-4d1c-abb0-e8370199ed60",
+      "createdAt": "2026-07-28T02:59:23.000Z",
+      "updatedAt": "2026-07-28T02:59:23.000Z",
+      "uid": "35240-fc182954-6d7a-4d1c-abb0-e8370199ed60"
+    },
+    {
+      "name": "info",
+      "item": [
+        {
+          "name": "User Profile",
+          "id": "6d1d0e88-cc3b-4014-b491-52a013227030",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/info?user_link=<string>&username=<string>&user_id=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "info"
+              ],
+              "query": [
+                {
+                  "description": "Full URL of the user's Twitter/X profile.",
+                  "key": "user_link",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Twitter/X handle (without @).",
+                  "key": "username",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Numeric Twitter/X user ID.",
+                  "key": "user_id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns the public profile of a Twitter/X account, including display name, bio, follower and following counts, tweet count, avatar, account creation date, and verification status. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+          },
+          "response": [
+            {
+              "id": "1d7f21db-a193-4af4-9a98-770189fae929",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/info?user_link=<string>&username=<string>&user_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "info"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"bio_urls\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"can_dm\": \"<boolean>\",\n  \"created_at\": \"<string>\",\n  \"description\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"favourites_count\": \"<integer>\",\n  \"followers_count\": \"<integer>\",\n  \"followings_count\": \"<integer>\",\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"media_count\": \"<integer>\",\n  \"pinned_tweet_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"possibly_sensitive\": \"<boolean>\",\n  \"profile_background_image_url\": \"<string>\",\n  \"profile_image_url\": \"<string>\",\n  \"protected\": \"<boolean>\",\n  \"tweets_count\": \"<integer>\",\n  \"username\": \"<string>\",\n  \"verified\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-1d7f21db-a193-4af4-9a98-770189fae929"
+            },
+            {
+              "id": "80ea447b-2b16-4b42-8fd0-a50fe9d885fb",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/info?user_link=<string>&username=<string>&user_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "info"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-80ea447b-2b16-4b42-8fd0-a50fe9d885fb"
+            },
+            {
+              "id": "67095137-585a-4bec-a88e-ad86a48d6bb1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/info?user_link=<string>&username=<string>&user_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "info"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-67095137-585a-4bec-a88e-ad86a48d6bb1"
+            },
+            {
+              "id": "81936745-3ca1-4a1e-bac8-a6906b7fe3e1",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/info?user_link=<string>&username=<string>&user_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "info"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-81936745-3ca1-4a1e-bac8-a6906b7fe3e1"
+            },
+            {
+              "id": "5d97b659-8b4e-45f9-bd53-9634dd0052dd",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/info?user_link=<string>&username=<string>&user_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "info"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-5d97b659-8b4e-45f9-bd53-9634dd0052dd"
+            },
+            {
+              "id": "174561cd-b41b-4310-9b92-9b209a0c19ff",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/info?user_link=<string>&username=<string>&user_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "info"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-174561cd-b41b-4310-9b92-9b209a0c19ff"
+            },
+            {
+              "id": "ab584b5c-725d-4f19-a217-88fa6870c406",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/info?user_link=<string>&username=<string>&user_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "info"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-ab584b5c-725d-4f19-a217-88fa6870c406"
+            }
+          ],
+          "createdAt": "2026-07-28T02:59:23.000Z",
+          "updatedAt": "2026-07-28T02:59:23.000Z",
+          "uid": "35240-6d1d0e88-cc3b-4014-b491-52a013227030"
+        }
+      ],
+      "id": "bce5c674-4d7a-46cd-9853-d8e0411a81eb",
+      "createdAt": "2026-07-28T02:59:23.000Z",
+      "updatedAt": "2026-07-28T02:59:23.000Z",
+      "uid": "35240-bce5c674-4d7a-46cd-9853-d8e0411a81eb"
+    },
+    {
+      "name": "info-batch",
+      "item": [
+        {
+          "name": "User Profile (batch)",
+          "id": "8db27c23-e386-4daf-877f-213349887801",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/info-batch?usernames=<string>&usernames=<string>&user_ids=<string>&user_ids=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "info-batch"
+              ],
+              "query": [
+                {
+                  "description": "Array of Twitter/X handles (without @).",
+                  "key": "usernames",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Array of Twitter/X handles (without @).",
+                  "key": "usernames",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Array of numeric Twitter/X user IDs.",
+                  "key": "user_ids",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Array of numeric Twitter/X user IDs.",
+                  "key": "user_ids",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns public profile data for multiple Twitter/X accounts in a single request. Works the same way as the single-user endpoint, but accepts arrays of usernames or user IDs. Up to 100 accounts per request. Provide either `usernames` or `user_ids`."
+          },
+          "response": [
+            {
+              "id": "93efe45c-e733-4d45-a1f2-656c3ead86c5",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/info-batch?usernames=<string>&user_ids=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "info-batch"
+                  ],
+                  "query": [
+                    {
+                      "description": "Array of Twitter/X handles (without @).",
+                      "key": "usernames",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Array of numeric Twitter/X user IDs.",
+                      "key": "user_ids",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"users\": [\n    {\n      \"bio_urls\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"can_dm\": \"<boolean>\",\n      \"created_at\": \"<string>\",\n      \"description\": \"<string>\",\n      \"display_name\": \"<string>\",\n      \"favourites_count\": \"<integer>\",\n      \"followers_count\": \"<integer>\",\n      \"followings_count\": \"<integer>\",\n      \"id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"media_count\": \"<integer>\",\n      \"pinned_tweet_ids\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"possibly_sensitive\": \"<boolean>\",\n      \"profile_background_image_url\": \"<string>\",\n      \"profile_image_url\": \"<string>\",\n      \"protected\": \"<boolean>\",\n      \"tweets_count\": \"<integer>\",\n      \"username\": \"<string>\",\n      \"verified\": \"<boolean>\"\n    },\n    {\n      \"bio_urls\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"can_dm\": \"<boolean>\",\n      \"created_at\": \"<string>\",\n      \"description\": \"<string>\",\n      \"display_name\": \"<string>\",\n      \"favourites_count\": \"<integer>\",\n      \"followers_count\": \"<integer>\",\n      \"followings_count\": \"<integer>\",\n      \"id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"media_count\": \"<integer>\",\n      \"pinned_tweet_ids\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"possibly_sensitive\": \"<boolean>\",\n      \"profile_background_image_url\": \"<string>\",\n      \"profile_image_url\": \"<string>\",\n      \"protected\": \"<boolean>\",\n      \"tweets_count\": \"<integer>\",\n      \"username\": \"<string>\",\n      \"verified\": \"<boolean>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-93efe45c-e733-4d45-a1f2-656c3ead86c5"
+            },
+            {
+              "id": "af41e3e2-39b6-4556-baec-f69c50d70855",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/info-batch?usernames=<string>&user_ids=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "info-batch"
+                  ],
+                  "query": [
+                    {
+                      "description": "Array of Twitter/X handles (without @).",
+                      "key": "usernames",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Array of numeric Twitter/X user IDs.",
+                      "key": "user_ids",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-af41e3e2-39b6-4556-baec-f69c50d70855"
+            },
+            {
+              "id": "e59e417c-3c7b-46a8-88a7-5602d9979732",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/info-batch?usernames=<string>&user_ids=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "info-batch"
+                  ],
+                  "query": [
+                    {
+                      "description": "Array of Twitter/X handles (without @).",
+                      "key": "usernames",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Array of numeric Twitter/X user IDs.",
+                      "key": "user_ids",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-e59e417c-3c7b-46a8-88a7-5602d9979732"
+            },
+            {
+              "id": "3cd5d8a5-1eb2-4b20-a80c-1cb4823aaaf7",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/info-batch?usernames=<string>&user_ids=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "info-batch"
+                  ],
+                  "query": [
+                    {
+                      "description": "Array of Twitter/X handles (without @).",
+                      "key": "usernames",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Array of numeric Twitter/X user IDs.",
+                      "key": "user_ids",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-3cd5d8a5-1eb2-4b20-a80c-1cb4823aaaf7"
+            },
+            {
+              "id": "2a6b0dbf-cbb1-4a58-aa3b-1dfbd35db8ff",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/info-batch?usernames=<string>&user_ids=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "info-batch"
+                  ],
+                  "query": [
+                    {
+                      "description": "Array of Twitter/X handles (without @).",
+                      "key": "usernames",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Array of numeric Twitter/X user IDs.",
+                      "key": "user_ids",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-2a6b0dbf-cbb1-4a58-aa3b-1dfbd35db8ff"
+            },
+            {
+              "id": "03fffaaf-68cc-48bc-bb27-0bd185eea2c6",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/info-batch?usernames=<string>&user_ids=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "info-batch"
+                  ],
+                  "query": [
+                    {
+                      "description": "Array of Twitter/X handles (without @).",
+                      "key": "usernames",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Array of numeric Twitter/X user IDs.",
+                      "key": "user_ids",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-03fffaaf-68cc-48bc-bb27-0bd185eea2c6"
+            },
+            {
+              "id": "bcb71e4d-8785-40b0-a796-7bef5e08a3f9",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/info-batch?usernames=<string>&user_ids=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "info-batch"
+                  ],
+                  "query": [
+                    {
+                      "description": "Array of Twitter/X handles (without @).",
+                      "key": "usernames",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Array of numeric Twitter/X user IDs.",
+                      "key": "user_ids",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-bcb71e4d-8785-40b0-a796-7bef5e08a3f9"
+            }
+          ],
+          "createdAt": "2026-07-28T02:59:23.000Z",
+          "updatedAt": "2026-07-28T02:59:23.000Z",
+          "uid": "35240-8db27c23-e386-4daf-877f-213349887801"
+        }
+      ],
+      "id": "0a8b9842-50ec-489c-8fa6-b9eaafb40575",
+      "createdAt": "2026-07-28T02:59:23.000Z",
+      "updatedAt": "2026-07-28T02:59:23.000Z",
+      "uid": "35240-0a8b9842-50ec-489c-8fa6-b9eaafb40575"
+    },
+    {
+      "name": "verified-followers",
+      "item": [
+        {
+          "name": "Verified Followers",
+          "id": "261babeb-9838-43aa-834b-23a532f8ee1a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/verified-followers?user_link=<string>&username=<string>&user_id=<string>&next_cursor=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "verified-followers"
+              ],
+              "query": [
+                {
+                  "description": "Full URL of the user's Twitter/X profile.",
+                  "key": "user_link",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Twitter/X handle (without @).",
+                  "key": "username",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Numeric Twitter/X user ID.",
+                  "key": "user_id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Pagination cursor from a previous response.",
+                  "key": "next_cursor",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns a paginated list of verified users who follow the specified account. Works the same way as the regular followers endpoint, but filters to only include accounts with a verified badge. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+          },
+          "response": [
+            {
+              "id": "b3b909c8-a0cb-4a53-aacc-c1b112cf7786",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/verified-followers?user_link=<string>&username=<string>&user_id=<string>&next_cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "verified-followers"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination cursor from a previous response.",
+                      "key": "next_cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"next_cursor\": \"<string>\",\n  \"users\": [\n    {\n      \"bio_urls\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"can_dm\": \"<boolean>\",\n      \"created_at\": \"<string>\",\n      \"description\": \"<string>\",\n      \"display_name\": \"<string>\",\n      \"favourites_count\": \"<integer>\",\n      \"followers_count\": \"<integer>\",\n      \"followings_count\": \"<integer>\",\n      \"id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"media_count\": \"<integer>\",\n      \"pinned_tweet_ids\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"possibly_sensitive\": \"<boolean>\",\n      \"profile_background_image_url\": \"<string>\",\n      \"profile_image_url\": \"<string>\",\n      \"protected\": \"<boolean>\",\n      \"tweets_count\": \"<integer>\",\n      \"username\": \"<string>\",\n      \"verified\": \"<boolean>\"\n    },\n    {\n      \"bio_urls\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"can_dm\": \"<boolean>\",\n      \"created_at\": \"<string>\",\n      \"description\": \"<string>\",\n      \"display_name\": \"<string>\",\n      \"favourites_count\": \"<integer>\",\n      \"followers_count\": \"<integer>\",\n      \"followings_count\": \"<integer>\",\n      \"id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"media_count\": \"<integer>\",\n      \"pinned_tweet_ids\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"possibly_sensitive\": \"<boolean>\",\n      \"profile_background_image_url\": \"<string>\",\n      \"profile_image_url\": \"<string>\",\n      \"protected\": \"<boolean>\",\n      \"tweets_count\": \"<integer>\",\n      \"username\": \"<string>\",\n      \"verified\": \"<boolean>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-b3b909c8-a0cb-4a53-aacc-c1b112cf7786"
+            },
+            {
+              "id": "d32188e9-4761-4d3c-b77f-d755af9bdca6",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/verified-followers?user_link=<string>&username=<string>&user_id=<string>&next_cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "verified-followers"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination cursor from a previous response.",
+                      "key": "next_cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-d32188e9-4761-4d3c-b77f-d755af9bdca6"
+            },
+            {
+              "id": "cda8bcb0-dc78-41dc-ae84-f1b3462e002f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/verified-followers?user_link=<string>&username=<string>&user_id=<string>&next_cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "verified-followers"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination cursor from a previous response.",
+                      "key": "next_cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-cda8bcb0-dc78-41dc-ae84-f1b3462e002f"
+            },
+            {
+              "id": "e8db619c-8632-47a3-83ed-705c425e8b7a",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/verified-followers?user_link=<string>&username=<string>&user_id=<string>&next_cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "verified-followers"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination cursor from a previous response.",
+                      "key": "next_cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-e8db619c-8632-47a3-83ed-705c425e8b7a"
+            },
+            {
+              "id": "fce32983-5706-4090-a97f-68fe4500ffae",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/verified-followers?user_link=<string>&username=<string>&user_id=<string>&next_cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "verified-followers"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination cursor from a previous response.",
+                      "key": "next_cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-fce32983-5706-4090-a97f-68fe4500ffae"
+            },
+            {
+              "id": "53436bc9-114b-43dc-98c6-bf831f302fa0",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/verified-followers?user_link=<string>&username=<string>&user_id=<string>&next_cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "verified-followers"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination cursor from a previous response.",
+                      "key": "next_cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-53436bc9-114b-43dc-98c6-bf831f302fa0"
+            },
+            {
+              "id": "2097544e-5388-467b-98a6-ba1578e842df",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/verified-followers?user_link=<string>&username=<string>&user_id=<string>&next_cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "verified-followers"
+                  ],
+                  "query": [
+                    {
+                      "description": "Full URL of the user's Twitter/X profile.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle (without @).",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination cursor from a previous response.",
+                      "key": "next_cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:23.000Z",
+              "updatedAt": "2026-07-28T02:59:23.000Z",
+              "uid": "35240-2097544e-5388-467b-98a6-ba1578e842df"
+            }
+          ],
+          "createdAt": "2026-07-28T02:59:23.000Z",
+          "updatedAt": "2026-07-28T02:59:23.000Z",
+          "uid": "35240-261babeb-9838-43aa-834b-23a532f8ee1a"
+        }
+      ],
+      "id": "d4ba04ad-5083-4611-b5b7-316e87b9f08f",
+      "createdAt": "2026-07-28T02:59:23.000Z",
+      "updatedAt": "2026-07-28T02:59:23.000Z",
+      "uid": "35240-d4ba04ad-5083-4611-b5b7-316e87b9f08f"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ApiKey",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.sorsa.io/v3"
+    }
+  ]
+}

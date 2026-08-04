@@ -1,0 +1,28 @@
+{
+  "provider": "sorsa",
+  "sources": [
+    "sorsa-community-api-openapi.yml",
+    "sorsa-lists-api-openapi.yml",
+    "sorsa-search-api-openapi.yml",
+    "sorsa-sorsa-info-crypto-related-api-openapi.yml",
+    "sorsa-technical-endpoints-api-openapi.yml",
+    "sorsa-tweets-api-openapi.yml",
+    "sorsa-users-data-api-openapi.yml",
+    "sorsa-verification-api-openapi.yml"
+  ],
+  "outputs": [
+    "sorsa-community-api-openapi.yml",
+    "sorsa-lists-api-openapi.yml",
+    "sorsa-search-api-openapi.yml",
+    "sorsa-sorsa-info-crypto-related-api-openapi.yml",
+    "sorsa-technical-endpoints-api-openapi.yml",
+    "sorsa-tweets-api-openapi.yml",
+    "sorsa-users-data-api-openapi.yml",
+    "sorsa-verification-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

@@ -1,0 +1,2434 @@
+{
+  "info": {
+    "_postman_id": "2d4eb4dc-0a76-4731-994f-49e364345ad6",
+    "name": "Sorsa Community Verification API",
+    "description": "Real-time X (Twitter) data API providing access to tweets, profiles, search, mentions, lists, communities, engagement verification, and Sorsa Score crypto-influence analytics via 40 REST endpoints. Affordable alternative to the official X API.\n\nContact Support:\n Name: Sorsa Support\n Email: contacts@sorsa.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:59:24.000Z",
+    "updatedAt": "2026-07-28T02:59:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2d4eb4dc-0a76-4731-994f-49e364345ad6"
+  },
+  "item": [
+    {
+      "name": "check-comment",
+      "item": [
+        {
+          "name": "Check Comment",
+          "id": "30dafdcc-9cc2-4e25-903e-b15474e7f171",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/check-comment?tweet_link=<string>&username=<string>&user_link=<string>&user_id=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "check-comment"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Full URL of the tweet to check.",
+                  "key": "tweet_link",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Twitter/X handle of the user being checked.",
+                  "key": "username",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Twitter/X profile link of the user being checked.",
+                  "key": "user_link",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Numeric Twitter/X user ID of the user being checked.",
+                  "key": "user_id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Checks whether a specific user has posted a reply under a given tweet. Returns `commented: true` along with the full reply tweet data if a comment is found. Requires `tweet_link` and one of `user_handle` or `user_id`."
+          },
+          "response": [
+            {
+              "id": "afc9c9a6-621e-4504-bc4a-8edee6966eee",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/check-comment?tweet_link=<string>&username=<string>&user_link=<string>&user_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-comment"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Full URL of the tweet to check.",
+                      "key": "tweet_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle of the user being checked.",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X profile link of the user being checked.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID of the user being checked.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"commented\": \"<boolean>\",\n  \"tweet\": {\n    \"bookmark_count\": \"<integer>\",\n    \"conversation_id_str\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"entities\": [\n      {\n        \"link\": \"<string>\",\n        \"preview\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"link\": \"<string>\",\n        \"preview\": \"<string>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"full_text\": \"<string>\",\n    \"id\": \"<string>\",\n    \"in_reply_to_tweet_id\": \"<string>\",\n    \"in_reply_to_username\": \"<string>\",\n    \"is_quote_status\": \"<boolean>\",\n    \"is_replies_limited\": \"<boolean>\",\n    \"is_reply\": \"<boolean>\",\n    \"lang\": \"<string>\",\n    \"likes_count\": \"<integer>\",\n    \"quote_count\": \"<integer>\",\n    \"quoted_status\": {\n      \"description\": \"The original tweet being quoted. Present only if `is_quote_status` is true.\",\n      \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n    },\n    \"reply_count\": \"<integer>\",\n    \"retweet_count\": \"<integer>\",\n    \"retweeted_status\": {\n      \"description\": \"The original tweet being retweeted. Present only for retweets.\",\n      \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n    },\n    \"user\": {\n      \"bio_urls\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"can_dm\": \"<boolean>\",\n      \"created_at\": \"<string>\",\n      \"description\": \"<string>\",\n      \"display_name\": \"<string>\",\n      \"favourites_count\": \"<integer>\",\n      \"followers_count\": \"<integer>\",\n      \"followings_count\": \"<integer>\",\n      \"id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"media_count\": \"<integer>\",\n      \"pinned_tweet_ids\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"possibly_sensitive\": \"<boolean>\",\n      \"profile_background_image_url\": \"<string>\",\n      \"profile_image_url\": \"<string>\",\n      \"protected\": \"<boolean>\",\n      \"tweets_count\": \"<integer>\",\n      \"username\": \"<string>\",\n      \"verified\": \"<boolean>\"\n    },\n    \"view_count\": \"<integer>\"\n  }\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-afc9c9a6-621e-4504-bc4a-8edee6966eee"
+            },
+            {
+              "id": "c880a58d-79d2-4455-a5f0-17f835f7dee9",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/check-comment?tweet_link=<string>&username=<string>&user_link=<string>&user_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-comment"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Full URL of the tweet to check.",
+                      "key": "tweet_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle of the user being checked.",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X profile link of the user being checked.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID of the user being checked.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-c880a58d-79d2-4455-a5f0-17f835f7dee9"
+            },
+            {
+              "id": "afa202b4-4f26-40b2-9fcf-fd59e00973ce",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/check-comment?tweet_link=<string>&username=<string>&user_link=<string>&user_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-comment"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Full URL of the tweet to check.",
+                      "key": "tweet_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle of the user being checked.",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X profile link of the user being checked.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID of the user being checked.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-afa202b4-4f26-40b2-9fcf-fd59e00973ce"
+            },
+            {
+              "id": "0a22f0a4-56b1-48e8-b028-5ce59e9e6962",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/check-comment?tweet_link=<string>&username=<string>&user_link=<string>&user_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-comment"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Full URL of the tweet to check.",
+                      "key": "tweet_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle of the user being checked.",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X profile link of the user being checked.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID of the user being checked.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-0a22f0a4-56b1-48e8-b028-5ce59e9e6962"
+            },
+            {
+              "id": "759af033-8ae2-468b-9ff7-38a4a72ee813",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/check-comment?tweet_link=<string>&username=<string>&user_link=<string>&user_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-comment"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Full URL of the tweet to check.",
+                      "key": "tweet_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle of the user being checked.",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X profile link of the user being checked.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID of the user being checked.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-759af033-8ae2-468b-9ff7-38a4a72ee813"
+            },
+            {
+              "id": "f14d0e50-2e73-448d-96c5-8709dafe82a3",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/check-comment?tweet_link=<string>&username=<string>&user_link=<string>&user_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-comment"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Full URL of the tweet to check.",
+                      "key": "tweet_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle of the user being checked.",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X profile link of the user being checked.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID of the user being checked.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-f14d0e50-2e73-448d-96c5-8709dafe82a3"
+            },
+            {
+              "id": "4e1c214d-9436-457e-9084-e87e422ff35c",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/check-comment?tweet_link=<string>&username=<string>&user_link=<string>&user_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-comment"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Full URL of the tweet to check.",
+                      "key": "tweet_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X handle of the user being checked.",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Twitter/X profile link of the user being checked.",
+                      "key": "user_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Numeric Twitter/X user ID of the user being checked.",
+                      "key": "user_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-4e1c214d-9436-457e-9084-e87e422ff35c"
+            }
+          ],
+          "createdAt": "2026-07-28T02:59:24.000Z",
+          "updatedAt": "2026-07-28T02:59:24.000Z",
+          "uid": "35240-30dafdcc-9cc2-4e25-903e-b15474e7f171"
+        }
+      ],
+      "id": "e645ac56-7ad6-4969-a7e4-eb9808cbb388",
+      "createdAt": "2026-07-28T02:59:24.000Z",
+      "updatedAt": "2026-07-28T02:59:24.000Z",
+      "uid": "35240-e645ac56-7ad6-4969-a7e4-eb9808cbb388"
+    },
+    {
+      "name": "check-community-member",
+      "item": [
+        {
+          "name": "Check Community Membership",
+          "id": "b4ffa826-33e1-4456-a08a-a86ec1cb8a61",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"community_id\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/check-community-member",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "check-community-member"
+              ]
+            },
+            "description": "Checks whether a specific user is a member of a given Twitter/X Community. Returns `is_member: true` if the user belongs to that community. Requires `community_id` and one user identifier (`username`, `user_link`, or `user_id`)."
+          },
+          "response": [
+            {
+              "id": "63f39bbe-195f-41cd-94c5-35e52d7dacce",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"community_id\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-community-member",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-community-member"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"is_member\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-63f39bbe-195f-41cd-94c5-35e52d7dacce"
+            },
+            {
+              "id": "792c7672-dc6d-4fe3-ba9c-d51635ec85db",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"community_id\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-community-member",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-community-member"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-792c7672-dc6d-4fe3-ba9c-d51635ec85db"
+            },
+            {
+              "id": "0542e582-666d-490b-bf23-b4a075435838",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"community_id\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-community-member",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-community-member"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-0542e582-666d-490b-bf23-b4a075435838"
+            },
+            {
+              "id": "21dc119d-1e2f-42e7-a6a7-b7ab8caa7bd2",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"community_id\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-community-member",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-community-member"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-21dc119d-1e2f-42e7-a6a7-b7ab8caa7bd2"
+            },
+            {
+              "id": "0d7e1529-9873-4b26-8d4b-1307eecb35c9",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"community_id\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-community-member",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-community-member"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-0d7e1529-9873-4b26-8d4b-1307eecb35c9"
+            },
+            {
+              "id": "81a0b104-d9d3-47ad-b804-19c560eaa08d",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"community_id\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-community-member",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-community-member"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-81a0b104-d9d3-47ad-b804-19c560eaa08d"
+            },
+            {
+              "id": "842574da-69cf-455a-9216-e4542bcc400c",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"community_id\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-community-member",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-community-member"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-842574da-69cf-455a-9216-e4542bcc400c"
+            }
+          ],
+          "createdAt": "2026-07-28T02:59:24.000Z",
+          "updatedAt": "2026-07-28T02:59:24.000Z",
+          "uid": "35240-b4ffa826-33e1-4456-a08a-a86ec1cb8a61"
+        }
+      ],
+      "id": "30ff1b83-c84b-4dc3-9bbe-efb3956b60c0",
+      "createdAt": "2026-07-28T02:59:24.000Z",
+      "updatedAt": "2026-07-28T02:59:24.000Z",
+      "uid": "35240-30ff1b83-c84b-4dc3-9bbe-efb3956b60c0"
+    },
+    {
+      "name": "check-follow",
+      "item": [
+        {
+          "name": "Check Follow",
+          "id": "608ceb91-bab9-4463-a097-70fe1e126db8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id_1\": \"<string>\",\n  \"user_id_2\": \"<string>\",\n  \"user_link_1\": \"<string>\",\n  \"user_link_2\": \"<string>\",\n  \"username_1\": \"<string>\",\n  \"username_2\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/check-follow",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "check-follow"
+              ]
+            },
+            "description": "Checks if one account follows another. User 1 is the account that should be followed, User 2 is the one you want to check. For example: \"Does Elon Musk (user_2) follow SorsaApp (user_1)?\" Pass only one identifier per side: link, username, or ID. Returns follow: true if the relationship exists, and user_protected: true if the checked user's profile is private."
+          },
+          "response": [
+            {
+              "id": "3010245e-4ae5-44ae-89fa-b96ac9c21d73",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_id_1\": \"<string>\",\n  \"user_id_2\": \"<string>\",\n  \"user_link_1\": \"<string>\",\n  \"user_link_2\": \"<string>\",\n  \"username_1\": \"<string>\",\n  \"username_2\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-follow",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-follow"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"follow\": \"<boolean>\",\n  \"user_protected\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-3010245e-4ae5-44ae-89fa-b96ac9c21d73"
+            },
+            {
+              "id": "2904c6bf-3c2e-4d3c-adcb-cddf4b7b7c01",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_id_1\": \"<string>\",\n  \"user_id_2\": \"<string>\",\n  \"user_link_1\": \"<string>\",\n  \"user_link_2\": \"<string>\",\n  \"username_1\": \"<string>\",\n  \"username_2\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-follow",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-follow"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-2904c6bf-3c2e-4d3c-adcb-cddf4b7b7c01"
+            },
+            {
+              "id": "928cd415-59d3-4583-b225-91f6041d337c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_id_1\": \"<string>\",\n  \"user_id_2\": \"<string>\",\n  \"user_link_1\": \"<string>\",\n  \"user_link_2\": \"<string>\",\n  \"username_1\": \"<string>\",\n  \"username_2\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-follow",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-follow"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-928cd415-59d3-4583-b225-91f6041d337c"
+            },
+            {
+              "id": "e0d9eafb-2acc-43c4-ac8c-165f53caa3fb",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_id_1\": \"<string>\",\n  \"user_id_2\": \"<string>\",\n  \"user_link_1\": \"<string>\",\n  \"user_link_2\": \"<string>\",\n  \"username_1\": \"<string>\",\n  \"username_2\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-follow",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-follow"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-e0d9eafb-2acc-43c4-ac8c-165f53caa3fb"
+            },
+            {
+              "id": "27784da9-597f-4d9c-aa7a-1843690f9c71",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_id_1\": \"<string>\",\n  \"user_id_2\": \"<string>\",\n  \"user_link_1\": \"<string>\",\n  \"user_link_2\": \"<string>\",\n  \"username_1\": \"<string>\",\n  \"username_2\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-follow",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-follow"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-27784da9-597f-4d9c-aa7a-1843690f9c71"
+            },
+            {
+              "id": "34ebb67b-9afd-45b4-8303-bed77e99eaaf",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_id_1\": \"<string>\",\n  \"user_id_2\": \"<string>\",\n  \"user_link_1\": \"<string>\",\n  \"user_link_2\": \"<string>\",\n  \"username_1\": \"<string>\",\n  \"username_2\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-follow",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-follow"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-34ebb67b-9afd-45b4-8303-bed77e99eaaf"
+            },
+            {
+              "id": "8c7fb631-b26c-4bc8-9827-06bf191c7bcc",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_id_1\": \"<string>\",\n  \"user_id_2\": \"<string>\",\n  \"user_link_1\": \"<string>\",\n  \"user_link_2\": \"<string>\",\n  \"username_1\": \"<string>\",\n  \"username_2\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-follow",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-follow"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-8c7fb631-b26c-4bc8-9827-06bf191c7bcc"
+            }
+          ],
+          "createdAt": "2026-07-28T02:59:24.000Z",
+          "updatedAt": "2026-07-28T02:59:24.000Z",
+          "uid": "35240-608ceb91-bab9-4463-a097-70fe1e126db8"
+        }
+      ],
+      "id": "4d78bf3a-276f-4f14-ab2c-d09fa693dc7f",
+      "createdAt": "2026-07-28T02:59:24.000Z",
+      "updatedAt": "2026-07-28T02:59:24.000Z",
+      "uid": "35240-4d78bf3a-276f-4f14-ab2c-d09fa693dc7f"
+    },
+    {
+      "name": "check-quoted",
+      "item": [
+        {
+          "name": "Check Quote or Retweet",
+          "id": "348589ae-c808-4878-9fa1-6cc0a46dc18c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tweet_link\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/check-quoted",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "check-quoted"
+              ]
+            },
+            "description": "Checks whether a user has quoted or retweeted a given tweet. Returns a `status` field with one of three values: `quoted`, `retweet`, or `not_found`. If a quote or retweet is found, the response also includes the interaction date and the quote text (when applicable). Identify the user with `username`, `user_link`, or `user_id`."
+          },
+          "response": [
+            {
+              "id": "bc011f12-9588-44e4-9627-ea7bf35821bd",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-quoted",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-quoted"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"date\": \"<string>\",\n  \"status\": \"<string>\",\n  \"text\": \"<string>\",\n  \"user_protected\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-bc011f12-9588-44e4-9627-ea7bf35821bd"
+            },
+            {
+              "id": "1c8d2ede-165b-43c8-8fe4-ec2629728edf",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-quoted",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-quoted"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-1c8d2ede-165b-43c8-8fe4-ec2629728edf"
+            },
+            {
+              "id": "12896dd3-8a21-414e-b2a0-35578c9367cc",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-quoted",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-quoted"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-12896dd3-8a21-414e-b2a0-35578c9367cc"
+            },
+            {
+              "id": "308e62fa-98b3-4f66-af79-165dacaa2740",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-quoted",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-quoted"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-308e62fa-98b3-4f66-af79-165dacaa2740"
+            },
+            {
+              "id": "70d4dd21-1d22-45f6-912f-c940564964da",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-quoted",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-quoted"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-70d4dd21-1d22-45f6-912f-c940564964da"
+            },
+            {
+              "id": "fa47f496-89b1-46ff-a4c0-376b6f908eb6",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-quoted",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-quoted"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-fa47f496-89b1-46ff-a4c0-376b6f908eb6"
+            },
+            {
+              "id": "02dff4b7-6323-463d-b4c3-5f482aeb6037",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-quoted",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-quoted"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-02dff4b7-6323-463d-b4c3-5f482aeb6037"
+            }
+          ],
+          "createdAt": "2026-07-28T02:59:24.000Z",
+          "updatedAt": "2026-07-28T02:59:24.000Z",
+          "uid": "35240-348589ae-c808-4878-9fa1-6cc0a46dc18c"
+        }
+      ],
+      "id": "ba9d2569-29ea-43df-a8eb-18f3ffb1be73",
+      "createdAt": "2026-07-28T02:59:24.000Z",
+      "updatedAt": "2026-07-28T02:59:24.000Z",
+      "uid": "35240-ba9d2569-29ea-43df-a8eb-18f3ffb1be73"
+    },
+    {
+      "name": "check-retweet",
+      "item": [
+        {
+          "name": "Check Retweet",
+          "id": "34a83e4d-8238-4a5f-85e3-ae559fd8ef36",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"tweet_link\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/check-retweet",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "check-retweet"
+              ]
+            },
+            "description": "Checks whether a user has retweeted a given tweet. The endpoint scans up to 100 retweets per request. If the tweet has more retweets than that, a `next_cursor` is returned to continue checking. Identify the user with `username`, `user_link`, or `user_id`."
+          },
+          "response": [
+            {
+              "id": "5cea0efc-2756-42f5-86e8-3d77d34756b8",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"tweet_link\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-retweet",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-retweet"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"next_cursor\": \"<string>\",\n  \"retweet\": \"<boolean>\",\n  \"user_protected\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-5cea0efc-2756-42f5-86e8-3d77d34756b8"
+            },
+            {
+              "id": "9836012a-e6f4-47b3-ab05-a1cb2a6aa0f2",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"tweet_link\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-retweet",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-retweet"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-9836012a-e6f4-47b3-ab05-a1cb2a6aa0f2"
+            },
+            {
+              "id": "3bed68a4-1488-43bb-9b8a-9ecb85dbb606",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"tweet_link\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-retweet",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-retweet"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-3bed68a4-1488-43bb-9b8a-9ecb85dbb606"
+            },
+            {
+              "id": "d661a916-62a7-4c2b-bcad-9e1c11a3636b",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"tweet_link\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-retweet",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-retweet"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-d661a916-62a7-4c2b-bcad-9e1c11a3636b"
+            },
+            {
+              "id": "f197099a-2b0f-43e7-84bc-61de27a9bfc0",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"tweet_link\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-retweet",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-retweet"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-f197099a-2b0f-43e7-84bc-61de27a9bfc0"
+            },
+            {
+              "id": "a29ff9de-2c35-45ff-b821-ebe94973eb9a",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"tweet_link\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-retweet",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-retweet"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-a29ff9de-2c35-45ff-b821-ebe94973eb9a"
+            },
+            {
+              "id": "b35b41f9-8513-4023-8725-59e3e6d2ab06",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"tweet_link\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/check-retweet",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "check-retweet"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:24.000Z",
+              "updatedAt": "2026-07-28T02:59:24.000Z",
+              "uid": "35240-b35b41f9-8513-4023-8725-59e3e6d2ab06"
+            }
+          ],
+          "createdAt": "2026-07-28T02:59:24.000Z",
+          "updatedAt": "2026-07-28T02:59:24.000Z",
+          "uid": "35240-34a83e4d-8238-4a5f-85e3-ae559fd8ef36"
+        }
+      ],
+      "id": "a31cd758-0e97-4345-bb76-4fec6f164193",
+      "createdAt": "2026-07-28T02:59:24.000Z",
+      "updatedAt": "2026-07-28T02:59:24.000Z",
+      "uid": "35240-a31cd758-0e97-4345-bb76-4fec6f164193"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ApiKey",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.sorsa.io/v3"
+    }
+  ]
+}

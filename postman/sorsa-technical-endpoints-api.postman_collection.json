@@ -1,0 +1,1450 @@
+{
+  "info": {
+    "_postman_id": "778a039b-4663-45e5-a20b-d7bba09ca73d",
+    "name": "Sorsa Community Technical Endpoints API",
+    "description": "Real-time X (Twitter) data API providing access to tweets, profiles, search, mentions, lists, communities, engagement verification, and Sorsa Score crypto-influence analytics via 40 REST endpoints. Affordable alternative to the official X API.\n\nContact Support:\n Name: Sorsa Support\n Email: contacts@sorsa.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:59:04.000Z",
+    "updatedAt": "2026-07-28T02:59:04.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-778a039b-4663-45e5-a20b-d7bba09ca73d"
+  },
+  "item": [
+    {
+      "name": "id-to-username",
+      "item": [
+        {
+          "name": "{user_id}",
+          "item": [
+            {
+              "name": "Convert User ID to Username",
+              "id": "0084b302-a4ea-43b7-b924-03c6dec385e6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "apikey",
+                  "apikey": [
+                    {
+                      "key": "key",
+                      "value": "ApiKey",
+                      "type": "string"
+                    },
+                    {
+                      "key": "value",
+                      "value": "{{apiKey}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "in",
+                      "value": "header",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/id-to-username/:user_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "id-to-username",
+                    ":user_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "06779b25-a7b0-4fcc-9be8-fc592384ff3c",
+                      "key": "user_id",
+                      "value": "<string>",
+                      "description": "(Required) user_id required"
+                    }
+                  ]
+                },
+                "description": "Converts a numeric Twitter/X user ID into the account's current username. Useful for resolving stored IDs back into human-readable handles, especially when usernames may have changed."
+              },
+              "response": [
+                {
+                  "id": "153e791d-0e73-418b-b501-9b4f28a75bd7",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "ApiKey",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/id-to-username/:user_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "id-to-username",
+                        ":user_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"handle\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:59:05.000Z",
+                  "updatedAt": "2026-07-28T02:59:05.000Z",
+                  "uid": "35240-153e791d-0e73-418b-b501-9b4f28a75bd7"
+                },
+                {
+                  "id": "d5e55923-2434-48ed-b3d6-ff9e12d7702b",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "ApiKey",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/id-to-username/:user_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "id-to-username",
+                        ":user_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:59:05.000Z",
+                  "updatedAt": "2026-07-28T02:59:05.000Z",
+                  "uid": "35240-d5e55923-2434-48ed-b3d6-ff9e12d7702b"
+                },
+                {
+                  "id": "769dc85b-b232-45b1-8af9-1c190329e70b",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "ApiKey",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/id-to-username/:user_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "id-to-username",
+                        ":user_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:59:05.000Z",
+                  "updatedAt": "2026-07-28T02:59:05.000Z",
+                  "uid": "35240-769dc85b-b232-45b1-8af9-1c190329e70b"
+                },
+                {
+                  "id": "a8befe5b-e4a1-498d-81c2-2c62a2b0b259",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "ApiKey",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/id-to-username/:user_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "id-to-username",
+                        ":user_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:59:05.000Z",
+                  "updatedAt": "2026-07-28T02:59:05.000Z",
+                  "uid": "35240-a8befe5b-e4a1-498d-81c2-2c62a2b0b259"
+                },
+                {
+                  "id": "c6851c53-d795-4a22-a750-03cf043b3a79",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "ApiKey",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/id-to-username/:user_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "id-to-username",
+                        ":user_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:59:05.000Z",
+                  "updatedAt": "2026-07-28T02:59:05.000Z",
+                  "uid": "35240-c6851c53-d795-4a22-a750-03cf043b3a79"
+                },
+                {
+                  "id": "c27934f3-beeb-4d8f-b8c3-dd9da043932f",
+                  "name": "Too Many Requests",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "ApiKey",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/id-to-username/:user_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "id-to-username",
+                        ":user_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:59:05.000Z",
+                  "updatedAt": "2026-07-28T02:59:05.000Z",
+                  "uid": "35240-c27934f3-beeb-4d8f-b8c3-dd9da043932f"
+                },
+                {
+                  "id": "4a21a277-2506-4c21-bdc9-67dc56414fc2",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "ApiKey",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/id-to-username/:user_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "id-to-username",
+                        ":user_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:59:05.000Z",
+                  "updatedAt": "2026-07-28T02:59:05.000Z",
+                  "uid": "35240-4a21a277-2506-4c21-bdc9-67dc56414fc2"
+                }
+              ],
+              "createdAt": "2026-07-28T02:59:04.000Z",
+              "updatedAt": "2026-07-28T02:59:04.000Z",
+              "uid": "35240-0084b302-a4ea-43b7-b924-03c6dec385e6"
+            }
+          ],
+          "id": "464e179e-6279-4d22-8059-c639caa493a3",
+          "createdAt": "2026-07-28T02:59:04.000Z",
+          "updatedAt": "2026-07-28T02:59:04.000Z",
+          "uid": "35240-464e179e-6279-4d22-8059-c639caa493a3"
+        }
+      ],
+      "id": "a00c3d06-a9de-4370-a854-1985e9e49ba6",
+      "createdAt": "2026-07-28T02:59:04.000Z",
+      "updatedAt": "2026-07-28T02:59:04.000Z",
+      "uid": "35240-a00c3d06-a9de-4370-a854-1985e9e49ba6"
+    },
+    {
+      "name": "key-usage-info",
+      "item": [
+        {
+          "name": "API Key Usage",
+          "id": "e45cdb1f-88b5-41de-9e66-7b6f6d18fc25",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/key-usage-info",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "key-usage-info"
+              ]
+            },
+            "description": "Returns usage statistics for the current API key: total allocated requests, remaining balance, and the expiration date of the current request quota. No parameters required; the key is read from the `ApiKey` header."
+          },
+          "response": [
+            {
+              "id": "b8ef6cfe-a039-4ba8-9994-5995939bd67a",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/key-usage-info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "key-usage-info"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"key_requests\": \"<integer>\",\n  \"remaining_requests\": \"<integer>\",\n  \"total_requests\": \"<integer>\",\n  \"valid_until\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:05.000Z",
+              "updatedAt": "2026-07-28T02:59:05.000Z",
+              "uid": "35240-b8ef6cfe-a039-4ba8-9994-5995939bd67a"
+            },
+            {
+              "id": "502862a7-095d-45aa-94e2-89a4d0881374",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/key-usage-info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "key-usage-info"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:05.000Z",
+              "updatedAt": "2026-07-28T02:59:05.000Z",
+              "uid": "35240-502862a7-095d-45aa-94e2-89a4d0881374"
+            },
+            {
+              "id": "3856ba93-c07b-4827-b83b-c5812cdd856d",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/key-usage-info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "key-usage-info"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:05.000Z",
+              "updatedAt": "2026-07-28T02:59:05.000Z",
+              "uid": "35240-3856ba93-c07b-4827-b83b-c5812cdd856d"
+            },
+            {
+              "id": "3eebd011-a808-48dc-be6b-e95c3a0d1cbc",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/key-usage-info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "key-usage-info"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:05.000Z",
+              "updatedAt": "2026-07-28T02:59:05.000Z",
+              "uid": "35240-3eebd011-a808-48dc-be6b-e95c3a0d1cbc"
+            },
+            {
+              "id": "6da22d4f-89e2-467c-a8bd-a4de95693187",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/key-usage-info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "key-usage-info"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:05.000Z",
+              "updatedAt": "2026-07-28T02:59:05.000Z",
+              "uid": "35240-6da22d4f-89e2-467c-a8bd-a4de95693187"
+            }
+          ],
+          "createdAt": "2026-07-28T02:59:04.000Z",
+          "updatedAt": "2026-07-28T02:59:04.000Z",
+          "uid": "35240-e45cdb1f-88b5-41de-9e66-7b6f6d18fc25"
+        }
+      ],
+      "id": "ead36b5e-d8a0-4c02-bac8-f9514091c057",
+      "createdAt": "2026-07-28T02:59:04.000Z",
+      "updatedAt": "2026-07-28T02:59:04.000Z",
+      "uid": "35240-ead36b5e-d8a0-4c02-bac8-f9514091c057"
+    },
+    {
+      "name": "link-to-id",
+      "item": [
+        {
+          "name": "Convert Profile Link to User ID",
+          "id": "ada929f5-37eb-4ff8-a639-2bf898ee675b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/link-to-id?link=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "link-to-id"
+              ],
+              "query": [
+                {
+                  "description": "(Required) link required",
+                  "key": "link",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Extracts the stable numeric user ID from a Twitter/X profile URL. Useful for normalizing profile links into consistent identifiers before making further API calls."
+          },
+          "response": [
+            {
+              "id": "c54eafd9-4a50-4de6-9cbf-a454f4e53a23",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/link-to-id?link=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "link-to-id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) link required",
+                      "key": "link",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:05.000Z",
+              "updatedAt": "2026-07-28T02:59:05.000Z",
+              "uid": "35240-c54eafd9-4a50-4de6-9cbf-a454f4e53a23"
+            },
+            {
+              "id": "13bb338d-5268-4cbc-8393-b2cf48d86c04",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/link-to-id?link=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "link-to-id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) link required",
+                      "key": "link",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:05.000Z",
+              "updatedAt": "2026-07-28T02:59:05.000Z",
+              "uid": "35240-13bb338d-5268-4cbc-8393-b2cf48d86c04"
+            },
+            {
+              "id": "48d7549b-85f2-4a41-957c-1a2eff062954",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/link-to-id?link=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "link-to-id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) link required",
+                      "key": "link",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:05.000Z",
+              "updatedAt": "2026-07-28T02:59:05.000Z",
+              "uid": "35240-48d7549b-85f2-4a41-957c-1a2eff062954"
+            },
+            {
+              "id": "ebee7fea-397b-450a-8621-18df783968cf",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/link-to-id?link=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "link-to-id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) link required",
+                      "key": "link",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:05.000Z",
+              "updatedAt": "2026-07-28T02:59:05.000Z",
+              "uid": "35240-ebee7fea-397b-450a-8621-18df783968cf"
+            },
+            {
+              "id": "33545a0f-67d6-4bb9-aed0-9f13e7c34747",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/link-to-id?link=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "link-to-id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) link required",
+                      "key": "link",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:59:05.000Z",
+              "updatedAt": "2026-07-28T02:59:05.000Z",
+              "uid": "35240-33545a0f-67d6-4bb9-aed0-9f13e7c34747"
+            }
+          ],
+          "createdAt": "2026-07-28T02:59:04.000Z",
+          "updatedAt": "2026-07-28T02:59:04.000Z",
+          "uid": "35240-ada929f5-37eb-4ff8-a639-2bf898ee675b"
+        }
+      ],
+      "id": "41786ed8-1c0d-4060-8f66-afd815c99d07",
+      "createdAt": "2026-07-28T02:59:04.000Z",
+      "updatedAt": "2026-07-28T02:59:04.000Z",
+      "uid": "35240-41786ed8-1c0d-4060-8f66-afd815c99d07"
+    },
+    {
+      "name": "username-to-id",
+      "item": [
+        {
+          "name": "{user_handle}",
+          "item": [
+            {
+              "name": "Convert Username to User ID",
+              "id": "eebcaccb-2fb7-45bc-8984-e291078f2224",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "apikey",
+                  "apikey": [
+                    {
+                      "key": "key",
+                      "value": "ApiKey",
+                      "type": "string"
+                    },
+                    {
+                      "key": "value",
+                      "value": "{{apiKey}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "in",
+                      "value": "header",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/username-to-id/:user_handle",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "username-to-id",
+                    ":user_handle"
+                  ],
+                  "variable": [
+                    {
+                      "id": "ab61d810-dcb2-417d-b7e8-c97633e241d9",
+                      "key": "user_handle",
+                      "value": "<string>",
+                      "description": "(Required) user_handle required"
+                    }
+                  ]
+                },
+                "description": "Converts a Twitter/X username into the corresponding stable numeric user ID. Unlike usernames, user IDs never change, making them reliable for long-term storage and cross-referencing."
+              },
+              "response": [
+                {
+                  "id": "462f419b-43bf-463c-b85d-77c15ededb3e",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "ApiKey",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/username-to-id/:user_handle",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "username-to-id",
+                        ":user_handle"
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_handle"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:59:05.000Z",
+                  "updatedAt": "2026-07-28T02:59:05.000Z",
+                  "uid": "35240-462f419b-43bf-463c-b85d-77c15ededb3e"
+                },
+                {
+                  "id": "c92c2bcb-4adc-4b39-9471-3482d954072d",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "ApiKey",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/username-to-id/:user_handle",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "username-to-id",
+                        ":user_handle"
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_handle"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:59:05.000Z",
+                  "updatedAt": "2026-07-28T02:59:05.000Z",
+                  "uid": "35240-c92c2bcb-4adc-4b39-9471-3482d954072d"
+                },
+                {
+                  "id": "51dd0ccb-8b38-497b-be14-b2ac6e65536d",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "ApiKey",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/username-to-id/:user_handle",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "username-to-id",
+                        ":user_handle"
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_handle"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:59:05.000Z",
+                  "updatedAt": "2026-07-28T02:59:05.000Z",
+                  "uid": "35240-51dd0ccb-8b38-497b-be14-b2ac6e65536d"
+                },
+                {
+                  "id": "496750a7-e849-4742-83f6-aebaf84702bf",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "ApiKey",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/username-to-id/:user_handle",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "username-to-id",
+                        ":user_handle"
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_handle"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:59:05.000Z",
+                  "updatedAt": "2026-07-28T02:59:05.000Z",
+                  "uid": "35240-496750a7-e849-4742-83f6-aebaf84702bf"
+                },
+                {
+                  "id": "04f03c56-18c6-4374-a307-1e9ffa01579a",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "ApiKey",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/username-to-id/:user_handle",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "username-to-id",
+                        ":user_handle"
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_handle"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:59:05.000Z",
+                  "updatedAt": "2026-07-28T02:59:05.000Z",
+                  "uid": "35240-04f03c56-18c6-4374-a307-1e9ffa01579a"
+                },
+                {
+                  "id": "a8b6d029-fd9d-44ff-a94c-f8b36ab67a00",
+                  "name": "Too Many Requests",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "ApiKey",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/username-to-id/:user_handle",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "username-to-id",
+                        ":user_handle"
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_handle"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:59:05.000Z",
+                  "updatedAt": "2026-07-28T02:59:05.000Z",
+                  "uid": "35240-a8b6d029-fd9d-44ff-a94c-f8b36ab67a00"
+                },
+                {
+                  "id": "50a9bcdc-5484-4774-91cb-5478b6a50ba1",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "ApiKey",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/username-to-id/:user_handle",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "username-to-id",
+                        ":user_handle"
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_handle"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:59:05.000Z",
+                  "updatedAt": "2026-07-28T02:59:05.000Z",
+                  "uid": "35240-50a9bcdc-5484-4774-91cb-5478b6a50ba1"
+                }
+              ],
+              "createdAt": "2026-07-28T02:59:04.000Z",
+              "updatedAt": "2026-07-28T02:59:04.000Z",
+              "uid": "35240-eebcaccb-2fb7-45bc-8984-e291078f2224"
+            }
+          ],
+          "id": "5ff98720-c561-4c32-8a85-33f6dba010f0",
+          "createdAt": "2026-07-28T02:59:04.000Z",
+          "updatedAt": "2026-07-28T02:59:04.000Z",
+          "uid": "35240-5ff98720-c561-4c32-8a85-33f6dba010f0"
+        }
+      ],
+      "id": "efba8a38-b657-4c0c-8b90-6f7c2fb58f09",
+      "createdAt": "2026-07-28T02:59:04.000Z",
+      "updatedAt": "2026-07-28T02:59:04.000Z",
+      "uid": "35240-efba8a38-b657-4c0c-8b90-6f7c2fb58f09"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ApiKey",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.sorsa.io/v3"
+    }
+  ]
+}
