@@ -1,0 +1,198 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sorsa Community Tweets API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "ApiKey",
+      "value": "{{ApiKey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tweets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Article Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/article",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns full data for a Twitter/X Article (long-form post) by its URL. The response includes the complete article text, a short preview excerpt, cover image URL, publication date, engagement metrics, and the author's profile."
+        },
+        {
+          "info": {
+            "name": "Tweet Comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/comments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a paginated list of replies (comments) posted under a specific tweet. Up to 20 replies per page. Each reply includes text, creation date, engagement metrics, conversation context, and the author's profile."
+        },
+        {
+          "info": {
+            "name": "Quote Tweets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/quotes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a paginated list of tweets that quoted the specified tweet. Up to 20 results per page. Each quote tweet includes the added commentary text, creation date, engagement metrics, and the quoting user's profile."
+        },
+        {
+          "info": {
+            "name": "Retweeters List",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/retweeters",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a paginated list of users who retweeted the specified tweet, sorted by retweet time (newest first). Each entry contains the retweeter's profile data. Note: the response uses the users format (`common.UsersResponse`), not tweets."
+        },
+        {
+          "info": {
+            "name": "Trends List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/trends",
+            "params": [
+              {
+                "name": "woeid",
+                "value": "",
+                "type": "query",
+                "description": "WOEID (Where On Earth IDentifier) of the location to get trends for Woeid list: https://gist.github.com/tedyblood/5bb5a9f78314cc1f478b3dd7cde790b9"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a list of trending topics for the specified WOEID (location identifier). Each trend contains its name and search query for the region. Useful for monitoring popular topics by location."
+        },
+        {
+          "info": {
+            "name": "Tweet Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/tweet-info",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns full data for a single tweet by its URL: text, creation date, language, engagement metrics (likes, retweets, quotes, replies, views, bookmarks), and the author's profile. If the tweet is a reply, quote, or repost, the nested original tweet and its author data are included as well."
+        },
+        {
+          "info": {
+            "name": "Tweet Data (batch)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/tweet-info-bulk",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns full data for up to 100 tweets in a single request. Each tweet object includes text, creation date, engagement metrics, and author profile. Works the same way as the single-tweet endpoint, but accepts an array of URLs. The response is not paginated."
+        },
+        {
+          "info": {
+            "name": "User Tweets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/user-tweets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a paginated list of tweets posted by a specific user. Up to 20 tweets per page. Each tweet includes text, creation date, engagement metrics, view count, and nested data for replies, quotes, and retweets when available. Provide either `link` (profile URL) or `user_id`."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

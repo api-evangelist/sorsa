@@ -1,0 +1,89 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sorsa Community API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "ApiKey",
+      "value": "{{ApiKey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Community",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Community Members",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/community-members",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a paginated list of user profiles for members of the specified Twitter/X Community. Each profile includes display name, bio, follower stats, avatar, account creation date, and verification status."
+        },
+        {
+          "info": {
+            "name": "Search Community Tweets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/community-search-tweets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Searches for tweets within a specific Twitter/X Community by keyword. Up to 20 matching tweets per page. Results can be sorted by `popular` or `latest`. Each tweet includes text, creation date, engagement metrics, and author profile."
+        },
+        {
+          "info": {
+            "name": "Community Tweets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/community-tweets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a paginated feed of tweets published inside the specified Twitter/X Community. Up to 20 tweets per page. Each tweet includes text, creation date, engagement metrics, and author profile. Results can be sorted by `popular` or `latest` (default: `latest`)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

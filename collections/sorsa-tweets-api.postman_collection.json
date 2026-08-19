@@ -1,0 +1,3138 @@
+{
+  "item": [
+    {
+      "id": "aa723d99-4412-4a59-8cbc-eae0a8d26dad",
+      "name": "Tweets",
+      "description": {
+        "content": "Tweet data (single and batch), articles, user timelines, quotes, retweets, comments, trends",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d2363ee7-9b20-45af-9b94-703cf3826a01",
+          "name": "Article Data",
+          "request": {
+            "name": "Article Data",
+            "description": {
+              "content": "Returns full data for a Twitter/X Article (long-form post) by its URL. The response includes the complete article text, a short preview excerpt, cover image URL, publication date, engagement metrics, and the author's profile.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "article"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3e647d5c-6388-4a1d-a41a-23e2b713ac9e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "article"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"author\": {\n    \"bio_urls\": [\n      \"string\",\n      \"string\"\n    ],\n    \"can_dm\": false,\n    \"created_at\": \"2009-06-02T20:12:29Z\",\n    \"description\": \"Bio text\",\n    \"display_name\": \"Elon Musk\",\n    \"favourites_count\": 1200,\n    \"followers_count\": 100000,\n    \"followings_count\": 500,\n    \"id\": \"44196397\",\n    \"location\": \"Austin, TX\",\n    \"media_count\": 300,\n    \"pinned_tweet_ids\": [\n      \"string\",\n      \"string\"\n    ],\n    \"possibly_sensitive\": false,\n    \"profile_background_image_url\": \"https://pbs.twimg.com/profile_banners/44196397/123\",\n    \"profile_image_url\": \"https://pbs.twimg.com/profile_images/123/photo.jpg\",\n    \"protected\": false,\n    \"tweets_count\": 5000,\n    \"username\": \"elonmusk\",\n    \"verified\": true\n  },\n  \"bookmark_count\": 5614,\n  \"cover_image_url\": \"string\",\n  \"full_text\": \"string\",\n  \"likes_count\": 7044,\n  \"preview_text\": \"string\",\n  \"published_at\": \"string\",\n  \"quote_count\": 7426,\n  \"reply_count\": 1932,\n  \"retweet_count\": 7299,\n  \"views_count\": 834\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "30aedaec-34ad-4cb3-913c-648d625a5ccc",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "article"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "76dab908-d01e-4084-a7dd-432da20316dd",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "article"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e5ad7c5-7fe9-476c-b2b8-d5fb349bacc6",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "article"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1b903144-55ef-4aa1-b800-bd8120053797",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "article"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7fcdb059-b3c5-4564-8311-2f892e466aa9",
+          "name": "Tweet Comments",
+          "request": {
+            "name": "Tweet Comments",
+            "description": {
+              "content": "Returns a paginated list of replies (comments) posted under a specific tweet. Up to 20 replies per page. Each reply includes text, creation date, engagement metrics, conversation context, and the author's profile.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"order_by\": \"<string>\",\n  \"tweet_link\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e239376c-2c2a-4d7c-bbef-22f39c02c94e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"JKHSJFHADUYJKSDy2y3u123\",\n  \"order_by\": \"Relevance\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"next_cursor\": \"string\",\n  \"tweets\": [\n    {\n      \"bookmark_count\": 15,\n      \"conversation_id_str\": \"1782368585664626774\",\n      \"created_at\": \"2024-01-15T10:30:00Z\",\n      \"entities\": [\n        {\n          \"link\": \"https://t.co/example\",\n          \"preview\": \"https://pbs.twimg.com/preview\",\n          \"type\": \"photo\"\n        },\n        {\n          \"link\": \"https://t.co/example\",\n          \"preview\": \"https://pbs.twimg.com/preview\",\n          \"type\": \"photo\"\n        }\n      ],\n      \"full_text\": \"Hello world\",\n      \"id\": \"1782368585664626774\",\n      \"in_reply_to_tweet_id\": \"1782368585664626000\",\n      \"in_reply_to_username\": \"username\",\n      \"is_quote_status\": false,\n      \"is_replies_limited\": false,\n      \"is_reply\": false,\n      \"lang\": \"en\",\n      \"likes_count\": 200,\n      \"quote_count\": 5,\n      \"quoted_status\": {\n        \"description\": \"The original tweet being quoted. Present only if `is_quote_status` is true.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"reply_count\": 10,\n      \"retweet_count\": 50,\n      \"retweeted_status\": {\n        \"description\": \"The original tweet being retweeted. Present only for retweets.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"user\": {\n        \"bio_urls\": [\n          \"string\",\n          \"string\"\n        ],\n        \"can_dm\": false,\n        \"created_at\": \"2009-06-02T20:12:29Z\",\n        \"description\": \"Bio text\",\n        \"display_name\": \"Elon Musk\",\n        \"favourites_count\": 1200,\n        \"followers_count\": 100000,\n        \"followings_count\": 500,\n        \"id\": \"44196397\",\n        \"location\": \"Austin, TX\",\n        \"media_count\": 300,\n        \"pinned_tweet_ids\": [\n          \"string\",\n          \"string\"\n        ],\n        \"possibly_sensitive\": false,\n        \"profile_background_image_url\": \"https://pbs.twimg.com/profile_banners/44196397/123\",\n        \"profile_image_url\": \"https://pbs.twimg.com/profile_images/123/photo.jpg\",\n        \"protected\": false,\n        \"tweets_count\": 5000,\n        \"username\": \"elonmusk\",\n        \"verified\": true\n      },\n      \"view_count\": 10000\n    },\n    {\n      \"bookmark_count\": 15,\n      \"conversation_id_str\": \"1782368585664626774\",\n      \"created_at\": \"2024-01-15T10:30:00Z\",\n      \"entities\": [\n        {\n          \"link\": \"https://t.co/example\",\n          \"preview\": \"https://pbs.twimg.com/preview\",\n          \"type\": \"photo\"\n        },\n        {\n          \"link\": \"https://t.co/example\",\n          \"preview\": \"https://pbs.twimg.com/preview\",\n          \"type\": \"photo\"\n        }\n      ],\n      \"full_text\": \"Hello world\",\n      \"id\": \"1782368585664626774\",\n      \"in_reply_to_tweet_id\": \"1782368585664626000\",\n      \"in_reply_to_username\": \"username\",\n      \"is_quote_status\": false,\n      \"is_replies_limited\": false,\n      \"is_reply\": false,\n      \"lang\": \"en\",\n      \"likes_count\": 200,\n      \"quote_count\": 5,\n      \"quoted_status\": {\n        \"description\": \"The original tweet being quoted. Present only if `is_quote_status` is true.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"reply_count\": 10,\n      \"retweet_count\": 50,\n      \"retweeted_status\": {\n        \"description\": \"The original tweet being retweeted. Present only for retweets.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"user\": {\n        \"bio_urls\": [\n          \"string\",\n          \"string\"\n        ],\n        \"can_dm\": false,\n        \"created_at\": \"2009-06-02T20:12:29Z\",\n        \"description\": \"Bio text\",\n        \"display_name\": \"Elon Musk\",\n        \"favourites_count\": 1200,\n        \"followers_count\": 100000,\n        \"followings_count\": 500,\n        \"id\": \"44196397\",\n        \"location\": \"Austin, TX\",\n        \"media_count\": 300,\n        \"pinned_tweet_ids\": [\n          \"string\",\n          \"string\"\n        ],\n        \"possibly_sensitive\": false,\n        \"profile_background_image_url\": \"https://pbs.twimg.com/profile_banners/44196397/123\",\n        \"profile_image_url\": \"https://pbs.twimg.com/profile_images/123/photo.jpg\",\n        \"protected\": false,\n        \"tweets_count\": 5000,\n        \"username\": \"elonmusk\",\n        \"verified\": true\n      },\n      \"view_count\": 10000\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "827a4c43-455c-4639-9d3b-5a2021adc822",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"JKHSJFHADUYJKSDy2y3u123\",\n  \"order_by\": \"Relevance\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8f7f6b87-16b3-41dc-88cb-a8e03a69bc8c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"JKHSJFHADUYJKSDy2y3u123\",\n  \"order_by\": \"Relevance\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3484595c-4164-4d3a-86f5-2452f67e4cac",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"JKHSJFHADUYJKSDy2y3u123\",\n  \"order_by\": \"Relevance\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9b6678e3-af3a-4a32-b912-b8662fb2f3b5",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"JKHSJFHADUYJKSDy2y3u123\",\n  \"order_by\": \"Relevance\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dd5bbc12-f1b1-4220-869c-44d272e75689",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"JKHSJFHADUYJKSDy2y3u123\",\n  \"order_by\": \"Relevance\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "69cfb584-4d16-4e1c-ad22-922094e66c15",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"JKHSJFHADUYJKSDy2y3u123\",\n  \"order_by\": \"Relevance\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "36ab73b2-c2c4-4dd0-9b04-8fb499e1b440",
+          "name": "Quote Tweets",
+          "request": {
+            "name": "Quote Tweets",
+            "description": {
+              "content": "Returns a paginated list of tweets that quoted the specified tweet. Up to 20 results per page. Each quote tweet includes the added commentary text, creation date, engagement metrics, and the quoting user's profile.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "quotes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"tweet_link\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e3c8b4bd-88d7-4be7-9c1d-304a35a15394",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"JKHSJFHADUYJKSDy2y3u123\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"next_cursor\": \"string\",\n  \"tweets\": [\n    {\n      \"bookmark_count\": 15,\n      \"conversation_id_str\": \"1782368585664626774\",\n      \"created_at\": \"2024-01-15T10:30:00Z\",\n      \"entities\": [\n        {\n          \"link\": \"https://t.co/example\",\n          \"preview\": \"https://pbs.twimg.com/preview\",\n          \"type\": \"photo\"\n        },\n        {\n          \"link\": \"https://t.co/example\",\n          \"preview\": \"https://pbs.twimg.com/preview\",\n          \"type\": \"photo\"\n        }\n      ],\n      \"full_text\": \"Hello world\",\n      \"id\": \"1782368585664626774\",\n      \"in_reply_to_tweet_id\": \"1782368585664626000\",\n      \"in_reply_to_username\": \"username\",\n      \"is_quote_status\": false,\n      \"is_replies_limited\": false,\n      \"is_reply\": false,\n      \"lang\": \"en\",\n      \"likes_count\": 200,\n      \"quote_count\": 5,\n      \"quoted_status\": {\n        \"description\": \"The original tweet being quoted. Present only if `is_quote_status` is true.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"reply_count\": 10,\n      \"retweet_count\": 50,\n      \"retweeted_status\": {\n        \"description\": \"The original tweet being retweeted. Present only for retweets.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"user\": {\n        \"bio_urls\": [\n          \"string\",\n          \"string\"\n        ],\n        \"can_dm\": false,\n        \"created_at\": \"2009-06-02T20:12:29Z\",\n        \"description\": \"Bio text\",\n        \"display_name\": \"Elon Musk\",\n        \"favourites_count\": 1200,\n        \"followers_count\": 100000,\n        \"followings_count\": 500,\n        \"id\": \"44196397\",\n        \"location\": \"Austin, TX\",\n        \"media_count\": 300,\n        \"pinned_tweet_ids\": [\n          \"string\",\n          \"string\"\n        ],\n        \"possibly_sensitive\": false,\n        \"profile_background_image_url\": \"https://pbs.twimg.com/profile_banners/44196397/123\",\n        \"profile_image_url\": \"https://pbs.twimg.com/profile_images/123/photo.jpg\",\n        \"protected\": false,\n        \"tweets_count\": 5000,\n        \"username\": \"elonmusk\",\n        \"verified\": true\n      },\n      \"view_count\": 10000\n    },\n    {\n      \"bookmark_count\": 15,\n      \"conversation_id_str\": \"1782368585664626774\",\n      \"created_at\": \"2024-01-15T10:30:00Z\",\n      \"entities\": [\n        {\n          \"link\": \"https://t.co/example\",\n          \"preview\": \"https://pbs.twimg.com/preview\",\n          \"type\": \"photo\"\n        },\n        {\n          \"link\": \"https://t.co/example\",\n          \"preview\": \"https://pbs.twimg.com/preview\",\n          \"type\": \"photo\"\n        }\n      ],\n      \"full_text\": \"Hello world\",\n      \"id\": \"1782368585664626774\",\n      \"in_reply_to_tweet_id\": \"1782368585664626000\",\n      \"in_reply_to_username\": \"username\",\n      \"is_quote_status\": false,\n      \"is_replies_limited\": false,\n      \"is_reply\": false,\n      \"lang\": \"en\",\n      \"likes_count\": 200,\n      \"quote_count\": 5,\n      \"quoted_status\": {\n        \"description\": \"The original tweet being quoted. Present only if `is_quote_status` is true.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"reply_count\": 10,\n      \"retweet_count\": 50,\n      \"retweeted_status\": {\n        \"description\": \"The original tweet being retweeted. Present only for retweets.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"user\": {\n        \"bio_urls\": [\n          \"string\",\n          \"string\"\n        ],\n        \"can_dm\": false,\n        \"created_at\": \"2009-06-02T20:12:29Z\",\n        \"description\": \"Bio text\",\n        \"display_name\": \"Elon Musk\",\n        \"favourites_count\": 1200,\n        \"followers_count\": 100000,\n        \"followings_count\": 500,\n        \"id\": \"44196397\",\n        \"location\": \"Austin, TX\",\n        \"media_count\": 300,\n        \"pinned_tweet_ids\": [\n          \"string\",\n          \"string\"\n        ],\n        \"possibly_sensitive\": false,\n        \"profile_background_image_url\": \"https://pbs.twimg.com/profile_banners/44196397/123\",\n        \"profile_image_url\": \"https://pbs.twimg.com/profile_images/123/photo.jpg\",\n        \"protected\": false,\n        \"tweets_count\": 5000,\n        \"username\": \"elonmusk\",\n        \"verified\": true\n      },\n      \"view_count\": 10000\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "91f365ba-efce-43eb-85d2-3d78bd8b5f39",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"JKHSJFHADUYJKSDy2y3u123\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f68fd46d-4608-4f10-9e0e-ade2b18ac27a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"JKHSJFHADUYJKSDy2y3u123\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff171b93-edbd-4d38-828c-5ca4cb06e387",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"JKHSJFHADUYJKSDy2y3u123\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5d3d6b0f-3fa8-45fc-8b67-7c4fb3c1a9ad",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"JKHSJFHADUYJKSDy2y3u123\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "43a2e8bd-2042-4998-ab92-ba5c2d2b30e8",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"JKHSJFHADUYJKSDy2y3u123\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d6d2675c-66d8-4f99-a0a6-5704a4b089d4",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"JKHSJFHADUYJKSDy2y3u123\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d90891c0-a207-4244-8437-a3d15b8a7387",
+          "name": "Retweeters List",
+          "request": {
+            "name": "Retweeters List",
+            "description": {
+              "content": "Returns a paginated list of users who retweeted the specified tweet, sorted by retweet time (newest first). Each entry contains the retweeter's profile data. Note: the response uses the users format (`common.UsersResponse`), not tweets.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "retweeters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"tweet_link\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "75784f6a-82da-48fb-874c-36b88f5b2673",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "retweeters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"JKHSJFHADUYJKSDy2y3u123\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"next_cursor\": \"string\",\n  \"users\": [\n    {\n      \"bio_urls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"can_dm\": false,\n      \"created_at\": \"2009-06-02T20:12:29Z\",\n      \"description\": \"Bio text\",\n      \"display_name\": \"Elon Musk\",\n      \"favourites_count\": 1200,\n      \"followers_count\": 100000,\n      \"followings_count\": 500,\n      \"id\": \"44196397\",\n      \"location\": \"Austin, TX\",\n      \"media_count\": 300,\n      \"pinned_tweet_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"possibly_sensitive\": false,\n      \"profile_background_image_url\": \"https://pbs.twimg.com/profile_banners/44196397/123\",\n      \"profile_image_url\": \"https://pbs.twimg.com/profile_images/123/photo.jpg\",\n      \"protected\": false,\n      \"tweets_count\": 5000,\n      \"username\": \"elonmusk\",\n      \"verified\": true\n    },\n    {\n      \"bio_urls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"can_dm\": false,\n      \"created_at\": \"2009-06-02T20:12:29Z\",\n      \"description\": \"Bio text\",\n      \"display_name\": \"Elon Musk\",\n      \"favourites_count\": 1200,\n      \"followers_count\": 100000,\n      \"followings_count\": 500,\n      \"id\": \"44196397\",\n      \"location\": \"Austin, TX\",\n      \"media_count\": 300,\n      \"pinned_tweet_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"possibly_sensitive\": false,\n      \"profile_background_image_url\": \"https://pbs.twimg.com/profile_banners/44196397/123\",\n      \"profile_image_url\": \"https://pbs.twimg.com/profile_images/123/photo.jpg\",\n      \"protected\": false,\n      \"tweets_count\": 5000,\n      \"username\": \"elonmusk\",\n      \"verified\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "268e84fe-845f-49cf-89fe-77d472517b0c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "retweeters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"JKHSJFHADUYJKSDy2y3u123\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dbc45419-cfba-44e8-b9cf-9a10c88d0b8d",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "retweeters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"JKHSJFHADUYJKSDy2y3u123\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7139d448-e753-4453-ac86-c6cbc5338cd8",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "retweeters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"JKHSJFHADUYJKSDy2y3u123\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d5c7bc95-cd11-4ea2-a765-8f490ab4fdbd",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "retweeters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"JKHSJFHADUYJKSDy2y3u123\",\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9935878d-d265-4ae7-bf94-1929b72d8143",
+          "name": "Trends List",
+          "request": {
+            "name": "Trends List",
+            "description": {
+              "content": "Returns a list of trending topics for the specified WOEID (location identifier). Each trend contains its name and search query for the region. Useful for monitoring popular topics by location.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "trends"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "woeid",
+                  "value": "<integer>",
+                  "description": "(Required) WOEID (Where On Earth IDentifier) of the location to get trends for Woeid list: https://gist.github.com/tedyblood/5bb5a9f78314cc1f478b3dd7cde790b9"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "93fde732-d24f-4b4b-9372-bded0a2e4d31",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "woeid",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"trends\": [\n    {\n      \"name\": \"string\",\n      \"query\": \"string\",\n      \"url\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"query\": \"string\",\n      \"url\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4f8746fc-ba3f-4da5-b9cf-5e5737d08004",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "woeid",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d648efaf-d983-4949-8fb7-418e8d768657",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "woeid",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dd0b7277-55e3-4269-90ed-0f6666d90474",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "woeid",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1a28e1be-41aa-42f2-ac7a-dcbb3d7e8e0d",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "woeid",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7dfd2649-49b3-4333-b598-869bc679f231",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "woeid",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eea744d8-91c4-4983-88ae-2d2e66fede25",
+          "name": "Tweet Data",
+          "request": {
+            "name": "Tweet Data",
+            "description": {
+              "content": "Returns full data for a single tweet by its URL: text, creation date, language, engagement metrics (likes, retweets, quotes, replies, views, bookmarks), and the author's profile. If the tweet is a reply, quote, or repost, the nested original tweet and its author data are included as well.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tweet-info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "75940308-669d-4dd0-8f6c-cedd5c517f07",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tweet-info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bookmark_count\": 15,\n  \"conversation_id_str\": \"1782368585664626774\",\n  \"created_at\": \"2024-01-15T10:30:00Z\",\n  \"entities\": [\n    {\n      \"link\": \"https://t.co/example\",\n      \"preview\": \"https://pbs.twimg.com/preview\",\n      \"type\": \"photo\"\n    },\n    {\n      \"link\": \"https://t.co/example\",\n      \"preview\": \"https://pbs.twimg.com/preview\",\n      \"type\": \"photo\"\n    }\n  ],\n  \"full_text\": \"Hello world\",\n  \"id\": \"1782368585664626774\",\n  \"in_reply_to_tweet_id\": \"1782368585664626000\",\n  \"in_reply_to_username\": \"username\",\n  \"is_quote_status\": false,\n  \"is_replies_limited\": false,\n  \"is_reply\": false,\n  \"lang\": \"en\",\n  \"likes_count\": 200,\n  \"quote_count\": 5,\n  \"quoted_status\": {\n    \"bookmark_count\": 15,\n    \"conversation_id_str\": \"1782368585664626774\",\n    \"created_at\": \"2024-01-15T10:30:00Z\",\n    \"entities\": [\n      {\n        \"link\": \"https://t.co/example\",\n        \"preview\": \"https://pbs.twimg.com/preview\",\n        \"type\": \"photo\"\n      },\n      {\n        \"link\": \"https://t.co/example\",\n        \"preview\": \"https://pbs.twimg.com/preview\",\n        \"type\": \"photo\"\n      }\n    ],\n    \"full_text\": \"Hello world\",\n    \"id\": \"1782368585664626774\",\n    \"in_reply_to_tweet_id\": \"1782368585664626000\",\n    \"in_reply_to_username\": \"username\",\n    \"is_quote_status\": false,\n    \"is_replies_limited\": false,\n    \"is_reply\": false,\n    \"lang\": \"en\",\n    \"likes_count\": 200,\n    \"quote_count\": 5,\n    \"quoted_status\": {\n      \"description\": \"The original tweet being quoted. Present only if `is_quote_status` is true.\",\n      \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n    },\n    \"reply_count\": 10,\n    \"retweet_count\": 50,\n    \"retweeted_status\": {\n      \"description\": \"The original tweet being retweeted. Present only for retweets.\",\n      \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n    },\n    \"user\": {\n      \"bio_urls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"can_dm\": false,\n      \"created_at\": \"2009-06-02T20:12:29Z\",\n      \"description\": \"Bio text\",\n      \"display_name\": \"Elon Musk\",\n      \"favourites_count\": 1200,\n      \"followers_count\": 100000,\n      \"followings_count\": 500,\n      \"id\": \"44196397\",\n      \"location\": \"Austin, TX\",\n      \"media_count\": 300,\n      \"pinned_tweet_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"possibly_sensitive\": false,\n      \"profile_background_image_url\": \"https://pbs.twimg.com/profile_banners/44196397/123\",\n      \"profile_image_url\": \"https://pbs.twimg.com/profile_images/123/photo.jpg\",\n      \"protected\": false,\n      \"tweets_count\": 5000,\n      \"username\": \"elonmusk\",\n      \"verified\": true\n    },\n    \"view_count\": 10000\n  },\n  \"reply_count\": 10,\n  \"retweet_count\": 50,\n  \"retweeted_status\": {\n    \"bookmark_count\": 15,\n    \"conversation_id_str\": \"1782368585664626774\",\n    \"created_at\": \"2024-01-15T10:30:00Z\",\n    \"entities\": [\n      {\n        \"link\": \"https://t.co/example\",\n        \"preview\": \"https://pbs.twimg.com/preview\",\n        \"type\": \"photo\"\n      },\n      {\n        \"link\": \"https://t.co/example\",\n        \"preview\": \"https://pbs.twimg.com/preview\",\n        \"type\": \"photo\"\n      }\n    ],\n    \"full_text\": \"Hello world\",\n    \"id\": \"1782368585664626774\",\n    \"in_reply_to_tweet_id\": \"1782368585664626000\",\n    \"in_reply_to_username\": \"username\",\n    \"is_quote_status\": false,\n    \"is_replies_limited\": false,\n    \"is_reply\": false,\n    \"lang\": \"en\",\n    \"likes_count\": 200,\n    \"quote_count\": 5,\n    \"quoted_status\": {\n      \"description\": \"The original tweet being quoted. Present only if `is_quote_status` is true.\",\n      \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n    },\n    \"reply_count\": 10,\n    \"retweet_count\": 50,\n    \"retweeted_status\": {\n      \"description\": \"The original tweet being retweeted. Present only for retweets.\",\n      \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n    },\n    \"user\": {\n      \"bio_urls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"can_dm\": false,\n      \"created_at\": \"2009-06-02T20:12:29Z\",\n      \"description\": \"Bio text\",\n      \"display_name\": \"Elon Musk\",\n      \"favourites_count\": 1200,\n      \"followers_count\": 100000,\n      \"followings_count\": 500,\n      \"id\": \"44196397\",\n      \"location\": \"Austin, TX\",\n      \"media_count\": 300,\n      \"pinned_tweet_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"possibly_sensitive\": false,\n      \"profile_background_image_url\": \"https://pbs.twimg.com/profile_banners/44196397/123\",\n      \"profile_image_url\": \"https://pbs.twimg.com/profile_images/123/photo.jpg\",\n      \"protected\": false,\n      \"tweets_count\": 5000,\n      \"username\": \"elonmusk\",\n      \"verified\": true\n    },\n    \"view_count\": 10000\n  },\n  \"user\": {\n    \"bio_urls\": [\n      \"string\",\n      \"string\"\n    ],\n    \"can_dm\": false,\n    \"created_at\": \"2009-06-02T20:12:29Z\",\n    \"description\": \"Bio text\",\n    \"display_name\": \"Elon Musk\",\n    \"favourites_count\": 1200,\n    \"followers_count\": 100000,\n    \"followings_count\": 500,\n    \"id\": \"44196397\",\n    \"location\": \"Austin, TX\",\n    \"media_count\": 300,\n    \"pinned_tweet_ids\": [\n      \"string\",\n      \"string\"\n    ],\n    \"possibly_sensitive\": false,\n    \"profile_background_image_url\": \"https://pbs.twimg.com/profile_banners/44196397/123\",\n    \"profile_image_url\": \"https://pbs.twimg.com/profile_images/123/photo.jpg\",\n    \"protected\": false,\n    \"tweets_count\": 5000,\n    \"username\": \"elonmusk\",\n    \"verified\": true\n  },\n  \"view_count\": 10000\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "88f19691-ec4d-4bc5-9df2-575775dbb430",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tweet-info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87669053-12bf-4390-b8a2-e317f6e98523",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tweet-info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "22b83352-c5f7-4c1c-bce9-a363c6da6387",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tweet-info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "31738f61-65f1-418b-accf-3fb7e41488a6",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tweet-info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "30127553-e7a1-4bbf-9d00-cdbdb9bbac55",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tweet-info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a0b38c3a-6eb1-4f5b-8c35-cbbf4775632a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tweet-info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_link\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b4ccb920-6641-47d6-8b55-045afdde9ae5",
+          "name": "Tweet Data (batch)",
+          "request": {
+            "name": "Tweet Data (batch)",
+            "description": {
+              "content": "Returns full data for up to 100 tweets in a single request. Each tweet object includes text, creation date, engagement metrics, and author profile. Works the same way as the single-tweet endpoint, but accepts an array of URLs. The response is not paginated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tweet-info-bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tweet_links\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7cbaa6b1-1a06-4e45-959a-8a99e3a8d633",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tweet-info-bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_links\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tweets\": [\n    {\n      \"bookmark_count\": 15,\n      \"conversation_id_str\": \"1782368585664626774\",\n      \"created_at\": \"2024-01-15T10:30:00Z\",\n      \"entities\": [\n        {\n          \"link\": \"https://t.co/example\",\n          \"preview\": \"https://pbs.twimg.com/preview\",\n          \"type\": \"photo\"\n        },\n        {\n          \"link\": \"https://t.co/example\",\n          \"preview\": \"https://pbs.twimg.com/preview\",\n          \"type\": \"photo\"\n        }\n      ],\n      \"full_text\": \"Hello world\",\n      \"id\": \"1782368585664626774\",\n      \"in_reply_to_tweet_id\": \"1782368585664626000\",\n      \"in_reply_to_username\": \"username\",\n      \"is_quote_status\": false,\n      \"is_replies_limited\": false,\n      \"is_reply\": false,\n      \"lang\": \"en\",\n      \"likes_count\": 200,\n      \"quote_count\": 5,\n      \"quoted_status\": {\n        \"description\": \"The original tweet being quoted. Present only if `is_quote_status` is true.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"reply_count\": 10,\n      \"retweet_count\": 50,\n      \"retweeted_status\": {\n        \"description\": \"The original tweet being retweeted. Present only for retweets.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"user\": {\n        \"bio_urls\": [\n          \"string\",\n          \"string\"\n        ],\n        \"can_dm\": false,\n        \"created_at\": \"2009-06-02T20:12:29Z\",\n        \"description\": \"Bio text\",\n        \"display_name\": \"Elon Musk\",\n        \"favourites_count\": 1200,\n        \"followers_count\": 100000,\n        \"followings_count\": 500,\n        \"id\": \"44196397\",\n        \"location\": \"Austin, TX\",\n        \"media_count\": 300,\n        \"pinned_tweet_ids\": [\n          \"string\",\n          \"string\"\n        ],\n        \"possibly_sensitive\": false,\n        \"profile_background_image_url\": \"https://pbs.twimg.com/profile_banners/44196397/123\",\n        \"profile_image_url\": \"https://pbs.twimg.com/profile_images/123/photo.jpg\",\n        \"protected\": false,\n        \"tweets_count\": 5000,\n        \"username\": \"elonmusk\",\n        \"verified\": true\n      },\n      \"view_count\": 10000\n    },\n    {\n      \"bookmark_count\": 15,\n      \"conversation_id_str\": \"1782368585664626774\",\n      \"created_at\": \"2024-01-15T10:30:00Z\",\n      \"entities\": [\n        {\n          \"link\": \"https://t.co/example\",\n          \"preview\": \"https://pbs.twimg.com/preview\",\n          \"type\": \"photo\"\n        },\n        {\n          \"link\": \"https://t.co/example\",\n          \"preview\": \"https://pbs.twimg.com/preview\",\n          \"type\": \"photo\"\n        }\n      ],\n      \"full_text\": \"Hello world\",\n      \"id\": \"1782368585664626774\",\n      \"in_reply_to_tweet_id\": \"1782368585664626000\",\n      \"in_reply_to_username\": \"username\",\n      \"is_quote_status\": false,\n      \"is_replies_limited\": false,\n      \"is_reply\": false,\n      \"lang\": \"en\",\n      \"likes_count\": 200,\n      \"quote_count\": 5,\n      \"quoted_status\": {\n        \"description\": \"The original tweet being quoted. Present only if `is_quote_status` is true.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"reply_count\": 10,\n      \"retweet_count\": 50,\n      \"retweeted_status\": {\n        \"description\": \"The original tweet being retweeted. Present only for retweets.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"user\": {\n        \"bio_urls\": [\n          \"string\",\n          \"string\"\n        ],\n        \"can_dm\": false,\n        \"created_at\": \"2009-06-02T20:12:29Z\",\n        \"description\": \"Bio text\",\n        \"display_name\": \"Elon Musk\",\n        \"favourites_count\": 1200,\n        \"followers_count\": 100000,\n        \"followings_count\": 500,\n        \"id\": \"44196397\",\n        \"location\": \"Austin, TX\",\n        \"media_count\": 300,\n        \"pinned_tweet_ids\": [\n          \"string\",\n          \"string\"\n        ],\n        \"possibly_sensitive\": false,\n        \"profile_background_image_url\": \"https://pbs.twimg.com/profile_banners/44196397/123\",\n        \"profile_image_url\": \"https://pbs.twimg.com/profile_images/123/photo.jpg\",\n        \"protected\": false,\n        \"tweets_count\": 5000,\n        \"username\": \"elonmusk\",\n        \"verified\": true\n      },\n      \"view_count\": 10000\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6f3ff0fc-edbb-440d-9c88-3e1a213ef3bf",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tweet-info-bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_links\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "128827c2-2f0a-461a-9989-97f8d1754acf",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tweet-info-bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_links\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7365c0b3-e13f-44b2-b8ab-6cc1988a04c8",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tweet-info-bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_links\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ef0ee75b-5ec6-432f-9444-cc10c26d715b",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tweet-info-bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_links\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ce3e394a-0833-413f-ad0c-615d68eda036",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tweet-info-bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_links\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "056b198a-1602-423e-a83e-6d2bb0136352",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tweet-info-bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tweet_links\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "696929f7-75d8-4b23-914c-31b020d1d897",
+          "name": "User Tweets",
+          "request": {
+            "name": "User Tweets",
+            "description": {
+              "content": "Returns a paginated list of tweets posted by a specific user. Up to 20 tweets per page. Each tweet includes text, creation date, engagement metrics, view count, and nested data for replies, quotes, and retweets when available. Provide either `link` (profile URL) or `user_id`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user-tweets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"next_cursor\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_link\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0617e1de-5a90-492e-bdff-72a2736c5d7a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-tweets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"ASDJKHFJWQE123Q\",\n  \"user_id\": \"123\",\n  \"user_link\": \"https://twitter.com/username\",\n  \"username\": \"username\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"next_cursor\": \"string\",\n  \"tweets\": [\n    {\n      \"bookmark_count\": 15,\n      \"conversation_id_str\": \"1782368585664626774\",\n      \"created_at\": \"2024-01-15T10:30:00Z\",\n      \"entities\": [\n        {\n          \"link\": \"https://t.co/example\",\n          \"preview\": \"https://pbs.twimg.com/preview\",\n          \"type\": \"photo\"\n        },\n        {\n          \"link\": \"https://t.co/example\",\n          \"preview\": \"https://pbs.twimg.com/preview\",\n          \"type\": \"photo\"\n        }\n      ],\n      \"full_text\": \"Hello world\",\n      \"id\": \"1782368585664626774\",\n      \"in_reply_to_tweet_id\": \"1782368585664626000\",\n      \"in_reply_to_username\": \"username\",\n      \"is_quote_status\": false,\n      \"is_replies_limited\": false,\n      \"is_reply\": false,\n      \"lang\": \"en\",\n      \"likes_count\": 200,\n      \"quote_count\": 5,\n      \"quoted_status\": {\n        \"description\": \"The original tweet being quoted. Present only if `is_quote_status` is true.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"reply_count\": 10,\n      \"retweet_count\": 50,\n      \"retweeted_status\": {\n        \"description\": \"The original tweet being retweeted. Present only for retweets.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"user\": {\n        \"bio_urls\": [\n          \"string\",\n          \"string\"\n        ],\n        \"can_dm\": false,\n        \"created_at\": \"2009-06-02T20:12:29Z\",\n        \"description\": \"Bio text\",\n        \"display_name\": \"Elon Musk\",\n        \"favourites_count\": 1200,\n        \"followers_count\": 100000,\n        \"followings_count\": 500,\n        \"id\": \"44196397\",\n        \"location\": \"Austin, TX\",\n        \"media_count\": 300,\n        \"pinned_tweet_ids\": [\n          \"string\",\n          \"string\"\n        ],\n        \"possibly_sensitive\": false,\n        \"profile_background_image_url\": \"https://pbs.twimg.com/profile_banners/44196397/123\",\n        \"profile_image_url\": \"https://pbs.twimg.com/profile_images/123/photo.jpg\",\n        \"protected\": false,\n        \"tweets_count\": 5000,\n        \"username\": \"elonmusk\",\n        \"verified\": true\n      },\n      \"view_count\": 10000\n    },\n    {\n      \"bookmark_count\": 15,\n      \"conversation_id_str\": \"1782368585664626774\",\n      \"created_at\": \"2024-01-15T10:30:00Z\",\n      \"entities\": [\n        {\n          \"link\": \"https://t.co/example\",\n          \"preview\": \"https://pbs.twimg.com/preview\",\n          \"type\": \"photo\"\n        },\n        {\n          \"link\": \"https://t.co/example\",\n          \"preview\": \"https://pbs.twimg.com/preview\",\n          \"type\": \"photo\"\n        }\n      ],\n      \"full_text\": \"Hello world\",\n      \"id\": \"1782368585664626774\",\n      \"in_reply_to_tweet_id\": \"1782368585664626000\",\n      \"in_reply_to_username\": \"username\",\n      \"is_quote_status\": false,\n      \"is_replies_limited\": false,\n      \"is_reply\": false,\n      \"lang\": \"en\",\n      \"likes_count\": 200,\n      \"quote_count\": 5,\n      \"quoted_status\": {\n        \"description\": \"The original tweet being quoted. Present only if `is_quote_status` is true.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"reply_count\": 10,\n      \"retweet_count\": 50,\n      \"retweeted_status\": {\n        \"description\": \"The original tweet being retweeted. Present only for retweets.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"user\": {\n        \"bio_urls\": [\n          \"string\",\n          \"string\"\n        ],\n        \"can_dm\": false,\n        \"created_at\": \"2009-06-02T20:12:29Z\",\n        \"description\": \"Bio text\",\n        \"display_name\": \"Elon Musk\",\n        \"favourites_count\": 1200,\n        \"followers_count\": 100000,\n        \"followings_count\": 500,\n        \"id\": \"44196397\",\n        \"location\": \"Austin, TX\",\n        \"media_count\": 300,\n        \"pinned_tweet_ids\": [\n          \"string\",\n          \"string\"\n        ],\n        \"possibly_sensitive\": false,\n        \"profile_background_image_url\": \"https://pbs.twimg.com/profile_banners/44196397/123\",\n        \"profile_image_url\": \"https://pbs.twimg.com/profile_images/123/photo.jpg\",\n        \"protected\": false,\n        \"tweets_count\": 5000,\n        \"username\": \"elonmusk\",\n        \"verified\": true\n      },\n      \"view_count\": 10000\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4f0a99b5-b767-4683-85e2-d4d6c5047757",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-tweets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"ASDJKHFJWQE123Q\",\n  \"user_id\": \"123\",\n  \"user_link\": \"https://twitter.com/username\",\n  \"username\": \"username\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5d42b8fb-ed76-4e4d-8320-a314cf36ac82",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-tweets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"ASDJKHFJWQE123Q\",\n  \"user_id\": \"123\",\n  \"user_link\": \"https://twitter.com/username\",\n  \"username\": \"username\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9047a9e2-cee6-4a4a-93bd-92be18a0e726",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-tweets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"ASDJKHFJWQE123Q\",\n  \"user_id\": \"123\",\n  \"user_link\": \"https://twitter.com/username\",\n  \"username\": \"username\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "35f4b12f-112e-47af-99e5-0d6c9bb21798",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-tweets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"ASDJKHFJWQE123Q\",\n  \"user_id\": \"123\",\n  \"user_link\": \"https://twitter.com/username\",\n  \"username\": \"username\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "04a44ec3-f31e-4a84-9910-922b233190a6",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-tweets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"ASDJKHFJWQE123Q\",\n  \"user_id\": \"123\",\n  \"user_link\": \"https://twitter.com/username\",\n  \"username\": \"username\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc3e077a-16f5-4fc5-8ae8-bf5c59609e11",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-tweets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"next_cursor\": \"ASDJKHFJWQE123Q\",\n  \"user_id\": \"123\",\n  \"user_link\": \"https://twitter.com/username\",\n  \"username\": \"username\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sorsa.io/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ApiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d14a2b2b-e061-496e-b9be-28ad8239e2e3",
+    "name": "Sorsa Community Tweets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Real-time X (Twitter) data API providing access to tweets, profiles, search, mentions, lists, communities, engagement verification, and Sorsa Score crypto-influence analytics via 40 REST endpoints. Affordable alternative to the official X API.\n\nContact Support:\n Name: Sorsa Support\n Email: contacts@sorsa.io",
+      "type": "text/plain"
+    }
+  }
+}

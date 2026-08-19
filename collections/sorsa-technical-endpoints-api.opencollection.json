@@ -1,0 +1,118 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sorsa Community Technical Endpoints API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "ApiKey",
+      "value": "{{ApiKey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Technical Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Convert User ID to Username",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/id-to-username/:user_id",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "user_id required"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Converts a numeric Twitter/X user ID into the account's current username. Useful for resolving stored IDs back into human-readable handles, especially when usernames may have changed."
+        },
+        {
+          "info": {
+            "name": "API Key Usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/key-usage-info",
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns usage statistics for the current API key: total allocated requests, remaining balance, and the expiration date of the current request quota. No parameters required; the key is read from the `ApiKey` header."
+        },
+        {
+          "info": {
+            "name": "Convert Profile Link to User ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/link-to-id",
+            "params": [
+              {
+                "name": "link",
+                "value": "",
+                "type": "query",
+                "description": "link required"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Extracts the stable numeric user ID from a Twitter/X profile URL. Useful for normalizing profile links into consistent identifiers before making further API calls."
+        },
+        {
+          "info": {
+            "name": "Convert Username to User ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/username-to-id/:user_handle",
+            "params": [
+              {
+                "name": "user_handle",
+                "value": "",
+                "type": "path",
+                "description": "user_handle required"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Converts a Twitter/X username into the corresponding stable numeric user ID. Unlike usernames, user IDs never change, making them reliable for long-term storage and cross-referencing."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

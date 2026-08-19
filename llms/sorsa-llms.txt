@@ -1,0 +1,155 @@
+# Sorsa API
+
+> Sorsa API is a managed REST API providing fast, structured, read-only access to public X (formerly Twitter) data. Single API key authentication, no OAuth, no app approval. Covers user profiles, tweets, search, follower graphs, lists, communities, and crypto-focused audience analytics.
+
+Base URL: https://api.sorsa.io/v3
+Authentication: API key via `ApiKey` request header
+Response format: JSON
+
+## Docs
+
+- [Welcome / Intro](https://docs.sorsa.io/Welcome-to-Sorsa-API)
+- [Quickstart](https://docs.sorsa.io/quickstart)
+- [Authentication](https://docs.sorsa.io/authentication)
+- [Base URL & Versioning](https://docs.sorsa.io/base-url-and-versioning)
+- [Pricing](https://docs.sorsa.io/pricing)
+- [Rate Limits](https://docs.sorsa.io/rate-limits)
+- [Error Codes](https://docs.sorsa.io/error-codes)
+- [Response Format](https://docs.sorsa.io/response-format)
+- [Pagination](https://docs.sorsa.io/pagination)
+- [API Reference Guide](https://docs.sorsa.io/api-reference-guide)
+
+## Use Case Guides
+
+- [Search Tweets](https://docs.sorsa.io/search-tweets)
+- [Search Operators](https://docs.sorsa.io/search-operators)
+- [Track Mentions](https://docs.sorsa.io/search-mentions)
+- [Followers & Following](https://docs.sorsa.io/followers-and-following)
+- [Historical Data](https://docs.sorsa.io/historical-data)
+- [Tweet Engagement](https://docs.sorsa.io/tweet-engagement)
+- [Real-Time Monitoring](https://docs.sorsa.io/real-time-monitoring)
+- [Marketing Campaign Verification](https://docs.sorsa.io/Marketing-Campaign-Verification)
+- [Target Audience Discovery](https://docs.sorsa.io/target-audiences-Discovery)
+- [Competitor Analysis](https://docs.sorsa.io/Competitor-Analysis)
+- [Audience Geography](https://docs.sorsa.io/Audience-Geography)
+- [Lists & Communities](https://docs.sorsa.io/lists-and-communities)
+- [ID Conversion](https://docs.sorsa.io/ID-Conversion)
+- [Optimizing API Usage](https://docs.sorsa.io/optimizing-api-usage)
+- [X Articles](https://docs.sorsa.io/x-articles)
+- [Sorsa Score & Crypto Analytics](https://docs.sorsa.io/sorsa-score-and-crypto-analytics)
+- [Migration from Official X API](https://docs.sorsa.io/migration-from-official-x-api)
+
+## API Reference
+
+Full reference: https://docs.sorsa.io/api-reference/
+
+### Users Data
+
+- [User Profile Info](https://docs.sorsa.io/api-reference/users-data/user-profile-info): GET /info - returns public profile data (id, username, display_name, bio, followers_count, etc.) for a single account. Accepts user_link, username, or user_id.
+- [User Profile Info (Batch)](https://docs.sorsa.io/api-reference/users-data/user-profile-info-batch): GET /info-batch - returns up to 100 profiles in one request. Accepts usernames[] or user_ids[].
+- [User About Info](https://docs.sorsa.io/api-reference/users-data/account-about-info): GET /about - returns country, username_change_count, last_username_change_at, is_blue_verified, premium_start_at, source (app or app store region), affiliate_username.
+- [Followers](https://docs.sorsa.io/api-reference/users-data/followers): GET /followers - paginated list of followers with full profile data. Up to 200 per page.
+- [Following](https://docs.sorsa.io/api-reference/users-data/following): GET /follows - paginated list of accounts the user follows. Same structure as /followers.
+- [Verified Followers](https://docs.sorsa.io/api-reference/users-data/verified-followers): GET /verified-followers - paginated list of verified followers only.
+
+### Tweets
+
+- [Tweet Info](https://docs.sorsa.io/api-reference/tweets/tweet-data): POST /tweet-info - full data for a single tweet (text, stats, author, entities, quoted/retweeted status). Accepts tweet_link.
+- [Tweet Info (Bulk)](https://docs.sorsa.io/api-reference/tweets/tweet-data-batch): POST /tweet-info-bulk - full data for up to 100 tweets in one request. Accepts tweet_links[].
+- [User Tweets](https://docs.sorsa.io/api-reference/tweets/user-tweets): POST /user-tweets - tweets posted by a user. Up to 20 per page. Accepts link or user_id.
+- [Tweet Comments](https://docs.sorsa.io/api-reference/tweets/tweet-comments): POST /comments - replies under a tweet. Accepts tweet_link.
+- [Tweet Quotes](https://docs.sorsa.io/api-reference/tweets/quote-tweets): POST /quotes - quote tweets for a given tweet. Accepts tweet_link.
+- [Tweet Retweeters](https://docs.sorsa.io/api-reference/tweets/retweeters-list): POST /retweets - users who retweeted a tweet. Accepts tweet_link.
+- [Article Info](https://docs.sorsa.io/api-reference/tweets/article-data): POST /article - full data for a long-form X Article (text, stats, author, cover image). Accepts tweet_link.
+
+### Search
+
+- [Search Tweets](https://docs.sorsa.io/api-reference/search/search-tweets): POST /search-tweets - search by query with full X Advanced Search syntax support (from:, to:, since:, until:, hashtags, etc.). Accepts query, order (popular/latest), next_cursor.
+- [Search Mentions](https://docs.sorsa.io/api-reference/search/search-mentions): POST /mentions - tweets mentioning a user. Supports filters: min_likes, min_replies, min_retweets, since_date, until_date.
+- [Search Users](https://docs.sorsa.io/api-reference/search/search-users): POST /search-users - search X accounts by keyword. Accepts query.
+
+### Verification
+
+- [Follow Status Check](https://docs.sorsa.io/api-reference/verification/check-follow): POST /check-follow - checks if a user follows a target account. Returns follow (boolean), user_protected.
+- [Comment Status Check](https://docs.sorsa.io/api-reference/verification/check-comment): GET /check-comment - checks if a user replied to a specific tweet. Returns commented (boolean), tweet object.
+- [Quote Status Check](https://docs.sorsa.io/api-reference/verification/check-quote-or-retweet): POST /check-quoted - checks if a user quoted or retweeted a tweet. Returns status (quoted/retweet/not_found), date, text.
+- [Retweet Status Check](https://docs.sorsa.io/api-reference/verification/check-retweet): POST /check-retweet - checks if a user retweeted a tweet. Checks up to 100 retweets per call, supports pagination.
+- [Community Membership Check](https://docs.sorsa.io/api-reference/verification/check-community-membership): POST /check-community-member - checks if a user is a member of a community. Returns is_member (boolean).
+
+### Community
+
+- [Community Tweets Feed](https://docs.sorsa.io/api-reference/community/community-tweets): POST /community-tweets - tweets from a community. Accepts community_id, order_by (popular/latest).
+- [Search Community Tweets](https://docs.sorsa.io/api-reference/community/search-community-tweets): POST /community-search-tweets - search tweets within a community by keyword.
+- [Community Members](https://docs.sorsa.io/api-reference/community/community-members): POST /community-members - members of a community with profile data.
+
+### Lists
+
+- [List Members](https://docs.sorsa.io/api-reference/lists/list-members): GET /list-members - profiles of accounts in an X list. Accepts list_id.
+- [List Followers](https://docs.sorsa.io/api-reference/lists/list-followers): GET /list-followers - users who follow a list. Accepts list_link.
+- [List Tweets Feed](https://docs.sorsa.io/api-reference/lists/list-tweets): GET /list-tweets - tweets from accounts in a list. Accepts list_id.
+
+### Sorsa Info (Crypto Analytics)
+
+- [Account Score](https://docs.sorsa.io/api-reference/sorsa-info-crypto-related/sorsa-score): GET /score - Sorsa Score: proprietary influence metric based on popularity among crypto influencers, projects, and VCs.
+- [Score Changes](https://docs.sorsa.io/api-reference/sorsa-info-crypto-related/sorsa-score-changes): GET /score-changes - week_delta and month_delta for the Sorsa Score.
+- [Follower Category Stats](https://docs.sorsa.io/api-reference/sorsa-info-crypto-related/follower-category-stats): GET /followers-stats - follower breakdown into influencers, projects, and venture capital employees.
+- [Top Followers by Score](https://docs.sorsa.io/api-reference/sorsa-info-crypto-related/top-20-followers-by-score): GET /top-followers - top 20 followers ranked by Sorsa Score.
+- [Top Following by Score](https://docs.sorsa.io/api-reference/sorsa-info-crypto-related/top-20-following-by-score): GET /top-following - top 20 accounts the user follows, ranked by Sorsa Score.
+- [New Followers (Last 7 Days)](https://docs.sorsa.io/api-reference/sorsa-info-crypto-related/new-followers-7-days): GET /new-followers-7d - accounts that started following the user in the past 7 days (tracked accounts only).
+- [New Following (Last 7 Days)](https://docs.sorsa.io/api-reference/sorsa-info-crypto-related/new-following-7-days): GET /new-following-7d - accounts the user started following in the past 7 days (tracked accounts only).
+
+### Technical Endpoints
+
+- [Username to User ID](https://docs.sorsa.io/api-reference/technical-endpoints/convert-username-to-user-id): GET /username-to-id/{user_handle} - converts a handle to a stable user ID.
+- [User ID to Username](https://docs.sorsa.io/api-reference/technical-endpoints/convert-user-id-to-username): GET /id-to-username/{user_id} - converts a user ID to the current username.
+- [Profile Link to User ID](https://docs.sorsa.io/api-reference/technical-endpoints/convert-profile-link-to-user-id): GET /link-to-id - extracts user ID from a profile URL.
+- [Key Usage Info](https://docs.sorsa.io/api-reference/technical-endpoints/api-key-usage): GET /key-usage-info - returns key_requests, remaining_requests, total_requests, valid_until.
+
+## Pricing
+
+1 API call = 1 request from quota, regardless of endpoint. No credit multipliers.
+
+Free tier: every new account gets 100 free requests (up to 10,000 tweets or 20,000 profiles). No credit card required, the requests never expire, and they cover all 40 endpoints.
+
+| Plan | Monthly requests | Price |
+|------|-----------------|-------|
+| Starter | 10,000 | $49/mo |
+| Pro | 100,000 | $199/mo |
+| Enterprise | 500,000 | $899/mo |
+
+Rate limit: 20 req/s on all plans. Custom plans available for 500K+ requests/month.
+
+Cost-saving features:
+- /info-batch: fetch up to 100 profiles in 1 request
+- /tweet-info-bulk: fetch up to 100 tweets in 1 request
+- /followers and /follows: return up to 200 profiles per request
+- Tweet endpoints include full author profile data at no extra cost
+
+## Free Tools (No API Key Required)
+
+- [API Playground](https://api.sorsa.io/playground): test all endpoints via UI, no coding needed
+- [Search Builder](https://api.sorsa.io/playground/search-builder): build advanced tweet search queries visually
+- [ID Converter](https://api.sorsa.io/playground/id-converter): convert between user ID and username
+- [Shadowban Check](https://api.sorsa.io/playground/shadowban-check): check if an account is shadowbanned
+- [Media Downloader](https://api.sorsa.io/playground/media-downloader): download photos and videos from tweets
+- [Compare Users](https://api.sorsa.io/playground/compare-users): compare two accounts by key metrics
+- [Recent Followers](https://api.sorsa.io/playground/recent-followers): view last 20 followers of any account
+- [Engagement Calculator](https://api.sorsa.io/playground/engagement-calculator): calculate engagement rate from recent tweets
+- [Follow Checker](https://api.sorsa.io/playground/follow-check): check if one account follows another, both directions
+- [Giveaway Picker](https://api.sorsa.io/playground/giveaway-picker): pick a random winner from reposts, replies, quotes, and follows on a public X post
+- [API Cost Calculator](https://api.sorsa.io/playground/cost-calculator): estimate official X API pay-per-use costs and compare flat Sorsa plans
+- [Location Checker](https://api.sorsa.io/playground/location-check): see what country an X account is based in, plus X Premium status and app source
+- [Account Age Checker](https://api.sorsa.io/playground/account-age-check): exact creation date and age of any account
+
+## Dashboard & Account
+
+- [Overview / Dashboard](https://api.sorsa.io/overview): buy requests, view keys, check balance
+- [Usage Stats](https://api.sorsa.io/overview/usage): per-key request history and timestamps
+- [API Key Management](https://api.sorsa.io/overview/keys)
+- [Billing](https://api.sorsa.io/overview/billing)
+- [Uptime Status](https://uptime.sorsa.io/status/v3)
+
+## Support
+
+- Email: contacts@sorsa.io
+- Discord: https://discord.com/invite/uwAefKCj7X

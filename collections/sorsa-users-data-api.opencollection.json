@@ -1,0 +1,260 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sorsa Community Users Data API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "ApiKey",
+      "value": "{{ApiKey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Account About Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/about",
+            "params": [
+              {
+                "name": "user_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL of the user's Twitter/X profile."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X handle (without @)."
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric Twitter/X user ID."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns metadata from the \"About\" section of a Twitter/X account, including country, total number of username changes, and the date of the most recent change. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+        },
+        {
+          "info": {
+            "name": "Followers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/followers",
+            "params": [
+              {
+                "name": "user_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL of the user's Twitter/X profile."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X handle (without @)."
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric Twitter/X user ID."
+              },
+              {
+                "name": "next_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor from a previous response."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a paginated list of users who follow the specified account. Up to 200 user profiles per page. Use the returned `next_cursor` to load subsequent pages. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+        },
+        {
+          "info": {
+            "name": "Following",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/follows",
+            "params": [
+              {
+                "name": "user_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL of the user's Twitter/X profile."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X handle (without @)."
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric Twitter/X user ID."
+              },
+              {
+                "name": "next_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor from a previous response."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a paginated list of accounts that the specified user follows. Up to 200 user profiles per page. Use the returned `next_cursor` to load subsequent pages. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+        },
+        {
+          "info": {
+            "name": "User Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/info",
+            "params": [
+              {
+                "name": "user_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL of the user's Twitter/X profile."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X handle (without @)."
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric Twitter/X user ID."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the public profile of a Twitter/X account, including display name, bio, follower and following counts, tweet count, avatar, account creation date, and verification status. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+        },
+        {
+          "info": {
+            "name": "User Profile (batch)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/info-batch",
+            "params": [
+              {
+                "name": "usernames",
+                "value": "",
+                "type": "query",
+                "description": "Array of Twitter/X handles (without @)."
+              },
+              {
+                "name": "user_ids",
+                "value": "",
+                "type": "query",
+                "description": "Array of numeric Twitter/X user IDs."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns public profile data for multiple Twitter/X accounts in a single request. Works the same way as the single-user endpoint, but accepts arrays of usernames or user IDs. Up to 100 accounts per request. Provide either `usernames` or `user_ids`."
+        },
+        {
+          "info": {
+            "name": "Verified Followers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/verified-followers",
+            "params": [
+              {
+                "name": "user_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL of the user's Twitter/X profile."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X handle (without @)."
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric Twitter/X user ID."
+              },
+              {
+                "name": "next_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor from a previous response."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a paginated list of verified users who follow the specified account. Works the same way as the regular followers endpoint, but filters to only include accounts with a verified badge. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

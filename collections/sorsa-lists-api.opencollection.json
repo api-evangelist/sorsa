@@ -1,0 +1,119 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sorsa Community Lists API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "ApiKey",
+      "value": "{{ApiKey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Lists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Followers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/list-followers",
+            "params": [
+              {
+                "name": "list_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL or ID of the Twitter/X List."
+              },
+              {
+                "name": "next_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor from a previous response."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a paginated list of users who follow (are subscribed to) the specified Twitter/X List. Each entry contains the follower's profile data."
+        },
+        {
+          "info": {
+            "name": "List Members",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/list-members",
+            "params": [
+              {
+                "name": "list_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric ID of the Twitter/X List."
+              },
+              {
+                "name": "next_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor from a previous response."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns user profiles for all accounts included in the specified Twitter/X List. Each profile contains display name, bio, follower stats, avatar, and verification status."
+        },
+        {
+          "info": {
+            "name": "List Tweets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/list-tweets",
+            "params": [
+              {
+                "name": "list_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric ID of the Twitter/X List."
+              },
+              {
+                "name": "next_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor from a previous response."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a paginated feed of tweets published by members of the specified Twitter/X List. Up to 20 tweets per page. Each tweet includes text, creation date, engagement metrics, and basic author information."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

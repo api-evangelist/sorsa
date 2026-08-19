@@ -1,0 +1,45 @@
+# Kin Score artifact — sorsa — 2026-08-19T082702
+# The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
+---
+kin_score:
+  slug: sorsa
+  schema_version: 0.12.0
+  scored_at: '2026-08-19'
+  run_ts: 2026-08-19T082702
+  composite: 56.2
+  band: strong
+  facets:
+    discoverability: 75.9
+    contract_quality: 71.3
+    governance: 54.5
+    operational_transparency: 15.8
+    developer_ergonomics: 47.6
+    commercial_clarity: 63.2
+    contract_governance: 54.5
+    access_clarity: 63.2
+  agent_readiness:
+    score: 35.9
+    band: agent-ready
+    dimensions:
+      spec_presence: true
+      agentic_access: derived
+      reversibility_documented: false
+      mcp_server: false
+      auth_clarity: true
+      idempotency: false
+      error_semantics: verified
+      openapi_examples: false
+      rate_limit_signal: documented
+      event_surface_described: false
+      agent_skills: false
+      well_known_catalog: false
+      consent_identity: false
+      agent_card: false
+      dry_run_mode: false
+  provenance:
+    agentic_access: derived
+    contracts:
+      total: 8
+      derived: 0
+      coverage: 0.0
+      callable: 100.0

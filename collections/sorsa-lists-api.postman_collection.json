@@ -1,0 +1,1333 @@
+{
+  "item": [
+    {
+      "id": "d95e7a81-6e72-4d7f-95e0-0f9a354e9c3b",
+      "name": "Lists",
+      "description": {
+        "content": "Twitter/X List tweets, members, and followers",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d4f33a14-16be-483d-9063-e2637ea982a1",
+          "name": "List Followers",
+          "request": {
+            "name": "List Followers",
+            "description": {
+              "content": "Returns a paginated list of users who follow (are subscribed to) the specified Twitter/X List. Each entry contains the follower's profile data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "list-followers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "list_link",
+                  "value": "<string>",
+                  "description": "(Required) Full URL or ID of the Twitter/X List."
+                },
+                {
+                  "disabled": false,
+                  "key": "next_cursor",
+                  "value": "<string>",
+                  "description": "Pagination cursor from a previous response."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "13c7fca2-1d29-49ae-8a46-b6cf799819fc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-followers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "list_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "next_cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"next_cursor\": \"string\",\n  \"users\": [\n    {\n      \"bio_urls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"can_dm\": false,\n      \"created_at\": \"2009-06-02T20:12:29Z\",\n      \"description\": \"Bio text\",\n      \"display_name\": \"Elon Musk\",\n      \"favourites_count\": 1200,\n      \"followers_count\": 100000,\n      \"followings_count\": 500,\n      \"id\": \"44196397\",\n      \"location\": \"Austin, TX\",\n      \"media_count\": 300,\n      \"pinned_tweet_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"possibly_sensitive\": false,\n      \"profile_background_image_url\": \"https://pbs.twimg.com/profile_banners/44196397/123\",\n      \"profile_image_url\": \"https://pbs.twimg.com/profile_images/123/photo.jpg\",\n      \"protected\": false,\n      \"tweets_count\": 5000,\n      \"username\": \"elonmusk\",\n      \"verified\": true\n    },\n    {\n      \"bio_urls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"can_dm\": false,\n      \"created_at\": \"2009-06-02T20:12:29Z\",\n      \"description\": \"Bio text\",\n      \"display_name\": \"Elon Musk\",\n      \"favourites_count\": 1200,\n      \"followers_count\": 100000,\n      \"followings_count\": 500,\n      \"id\": \"44196397\",\n      \"location\": \"Austin, TX\",\n      \"media_count\": 300,\n      \"pinned_tweet_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"possibly_sensitive\": false,\n      \"profile_background_image_url\": \"https://pbs.twimg.com/profile_banners/44196397/123\",\n      \"profile_image_url\": \"https://pbs.twimg.com/profile_images/123/photo.jpg\",\n      \"protected\": false,\n      \"tweets_count\": 5000,\n      \"username\": \"elonmusk\",\n      \"verified\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eb668e30-511a-4b3c-9ffa-6325add1bf5d",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-followers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "list_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "next_cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4847106e-f1cd-4857-b894-5b5d8c85158f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-followers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "list_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "next_cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "78f8d4a4-a611-49dc-b461-eda4b6c7f900",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-followers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "list_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "next_cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f34c3d73-bcb6-4984-b1d2-4b6e9c8870ed",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-followers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "list_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "next_cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "22d20050-8113-4984-bc08-a841a2c54c0f",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-followers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "list_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "next_cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dbe8471b-ecee-44b1-9712-495721608ebc",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-followers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "list_link",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "next_cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ac0b2bdd-dff0-41cd-b900-4ea8453b240f",
+          "name": "List Members",
+          "request": {
+            "name": "List Members",
+            "description": {
+              "content": "Returns user profiles for all accounts included in the specified Twitter/X List. Each profile contains display name, bio, follower stats, avatar, and verification status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "list-members"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "list_id",
+                  "value": "<string>",
+                  "description": "(Required) Numeric ID of the Twitter/X List."
+                },
+                {
+                  "disabled": false,
+                  "key": "next_cursor",
+                  "value": "<long>",
+                  "description": "Pagination cursor from a previous response."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a9884161-7328-47dc-9643-bc49a0786e6a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "list_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "next_cursor",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"next_cursor\": \"string\",\n  \"users\": [\n    {\n      \"bio_urls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"can_dm\": false,\n      \"created_at\": \"2009-06-02T20:12:29Z\",\n      \"description\": \"Bio text\",\n      \"display_name\": \"Elon Musk\",\n      \"favourites_count\": 1200,\n      \"followers_count\": 100000,\n      \"followings_count\": 500,\n      \"id\": \"44196397\",\n      \"location\": \"Austin, TX\",\n      \"media_count\": 300,\n      \"pinned_tweet_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"possibly_sensitive\": false,\n      \"profile_background_image_url\": \"https://pbs.twimg.com/profile_banners/44196397/123\",\n      \"profile_image_url\": \"https://pbs.twimg.com/profile_images/123/photo.jpg\",\n      \"protected\": false,\n      \"tweets_count\": 5000,\n      \"username\": \"elonmusk\",\n      \"verified\": true\n    },\n    {\n      \"bio_urls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"can_dm\": false,\n      \"created_at\": \"2009-06-02T20:12:29Z\",\n      \"description\": \"Bio text\",\n      \"display_name\": \"Elon Musk\",\n      \"favourites_count\": 1200,\n      \"followers_count\": 100000,\n      \"followings_count\": 500,\n      \"id\": \"44196397\",\n      \"location\": \"Austin, TX\",\n      \"media_count\": 300,\n      \"pinned_tweet_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"possibly_sensitive\": false,\n      \"profile_background_image_url\": \"https://pbs.twimg.com/profile_banners/44196397/123\",\n      \"profile_image_url\": \"https://pbs.twimg.com/profile_images/123/photo.jpg\",\n      \"protected\": false,\n      \"tweets_count\": 5000,\n      \"username\": \"elonmusk\",\n      \"verified\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "43aadcda-4d2f-4f7e-9dce-2905876128f0",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "list_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "next_cursor",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "94e2849b-3d7e-4bf9-97fe-47e6e6ab9621",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "list_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "next_cursor",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5598b14e-ccf5-4c75-a0e2-ab2a685f44ce",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "list_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "next_cursor",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e8846437-ef61-432e-a8bc-ee11140528d8",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "list_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "next_cursor",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a732b5c6-e66f-42c5-8914-432b6850bcf0",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "list_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "next_cursor",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "34e75904-d636-4146-9ceb-4091633481de",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "list_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "next_cursor",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d19c2bf9-133e-4c65-a1aa-eae444f8bfc8",
+          "name": "List Tweets",
+          "request": {
+            "name": "List Tweets",
+            "description": {
+              "content": "Returns a paginated feed of tweets published by members of the specified Twitter/X List. Up to 20 tweets per page. Each tweet includes text, creation date, engagement metrics, and basic author information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "list-tweets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "list_id",
+                  "value": "<string>",
+                  "description": "(Required) Numeric ID of the Twitter/X List."
+                },
+                {
+                  "disabled": false,
+                  "key": "next_cursor",
+                  "value": "<string>",
+                  "description": "Pagination cursor from a previous response."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "ApiKey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d5d5176b-d171-4120-8cd2-8aee56c15aa5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-tweets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "list_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "next_cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"next_cursor\": \"string\",\n  \"tweets\": [\n    {\n      \"bookmark_count\": 15,\n      \"conversation_id_str\": \"1782368585664626774\",\n      \"created_at\": \"2024-01-15T10:30:00Z\",\n      \"entities\": [\n        {\n          \"link\": \"https://t.co/example\",\n          \"preview\": \"https://pbs.twimg.com/preview\",\n          \"type\": \"photo\"\n        },\n        {\n          \"link\": \"https://t.co/example\",\n          \"preview\": \"https://pbs.twimg.com/preview\",\n          \"type\": \"photo\"\n        }\n      ],\n      \"full_text\": \"Hello world\",\n      \"id\": \"1782368585664626774\",\n      \"in_reply_to_tweet_id\": \"1782368585664626000\",\n      \"in_reply_to_username\": \"username\",\n      \"is_quote_status\": false,\n      \"is_replies_limited\": false,\n      \"is_reply\": false,\n      \"lang\": \"en\",\n      \"likes_count\": 200,\n      \"quote_count\": 5,\n      \"quoted_status\": {\n        \"description\": \"The original tweet being quoted. Present only if `is_quote_status` is true.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"reply_count\": 10,\n      \"retweet_count\": 50,\n      \"retweeted_status\": {\n        \"description\": \"The original tweet being retweeted. Present only for retweets.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"user\": {\n        \"bio_urls\": [\n          \"string\",\n          \"string\"\n        ],\n        \"can_dm\": false,\n        \"created_at\": \"2009-06-02T20:12:29Z\",\n        \"description\": \"Bio text\",\n        \"display_name\": \"Elon Musk\",\n        \"favourites_count\": 1200,\n        \"followers_count\": 100000,\n        \"followings_count\": 500,\n        \"id\": \"44196397\",\n        \"location\": \"Austin, TX\",\n        \"media_count\": 300,\n        \"pinned_tweet_ids\": [\n          \"string\",\n          \"string\"\n        ],\n        \"possibly_sensitive\": false,\n        \"profile_background_image_url\": \"https://pbs.twimg.com/profile_banners/44196397/123\",\n        \"profile_image_url\": \"https://pbs.twimg.com/profile_images/123/photo.jpg\",\n        \"protected\": false,\n        \"tweets_count\": 5000,\n        \"username\": \"elonmusk\",\n        \"verified\": true\n      },\n      \"view_count\": 10000\n    },\n    {\n      \"bookmark_count\": 15,\n      \"conversation_id_str\": \"1782368585664626774\",\n      \"created_at\": \"2024-01-15T10:30:00Z\",\n      \"entities\": [\n        {\n          \"link\": \"https://t.co/example\",\n          \"preview\": \"https://pbs.twimg.com/preview\",\n          \"type\": \"photo\"\n        },\n        {\n          \"link\": \"https://t.co/example\",\n          \"preview\": \"https://pbs.twimg.com/preview\",\n          \"type\": \"photo\"\n        }\n      ],\n      \"full_text\": \"Hello world\",\n      \"id\": \"1782368585664626774\",\n      \"in_reply_to_tweet_id\": \"1782368585664626000\",\n      \"in_reply_to_username\": \"username\",\n      \"is_quote_status\": false,\n      \"is_replies_limited\": false,\n      \"is_reply\": false,\n      \"lang\": \"en\",\n      \"likes_count\": 200,\n      \"quote_count\": 5,\n      \"quoted_status\": {\n        \"description\": \"The original tweet being quoted. Present only if `is_quote_status` is true.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"reply_count\": 10,\n      \"retweet_count\": 50,\n      \"retweeted_status\": {\n        \"description\": \"The original tweet being retweeted. Present only for retweets.\",\n        \"value\": \"<Circular reference to #/components/schemas/common.Tweet detected>\"\n      },\n      \"user\": {\n        \"bio_urls\": [\n          \"string\",\n          \"string\"\n        ],\n        \"can_dm\": false,\n        \"created_at\": \"2009-06-02T20:12:29Z\",\n        \"description\": \"Bio text\",\n        \"display_name\": \"Elon Musk\",\n        \"favourites_count\": 1200,\n        \"followers_count\": 100000,\n        \"followings_count\": 500,\n        \"id\": \"44196397\",\n        \"location\": \"Austin, TX\",\n        \"media_count\": 300,\n        \"pinned_tweet_ids\": [\n          \"string\",\n          \"string\"\n        ],\n        \"possibly_sensitive\": false,\n        \"profile_background_image_url\": \"https://pbs.twimg.com/profile_banners/44196397/123\",\n        \"profile_image_url\": \"https://pbs.twimg.com/profile_images/123/photo.jpg\",\n        \"protected\": false,\n        \"tweets_count\": 5000,\n        \"username\": \"elonmusk\",\n        \"verified\": true\n      },\n      \"view_count\": 10000\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "86e9a573-f350-412c-893a-b8dd88ffedec",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-tweets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "list_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "next_cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5417bd14-0c58-43c9-8648-df763dd74429",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-tweets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "list_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "next_cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2ad740e1-a9dc-498c-b190-46eb1374da27",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-tweets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "list_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "next_cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fef3e0e9-6dce-4ae3-be7c-cebd08efcef9",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-tweets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "list_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "next_cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ae5ebb16-4676-48f5-9ecd-b30668795af5",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-tweets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "list_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "next_cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f25f67ec-5740-4b2c-b5ee-69988871dda3",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-tweets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "list_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "next_cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sorsa.io/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ApiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "33046f44-3bdd-4c73-b50f-0b390a633c21",
+    "name": "Sorsa Community Lists API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Real-time X (Twitter) data API providing access to tweets, profiles, search, mentions, lists, communities, engagement verification, and Sorsa Score crypto-influence analytics via 40 REST endpoints. Affordable alternative to the official X API.\n\nContact Support:\n Name: Sorsa Support\n Email: contacts@sorsa.io",
+      "type": "text/plain"
+    }
+  }
+}

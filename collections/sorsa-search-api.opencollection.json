@@ -1,0 +1,120 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sorsa Community Search API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "ApiKey",
+      "value": "{{ApiKey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Mentions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/mentions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns tweets that mention the specified user handle. Up to 20 results per page, sorted by mention time (newest first by default). Supports the richest set of filters among all search endpoints: minimum likes, replies, retweets, and a date range. Results can also be sorted by `popular` or `latest`."
+        },
+        {
+          "info": {
+            "name": "Place Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/place",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "The unique identifier of the place (Space ID)"
+              },
+              {
+                "name": "link",
+                "value": "",
+                "type": "query",
+                "description": "Full link to the place (Space link, e.g. https://twitter.com/i/spaces/1lPKqBajQrWGb)"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns detailed information about a place (Twitter Space) using its ID or link. Useful for viewing Space metadata, participants, settings, and statistics."
+        },
+        {
+          "info": {
+            "name": "Search Tweets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/search-tweets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Searches for tweets matching a text query using the same syntax as Twitter/X Advanced Search. Supports operators such as `from:`, `to:`, `since:`, `until:`, exact phrases in quotes, and hashtags. Returns up to 20 results per page, sortable by `popular` or `latest`. For a full list of supported query operators, see: https://github.com/igorbrigadir/twitter-advanced-search"
+        },
+        {
+          "info": {
+            "name": "Search Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/search-users",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Searches for Twitter/X accounts by a keyword or phrase. Returns matching user profiles with basic info: handle, display name, bio, follower stats, and verification status. Supports pagination via `next_cursor`."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

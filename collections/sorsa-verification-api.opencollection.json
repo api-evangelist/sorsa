@@ -1,0 +1,153 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sorsa Community Verification API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "ApiKey",
+      "value": "{{ApiKey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Verification",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/check-comment",
+            "params": [
+              {
+                "name": "tweet_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL of the tweet to check."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X handle of the user being checked."
+              },
+              {
+                "name": "user_link",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X profile link of the user being checked."
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric Twitter/X user ID of the user being checked."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Checks whether a specific user has posted a reply under a given tweet. Returns `commented: true` along with the full reply tweet data if a comment is found. Requires `tweet_link` and one of `user_handle` or `user_id`."
+        },
+        {
+          "info": {
+            "name": "Check Community Membership",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/check-community-member",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Checks whether a specific user is a member of a given Twitter/X Community. Returns `is_member: true` if the user belongs to that community. Requires `community_id` and one user identifier (`username`, `user_link`, or `user_id`)."
+        },
+        {
+          "info": {
+            "name": "Check Follow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/check-follow",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Checks if one account follows another. User 1 is the account that should be followed, User 2 is the one you want to check. For example: \"Does Elon Musk (user_2) follow SorsaApp (user_1)?\" Pass only one identifier per side: link, username, or ID. Returns follow: true if the relationship exists, and user_protected: true if the checked user's profile is private."
+        },
+        {
+          "info": {
+            "name": "Check Quote or Retweet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/check-quoted",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Checks whether a user has quoted or retweeted a given tweet. Returns a `status` field with one of three values: `quoted`, `retweet`, or `not_found`. If a quote or retweet is found, the response also includes the interaction date and the quote text (when applicable). Identify the user with `username`, `user_link`, or `user_id`."
+        },
+        {
+          "info": {
+            "name": "Check Retweet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sorsa.io/v3/check-retweet",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Checks whether a user has retweeted a given tweet. The endpoint scans up to 100 retweets per request. If the tweet has more retweets than that, a `next_cursor` is returned to continue checking. Identify the user with `username`, `user_link`, or `user_id`."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

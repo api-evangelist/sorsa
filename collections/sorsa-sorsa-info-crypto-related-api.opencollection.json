@@ -1,0 +1,285 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sorsa Community Sorsa Info Crypto Related API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "ApiKey",
+      "value": "{{ApiKey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sorsa Info Crypto Related",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Follower Category Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/followers-stats",
+            "params": [
+              {
+                "name": "user_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL of the user's Twitter/X profile."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X handle (without @)."
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric Twitter/X user ID."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a breakdown of the account's followers by Sorsa category: influencers, projects, and VC (venture capital) employees. Also indicates whether the account is protected. If the account is already indexed in the Sorsa database, the response is fast. For new accounts, the initial data collection may take longer, especially for large follower bases. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+        },
+        {
+          "info": {
+            "name": "New Followers (7 Days)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/new-followers-7d",
+            "params": [
+              {
+                "name": "user_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL of the user's Twitter/X profile."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X handle (without @)."
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric Twitter/X user ID."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns accounts that started following the specified user in the last 7 days. Both the target account and the returned followers must be present in the Sorsa database, which primarily tracks crypto-related accounts (influencers, projects, VCs). This means the results do not represent all new followers, only those already tracked by our system. Each entry includes profile data and the exact follow date. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+        },
+        {
+          "info": {
+            "name": "New Following (7 Days)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/new-following-7d",
+            "params": [
+              {
+                "name": "user_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL of the user's Twitter/X profile."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X handle (without @)."
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric Twitter/X user ID."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns accounts that the specified user started following in the last 7 days. Both the target account and the returned followings must be present in the Sorsa database, which primarily tracks crypto-related accounts (influencers, projects, VCs). This means the results do not represent all new follows, only those already tracked by our system. Each entry includes profile data and the exact follow date. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+        },
+        {
+          "info": {
+            "name": "Sorsa Score",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/score",
+            "params": [
+              {
+                "name": "user_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL of the user's Twitter/X profile."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X handle (without @)."
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric Twitter/X user ID."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the Sorsa Score for a Twitter/X account. The score is a numeric value that estimates the account's recognition and popularity among crypto influencers, projects, and venture capital firms. A higher score indicates stronger visibility within the ecosystem. For accounts with a large follower base, the response may take longer to generate. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+        },
+        {
+          "info": {
+            "name": "Sorsa Score Changes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/score-changes",
+            "params": [
+              {
+                "name": "user_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL of the user's Twitter/X profile."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X handle (without @)."
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric Twitter/X user ID."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the change in Sorsa Score over the last 7 days and the last 30 days. Useful for tracking momentum and identifying accounts that are gaining or losing influence. The account must already be indexed in the Sorsa database. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+        },
+        {
+          "info": {
+            "name": "Top 20 Followers by Score",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/top-followers",
+            "params": [
+              {
+                "name": "user_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL of the user's Twitter/X profile."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X handle (without @)."
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric Twitter/X user ID."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the 20 followers of the specified account with the highest Sorsa Score. Each entry includes the follower's profile data and follow date. Useful for identifying the most influential accounts in a user's audience. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+        },
+        {
+          "info": {
+            "name": "Top 20 Following by Score",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sorsa.io/v3/top-following",
+            "params": [
+              {
+                "name": "user_link",
+                "value": "",
+                "type": "query",
+                "description": "Full URL of the user's Twitter/X profile."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Twitter/X handle (without @)."
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Numeric Twitter/X user ID."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "ApiKey",
+              "value": "{{ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the 20 accounts that the specified user follows with the highest Sorsa Score. Each entry includes profile data and follow date. Useful for understanding whose content and activity the user values most within the ecosystem. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
