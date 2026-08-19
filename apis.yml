@@ -22,7 +22,7 @@ description: >-
   endpoints. It markets itself as an affordable alternative to the official X API and was formerly known as Tweetscout.
 created: '2026-05-16'
 modified: '2026-05-19'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 tags:
   - Twitter
   - X
