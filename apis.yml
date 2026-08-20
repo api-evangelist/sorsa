@@ -26,6 +26,12 @@ specificationVersion: '0.23'
 tags:
   - Twitter
   - X
+  - Social-Media
+  - Data Extraction
+  - Real-Time
+tags_raw:
+  - Twitter
+  - X
   - Social Media
   - Data Extraction
   - Real-Time
@@ -140,6 +146,8 @@ apis:
   humanURL: https://docs.sorsa.io/
   baseURL: https://api.sorsa.io/v3
   tags:
+  - List
+  tags_raw:
   - Lists
   properties:
   - type: OpenAPI
