@@ -1,14 +1,7 @@
 {
   "provider": "sorsa",
   "sources": [
-    "sorsa-community-api-openapi.yml",
-    "sorsa-lists-api-openapi.yml",
-    "sorsa-search-api-openapi.yml",
-    "sorsa-sorsa-info-crypto-related-api-openapi.yml",
-    "sorsa-technical-endpoints-api-openapi.yml",
-    "sorsa-tweets-api-openapi.yml",
-    "sorsa-users-data-api-openapi.yml",
-    "sorsa-verification-api-openapi.yml"
+    "_original/sorsa-openapi.yml"
   ],
   "outputs": [
     "sorsa-community-api-openapi.yml",
@@ -23,6 +16,21 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "sorsa-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "sorsa-openapi.yml: declared missing tag: Sorsa Info Crypto Related",
+    "sorsa-openapi.yml: declared missing tag: Technical Endpoints",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "sorsa-community-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sorsa-lists-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sorsa-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sorsa-sorsa-info-crypto-related-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sorsa-technical-endpoints-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sorsa-tweets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sorsa-users-data-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sorsa-verification-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

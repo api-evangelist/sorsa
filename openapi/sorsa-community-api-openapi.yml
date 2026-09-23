@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Sorsa Community API
   version: '3.0'
@@ -79,6 +79,8 @@ paths:
       summary: Community Members
       tags:
       - Community
+      operationId: postCommunityMembers
+      x-operation-id-source: derived
   /community-search-tweets:
     post:
       description: Searches for tweets within a specific Twitter/X Community by keyword. Up to 20 matching tweets per page. Results can be sorted by `popular` or `latest`. Each tweet includes text, creation date, engagement metrics, and author profile.
@@ -138,6 +140,8 @@ paths:
       summary: Search Community Tweets
       tags:
       - Community
+      operationId: postCommunitySearchTweets
+      x-operation-id-source: derived
   /community-tweets:
     post:
       description: 'Returns a paginated feed of tweets published inside the specified Twitter/X Community. Up to 20 tweets per page. Each tweet includes text, creation date, engagement metrics, and author profile. Results can be sorted by `popular` or `latest` (default: `latest`).'
@@ -197,8 +201,104 @@ paths:
       summary: Community Tweets
       tags:
       - Community
+      operationId: postCommunityTweets
+      x-operation-id-source: derived
 components:
   schemas:
+    common.CommunityUser:
+      properties:
+        display_name:
+          description: User's display name.
+          example: Elon Musk
+          type: string
+        id:
+          description: Unique Twitter/X user ID.
+          example: '44196397'
+          type: string
+        profile_image_url:
+          description: URL of the user's avatar image.
+          example: https://pbs.twimg.com/profile_images/123/photo.jpg
+          type: string
+        protected:
+          description: Whether the account's tweets are protected (private).
+          example: false
+          type: boolean
+        username:
+          description: Current Twitter/X handle (without @).
+          example: elonmusk
+          type: string
+        verified:
+          description: Whether the account has a verified badge.
+          example: true
+          type: boolean
+      type: object
+    community.CommunityMembersReq:
+      properties:
+        community_link:
+          description: Community ID or full community URL.
+          example: '1966045657589813686'
+          type: string
+        next_cursor:
+          description: Pagination cursor from a previous response.
+          example: '123'
+          type: string
+      required:
+      - community_link
+      type: object
+    common.TweetsResponse:
+      properties:
+        next_cursor:
+          description: Cursor for fetching the next page of results. Null or absent if no more pages.
+          type: string
+        tweets:
+          description: Array of tweet objects.
+          items:
+            $ref: '#/components/schemas/common.Tweet'
+          type: array
+      type: object
+    community.SearchCommunityTweetsReq:
+      properties:
+        community_link:
+          description: Full community URL or community ID.
+          example: https://x.com/i/communities/1966045657589813686
+          type: string
+        next_cursor:
+          description: Pagination cursor from a previous response.
+          example: '123'
+          type: string
+        order:
+          description: 'Sort order: `popular` or `latest`.'
+          example: popular
+          type: string
+        query:
+          description: Search query string.
+          example: elonmusk
+          type: string
+      required:
+      - community_link
+      type: object
+    community.CommunityTweetsReq:
+      properties:
+        community_id:
+          description: Numeric community ID.
+          example: '1966045657589813686'
+          type: string
+        next_cursor:
+          description: Pagination cursor from a previous response.
+          example: '123'
+          type: string
+        order:
+          description: 'Sort order: `popular` or `latest`. Defaults to `latest`.'
+          example: popular
+          type: string
+      required:
+      - community_id
+      type: object
+    handler.ErrorResponse:
+      properties:
+        message:
+          type: string
+      type: object
     common.User:
       properties:
         bio_urls:
@@ -271,115 +371,6 @@ components:
           description: Total number of tweets posted by this user.
           example: 5000
           type: integer
-        username:
-          description: Current Twitter/X handle (without @).
-          example: elonmusk
-          type: string
-        verified:
-          description: Whether the account has a verified badge.
-          example: true
-          type: boolean
-      type: object
-    community.CommunityMembersReq:
-      properties:
-        community_link:
-          description: Community ID or full community URL.
-          example: '1966045657589813686'
-          type: string
-        next_cursor:
-          description: Pagination cursor from a previous response.
-          example: '123'
-          type: string
-      required:
-      - community_link
-      type: object
-    common.TweetEntity:
-      properties:
-        link:
-          description: Direct URL of the entity.
-          example: https://t.co/example
-          type: string
-        preview:
-          description: Preview or thumbnail URL for the entity.
-          example: https://pbs.twimg.com/preview
-          type: string
-        type:
-          description: Entity type (e.g. `photo`, `video`, `url`).
-          example: photo
-          type: string
-      type: object
-    community.CommunityTweetsReq:
-      properties:
-        community_id:
-          description: Numeric community ID.
-          example: '1966045657589813686'
-          type: string
-        next_cursor:
-          description: Pagination cursor from a previous response.
-          example: '123'
-          type: string
-        order:
-          description: 'Sort order: `popular` or `latest`. Defaults to `latest`.'
-          example: popular
-          type: string
-      required:
-      - community_id
-      type: object
-    handler.ErrorResponse:
-      properties:
-        message:
-          type: string
-      type: object
-    community.SearchCommunityTweetsReq:
-      properties:
-        community_link:
-          description: Full community URL or community ID.
-          example: https://x.com/i/communities/1966045657589813686
-          type: string
-        next_cursor:
-          description: Pagination cursor from a previous response.
-          example: '123'
-          type: string
-        order:
-          description: 'Sort order: `popular` or `latest`.'
-          example: popular
-          type: string
-        query:
-          description: Search query string.
-          example: elonmusk
-          type: string
-      required:
-      - community_link
-      type: object
-    common.CommunityUsersResponse:
-      properties:
-        next_cursor:
-          description: Cursor for fetching the next page of results. Null or absent if no more pages.
-          type: string
-        users:
-          description: Array of user profile objects.
-          items:
-            $ref: '#/components/schemas/common.CommunityUser'
-          type: array
-      type: object
-    common.CommunityUser:
-      properties:
-        display_name:
-          description: User's display name.
-          example: Elon Musk
-          type: string
-        id:
-          description: Unique Twitter/X user ID.
-          example: '44196397'
-          type: string
-        profile_image_url:
-          description: URL of the user's avatar image.
-          example: https://pbs.twimg.com/profile_images/123/photo.jpg
-          type: string
-        protected:
-          description: Whether the account's tweets are protected (private).
-          example: false
-          type: boolean
         username:
           description: Current Twitter/X handle (without @).
           example: elonmusk
@@ -473,16 +464,31 @@ components:
           example: 10000
           type: integer
       type: object
-    common.TweetsResponse:
+    common.CommunityUsersResponse:
       properties:
         next_cursor:
           description: Cursor for fetching the next page of results. Null or absent if no more pages.
           type: string
-        tweets:
-          description: Array of tweet objects.
+        users:
+          description: Array of user profile objects.
           items:
-            $ref: '#/components/schemas/common.Tweet'
+            $ref: '#/components/schemas/common.CommunityUser'
           type: array
+      type: object
+    common.TweetEntity:
+      properties:
+        link:
+          description: Direct URL of the entity.
+          example: https://t.co/example
+          type: string
+        preview:
+          description: Preview or thumbnail URL for the entity.
+          example: https://pbs.twimg.com/preview
+          type: string
+        type:
+          description: Entity type (e.g. `photo`, `video`, `url`).
+          example: photo
+          type: string
       type: object
   securitySchemes:
     ApiKey:

@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Sorsa Community Search API
+  title: Sorsa Search API
   version: '3.0'
   description: Real-time X (Twitter) data API providing access to tweets, profiles, search, mentions, lists, communities, engagement verification, and Sorsa Score crypto-influence analytics via 40 REST endpoints. Affordable alternative to the official X API.
   contact:
@@ -79,6 +79,8 @@ paths:
       summary: Search Mentions
       tags:
       - Search
+      operationId: postMentions
+      x-operation-id-source: derived
   /place:
     get:
       description: Returns detailed information about a place (Twitter Space) using its ID or link. Useful for viewing Space metadata, participants, settings, and statistics.
@@ -135,6 +137,8 @@ paths:
       summary: Place Information
       tags:
       - Search
+      operationId: getPlace
+      x-operation-id-source: derived
   /search-tweets:
     post:
       description: 'Searches for tweets matching a text query using the same syntax as Twitter/X Advanced Search. Supports operators such as `from:`, `to:`, `since:`, `until:`, exact phrases in quotes, and hashtags. Returns up to 20 results per page, sortable by `popular` or `latest`. For a full list of supported query operators, see: https://github.com/igorbrigadir/twitter-advanced-search'
@@ -194,6 +198,8 @@ paths:
       summary: Search Tweets
       tags:
       - Search
+      operationId: postSearchTweets
+      x-operation-id-source: derived
   /search-users:
     post:
       description: 'Searches for Twitter/X accounts by a keyword or phrase. Returns matching user profiles with basic info: handle, display name, bio, follower stats, and verification status. Supports pagination via `next_cursor`.'
@@ -253,8 +259,51 @@ paths:
       summary: Search Users
       tags:
       - Search
+      operationId: postSearchUsers
+      x-operation-id-source: derived
 components:
   schemas:
+    common.PlaceStats:
+      properties:
+        total_live_listeners:
+          type: integer
+        total_participants:
+          type: integer
+        total_replay_watched:
+          type: integer
+      type: object
+    common.TweetsResponse:
+      properties:
+        next_cursor:
+          description: Cursor for fetching the next page of results. Null or absent if no more pages.
+          type: string
+        tweets:
+          description: Array of tweet objects.
+          items:
+            $ref: '#/components/schemas/common.Tweet'
+          type: array
+      type: object
+    search.SearchUsersReq:
+      properties:
+        next_cursor:
+          example: JKHSJFHADUYJKSDy2y3u123
+          type: string
+        query:
+          example: elonmusk
+          type: string
+      type: object
+    search.SearchTweetsReq:
+      properties:
+        next_cursor:
+          example: JKHSJFHADUYJKSDy2y3u123
+          type: string
+        order:
+          example: popular
+          type: string
+        query:
+          example: elonmusk
+          type: string
+      type: object
     common.PlaceSettings:
       properties:
         conversation_controls:
@@ -279,6 +328,103 @@ components:
           type: integer
         no_incognito:
           type: boolean
+      type: object
+    handler.ErrorResponse:
+      properties:
+        message:
+          type: string
+      type: object
+    common.PlaceParticipants:
+      properties:
+        admins:
+          items:
+            $ref: '#/components/schemas/common.PlaceParticipant'
+          type: array
+        listeners:
+          items:
+            $ref: '#/components/schemas/common.PlaceParticipant'
+          type: array
+        speakers:
+          items:
+            $ref: '#/components/schemas/common.PlaceParticipant'
+          type: array
+        total:
+          type: integer
+      type: object
+    common.PlaceParticipant:
+      properties:
+        avatar:
+          type: string
+        id:
+          type: string
+        is_muted_by_admin:
+          type: boolean
+        is_muted_by_guest:
+          type: boolean
+        is_verified:
+          type: boolean
+        name:
+          type: string
+        periscope_user_id:
+          type: string
+        start:
+          type: integer
+        username:
+          type: string
+      type: object
+    search.SearchMentionsReq:
+      properties:
+        min_likes:
+          example: 100
+          type: integer
+        min_replies:
+          example: 100
+          type: integer
+        min_retweets:
+          example: 100
+          type: integer
+        next_cursor:
+          example: JKHSJFHADUYJKSDy2y3u123
+          type: string
+        order:
+          example: popular
+          type: string
+        query:
+          example: elonmusk
+          type: string
+        since_date:
+          example: '2026-01-01'
+          type: string
+        until_date:
+          example: '2026-01-01'
+          type: string
+      type: object
+    common.Place:
+      properties:
+        created_at:
+          type: integer
+        creator:
+          $ref: '#/components/schemas/common.User'
+        id:
+          type: string
+        is_subscribed:
+          type: boolean
+        media_key:
+          type: string
+        participants:
+          $ref: '#/components/schemas/common.PlaceParticipants'
+        scheduled_start:
+          type: integer
+        settings:
+          $ref: '#/components/schemas/common.PlaceSettings'
+        state:
+          type: string
+        stats:
+          $ref: '#/components/schemas/common.PlaceStats'
+        title:
+          type: string
+        updated_at:
+          type: integer
       type: object
     common.User:
       properties:
@@ -360,132 +506,6 @@ components:
           description: Whether the account has a verified badge.
           example: true
           type: boolean
-      type: object
-    common.PlaceParticipants:
-      properties:
-        admins:
-          items:
-            $ref: '#/components/schemas/common.PlaceParticipant'
-          type: array
-        listeners:
-          items:
-            $ref: '#/components/schemas/common.PlaceParticipant'
-          type: array
-        speakers:
-          items:
-            $ref: '#/components/schemas/common.PlaceParticipant'
-          type: array
-        total:
-          type: integer
-      type: object
-    common.TweetEntity:
-      properties:
-        link:
-          description: Direct URL of the entity.
-          example: https://t.co/example
-          type: string
-        preview:
-          description: Preview or thumbnail URL for the entity.
-          example: https://pbs.twimg.com/preview
-          type: string
-        type:
-          description: Entity type (e.g. `photo`, `video`, `url`).
-          example: photo
-          type: string
-      type: object
-    common.Place:
-      properties:
-        created_at:
-          type: integer
-        creator:
-          $ref: '#/components/schemas/common.User'
-        id:
-          type: string
-        is_subscribed:
-          type: boolean
-        media_key:
-          type: string
-        participants:
-          $ref: '#/components/schemas/common.PlaceParticipants'
-        scheduled_start:
-          type: integer
-        settings:
-          $ref: '#/components/schemas/common.PlaceSettings'
-        state:
-          type: string
-        stats:
-          $ref: '#/components/schemas/common.PlaceStats'
-        title:
-          type: string
-        updated_at:
-          type: integer
-      type: object
-    handler.ErrorResponse:
-      properties:
-        message:
-          type: string
-      type: object
-    search.SearchTweetsReq:
-      properties:
-        next_cursor:
-          example: JKHSJFHADUYJKSDy2y3u123
-          type: string
-        order:
-          example: popular
-          type: string
-        query:
-          example: elonmusk
-          type: string
-      type: object
-    search.SearchUsersReq:
-      properties:
-        next_cursor:
-          example: JKHSJFHADUYJKSDy2y3u123
-          type: string
-        query:
-          example: elonmusk
-          type: string
-      type: object
-    common.PlaceParticipant:
-      properties:
-        avatar:
-          type: string
-        id:
-          type: string
-        is_muted_by_admin:
-          type: boolean
-        is_muted_by_guest:
-          type: boolean
-        is_verified:
-          type: boolean
-        name:
-          type: string
-        periscope_user_id:
-          type: string
-        start:
-          type: integer
-        username:
-          type: string
-      type: object
-    common.PlaceStats:
-      properties:
-        total_live_listeners:
-          type: integer
-        total_participants:
-          type: integer
-        total_replay_watched:
-          type: integer
-      type: object
-    common.UsersResponse:
-      properties:
-        next_cursor:
-          description: Cursor for fetching the next page of results. Null or absent if no more pages.
-          type: string
-        users:
-          description: Array of user profile objects.
-          items:
-            $ref: '#/components/schemas/common.User'
-          type: array
       type: object
     common.Tweet:
       properties:
@@ -571,42 +591,30 @@ components:
           example: 10000
           type: integer
       type: object
-    common.TweetsResponse:
+    common.UsersResponse:
       properties:
         next_cursor:
           description: Cursor for fetching the next page of results. Null or absent if no more pages.
           type: string
-        tweets:
-          description: Array of tweet objects.
+        users:
+          description: Array of user profile objects.
           items:
-            $ref: '#/components/schemas/common.Tweet'
+            $ref: '#/components/schemas/common.User'
           type: array
       type: object
-    search.SearchMentionsReq:
+    common.TweetEntity:
       properties:
-        min_likes:
-          example: 100
-          type: integer
-        min_replies:
-          example: 100
-          type: integer
-        min_retweets:
-          example: 100
-          type: integer
-        next_cursor:
-          example: JKHSJFHADUYJKSDy2y3u123
+        link:
+          description: Direct URL of the entity.
+          example: https://t.co/example
           type: string
-        order:
-          example: popular
+        preview:
+          description: Preview or thumbnail URL for the entity.
+          example: https://pbs.twimg.com/preview
           type: string
-        query:
-          example: elonmusk
-          type: string
-        since_date:
-          example: '2026-01-01'
-          type: string
-        until_date:
-          example: '2026-01-01'
+        type:
+          description: Entity type (e.g. `photo`, `video`, `url`).
+          example: photo
           type: string
       type: object
   securitySchemes:

@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Sorsa Community Users Data API
+  title: Sorsa Users Data API
   version: '3.0'
   description: Real-time X (Twitter) data API providing access to tweets, profiles, search, mentions, lists, communities, engagement verification, and Sorsa Score crypto-influence analytics via 40 REST endpoints. Affordable alternative to the official X API.
   contact:
@@ -87,6 +87,8 @@ paths:
       summary: Account About Info
       tags:
       - Users Data
+      operationId: getAbout
+      x-operation-id-source: derived
   /followers:
     get:
       description: 'Returns a paginated list of users who follow the specified account. Up to 200 user profiles per page. Use the returned `next_cursor` to load subsequent pages. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`.'
@@ -160,6 +162,8 @@ paths:
       summary: Followers
       tags:
       - Users Data
+      operationId: getFollowers
+      x-operation-id-source: derived
   /follows:
     get:
       description: 'Returns a paginated list of accounts that the specified user follows. Up to 200 user profiles per page. Use the returned `next_cursor` to load subsequent pages. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`.'
@@ -233,6 +237,8 @@ paths:
       summary: Following
       tags:
       - Users Data
+      operationId: getFollows
+      x-operation-id-source: derived
   /info:
     get:
       description: 'Returns the public profile of a Twitter/X account, including display name, bio, follower and following counts, tweet count, avatar, account creation date, and verification status. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`.'
@@ -300,6 +306,8 @@ paths:
       summary: User Profile
       tags:
       - Users Data
+      operationId: getInfo
+      x-operation-id-source: derived
   /info-batch:
     get:
       description: Returns public profile data for multiple Twitter/X accounts in a single request. Works the same way as the single-user endpoint, but accepts arrays of usernames or user IDs. Up to 100 accounts per request. Provide either `usernames` or `user_ids`.
@@ -366,6 +374,8 @@ paths:
       summary: User Profile (batch)
       tags:
       - Users Data
+      operationId: getInfoBatch
+      x-operation-id-source: derived
   /verified-followers:
     get:
       description: 'Returns a paginated list of verified users who follow the specified account. Works the same way as the regular followers endpoint, but filters to only include accounts with a verified badge. Identify the user by providing exactly one of: `user_link`, `username`, or `user_id`.'
@@ -438,8 +448,18 @@ paths:
       summary: Verified Followers
       tags:
       - Users Data
+      operationId: getVerifiedFollowers
+      x-operation-id-source: derived
 components:
   schemas:
+    usersdata.InfoBatchRes:
+      properties:
+        users:
+          description: Array of user profile objects.
+          items:
+            $ref: '#/components/schemas/common.User'
+          type: array
+      type: object
     usersdata.AboutRes:
       properties:
         country:
@@ -454,6 +474,11 @@ components:
           description: Total number of username changes.
           example: 1
           type: integer
+      type: object
+    handler.ErrorResponse:
+      properties:
+        message:
+          type: string
       type: object
     common.User:
       properties:
@@ -536,24 +561,11 @@ components:
           example: true
           type: boolean
       type: object
-    handler.ErrorResponse:
-      properties:
-        message:
-          type: string
-      type: object
     common.UsersResponse:
       properties:
         next_cursor:
           description: Cursor for fetching the next page of results. Null or absent if no more pages.
           type: string
-        users:
-          description: Array of user profile objects.
-          items:
-            $ref: '#/components/schemas/common.User'
-          type: array
-      type: object
-    usersdata.InfoBatchRes:
-      properties:
         users:
           description: Array of user profile objects.
           items:

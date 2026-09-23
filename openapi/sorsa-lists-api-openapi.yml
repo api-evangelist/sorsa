@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Sorsa Community Lists API
+  title: Sorsa Lists API
   version: '3.0'
   description: Real-time X (Twitter) data API providing access to tweets, profiles, search, mentions, lists, communities, engagement verification, and Sorsa Score crypto-influence analytics via 40 REST endpoints. Affordable alternative to the official X API.
   contact:
@@ -83,6 +83,8 @@ paths:
       summary: List Followers
       tags:
       - Lists
+      operationId: getListFollowers
+      x-operation-id-source: derived
   /list-members:
     get:
       description: Returns user profiles for all accounts included in the specified Twitter/X List. Each profile contains display name, bio, follower stats, avatar, and verification status.
@@ -147,6 +149,8 @@ paths:
       summary: List Members
       tags:
       - Lists
+      operationId: getListMembers
+      x-operation-id-source: derived
   /list-tweets:
     get:
       description: Returns a paginated feed of tweets published by members of the specified Twitter/X List. Up to 20 tweets per page. Each tweet includes text, creation date, engagement metrics, and basic author information.
@@ -210,8 +214,26 @@ paths:
       summary: List Tweets
       tags:
       - Lists
+      operationId: getListTweets
+      x-operation-id-source: derived
 components:
   schemas:
+    common.TweetsResponse:
+      properties:
+        next_cursor:
+          description: Cursor for fetching the next page of results. Null or absent if no more pages.
+          type: string
+        tweets:
+          description: Array of tweet objects.
+          items:
+            $ref: '#/components/schemas/common.Tweet'
+          type: array
+      type: object
+    handler.ErrorResponse:
+      properties:
+        message:
+          type: string
+      type: object
     common.User:
       properties:
         bio_urls:
@@ -292,37 +314,6 @@ components:
           description: Whether the account has a verified badge.
           example: true
           type: boolean
-      type: object
-    common.TweetEntity:
-      properties:
-        link:
-          description: Direct URL of the entity.
-          example: https://t.co/example
-          type: string
-        preview:
-          description: Preview or thumbnail URL for the entity.
-          example: https://pbs.twimg.com/preview
-          type: string
-        type:
-          description: Entity type (e.g. `photo`, `video`, `url`).
-          example: photo
-          type: string
-      type: object
-    handler.ErrorResponse:
-      properties:
-        message:
-          type: string
-      type: object
-    common.UsersResponse:
-      properties:
-        next_cursor:
-          description: Cursor for fetching the next page of results. Null or absent if no more pages.
-          type: string
-        users:
-          description: Array of user profile objects.
-          items:
-            $ref: '#/components/schemas/common.User'
-          type: array
       type: object
     common.Tweet:
       properties:
@@ -408,16 +399,31 @@ components:
           example: 10000
           type: integer
       type: object
-    common.TweetsResponse:
+    common.UsersResponse:
       properties:
         next_cursor:
           description: Cursor for fetching the next page of results. Null or absent if no more pages.
           type: string
-        tweets:
-          description: Array of tweet objects.
+        users:
+          description: Array of user profile objects.
           items:
-            $ref: '#/components/schemas/common.Tweet'
+            $ref: '#/components/schemas/common.User'
           type: array
+      type: object
+    common.TweetEntity:
+      properties:
+        link:
+          description: Direct URL of the entity.
+          example: https://t.co/example
+          type: string
+        preview:
+          description: Preview or thumbnail URL for the entity.
+          example: https://pbs.twimg.com/preview
+          type: string
+        type:
+          description: Entity type (e.g. `photo`, `video`, `url`).
+          example: photo
+          type: string
       type: object
   securitySchemes:
     ApiKey:

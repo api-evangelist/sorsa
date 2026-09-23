@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Sorsa Community Tweets API
+  title: Sorsa Tweets API
   version: '3.0'
   description: Real-time X (Twitter) data API providing access to tweets, profiles, search, mentions, lists, communities, engagement verification, and Sorsa Score crypto-influence analytics via 40 REST endpoints. Affordable alternative to the official X API.
   contact:
@@ -67,6 +67,8 @@ paths:
       summary: Article Data
       tags:
       - Tweets
+      operationId: postArticle
+      x-operation-id-source: derived
   /comments:
     post:
       description: Returns a paginated list of replies (comments) posted under a specific tweet. Up to 20 replies per page. Each reply includes text, creation date, engagement metrics, conversation context, and the author's profile.
@@ -126,6 +128,8 @@ paths:
       summary: Tweet Comments
       tags:
       - Tweets
+      operationId: postComments
+      x-operation-id-source: derived
   /quotes:
     post:
       description: Returns a paginated list of tweets that quoted the specified tweet. Up to 20 results per page. Each quote tweet includes the added commentary text, creation date, engagement metrics, and the quoting user's profile.
@@ -185,6 +189,8 @@ paths:
       summary: Quote Tweets
       tags:
       - Tweets
+      operationId: postQuotes
+      x-operation-id-source: derived
   /retweeters:
     post:
       description: 'Returns a paginated list of users who retweeted the specified tweet, sorted by retweet time (newest first). Each entry contains the retweeter''s profile data. Note: the response uses the users format (`common.UsersResponse`), not tweets.'
@@ -232,6 +238,8 @@ paths:
       summary: Retweeters List
       tags:
       - Tweets
+      operationId: postRetweeters
+      x-operation-id-source: derived
   /trends:
     get:
       description: Returns a list of trending topics for the specified WOEID (location identifier). Each trend contains its name and search query for the region. Useful for monitoring popular topics by location.
@@ -284,6 +292,8 @@ paths:
       summary: Trends List
       tags:
       - Tweets
+      operationId: getTrends
+      x-operation-id-source: derived
   /tweet-info:
     post:
       description: 'Returns full data for a single tweet by its URL: text, creation date, language, engagement metrics (likes, retweets, quotes, replies, views, bookmarks), and the author''s profile. If the tweet is a reply, quote, or repost, the nested original tweet and its author data are included as well.'
@@ -343,6 +353,8 @@ paths:
       summary: Tweet Data
       tags:
       - Tweets
+      operationId: postTweetInfo
+      x-operation-id-source: derived
   /tweet-info-bulk:
     post:
       description: Returns full data for up to 100 tweets in a single request. Each tweet object includes text, creation date, engagement metrics, and author profile. Works the same way as the single-tweet endpoint, but accepts an array of URLs. The response is not paginated.
@@ -402,6 +414,8 @@ paths:
       summary: Tweet Data (batch)
       tags:
       - Tweets
+      operationId: postTweetInfoBulk
+      x-operation-id-source: derived
   /user-tweets:
     post:
       description: Returns a paginated list of tweets posted by a specific user. Up to 20 tweets per page. Each tweet includes text, creation date, engagement metrics, view count, and nested data for replies, quotes, and retweets when available. Provide either `link` (profile URL) or `user_id`.
@@ -461,8 +475,89 @@ paths:
       summary: User Tweets
       tags:
       - Tweets
+      operationId: postUserTweets
+      x-operation-id-source: derived
 components:
   schemas:
+    common.TweetEntity:
+      properties:
+        link:
+          description: Direct URL of the entity.
+          example: https://t.co/example
+          type: string
+        preview:
+          description: Preview or thumbnail URL for the entity.
+          example: https://pbs.twimg.com/preview
+          type: string
+        type:
+          description: Entity type (e.g. `photo`, `video`, `url`).
+          example: photo
+          type: string
+      type: object
+    common.TweetsResponse:
+      properties:
+        next_cursor:
+          description: Cursor for fetching the next page of results. Null or absent if no more pages.
+          type: string
+        tweets:
+          description: Array of tweet objects.
+          items:
+            $ref: '#/components/schemas/common.Tweet'
+          type: array
+      type: object
+    common.Trend:
+      properties:
+        name:
+          type: string
+        query:
+          type: string
+        url:
+          type: string
+      type: object
+    common.TrendsResponse:
+      properties:
+        trends:
+          items:
+            $ref: '#/components/schemas/common.Trend'
+          type: array
+      type: object
+    tweets.ArticleRes:
+      properties:
+        author:
+          allOf:
+          - $ref: '#/components/schemas/common.User'
+          description: Author profile data.
+        bookmark_count:
+          description: Number of bookmarks.
+          type: integer
+        cover_image_url:
+          description: URL of the article's cover image.
+          type: string
+        full_text:
+          description: Complete article text.
+          type: string
+        likes_count:
+          description: Number of likes.
+          type: integer
+        preview_text:
+          description: Short preview or excerpt of the article.
+          type: string
+        published_at:
+          description: Publication date in ISO 8601 format.
+          type: string
+        quote_count:
+          description: Number of quote tweets.
+          type: integer
+        reply_count:
+          description: Number of replies.
+          type: integer
+        retweet_count:
+          description: Number of retweets.
+          type: integer
+        views_count:
+          description: Number of views (impressions).
+          type: integer
+      type: object
     tweets.UserTweetsReq:
       properties:
         next_cursor:
@@ -482,6 +577,30 @@ components:
           example: username
           type: string
       type: object
+    tweets.ArticleReq:
+      properties:
+        tweet_link:
+          description: Full URL of the tweet or article (e.g. `https://x.com/user/status/123`) or just the tweet ID.
+          type: string
+      type: object
+    tweets.QuotesReq:
+      properties:
+        next_cursor:
+          description: Pagination cursor from a previous response.
+          example: JKHSJFHADUYJKSDy2y3u123
+          type: string
+        tweet_link:
+          description: Full URL of the tweet (e.g. `https://x.com/user/status/123`) or just the tweet ID.
+          type: string
+      type: object
+    common.TweetsBulkResponse:
+      properties:
+        tweets:
+          description: Array of tweet objects.
+          items:
+            $ref: '#/components/schemas/common.Tweet'
+          type: array
+      type: object
     tweets.CommentsReq:
       properties:
         next_cursor:
@@ -494,6 +613,11 @@ components:
           type: string
         tweet_link:
           description: Full URL of the tweet (e.g. `https://x.com/user/status/123`) or just the tweet ID.
+          type: string
+      type: object
+    handler.ErrorResponse:
+      properties:
+        message:
           type: string
       type: object
     common.User:
@@ -577,77 +701,6 @@ components:
           example: true
           type: boolean
       type: object
-    common.TweetEntity:
-      properties:
-        link:
-          description: Direct URL of the entity.
-          example: https://t.co/example
-          type: string
-        preview:
-          description: Preview or thumbnail URL for the entity.
-          example: https://pbs.twimg.com/preview
-          type: string
-        type:
-          description: Entity type (e.g. `photo`, `video`, `url`).
-          example: photo
-          type: string
-      type: object
-    tweets.ArticleReq:
-      properties:
-        tweet_link:
-          description: Full URL of the tweet or article (e.g. `https://x.com/user/status/123`) or just the tweet ID.
-          type: string
-      type: object
-    common.TweetsBulkResponse:
-      properties:
-        tweets:
-          description: Array of tweet objects.
-          items:
-            $ref: '#/components/schemas/common.Tweet'
-          type: array
-      type: object
-    tweets.ArticleRes:
-      properties:
-        author:
-          allOf:
-          - $ref: '#/components/schemas/common.User'
-          description: Author profile data.
-        bookmark_count:
-          description: Number of bookmarks.
-          type: integer
-        cover_image_url:
-          description: URL of the article's cover image.
-          type: string
-        full_text:
-          description: Complete article text.
-          type: string
-        likes_count:
-          description: Number of likes.
-          type: integer
-        preview_text:
-          description: Short preview or excerpt of the article.
-          type: string
-        published_at:
-          description: Publication date in ISO 8601 format.
-          type: string
-        quote_count:
-          description: Number of quote tweets.
-          type: integer
-        reply_count:
-          description: Number of replies.
-          type: integer
-        retweet_count:
-          description: Number of retweets.
-          type: integer
-        views_count:
-          description: Number of views (impressions).
-          type: integer
-      type: object
-    handler.ErrorResponse:
-      properties:
-        message:
-          type: string
-      type: object
     tweets.RetweetsReq:
       properties:
         next_cursor:
@@ -657,58 +710,6 @@ components:
         tweet_link:
           description: Full URL of the tweet (e.g. `https://x.com/user/status/123`) or just the tweet ID.
           type: string
-      type: object
-    tweets.TweetInfoReq:
-      properties:
-        tweet_link:
-          description: Full URL of the tweet (e.g. `https://x.com/user/status/123`) or just the tweet ID.
-          type: string
-      type: object
-    common.TrendsResponse:
-      properties:
-        trends:
-          items:
-            $ref: '#/components/schemas/common.Trend'
-          type: array
-      type: object
-    tweets.TweetInfoBulkReq:
-      properties:
-        tweet_links:
-          description: Array of tweet URLs or tweet IDs (up to 100).
-          items:
-            type: string
-          type: array
-      type: object
-    common.Trend:
-      properties:
-        name:
-          type: string
-        query:
-          type: string
-        url:
-          type: string
-      type: object
-    common.TweetsResponse:
-      properties:
-        next_cursor:
-          description: Cursor for fetching the next page of results. Null or absent if no more pages.
-          type: string
-        tweets:
-          description: Array of tweet objects.
-          items:
-            $ref: '#/components/schemas/common.Tweet'
-          type: array
-      type: object
-    common.UsersResponse:
-      properties:
-        next_cursor:
-          description: Cursor for fetching the next page of results. Null or absent if no more pages.
-          type: string
-        users:
-          description: Array of user profile objects.
-          items:
-            $ref: '#/components/schemas/common.User'
-          type: array
       type: object
     common.Tweet:
       properties:
@@ -794,15 +795,30 @@ components:
           example: 10000
           type: integer
       type: object
-    tweets.QuotesReq:
+    common.UsersResponse:
       properties:
         next_cursor:
-          description: Pagination cursor from a previous response.
-          example: JKHSJFHADUYJKSDy2y3u123
+          description: Cursor for fetching the next page of results. Null or absent if no more pages.
           type: string
+        users:
+          description: Array of user profile objects.
+          items:
+            $ref: '#/components/schemas/common.User'
+          type: array
+      type: object
+    tweets.TweetInfoReq:
+      properties:
         tweet_link:
           description: Full URL of the tweet (e.g. `https://x.com/user/status/123`) or just the tweet ID.
           type: string
+      type: object
+    tweets.TweetInfoBulkReq:
+      properties:
+        tweet_links:
+          description: Array of tweet URLs or tweet IDs (up to 100).
+          items:
+            type: string
+          type: array
       type: object
   securitySchemes:
     ApiKey:
