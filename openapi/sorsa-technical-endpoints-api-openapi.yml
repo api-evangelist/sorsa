@@ -237,17 +237,6 @@ components:
           example: elonmusk
           type: string
       type: object
-    handler.ErrorResponse:
-      properties:
-        message:
-          type: string
-      type: object
-    technical.LinkToIDResp:
-      properties:
-        id:
-          description: Numeric Twitter/X user ID.
-          type: string
-      type: object
     technical.KeysResp:
       properties:
         key_requests:
@@ -267,11 +256,22 @@ components:
           example: '2021-01-01T00:00:00Z'
           type: string
       type: object
+    handler.ErrorResponse:
+      properties:
+        message:
+          type: string
+      type: object
     technical.IDRes:
       properties:
         id:
           description: Numeric Twitter/X user ID.
           example: '1'
+          type: string
+      type: object
+    technical.LinkToIDResp:
+      properties:
+        id:
+          description: Numeric Twitter/X user ID.
           type: string
       type: object
   securitySchemes:

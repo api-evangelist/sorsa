@@ -452,6 +452,17 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    common.UsersResponse:
+      properties:
+        next_cursor:
+          description: Cursor for fetching the next page of results. Null or absent if no more pages.
+          type: string
+        users:
+          description: Array of user profile objects.
+          items:
+            $ref: '#/components/schemas/common.User'
+          type: array
+      type: object
     usersdata.InfoBatchRes:
       properties:
         users:
@@ -459,21 +470,6 @@ components:
           items:
             $ref: '#/components/schemas/common.User'
           type: array
-      type: object
-    usersdata.AboutRes:
-      properties:
-        country:
-          description: Country associated with the account.
-          example: United States
-          type: string
-        last_username_change_at:
-          description: Date of the most recent username change in ISO 8601 format.
-          example: '2021-01-01T00:00:00Z'
-          type: string
-        username_change_count:
-          description: Total number of username changes.
-          example: 1
-          type: integer
       type: object
     handler.ErrorResponse:
       properties:
@@ -561,16 +557,20 @@ components:
           example: true
           type: boolean
       type: object
-    common.UsersResponse:
+    usersdata.AboutRes:
       properties:
-        next_cursor:
-          description: Cursor for fetching the next page of results. Null or absent if no more pages.
+        country:
+          description: Country associated with the account.
+          example: United States
           type: string
-        users:
-          description: Array of user profile objects.
-          items:
-            $ref: '#/components/schemas/common.User'
-          type: array
+        last_username_change_at:
+          description: Date of the most recent username change in ISO 8601 format.
+          example: '2021-01-01T00:00:00Z'
+          type: string
+        username_change_count:
+          description: Total number of username changes.
+          example: 1
+          type: integer
       type: object
   securitySchemes:
     ApiKey:

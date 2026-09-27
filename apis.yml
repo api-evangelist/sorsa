@@ -39,7 +39,7 @@ specificationVersion: '0.23'
 tags:
 - twitter
 - X
-- Social-Media
+- Social Media
 - Data Extraction
 - Real-Time
 tags_raw:
@@ -48,6 +48,7 @@ tags_raw:
 - Social Media
 - Data Extraction
 - Real-Time
+- Social-Media
 apis:
 - aid: sorsa:sorsa-community-api
   name: Sorsa Community API

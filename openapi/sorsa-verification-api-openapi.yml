@@ -341,16 +341,10 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    verification.CheckRetweetResp:
+    verification.CommunityResp:
       properties:
-        next_cursor:
-          description: Cursor for checking more retweets if needed.
-          type: string
-        retweet:
-          description: '`true` if the user has retweeted the tweet.'
-          type: boolean
-        user_protected:
-          description: '`true` if the checked user''s account is protected.'
+        is_member:
+          description: '`true` if the user is a member of the specified community.'
           type: boolean
       type: object
     verification.CheckFollowReq:
@@ -374,60 +368,48 @@ components:
           example: elonmusk
           type: string
       type: object
-    verification.CheckQuotedReq:
+    verification.CheckRetweetResp:
       properties:
-        tweet_link:
-          example: https://twitter.com/TweetScout_io/status/1782368585664626774
+        next_cursor:
+          description: Cursor for checking more retweets if needed.
           type: string
-        user_id:
-          example: '44196397'
+        retweet:
+          description: '`true` if the user has retweeted the tweet.'
+          type: boolean
+        user_protected:
+          description: '`true` if the checked user''s account is protected.'
+          type: boolean
+      type: object
+    verification.CheckFollowResp:
+      properties:
+        follow:
+          description: '`true` if the user follows the target account.'
+          example: true
+          type: boolean
+        user_protected:
+          description: '`true` if the checked user''s account is protected.'
+          example: false
+          type: boolean
+      type: object
+    common.TweetEntity:
+      properties:
+        link:
+          description: Direct URL of the entity.
+          example: https://t.co/example
           type: string
-        user_link:
-          example: https://twitter.com/elonmusk
+        preview:
+          description: Preview or thumbnail URL for the entity.
+          example: https://pbs.twimg.com/preview
           type: string
-        username:
-          example: elonmusk
+        type:
+          description: Entity type (e.g. `photo`, `video`, `url`).
+          example: photo
           type: string
       type: object
     handler.ErrorResponse:
       properties:
         message:
           type: string
-      type: object
-    verification.CommunityReq:
-      properties:
-        community_id:
-          example: '1966045657589813686'
-          type: string
-        user_id:
-          type: string
-        user_link:
-          example: https://twitter.com/elonmusk
-          type: string
-        username:
-          example: elonmusk
-          type: string
-      required:
-      - community_id
-      type: object
-    verification.CheckQuotedResp:
-      properties:
-        date:
-          description: Date of the interaction (if found).
-          example: '2024-04-27 06:43:09'
-          type: string
-        status:
-          description: 'Interaction type: `quoted`, `retweet`, or `not_found`.'
-          example: quoted
-          type: string
-        text:
-          description: Text of the quote tweet (if status is `quoted`).
-          example: Quote text
-          type: string
-        user_protected:
-          description: '`true` if the checked user''s account is protected.'
-          example: false
-          type: boolean
       type: object
     verification.CheckRetweetReq:
       properties:
@@ -441,93 +423,6 @@ components:
           type: string
         username:
           type: string
-      type: object
-    verification.CommunityResp:
-      properties:
-        is_member:
-          description: '`true` if the user is a member of the specified community.'
-          type: boolean
-      type: object
-    common.User:
-      properties:
-        bio_urls:
-          description: URLs found in the user's bio.
-          items:
-            type: string
-          type: array
-        can_dm:
-          description: Whether the account accepts direct messages.
-          example: false
-          type: boolean
-        created_at:
-          description: Account creation date in ISO 8601 format.
-          example: '2009-06-02T20:12:29Z'
-          type: string
-        description:
-          description: Profile bio text.
-          example: Bio text
-          type: string
-        display_name:
-          description: User's display name.
-          example: Elon Musk
-          type: string
-        favourites_count:
-          description: Total number of tweets this user has liked.
-          example: 1200
-          type: integer
-        followers_count:
-          description: Number of accounts following this user.
-          example: 100000
-          type: integer
-        followings_count:
-          description: Number of accounts this user follows.
-          example: 500
-          type: integer
-        id:
-          description: Unique Twitter/X user ID.
-          example: '44196397'
-          type: string
-        location:
-          description: Location string from the user's profile.
-          example: Austin, TX
-          type: string
-        media_count:
-          description: Total number of media items posted by this user.
-          example: 300
-          type: integer
-        pinned_tweet_ids:
-          description: IDs of the user's pinned tweets.
-          items:
-            type: string
-          type: array
-        possibly_sensitive:
-          description: Whether the account is flagged as possibly containing sensitive content.
-          example: false
-          type: boolean
-        profile_background_image_url:
-          description: URL of the user's profile background image.
-          example: https://pbs.twimg.com/profile_banners/44196397/123
-          type: string
-        profile_image_url:
-          description: URL of the user's avatar image.
-          example: https://pbs.twimg.com/profile_images/123/photo.jpg
-          type: string
-        protected:
-          description: Whether the account's tweets are protected (private).
-          example: false
-          type: boolean
-        tweets_count:
-          description: Total number of tweets posted by this user.
-          example: 5000
-          type: integer
-        username:
-          description: Current Twitter/X handle (without @).
-          example: elonmusk
-          type: string
-        verified:
-          description: Whether the account has a verified badge.
-          example: true
-          type: boolean
       type: object
     common.Tweet:
       properties:
@@ -613,27 +508,132 @@ components:
           example: 10000
           type: integer
       type: object
-    common.TweetEntity:
+    verification.CommunityReq:
       properties:
-        link:
-          description: Direct URL of the entity.
-          example: https://t.co/example
+        community_id:
+          example: '1966045657589813686'
           type: string
-        preview:
-          description: Preview or thumbnail URL for the entity.
-          example: https://pbs.twimg.com/preview
+        user_id:
           type: string
-        type:
-          description: Entity type (e.g. `photo`, `video`, `url`).
-          example: photo
+        user_link:
+          example: https://twitter.com/elonmusk
+          type: string
+        username:
+          example: elonmusk
+          type: string
+      required:
+      - community_id
+      type: object
+    verification.CheckQuotedReq:
+      properties:
+        tweet_link:
+          example: https://twitter.com/TweetScout_io/status/1782368585664626774
+          type: string
+        user_id:
+          example: '44196397'
+          type: string
+        user_link:
+          example: https://twitter.com/elonmusk
+          type: string
+        username:
+          example: elonmusk
           type: string
       type: object
-    verification.CheckFollowResp:
+    common.User:
       properties:
-        follow:
-          description: '`true` if the user follows the target account.'
+        bio_urls:
+          description: URLs found in the user's bio.
+          items:
+            type: string
+          type: array
+        can_dm:
+          description: Whether the account accepts direct messages.
+          example: false
+          type: boolean
+        created_at:
+          description: Account creation date in ISO 8601 format.
+          example: '2009-06-02T20:12:29Z'
+          type: string
+        description:
+          description: Profile bio text.
+          example: Bio text
+          type: string
+        display_name:
+          description: User's display name.
+          example: Elon Musk
+          type: string
+        favourites_count:
+          description: Total number of tweets this user has liked.
+          example: 1200
+          type: integer
+        followers_count:
+          description: Number of accounts following this user.
+          example: 100000
+          type: integer
+        followings_count:
+          description: Number of accounts this user follows.
+          example: 500
+          type: integer
+        id:
+          description: Unique Twitter/X user ID.
+          example: '44196397'
+          type: string
+        location:
+          description: Location string from the user's profile.
+          example: Austin, TX
+          type: string
+        media_count:
+          description: Total number of media items posted by this user.
+          example: 300
+          type: integer
+        pinned_tweet_ids:
+          description: IDs of the user's pinned tweets.
+          items:
+            type: string
+          type: array
+        possibly_sensitive:
+          description: Whether the account is flagged as possibly containing sensitive content.
+          example: false
+          type: boolean
+        profile_background_image_url:
+          description: URL of the user's profile background image.
+          example: https://pbs.twimg.com/profile_banners/44196397/123
+          type: string
+        profile_image_url:
+          description: URL of the user's avatar image.
+          example: https://pbs.twimg.com/profile_images/123/photo.jpg
+          type: string
+        protected:
+          description: Whether the account's tweets are protected (private).
+          example: false
+          type: boolean
+        tweets_count:
+          description: Total number of tweets posted by this user.
+          example: 5000
+          type: integer
+        username:
+          description: Current Twitter/X handle (without @).
+          example: elonmusk
+          type: string
+        verified:
+          description: Whether the account has a verified badge.
           example: true
           type: boolean
+      type: object
+    verification.CheckQuotedResp:
+      properties:
+        date:
+          description: Date of the interaction (if found).
+          example: '2024-04-27 06:43:09'
+          type: string
+        status:
+          description: 'Interaction type: `quoted`, `retweet`, or `not_found`.'
+          example: quoted
+          type: string
+        text:
+          description: Text of the quote tweet (if status is `quoted`).
+          example: Quote text
+          type: string
         user_protected:
           description: '`true` if the checked user''s account is protected.'
           example: false

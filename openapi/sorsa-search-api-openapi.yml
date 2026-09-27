@@ -263,114 +263,16 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    common.PlaceStats:
-      properties:
-        total_live_listeners:
-          type: integer
-        total_participants:
-          type: integer
-        total_replay_watched:
-          type: integer
-      type: object
-    common.TweetsResponse:
+    common.UsersResponse:
       properties:
         next_cursor:
           description: Cursor for fetching the next page of results. Null or absent if no more pages.
           type: string
-        tweets:
-          description: Array of tweet objects.
+        users:
+          description: Array of user profile objects.
           items:
-            $ref: '#/components/schemas/common.Tweet'
+            $ref: '#/components/schemas/common.User'
           type: array
-      type: object
-    search.SearchUsersReq:
-      properties:
-        next_cursor:
-          example: JKHSJFHADUYJKSDy2y3u123
-          type: string
-        query:
-          example: elonmusk
-          type: string
-      type: object
-    search.SearchTweetsReq:
-      properties:
-        next_cursor:
-          example: JKHSJFHADUYJKSDy2y3u123
-          type: string
-        order:
-          example: popular
-          type: string
-        query:
-          example: elonmusk
-          type: string
-      type: object
-    common.PlaceSettings:
-      properties:
-        conversation_controls:
-          type: integer
-        disallow_join:
-          type: boolean
-        is_employee_only:
-          type: boolean
-        is_locked:
-          type: boolean
-        is_muted:
-          type: boolean
-        is_space_available_for_clipping:
-          type: boolean
-        is_space_available_for_replay:
-          type: boolean
-        max_admin_capacity:
-          type: integer
-        max_guest_sessions:
-          type: integer
-        narrow_cast_space_type:
-          type: integer
-        no_incognito:
-          type: boolean
-      type: object
-    handler.ErrorResponse:
-      properties:
-        message:
-          type: string
-      type: object
-    common.PlaceParticipants:
-      properties:
-        admins:
-          items:
-            $ref: '#/components/schemas/common.PlaceParticipant'
-          type: array
-        listeners:
-          items:
-            $ref: '#/components/schemas/common.PlaceParticipant'
-          type: array
-        speakers:
-          items:
-            $ref: '#/components/schemas/common.PlaceParticipant'
-          type: array
-        total:
-          type: integer
-      type: object
-    common.PlaceParticipant:
-      properties:
-        avatar:
-          type: string
-        id:
-          type: string
-        is_muted_by_admin:
-          type: boolean
-        is_muted_by_guest:
-          type: boolean
-        is_verified:
-          type: boolean
-        name:
-          type: string
-        periscope_user_id:
-          type: string
-        start:
-          type: integer
-        username:
-          type: string
       type: object
     search.SearchMentionsReq:
       properties:
@@ -426,86 +328,72 @@ components:
         updated_at:
           type: integer
       type: object
-    common.User:
+    common.PlaceParticipant:
       properties:
-        bio_urls:
-          description: URLs found in the user's bio.
-          items:
-            type: string
-          type: array
-        can_dm:
-          description: Whether the account accepts direct messages.
-          example: false
-          type: boolean
-        created_at:
-          description: Account creation date in ISO 8601 format.
-          example: '2009-06-02T20:12:29Z'
+        avatar:
           type: string
-        description:
-          description: Profile bio text.
-          example: Bio text
-          type: string
-        display_name:
-          description: User's display name.
-          example: Elon Musk
-          type: string
-        favourites_count:
-          description: Total number of tweets this user has liked.
-          example: 1200
-          type: integer
-        followers_count:
-          description: Number of accounts following this user.
-          example: 100000
-          type: integer
-        followings_count:
-          description: Number of accounts this user follows.
-          example: 500
-          type: integer
         id:
-          description: Unique Twitter/X user ID.
-          example: '44196397'
           type: string
-        location:
-          description: Location string from the user's profile.
-          example: Austin, TX
-          type: string
-        media_count:
-          description: Total number of media items posted by this user.
-          example: 300
-          type: integer
-        pinned_tweet_ids:
-          description: IDs of the user's pinned tweets.
-          items:
-            type: string
-          type: array
-        possibly_sensitive:
-          description: Whether the account is flagged as possibly containing sensitive content.
-          example: false
+        is_muted_by_admin:
           type: boolean
-        profile_background_image_url:
-          description: URL of the user's profile background image.
-          example: https://pbs.twimg.com/profile_banners/44196397/123
-          type: string
-        profile_image_url:
-          description: URL of the user's avatar image.
-          example: https://pbs.twimg.com/profile_images/123/photo.jpg
-          type: string
-        protected:
-          description: Whether the account's tweets are protected (private).
-          example: false
+        is_muted_by_guest:
           type: boolean
-        tweets_count:
-          description: Total number of tweets posted by this user.
-          example: 5000
+        is_verified:
+          type: boolean
+        name:
+          type: string
+        periscope_user_id:
+          type: string
+        start:
           type: integer
         username:
-          description: Current Twitter/X handle (without @).
-          example: elonmusk
           type: string
-        verified:
-          description: Whether the account has a verified badge.
-          example: true
-          type: boolean
+      type: object
+    common.PlaceParticipants:
+      properties:
+        admins:
+          items:
+            $ref: '#/components/schemas/common.PlaceParticipant'
+          type: array
+        listeners:
+          items:
+            $ref: '#/components/schemas/common.PlaceParticipant'
+          type: array
+        speakers:
+          items:
+            $ref: '#/components/schemas/common.PlaceParticipant'
+          type: array
+        total:
+          type: integer
+      type: object
+    common.PlaceStats:
+      properties:
+        total_live_listeners:
+          type: integer
+        total_participants:
+          type: integer
+        total_replay_watched:
+          type: integer
+      type: object
+    common.TweetEntity:
+      properties:
+        link:
+          description: Direct URL of the entity.
+          example: https://t.co/example
+          type: string
+        preview:
+          description: Preview or thumbnail URL for the entity.
+          example: https://pbs.twimg.com/preview
+          type: string
+        type:
+          description: Entity type (e.g. `photo`, `video`, `url`).
+          example: photo
+          type: string
+      type: object
+    handler.ErrorResponse:
+      properties:
+        message:
+          type: string
       type: object
     common.Tweet:
       properties:
@@ -591,30 +479,142 @@ components:
           example: 10000
           type: integer
       type: object
-    common.UsersResponse:
+    common.TweetsResponse:
       properties:
         next_cursor:
           description: Cursor for fetching the next page of results. Null or absent if no more pages.
           type: string
-        users:
-          description: Array of user profile objects.
+        tweets:
+          description: Array of tweet objects.
           items:
-            $ref: '#/components/schemas/common.User'
+            $ref: '#/components/schemas/common.Tweet'
           type: array
       type: object
-    common.TweetEntity:
+    search.SearchTweetsReq:
       properties:
-        link:
-          description: Direct URL of the entity.
-          example: https://t.co/example
+        next_cursor:
+          example: JKHSJFHADUYJKSDy2y3u123
           type: string
-        preview:
-          description: Preview or thumbnail URL for the entity.
-          example: https://pbs.twimg.com/preview
+        order:
+          example: popular
           type: string
-        type:
-          description: Entity type (e.g. `photo`, `video`, `url`).
-          example: photo
+        query:
+          example: elonmusk
+          type: string
+      type: object
+    common.User:
+      properties:
+        bio_urls:
+          description: URLs found in the user's bio.
+          items:
+            type: string
+          type: array
+        can_dm:
+          description: Whether the account accepts direct messages.
+          example: false
+          type: boolean
+        created_at:
+          description: Account creation date in ISO 8601 format.
+          example: '2009-06-02T20:12:29Z'
+          type: string
+        description:
+          description: Profile bio text.
+          example: Bio text
+          type: string
+        display_name:
+          description: User's display name.
+          example: Elon Musk
+          type: string
+        favourites_count:
+          description: Total number of tweets this user has liked.
+          example: 1200
+          type: integer
+        followers_count:
+          description: Number of accounts following this user.
+          example: 100000
+          type: integer
+        followings_count:
+          description: Number of accounts this user follows.
+          example: 500
+          type: integer
+        id:
+          description: Unique Twitter/X user ID.
+          example: '44196397'
+          type: string
+        location:
+          description: Location string from the user's profile.
+          example: Austin, TX
+          type: string
+        media_count:
+          description: Total number of media items posted by this user.
+          example: 300
+          type: integer
+        pinned_tweet_ids:
+          description: IDs of the user's pinned tweets.
+          items:
+            type: string
+          type: array
+        possibly_sensitive:
+          description: Whether the account is flagged as possibly containing sensitive content.
+          example: false
+          type: boolean
+        profile_background_image_url:
+          description: URL of the user's profile background image.
+          example: https://pbs.twimg.com/profile_banners/44196397/123
+          type: string
+        profile_image_url:
+          description: URL of the user's avatar image.
+          example: https://pbs.twimg.com/profile_images/123/photo.jpg
+          type: string
+        protected:
+          description: Whether the account's tweets are protected (private).
+          example: false
+          type: boolean
+        tweets_count:
+          description: Total number of tweets posted by this user.
+          example: 5000
+          type: integer
+        username:
+          description: Current Twitter/X handle (without @).
+          example: elonmusk
+          type: string
+        verified:
+          description: Whether the account has a verified badge.
+          example: true
+          type: boolean
+      type: object
+    common.PlaceSettings:
+      properties:
+        conversation_controls:
+          type: integer
+        disallow_join:
+          type: boolean
+        is_employee_only:
+          type: boolean
+        is_locked:
+          type: boolean
+        is_muted:
+          type: boolean
+        is_space_available_for_clipping:
+          type: boolean
+        is_space_available_for_replay:
+          type: boolean
+        max_admin_capacity:
+          type: integer
+        max_guest_sessions:
+          type: integer
+        narrow_cast_space_type:
+          type: integer
+        no_incognito:
+          type: boolean
+      type: object
+    search.SearchUsersReq:
+      properties:
+        next_cursor:
+          example: JKHSJFHADUYJKSDy2y3u123
+          type: string
+        query:
+          example: elonmusk
           type: string
       type: object
   securitySchemes:
