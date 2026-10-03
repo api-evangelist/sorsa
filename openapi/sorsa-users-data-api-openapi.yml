@@ -463,6 +463,11 @@ components:
             $ref: '#/components/schemas/common.User'
           type: array
       type: object
+    handler.ErrorResponse:
+      properties:
+        message:
+          type: string
+      type: object
     usersdata.InfoBatchRes:
       properties:
         users:
@@ -471,10 +476,20 @@ components:
             $ref: '#/components/schemas/common.User'
           type: array
       type: object
-    handler.ErrorResponse:
+    usersdata.AboutRes:
       properties:
-        message:
+        country:
+          description: Country associated with the account.
+          example: United States
           type: string
+        last_username_change_at:
+          description: Date of the most recent username change in ISO 8601 format.
+          example: '2021-01-01T00:00:00Z'
+          type: string
+        username_change_count:
+          description: Total number of username changes.
+          example: 1
+          type: integer
       type: object
     common.User:
       properties:
@@ -556,21 +571,6 @@ components:
           description: Whether the account has a verified badge.
           example: true
           type: boolean
-      type: object
-    usersdata.AboutRes:
-      properties:
-        country:
-          description: Country associated with the account.
-          example: United States
-          type: string
-        last_username_change_at:
-          description: Date of the most recent username change in ISO 8601 format.
-          example: '2021-01-01T00:00:00Z'
-          type: string
-        username_change_count:
-          description: Total number of username changes.
-          example: 1
-          type: integer
       type: object
   securitySchemes:
     ApiKey:

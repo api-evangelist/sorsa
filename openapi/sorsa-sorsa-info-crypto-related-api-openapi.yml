@@ -512,19 +512,6 @@ components:
             $ref: '#/components/schemas/common.TopFollower'
           type: array
       type: object
-    handler.ErrorResponse:
-      properties:
-        message:
-          type: string
-      type: object
-    common.FollowersResponse:
-      properties:
-        users:
-          description: Array of follower profile objects with follow dates.
-          items:
-            $ref: '#/components/schemas/common.Follower'
-          type: array
-      type: object
     sorsa.ScoreChangesResp:
       properties:
         month_delta:
@@ -536,63 +523,48 @@ components:
           example: 12
           type: number
       type: object
-    common.TopFollower:
+    common.FollowersResponse:
       properties:
-        can_dm:
-          example: false
-          type: boolean
-        created_at:
-          description: Account creation date in ISO 8601 format.
-          example: '2009-06-02T20:12:29Z'
+        users:
+          description: Array of follower profile objects with follow dates.
+          items:
+            $ref: '#/components/schemas/common.Follower'
+          type: array
+      type: object
+    handler.ErrorResponse:
+      properties:
+        message:
           type: string
-        description:
-          description: Profile bio text.
-          example: Bio text
-          type: string
-        display_name:
-          description: User's display name.
-          example: Elon Musk
-          type: string
-        followers_count:
-          description: Number of accounts following this user.
-          example: 100000
-          type: integer
-        followings_count:
-          description: Number of accounts this user follows.
-          example: 500
-          type: integer
-        id:
-          description: Unique Twitter/X user ID.
-          example: '44196397'
-          type: string
-        profile_background_image_url:
-          description: URL of the user's profile background image.
-          example: https://pbs.twimg.com/profile_banners/44196397/123
-          type: string
-        profile_image_url:
-          description: URL of the user's avatar image.
-          example: https://pbs.twimg.com/profile_images/123/photo.jpg
-          type: string
-        protected:
-          description: Whether the account's tweets are protected (private).
-          example: false
-          type: boolean
+      type: object
+    sorsa.ScoreResp:
+      properties:
         score:
-          description: Whether the account accepts direct messages.
-          example: 100
+          description: Numeric influence score. Higher values indicate stronger recognition among influencers, projects, and VCs.
+          example: 1.25
           type: number
-        tweets_count:
-          description: Total number of tweets posted by this user.
-          example: 5000
+      type: object
+    sorsa.FollowersStatsResp:
+      properties:
+        followers_count:
+          description: Total number of categorized followers.
+          example: 16
           type: integer
-        username:
-          description: Current Twitter/X handle (without @).
-          example: elonmusk
-          type: string
-        verified:
-          description: Whether the account has a verified badge.
-          example: true
+        influencers_count:
+          description: Number of followers classified as influencers.
+          example: 12
+          type: integer
+        projects_count:
+          description: Number of followers classified as projects.
+          example: 3
+          type: integer
+        user_protected:
+          description: '`true` if the target account is protected.'
+          example: false
           type: boolean
+        venture_capitals_count:
+          description: Number of followers classified as VC employees.
+          example: 1
+          type: integer
       type: object
     common.Follower:
       properties:
@@ -675,35 +647,63 @@ components:
           example: true
           type: boolean
       type: object
-    sorsa.FollowersStatsResp:
+    common.TopFollower:
       properties:
-        followers_count:
-          description: Total number of categorized followers.
-          example: 16
-          type: integer
-        influencers_count:
-          description: Number of followers classified as influencers.
-          example: 12
-          type: integer
-        projects_count:
-          description: Number of followers classified as projects.
-          example: 3
-          type: integer
-        user_protected:
-          description: '`true` if the target account is protected.'
+        can_dm:
           example: false
           type: boolean
-        venture_capitals_count:
-          description: Number of followers classified as VC employees.
-          example: 1
+        created_at:
+          description: Account creation date in ISO 8601 format.
+          example: '2009-06-02T20:12:29Z'
+          type: string
+        description:
+          description: Profile bio text.
+          example: Bio text
+          type: string
+        display_name:
+          description: User's display name.
+          example: Elon Musk
+          type: string
+        followers_count:
+          description: Number of accounts following this user.
+          example: 100000
           type: integer
-      type: object
-    sorsa.ScoreResp:
-      properties:
+        followings_count:
+          description: Number of accounts this user follows.
+          example: 500
+          type: integer
+        id:
+          description: Unique Twitter/X user ID.
+          example: '44196397'
+          type: string
+        profile_background_image_url:
+          description: URL of the user's profile background image.
+          example: https://pbs.twimg.com/profile_banners/44196397/123
+          type: string
+        profile_image_url:
+          description: URL of the user's avatar image.
+          example: https://pbs.twimg.com/profile_images/123/photo.jpg
+          type: string
+        protected:
+          description: Whether the account's tweets are protected (private).
+          example: false
+          type: boolean
         score:
-          description: Numeric influence score. Higher values indicate stronger recognition among influencers, projects, and VCs.
-          example: 1.25
+          description: Whether the account accepts direct messages.
+          example: 100
           type: number
+        tweets_count:
+          description: Total number of tweets posted by this user.
+          example: 5000
+          type: integer
+        username:
+          description: Current Twitter/X handle (without @).
+          example: elonmusk
+          type: string
+        verified:
+          description: Whether the account has a verified badge.
+          example: true
+          type: boolean
       type: object
   securitySchemes:
     ApiKey:

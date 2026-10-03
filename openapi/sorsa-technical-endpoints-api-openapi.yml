@@ -230,11 +230,10 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    technical.HandleRes:
+    technical.LinkToIDResp:
       properties:
-        handle:
-          description: Current Twitter/X handle (without @).
-          example: elonmusk
+        id:
+          description: Numeric Twitter/X user ID.
           type: string
       type: object
     technical.KeysResp:
@@ -261,17 +260,18 @@ components:
         message:
           type: string
       type: object
+    technical.HandleRes:
+      properties:
+        handle:
+          description: Current Twitter/X handle (without @).
+          example: elonmusk
+          type: string
+      type: object
     technical.IDRes:
       properties:
         id:
           description: Numeric Twitter/X user ID.
           example: '1'
-          type: string
-      type: object
-    technical.LinkToIDResp:
-      properties:
-        id:
-          description: Numeric Twitter/X user ID.
           type: string
       type: object
   securitySchemes:

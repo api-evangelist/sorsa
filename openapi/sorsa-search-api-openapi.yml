@@ -274,81 +274,6 @@ components:
             $ref: '#/components/schemas/common.User'
           type: array
       type: object
-    search.SearchMentionsReq:
-      properties:
-        min_likes:
-          example: 100
-          type: integer
-        min_replies:
-          example: 100
-          type: integer
-        min_retweets:
-          example: 100
-          type: integer
-        next_cursor:
-          example: JKHSJFHADUYJKSDy2y3u123
-          type: string
-        order:
-          example: popular
-          type: string
-        query:
-          example: elonmusk
-          type: string
-        since_date:
-          example: '2026-01-01'
-          type: string
-        until_date:
-          example: '2026-01-01'
-          type: string
-      type: object
-    common.Place:
-      properties:
-        created_at:
-          type: integer
-        creator:
-          $ref: '#/components/schemas/common.User'
-        id:
-          type: string
-        is_subscribed:
-          type: boolean
-        media_key:
-          type: string
-        participants:
-          $ref: '#/components/schemas/common.PlaceParticipants'
-        scheduled_start:
-          type: integer
-        settings:
-          $ref: '#/components/schemas/common.PlaceSettings'
-        state:
-          type: string
-        stats:
-          $ref: '#/components/schemas/common.PlaceStats'
-        title:
-          type: string
-        updated_at:
-          type: integer
-      type: object
-    common.PlaceParticipant:
-      properties:
-        avatar:
-          type: string
-        id:
-          type: string
-        is_muted_by_admin:
-          type: boolean
-        is_muted_by_guest:
-          type: boolean
-        is_verified:
-          type: boolean
-        name:
-          type: string
-        periscope_user_id:
-          type: string
-        start:
-          type: integer
-        username:
-          type: string
-      type: object
     common.PlaceParticipants:
       properties:
         admins:
@@ -365,35 +290,6 @@ components:
           type: array
         total:
           type: integer
-      type: object
-    common.PlaceStats:
-      properties:
-        total_live_listeners:
-          type: integer
-        total_participants:
-          type: integer
-        total_replay_watched:
-          type: integer
-      type: object
-    common.TweetEntity:
-      properties:
-        link:
-          description: Direct URL of the entity.
-          example: https://t.co/example
-          type: string
-        preview:
-          description: Preview or thumbnail URL for the entity.
-          example: https://pbs.twimg.com/preview
-          type: string
-        type:
-          description: Entity type (e.g. `photo`, `video`, `url`).
-          example: photo
-          type: string
-      type: object
-    handler.ErrorResponse:
-      properties:
-        message:
-          type: string
       type: object
     common.Tweet:
       properties:
@@ -479,6 +375,76 @@ components:
           example: 10000
           type: integer
       type: object
+    common.PlaceSettings:
+      properties:
+        conversation_controls:
+          type: integer
+        disallow_join:
+          type: boolean
+        is_employee_only:
+          type: boolean
+        is_locked:
+          type: boolean
+        is_muted:
+          type: boolean
+        is_space_available_for_clipping:
+          type: boolean
+        is_space_available_for_replay:
+          type: boolean
+        max_admin_capacity:
+          type: integer
+        max_guest_sessions:
+          type: integer
+        narrow_cast_space_type:
+          type: integer
+        no_incognito:
+          type: boolean
+      type: object
+    search.SearchUsersReq:
+      properties:
+        next_cursor:
+          example: JKHSJFHADUYJKSDy2y3u123
+          type: string
+        query:
+          example: elonmusk
+          type: string
+      type: object
+    common.TweetEntity:
+      properties:
+        link:
+          description: Direct URL of the entity.
+          example: https://t.co/example
+          type: string
+        preview:
+          description: Preview or thumbnail URL for the entity.
+          example: https://pbs.twimg.com/preview
+          type: string
+        type:
+          description: Entity type (e.g. `photo`, `video`, `url`).
+          example: photo
+          type: string
+      type: object
+    common.PlaceParticipant:
+      properties:
+        avatar:
+          type: string
+        id:
+          type: string
+        is_muted_by_admin:
+          type: boolean
+        is_muted_by_guest:
+          type: boolean
+        is_verified:
+          type: boolean
+        name:
+          type: string
+        periscope_user_id:
+          type: string
+        start:
+          type: integer
+        username:
+          type: string
+      type: object
     common.TweetsResponse:
       properties:
         next_cursor:
@@ -490,16 +456,18 @@ components:
             $ref: '#/components/schemas/common.Tweet'
           type: array
       type: object
-    search.SearchTweetsReq:
+    common.PlaceStats:
       properties:
-        next_cursor:
-          example: JKHSJFHADUYJKSDy2y3u123
-          type: string
-        order:
-          example: popular
-          type: string
-        query:
-          example: elonmusk
+        total_live_listeners:
+          type: integer
+        total_participants:
+          type: integer
+        total_replay_watched:
+          type: integer
+      type: object
+    handler.ErrorResponse:
+      properties:
+        message:
           type: string
       type: object
     common.User:
@@ -583,38 +551,70 @@ components:
           example: true
           type: boolean
       type: object
-    common.PlaceSettings:
+    common.Place:
       properties:
-        conversation_controls:
+        created_at:
           type: integer
-        disallow_join:
+        creator:
+          $ref: '#/components/schemas/common.User'
+        id:
+          type: string
+        is_subscribed:
           type: boolean
-        is_employee_only:
-          type: boolean
-        is_locked:
-          type: boolean
-        is_muted:
-          type: boolean
-        is_space_available_for_clipping:
-          type: boolean
-        is_space_available_for_replay:
-          type: boolean
-        max_admin_capacity:
+        media_key:
+          type: string
+        participants:
+          $ref: '#/components/schemas/common.PlaceParticipants'
+        scheduled_start:
           type: integer
-        max_guest_sessions:
+        settings:
+          $ref: '#/components/schemas/common.PlaceSettings'
+        state:
+          type: string
+        stats:
+          $ref: '#/components/schemas/common.PlaceStats'
+        title:
+          type: string
+        updated_at:
           type: integer
-        narrow_cast_space_type:
-          type: integer
-        no_incognito:
-          type: boolean
       type: object
-    search.SearchUsersReq:
+    search.SearchTweetsReq:
       properties:
         next_cursor:
           example: JKHSJFHADUYJKSDy2y3u123
           type: string
+        order:
+          example: popular
+          type: string
         query:
           example: elonmusk
+          type: string
+      type: object
+    search.SearchMentionsReq:
+      properties:
+        min_likes:
+          example: 100
+          type: integer
+        min_replies:
+          example: 100
+          type: integer
+        min_retweets:
+          example: 100
+          type: integer
+        next_cursor:
+          example: JKHSJFHADUYJKSDy2y3u123
+          type: string
+        order:
+          example: popular
+          type: string
+        query:
+          example: elonmusk
+          type: string
+        since_date:
+          example: '2026-01-01'
+          type: string
+        until_date:
+          example: '2026-01-01'
           type: string
       type: object
   securitySchemes:
