@@ -218,17 +218,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    common.UsersResponse:
-      properties:
-        next_cursor:
-          description: Cursor for fetching the next page of results. Null or absent if no more pages.
-          type: string
-        users:
-          description: Array of user profile objects.
-          items:
-            $ref: '#/components/schemas/common.User'
-          type: array
-      type: object
     common.Tweet:
       properties:
         bookmark_count:
@@ -312,32 +301,6 @@ components:
           description: Number of views (impressions).
           example: 10000
           type: integer
-      type: object
-    common.TweetEntity:
-      properties:
-        link:
-          description: Direct URL of the entity.
-          example: https://t.co/example
-          type: string
-        preview:
-          description: Preview or thumbnail URL for the entity.
-          example: https://pbs.twimg.com/preview
-          type: string
-        type:
-          description: Entity type (e.g. `photo`, `video`, `url`).
-          example: photo
-          type: string
-      type: object
-    common.TweetsResponse:
-      properties:
-        next_cursor:
-          description: Cursor for fetching the next page of results. Null or absent if no more pages.
-          type: string
-        tweets:
-          description: Array of tweet objects.
-          items:
-            $ref: '#/components/schemas/common.Tweet'
-          type: array
       type: object
     handler.ErrorResponse:
       properties:
@@ -424,6 +387,43 @@ components:
           description: Whether the account has a verified badge.
           example: true
           type: boolean
+      type: object
+    common.TweetsResponse:
+      properties:
+        next_cursor:
+          description: Cursor for fetching the next page of results. Null or absent if no more pages.
+          type: string
+        tweets:
+          description: Array of tweet objects.
+          items:
+            $ref: '#/components/schemas/common.Tweet'
+          type: array
+      type: object
+    common.TweetEntity:
+      properties:
+        link:
+          description: Direct URL of the entity.
+          example: https://t.co/example
+          type: string
+        preview:
+          description: Preview or thumbnail URL for the entity.
+          example: https://pbs.twimg.com/preview
+          type: string
+        type:
+          description: Entity type (e.g. `photo`, `video`, `url`).
+          example: photo
+          type: string
+      type: object
+    common.UsersResponse:
+      properties:
+        next_cursor:
+          description: Cursor for fetching the next page of results. Null or absent if no more pages.
+          type: string
+        users:
+          description: Array of user profile objects.
+          items:
+            $ref: '#/components/schemas/common.User'
+          type: array
       type: object
   securitySchemes:
     ApiKey:

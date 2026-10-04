@@ -263,34 +263,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    common.UsersResponse:
-      properties:
-        next_cursor:
-          description: Cursor for fetching the next page of results. Null or absent if no more pages.
-          type: string
-        users:
-          description: Array of user profile objects.
-          items:
-            $ref: '#/components/schemas/common.User'
-          type: array
-      type: object
-    common.PlaceParticipants:
-      properties:
-        admins:
-          items:
-            $ref: '#/components/schemas/common.PlaceParticipant'
-          type: array
-        listeners:
-          items:
-            $ref: '#/components/schemas/common.PlaceParticipant'
-          type: array
-        speakers:
-          items:
-            $ref: '#/components/schemas/common.PlaceParticipant'
-          type: array
-        total:
-          type: integer
-      type: object
     common.Tweet:
       properties:
         bookmark_count:
@@ -375,6 +347,48 @@ components:
           example: 10000
           type: integer
       type: object
+    search.SearchTweetsReq:
+      properties:
+        next_cursor:
+          example: JKHSJFHADUYJKSDy2y3u123
+          type: string
+        order:
+          example: popular
+          type: string
+        query:
+          example: elonmusk
+          type: string
+      type: object
+    common.PlaceStats:
+      properties:
+        total_live_listeners:
+          type: integer
+        total_participants:
+          type: integer
+        total_replay_watched:
+          type: integer
+      type: object
+    common.PlaceParticipant:
+      properties:
+        avatar:
+          type: string
+        id:
+          type: string
+        is_muted_by_admin:
+          type: boolean
+        is_muted_by_guest:
+          type: boolean
+        is_verified:
+          type: boolean
+        name:
+          type: string
+        periscope_user_id:
+          type: string
+        start:
+          type: integer
+        username:
+          type: string
+      type: object
     common.PlaceSettings:
       properties:
         conversation_controls:
@@ -399,76 +413,6 @@ components:
           type: integer
         no_incognito:
           type: boolean
-      type: object
-    search.SearchUsersReq:
-      properties:
-        next_cursor:
-          example: JKHSJFHADUYJKSDy2y3u123
-          type: string
-        query:
-          example: elonmusk
-          type: string
-      type: object
-    common.TweetEntity:
-      properties:
-        link:
-          description: Direct URL of the entity.
-          example: https://t.co/example
-          type: string
-        preview:
-          description: Preview or thumbnail URL for the entity.
-          example: https://pbs.twimg.com/preview
-          type: string
-        type:
-          description: Entity type (e.g. `photo`, `video`, `url`).
-          example: photo
-          type: string
-      type: object
-    common.PlaceParticipant:
-      properties:
-        avatar:
-          type: string
-        id:
-          type: string
-        is_muted_by_admin:
-          type: boolean
-        is_muted_by_guest:
-          type: boolean
-        is_verified:
-          type: boolean
-        name:
-          type: string
-        periscope_user_id:
-          type: string
-        start:
-          type: integer
-        username:
-          type: string
-      type: object
-    common.TweetsResponse:
-      properties:
-        next_cursor:
-          description: Cursor for fetching the next page of results. Null or absent if no more pages.
-          type: string
-        tweets:
-          description: Array of tweet objects.
-          items:
-            $ref: '#/components/schemas/common.Tweet'
-          type: array
-      type: object
-    common.PlaceStats:
-      properties:
-        total_live_listeners:
-          type: integer
-        total_participants:
-          type: integer
-        total_replay_watched:
-          type: integer
-      type: object
-    handler.ErrorResponse:
-      properties:
-        message:
-          type: string
       type: object
     common.User:
       properties:
@@ -551,6 +495,43 @@ components:
           example: true
           type: boolean
       type: object
+    common.PlaceParticipants:
+      properties:
+        admins:
+          items:
+            $ref: '#/components/schemas/common.PlaceParticipant'
+          type: array
+        listeners:
+          items:
+            $ref: '#/components/schemas/common.PlaceParticipant'
+          type: array
+        speakers:
+          items:
+            $ref: '#/components/schemas/common.PlaceParticipant'
+          type: array
+        total:
+          type: integer
+      type: object
+    search.SearchUsersReq:
+      properties:
+        next_cursor:
+          example: JKHSJFHADUYJKSDy2y3u123
+          type: string
+        query:
+          example: elonmusk
+          type: string
+      type: object
+    common.TweetsResponse:
+      properties:
+        next_cursor:
+          description: Cursor for fetching the next page of results. Null or absent if no more pages.
+          type: string
+        tweets:
+          description: Array of tweet objects.
+          items:
+            $ref: '#/components/schemas/common.Tweet'
+          type: array
+      type: object
     common.Place:
       properties:
         created_at:
@@ -578,16 +559,9 @@ components:
         updated_at:
           type: integer
       type: object
-    search.SearchTweetsReq:
+    handler.ErrorResponse:
       properties:
-        next_cursor:
-          example: JKHSJFHADUYJKSDy2y3u123
-          type: string
-        order:
-          example: popular
-          type: string
-        query:
-          example: elonmusk
+        message:
           type: string
       type: object
     search.SearchMentionsReq:
@@ -616,6 +590,32 @@ components:
         until_date:
           example: '2026-01-01'
           type: string
+      type: object
+    common.TweetEntity:
+      properties:
+        link:
+          description: Direct URL of the entity.
+          example: https://t.co/example
+          type: string
+        preview:
+          description: Preview or thumbnail URL for the entity.
+          example: https://pbs.twimg.com/preview
+          type: string
+        type:
+          description: Entity type (e.g. `photo`, `video`, `url`).
+          example: photo
+          type: string
+      type: object
+    common.UsersResponse:
+      properties:
+        next_cursor:
+          description: Cursor for fetching the next page of results. Null or absent if no more pages.
+          type: string
+        users:
+          description: Array of user profile objects.
+          items:
+            $ref: '#/components/schemas/common.User'
+          type: array
       type: object
   securitySchemes:
     ApiKey:

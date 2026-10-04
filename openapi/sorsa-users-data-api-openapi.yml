@@ -452,22 +452,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    common.UsersResponse:
-      properties:
-        next_cursor:
-          description: Cursor for fetching the next page of results. Null or absent if no more pages.
-          type: string
-        users:
-          description: Array of user profile objects.
-          items:
-            $ref: '#/components/schemas/common.User'
-          type: array
-      type: object
-    handler.ErrorResponse:
-      properties:
-        message:
-          type: string
-      type: object
     usersdata.InfoBatchRes:
       properties:
         users:
@@ -490,6 +474,11 @@ components:
           description: Total number of username changes.
           example: 1
           type: integer
+      type: object
+    handler.ErrorResponse:
+      properties:
+        message:
+          type: string
       type: object
     common.User:
       properties:
@@ -571,6 +560,17 @@ components:
           description: Whether the account has a verified badge.
           example: true
           type: boolean
+      type: object
+    common.UsersResponse:
+      properties:
+        next_cursor:
+          description: Cursor for fetching the next page of results. Null or absent if no more pages.
+          type: string
+        users:
+          description: Array of user profile objects.
+          items:
+            $ref: '#/components/schemas/common.User'
+          type: array
       type: object
   securitySchemes:
     ApiKey:
