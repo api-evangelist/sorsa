@@ -1,21 +1,19 @@
-# Kin Score artifact — sorsa — 2026-08-27T103455
+# Kin Score artifact — sorsa — 2026-09-23T000603
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: sorsa
-  schema_version: 0.15.1
-  scored_at: '2026-08-27'
-  run_ts: 2026-08-27T103455
-  composite: 57.3
+  schema_version: 0.22.0
+  scored_at: '2026-09-23'
+  run_ts: 2026-09-23T000603
+  composite: 56.3
   band: strong
   facets:
-    discoverability: 75.9
-    contract_quality: 72.8
-    governance: 28.8
-    operational_transparency: 15.8
-    developer_ergonomics: 66.7
-    commercial_clarity: 63.2
+    discoverability: 70.4
+    contract_quality: 76.9
     contract_governance: 28.8
+    operational_transparency: 15.8
+    developer_ergonomics: 63.1
     access_clarity: 63.2
   agent_readiness:
     score: 26.8
