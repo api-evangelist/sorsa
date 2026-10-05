@@ -1,0 +1,12 @@
+{
+ "url": "https://docs.sorsa.io/v3/openapi.json",
+ "requested_url": "https://docs.sorsa.io/v3/openapi.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 77771,
+ "sha256": "3d7215317ba1325d6329efe6167b5e953c8904d4c1cb31e2cacce137b6c1e66d",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 0.902), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
