@@ -1,4 +1,4 @@
-# Sorsa (sorsa)
+# Sorsa
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,127 +66,210 @@
 
 Sorsa Labs operates a real-time X (Twitter) data API providing developers access to tweets, profiles, search, mentions, lists, communities, engagement verification, and Sorsa Score crypto-influence analytics through 40 REST endpoints. It markets itself as an affordable alternative to the official X API and was formerly known as Tweetscout.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/sorsa/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/sorsa/refs/heads/main/apis.yml)
+**Areas:** twitter · X · Social Media · Data Extraction · Real-Time
 
-## Scope
+## Sorsa on APIs.io
 
-- **Type:** Index
+Everything profiled for Sorsa is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/sorsa/](https://apis.io/providers/sorsa/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (8)
 
-- Twitter
-- X
-- Social Media
-- Data Extraction
-- Real-Time
+- [Sorsa Community API](https://apis.io/apis/sorsa/sorsa-community-api/) — Twitter/X Community tweets, members, and community search
+- [Sorsa Lists API](https://apis.io/apis/sorsa/sorsa-lists-api/) — Twitter/X List tweets, members, and followers
+- [Sorsa Search API](https://apis.io/apis/sorsa/sorsa-search-api/) — Search tweets, users, mentions, and Twitter Spaces (Places)
+- [Sorsa Info Crypto Related API](https://apis.io/apis/sorsa/sorsa-sorsa-info-crypto-related-api/) — The Sorsa Info Crypto Related API from Sorsa — 7 operation(s) for sorsa info crypto related.
+- [Sorsa Technical Endpoints API](https://apis.io/apis/sorsa/sorsa-technical-endpoints-api/) — The Technical Endpoints API from Sorsa — 4 operation(s) for technical endpoints.
+- [Sorsa Tweets API](https://apis.io/apis/sorsa/sorsa-tweets-api/) — Tweet data (single and batch), articles, user timelines, quotes, retweets, comments, trends
+- [Sorsa Users Data API](https://apis.io/apis/sorsa/sorsa-users-data-api/) — User profile, followers, following, verified followers, About metadata
+- [Sorsa Verification API](https://apis.io/apis/sorsa/sorsa-verification-api/) — Verify follow, comment, retweet, quote and community-membership relationships
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-16
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Sorsa API v3
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Sorsa API v3 is a RESTful API exposing 40 endpoints for real-time X (Twitter) data: user profiles and About metadata, followers and following lists, tweet data (single and batch), articles, user timelines, comments, quotes, retweets, search of tweets and users, mentions, Twitter Spaces (Places), lists, communities, engagement and membership verification, Sorsa Score crypto-influence analytics, follower category breakdowns, and technical utilities (username/user-id conversion, profile-link parsing, API-key usage). Authentication uses a simple `ApiKey` header.
+- [Sorsa Agentic Access](https://apis.io/agentic-access/sorsa/sorsa-agentic-access/)
 
-- **Human URL:** [https://docs.sorsa.io/](https://docs.sorsa.io/)
-- **Base URL:** `https://api.sorsa.io/v3`
+#### JSON Schema (8)
 
-#### Tags
+The data models the API reads and writes.
 
-- Twitter
-- X
-- Social Media
-- Real-Time
-- Data Extraction
-- Crypto
+- [CommunityUser](https://apis.io/schemas/sorsa/sorsa-community-user/)
+- [Follower](https://apis.io/schemas/sorsa/sorsa-follower/)
+- [Place](https://apis.io/schemas/sorsa/sorsa-place/)
+- [TopFollower](https://apis.io/schemas/sorsa/sorsa-top-follower/)
+- [Trend](https://apis.io/schemas/sorsa/sorsa-trend/)
+- [Tweet](https://apis.io/schemas/sorsa/sorsa-tweet/)
+- [TweetEntity](https://apis.io/schemas/sorsa/sorsa-tweet-entity/)
+- [User](https://apis.io/schemas/sorsa/sorsa-user/)
 
-#### Properties
+#### JSON Structure (8)
 
-- [Documentation](https://docs.sorsa.io/)
-- [API Reference](https://docs.sorsa.io/api-reference-guide)
-- [Getting Started](https://docs.sorsa.io/quickstart)
-- [Quickstart](https://docs.sorsa.io/quickstart)
-- [Authentication](https://docs.sorsa.io/authentication)
-- [Rate Limits](https://docs.sorsa.io/rate-limits)
-- [Pricing](https://docs.sorsa.io/pricing)
-- [Errors](https://docs.sorsa.io/error-codes)
-- [Versioning](https://docs.sorsa.io/base-url-and-versioning)
-- [Changelog](https://docs.sorsa.io/Migration-Guide)
-- [A P Is J S O N](https://api.sorsa.io/apis.json)
-- [OpenAPI](openapi/sorsa-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/sorsa.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sorsa.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Swagger J S O N](https://api.sorsa.io/v3/swagger.json)
-- [JSON Schema](json-schema/sorsa-user-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/sorsa-follower-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/sorsa-tweet-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/sorsa-tweet-entity-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/sorsa-top-follower-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/sorsa-place-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/sorsa-trend-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/sorsa-community-user-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/sorsa-user-structure.json)
-- [JSON Structure](json-structure/sorsa-follower-structure.json)
-- [JSON Structure](json-structure/sorsa-tweet-structure.json)
-- [JSON Structure](json-structure/sorsa-tweet-entity-structure.json)
-- [JSON Structure](json-structure/sorsa-top-follower-structure.json)
-- [JSON Structure](json-structure/sorsa-place-structure.json)
-- [JSON Structure](json-structure/sorsa-trend-structure.json)
-- [JSON Structure](json-structure/sorsa-community-user-structure.json)
-- [JSON-LD](json-ld/sorsa-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [JSON-LD](json-ld/sorsa-security-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Example](examples/sorsa-info-example.json)
-- [Example](examples/sorsa-tweet-info-example.json)
-- [Example](examples/sorsa-tweet-info-bulk-example.json)
-- [Example](examples/sorsa-search-tweets-example.json)
-- [Example](examples/sorsa-mentions-example.json)
-- [Example](examples/sorsa-followers-example.json)
-- [Example](examples/sorsa-follows-example.json)
-- [Example](examples/sorsa-score-example.json)
-- [Example](examples/sorsa-check-follow-example.json)
-- [Example](examples/sorsa-key-usage-info-example.json)
-- [Example](examples/sorsa-user-example.json)
-- [Example](examples/sorsa-follower-example.json)
-- [Example](examples/sorsa-tweet-example.json)
-- [Example](examples/sorsa-tweet-entity-example.json)
-- [Example](examples/sorsa-top-follower-example.json)
-- [Example](examples/sorsa-place-example.json)
-- [Example](examples/sorsa-trend-example.json)
-- [Example](examples/sorsa-community-user-example.json)
+Data models expressed in JSON Structure.
 
-## Common Properties
+- [Sorsa Community User Structure](https://apis.io/json-structure/sorsa/sorsa-community-user-structure/)
+- [Sorsa Follower Structure](https://apis.io/json-structure/sorsa/sorsa-follower-structure/)
+- [Sorsa Place Structure](https://apis.io/json-structure/sorsa/sorsa-place-structure/)
+- [Sorsa Top Follower Structure](https://apis.io/json-structure/sorsa/sorsa-top-follower-structure/)
+- [Sorsa Trend Structure](https://apis.io/json-structure/sorsa/sorsa-trend-structure/)
+- [Sorsa Tweet Entity Structure](https://apis.io/json-structure/sorsa/sorsa-tweet-entity-structure/)
+- [Sorsa Tweet Structure](https://apis.io/json-structure/sorsa/sorsa-tweet-structure/)
+- [Sorsa User Structure](https://apis.io/json-structure/sorsa/sorsa-user-structure/)
+
+#### JSON-LD (2)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Sorsa Context](https://apis.io/jsonld/sorsa/sorsa-context/)
+- [Sorsa Security Context](https://apis.io/jsonld/sorsa/sorsa-security-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Sorsa Vocabulary](https://apis.io/vocabularies/sorsa/sorsa-vocabulary/)
+
+#### Examples (18)
+
+Example requests and responses.
+
+- [Sorsa Check Follow Example](https://apis.io/examples/sorsa/sorsa-check-follow-example/)
+- [Sorsa Community User Example](https://apis.io/examples/sorsa/sorsa-community-user-example/)
+- [Sorsa Follower Example](https://apis.io/examples/sorsa/sorsa-follower-example/)
+- [Sorsa Followers Example](https://apis.io/examples/sorsa/sorsa-followers-example/)
+- [Sorsa Follows Example](https://apis.io/examples/sorsa/sorsa-follows-example/)
+- [Sorsa Info Example](https://apis.io/examples/sorsa/sorsa-info-example/)
+- [Sorsa Key Usage Info Example](https://apis.io/examples/sorsa/sorsa-key-usage-info-example/)
+- [Sorsa Mentions Example](https://apis.io/examples/sorsa/sorsa-mentions-example/)
+- [Sorsa Place Example](https://apis.io/examples/sorsa/sorsa-place-example/)
+- [Sorsa Score Example](https://apis.io/examples/sorsa/sorsa-score-example/)
+- [Sorsa Search Tweets Example](https://apis.io/examples/sorsa/sorsa-search-tweets-example/)
+- [Sorsa Top Follower Example](https://apis.io/examples/sorsa/sorsa-top-follower-example/)
+- [Sorsa Trend Example](https://apis.io/examples/sorsa/sorsa-trend-example/)
+- [Sorsa Tweet Entity Example](https://apis.io/examples/sorsa/sorsa-tweet-entity-example/)
+- [Sorsa Tweet Example](https://apis.io/examples/sorsa/sorsa-tweet-example/)
+- [Sorsa Tweet Info Bulk Example](https://apis.io/examples/sorsa/sorsa-tweet-info-bulk-example/)
+- [Sorsa Tweet Info Example](https://apis.io/examples/sorsa/sorsa-tweet-info-example/)
+- [Sorsa User Example](https://apis.io/examples/sorsa/sorsa-user-example/)
+
+#### Collections (17)
+
+Postman and Open Collection request collections.
+
+- [Sorsa API](https://apis.io/collections/sorsa/open-sorsa/)
+- [Sorsa Community API](https://apis.io/collections/sorsa/open-sorsa-community-api/)
+- [Sorsa Community Lists API](https://apis.io/collections/sorsa/open-sorsa-lists-api/)
+- [Sorsa Community Search API](https://apis.io/collections/sorsa/open-sorsa-search-api/)
+- [Sorsa Community Sorsa Info Crypto Related API](https://apis.io/collections/sorsa/open-sorsa-sorsa-info-crypto-related-api/)
+- [Sorsa Community Technical Endpoints API](https://apis.io/collections/sorsa/open-sorsa-technical-endpoints-api/)
+- [Sorsa Community Tweets API](https://apis.io/collections/sorsa/open-sorsa-tweets-api/)
+- [Sorsa Community Users Data API](https://apis.io/collections/sorsa/open-sorsa-users-data-api/)
+- [Sorsa Community Verification API](https://apis.io/collections/sorsa/open-sorsa-verification-api/)
+- [Sorsa Community API](https://apis.io/collections/sorsa/postman-sorsa-community-api/)
+- [Sorsa Community Lists API](https://apis.io/collections/sorsa/postman-sorsa-lists-api/)
+- [Sorsa Community Search API](https://apis.io/collections/sorsa/postman-sorsa-search-api/)
+- [Sorsa Community Sorsa Info Crypto Related API](https://apis.io/collections/sorsa/postman-sorsa-sorsa-info-crypto-related-api/)
+- [Sorsa Community Technical Endpoints API](https://apis.io/collections/sorsa/postman-sorsa-technical-endpoints-api/)
+- [Sorsa Community Tweets API](https://apis.io/collections/sorsa/postman-sorsa-tweets-api/)
+- [Sorsa Community Users Data API](https://apis.io/collections/sorsa/postman-sorsa-users-data-api/)
+- [Sorsa Community Verification API](https://apis.io/collections/sorsa/postman-sorsa-verification-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Sorsa — jsonschema rules](https://apis.io/rules/sorsa/sorsa-jsonschema-spectral-rules/)
+- [Sorsa API Rules](https://apis.io/rules/sorsa/sorsa-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Sorsa Authentication](https://apis.io/security/sorsa/sorsa-authentication/)
+- [Sorsa Domain Security](https://apis.io/security/sorsa/sorsa-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Sorsa Plans Pricing](https://apis.io/plans/sorsa/sorsa-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Sorsa Rate Limits](https://apis.io/rate-limits/sorsa/sorsa-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Sorsa Finops](https://apis.io/finops/sorsa/sorsa-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://sorsa.io/)
-- [Developer Portal](https://docs.sorsa.io/)
 - [Documentation](https://docs.sorsa.io/)
-- [A P Is J S O N](https://api.sorsa.io/apis.json)
-- [Sign Up](https://app.sorsa.io/)
-- [Login](https://app.sorsa.io/)
-- [Console](https://app.sorsa.io/)
 - [Pricing](https://docs.sorsa.io/pricing)
-- [Plans](plans/sorsa-plans-pricing.yml)
-- [Rate Limits](rate-limits/sorsa-rate-limits.yml)
-- [Fin Ops](finops/sorsa-finops.yml)
-- [Spectral Rules](rules/sorsa-rules.yml)
-- [Vocabulary](vocabulary/sorsa-vocabulary.yml)
-- [Status Page](https://uptime.sorsa.io/status/v3)
 - [Support](https://docs.sorsa.io/support)
-- [Contact](mailto:contacts@sorsa.io)
-- [Discord](https://discord.com/invite/uwAefKCj7X)
-- [Twitter](https://x.com/SorsaApp)
-- [Glossary](https://docs.sorsa.io/use-cases-overview)
-- [Best Practices](https://docs.sorsa.io/optimizing-api-usage)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
-- [Solutions](undefined)
-- [L L Ms Txt](https://api.sorsa.io/llms.txt)
+- [Status](https://uptime.sorsa.io/status/v3)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
-**URL:** https://apievangelist.com/
+**Kin Score 48.7** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 70.2 |
+| Contract governance | 27.3 |
+| Operational transparency | 15.8 |
+| Developer ergonomics | 63.1 |
+| Access clarity | 31.6 |
+
+**Agent readiness 28.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/sorsa/](https://apis.io/providers/sorsa/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Sorsa: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/sorsa/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
